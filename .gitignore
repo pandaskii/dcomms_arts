@@ -1,0 +1,12 @@
+.bundle
+/govcms
+/vendor
+/bin
+/app
+/.vagrant
+/dcomms_theme/node_modules
+/dcomms_theme/bower_components
+/dcomms_theme/styleguide
+.sass-cache
+.DS_Store
+.idea

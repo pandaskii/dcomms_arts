@@ -1,0 +1,7 @@
+name = Dcomms Admin
+description = A shiny subtheme admin theme with Dcomms customizations.
+core = 7.x
+base theme  = shiny
+
+stylesheets[all][] = css/dcomms_admin.css
+

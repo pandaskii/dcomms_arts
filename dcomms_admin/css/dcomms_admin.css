@@ -1,0 +1,7 @@
+img[src$=".svg"] {
+    width: 100px;
+}
+
+.media-item .label-wrapper {
+    position: static;
+}

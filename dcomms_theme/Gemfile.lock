@@ -1,0 +1,77 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    breakpoint (2.5.0)
+      sass (~> 3.3)
+      sassy-maps (< 1.0.0)
+    capistrano (2.5.21)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
+    capistrano-drupal (0.1.10)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
+    chunky_png (1.3.5)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    ffi (1.9.10)
+    highline (1.7.8)
+    multi_json (1.11.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.1.1)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
+    oily_png (1.1.2)
+      chunky_png (~> 1.3.1)
+    railsless-deploy (1.1.3)
+    rainbow (2.1.0)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
+    sass (3.4.22)
+    sass-globbing (1.1.5)
+      sass (>= 3.1)
+    sassy-maps (0.4.0)
+      sass (~> 3.3)
+    scss-lint (0.33.0)
+      rainbow (~> 2.0)
+      sass (~> 3.4.1)
+    singularitygs (1.7.0)
+      breakpoint (~> 2.4)
+      sass (~> 3.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  breakpoint (~> 2.5.0)
+  bundler (> 1.7.3)
+  capistrano (~> 2.5.5)
+  capistrano-drupal
+  capistrano-ext
+  compass (~> 1.0.1)
+  compass-import-once (~> 1.0.5)
+  oily_png (~> 1.1.2)
+  railsless-deploy
+  sass (~> 3.4.5)
+  sass-globbing (~> 1.1.1)
+  scss-lint (~> 0.33.0)
+  singularitygs (~> 1.4)
+
+BUNDLED WITH
+   1.11.2
