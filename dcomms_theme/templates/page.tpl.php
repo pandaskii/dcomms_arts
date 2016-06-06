@@ -37,7 +37,7 @@
       </button>
     </div>
   </div>
-  <? endif; ?>
+  <?php endif; ?>
 
   <div class="top-notification" id="cookie-alert">
     <div class="top-notification__inner">
