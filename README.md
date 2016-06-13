@@ -1,7 +1,6 @@
 GovCMS subtheme
 ===============
 
-
 ## Overview
 
 This project is a GovCMS subtheme project.
@@ -29,7 +28,7 @@ At this point there is an issue with markup not reloading properly, you need to 
 
 Dcomms front-end workflow leverages Gulp and Bower heavily to manage both external libraries and internal components.
 
-Bower first looks at dependencies specified in the bower.json 
+Bower first looks at dependencies specified in the bower.json
 
 We use an npm module called main-bower-files to extract [main](http://stackoverflow.com/questions/20391742/what-is-the-main-property-when-doing-bower-init) bower files
 from bower_components and concatenate them into JS and CSS files that are separately loaded into the styleguide and theme.
