@@ -15,7 +15,13 @@ var rubySass = require('gulp-ruby-sass');
 
 // Lint JavaScript.
 gulp.task('lint:js', function () {
-  return gulp.src(theme + '/**/*.js')
+  return gulp.src([
+      theme + '/**/*.js',
+      '!bower_components/**/*.js',
+      '!node_modules/**/*.js',
+      '!' + theme + '/**/*.min.js',
+      '!' + theme + '/gulpfile.js',
+    ])
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
@@ -23,6 +29,9 @@ gulp.task('lint:js', function () {
 // Lint Sass.
 gulp.task('lint:sass', function () {
   return gulp.src(theme + compass.sass + '/**/*.scss')
+    // .pipe(plugins.scssLint({
+    //   'maxBuffer': 30720000
+    // }))
     .pipe(plugins.scssLint({'bundleExec': true}));
 });
 

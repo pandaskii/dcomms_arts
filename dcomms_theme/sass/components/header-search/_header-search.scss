@@ -13,7 +13,7 @@
 %header-search__form,
 .header-search__form {
   padding: 1.255rem 1rem 1rem;
-  background: color(white);
+  background: color(grey-white);
   overflow: hidden;
   position: relative;
   border-bottom: 2px solid color(grey-light);
@@ -59,7 +59,7 @@
   padding: 0 3rem 0 0;
   border-width: 0 0 2px;
   border-color: color(grey-light);
-  background-color: color(white);
+  background-color: color(grey-white);
   width: 100% !important;
   font-family: Gafata, serif;
   font-size: 1.5rem;
@@ -70,7 +70,7 @@
   }
 
   &:hover {
-    border-color: color(yellow);
+    border-color: color(doca-yellow);
   }
 }
 

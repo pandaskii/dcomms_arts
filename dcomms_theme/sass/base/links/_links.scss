@@ -1,5 +1,5 @@
 // Sets the different link state colours
-@mixin link-palette($link: color(blue), $hover: color(blue-light), $active: color(dark), $visited: color(red)) {
+@mixin link-palette($link: color(doca-blue), $hover: color(blue-light), $active: color(dark), $visited: color(doca-red)) {
   color: $link;
 
   &:hover,

@@ -20,7 +20,7 @@
 // The browser usage threshold for features that cannot degrade gracefully.
 // A value of 100 means 100% of users would have to use the browser before it is
 // supported. A value of 0.01 (the default) means 1 user in 10,000.
-$critical-usage-threshold: 0.3;
+$critical-usage-threshold: .3;
 
 // Set this to true to generate comments that will explain why a prefix was
 // included or omitted.
@@ -81,20 +81,20 @@ $font-code:           $courier;
 
 // Define useful names of color values.
 $colors: (
-  black:            #12293a,
-  white:            #fff,
+  grey-black:       #12293a,
+  grey-white:       #fff,
   grey-off-white:   #e4e4e4,
   grey-extra-light: #e2e2e2,
   grey-light:       #b9b9b9,
   grey-dark:        #616161,
   grey-extra-dark:  #444,
   dark:             #12293a,
-  blue:             #00478c,
+  doca-blue:        #00478c,
   blue-light:       #007abb,
   blue-extra-light: #55c7e3,
-  red:              #cd4d02,
-  yellow:           #e69a3d,
-  green:            #22c064,
+  doca-red:         #cd4d02,
+  doca-yellow:      #e69a3d,
+  doca-green:       #22c064,
   blue-alert:       #2478ab,
 );
 

@@ -111,11 +111,11 @@
 %progress-bar--complete,
 .progress-bar--complete {
   .progress-bar__progress {
-    background: color(red);
+    background: color(doca-red);
   }
   .progress-bar__highlighted,
   %progress-bar__highlighted {
-    color: color(red);
+    color: color(doca-red);
     font-weight: bold;
   }
 }

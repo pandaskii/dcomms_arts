@@ -1,5 +1,5 @@
 $dark-text-default: color(dark);
-$light-text-default: color(white);
+$light-text-default: color(grey-white);
 
 @function brightness($color) {
   $sum: red($color) + green($color) + blue($color);

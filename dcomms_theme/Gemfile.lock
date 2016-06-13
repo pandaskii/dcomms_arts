@@ -4,7 +4,7 @@ GEM
     breakpoint (2.5.0)
       sass (~> 3.3)
       sassy-maps (< 1.0.0)
-    capistrano (2.5.21)
+    capistrano (2.5.22)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -28,7 +28,7 @@ GEM
       sass (>= 3.2, < 3.5)
     ffi (1.9.10)
     highline (1.7.8)
-    multi_json (1.11.2)
+    multi_json (1.12.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -74,4 +74,4 @@ DEPENDENCIES
   singularitygs (~> 1.4)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

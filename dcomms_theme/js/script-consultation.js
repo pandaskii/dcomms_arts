@@ -85,7 +85,7 @@
           $form.find(shortCommentSelector).attr('required', 'true');
         }
         else if (shortCommentsEnabled && fileUploadsEnabled) {
-          $form.find('.webform-submit').unbind('click.formalSubmissionValidation').bind('click.formalSubmissionValidation', function(e) {
+          $form.find('.webform-submit').unbind('click.formalSubmissionValidation').bind('click.formalSubmissionValidation', function(o) {
             $form.find('.custom-message').remove();
             // Get fields
             var $filesInput = $form.find(firstFileSelector);
@@ -159,7 +159,7 @@
       $window.resize(windowResize);
       windowResize();
     }
-  }
+  };
 
   Drupal.behaviors.uploadMultipleSubmissions = {
     attach: function(context) {
@@ -177,7 +177,7 @@
             var $file = $(item).find('input');
             fileSlots.push($file);
             // Find current file slot
-            if ($file[0].value != undefined && $file[0].value.length > 0) {
+            if ($file[0].value !== undefined && $file[0].value.length > 0) {
               currentFileSlot++;
             }
           });
@@ -189,7 +189,7 @@
             if (fileSlots[i] !== undefined) {
               fileSlots[i].parent().parent().parent().show();
             }
-          };
+          }
         }
         $files.unbind('change.multi_submission').bind('change.multi_submission', refreshSubmissionView);
         refreshSubmissionView();

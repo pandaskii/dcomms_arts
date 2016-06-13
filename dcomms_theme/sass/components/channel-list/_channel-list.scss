@@ -81,7 +81,7 @@
     color: color(blue-light) !important;
     @include breakpoint($medium) {
       @include single-box-shadow(0, 2px, 2px, 0, #ccc);
-      background: color(white);
+      background: color(grey-white);
     }
   }
 

@@ -16,10 +16,10 @@
        */
       var options, ref, ref1, sendData, sendPopup, sendResponse, setData;
       options = {
-        nid: (ref = settings.sitePagesFeedback[nid]) != null ? ref : null,
+        nid: (ref = settings.sitePagesFeedback[nid]) !== null ? ref : null,
         sid: null,
         token: null,
-        url: (ref1 = settings.currentPath) != null ? ref1 : window.location.href,
+        url: (ref1 = settings.currentPath) !== null ? ref1 : window.location.href,
         option: 0,
         update: false
       };
@@ -62,7 +62,7 @@
           type: 'POST',
           data: options,
           success: function(data) {
-            if ((data != null) && (data.sid != null) && options.option === 0) {
+            if ((data !== null) && (data.sid !== null) && options.option === 0) {
               setData('sid', data.sid);
               $("input[name~='submitted[site_feedback_page_url]']").val(options.url);
               $("input[name~='submitted[site_feedback_helpful]']").val(0).prop("checked", true);
@@ -81,7 +81,7 @@
       $(".site-feedback-action", context).click(function(e) {
         var option, ref2;
         e.preventDefault();
-        option = (ref2 = $(this).data('option')) != null ? ref2 : 0;
+        option = (ref2 = $(this).data('option')) !== null ? ref2 : 0;
         setData('option', option);
         sendData();
       });

@@ -28,7 +28,7 @@
   @extend %read-more;
   @include layout-three-column__item($medium, $large, 1/20);
   display: block;
-  background: color(white);
+  background: color(grey-white);
   margin-bottom: .5rem;
   padding: 0;
   border-bottom: solid 4px color(grey-light) !important;
@@ -36,7 +36,7 @@
     border-color: palette($subsite-palette, bureau-communications-research border) !important;
   }
   svg {
-    fill: color(red);
+    fill: color(doca-red);
     width: 22px;
     height: 20px;
   }

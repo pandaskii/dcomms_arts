@@ -49,9 +49,9 @@
     @extend %button--text;
 
     &.is-active {
-      border-color: color(green);
-      background-color: color(green);
-      color: color(white);
+      border-color: color(doca-green);
+      background-color: color(doca-green);
+      color: color(grey-white);
     }
   }
 }

@@ -32,7 +32,7 @@
     &__input {
       @include background-image('search--grey.svg', 0, 30px 30px);
       background-position: 15px 50%;
-      background-color: color(white);
+      background-color: color(grey-white);
       font-size: 1.1rem;
       height: 65px;
       line-height: 65px;
@@ -145,7 +145,7 @@
 
 $button--yellow__palette: (
   background: palette($subsite-palette, bureau-communications-research background-light),
-  foreground: color(black),
+  foreground: color(grey-black),
   border: palette($subsite-palette, bureau-communications-research background-dark),
 );
 

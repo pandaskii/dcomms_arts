@@ -19,8 +19,8 @@
   &__nav-item {
     @include font-size-line-height(1.375rem);
     display: block;
-    background: color(white);
-    color: color(blue);
+    background: color(grey-white);
+    color: color(doca-blue);
     border: none;
     border-bottom: 2px solid transparent;
     padding: 1rem;
@@ -40,15 +40,15 @@
   }
 
   &__nav-item--active {
-    background-color: color(white);
-    border-color: color(yellow);
+    background-color: color(grey-white);
+    border-color: color(doca-yellow);
     color: color(grey-dark);
   }
 
   &__nav-item--focus {
-    background-color: color(white);
-    border-color: color(blue);
-    color: color(blue);
+    background-color: color(grey-white);
+    border-color: color(doca-blue);
+    color: color(doca-blue);
   }
 
   &__mobile-item {
@@ -112,7 +112,7 @@
 %tabber__nav {
   @extend %flex-box;
   @extend %list-inline;
-  background: color(white);
+  background: color(grey-white);
   border: none;
   border-bottom: 1px solid color(grey-light);
   position: relative;
@@ -172,6 +172,6 @@
   }
 
   .heading--4 {
-    color: color(black);
+    color: color(grey-black);
   }
 }
