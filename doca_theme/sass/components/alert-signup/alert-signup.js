@@ -15,15 +15,15 @@
 
         // Custom fields.
         var customFields = {};
-        if (!Drupal.settings.dcomms_theme.alertHideName) {
+        if (!Drupal.settings.doca_theme.alertHideName) {
           customFields.cu_FULL_NAME = $('#cu_FULL_NAME').val();
         }
-        if (!Drupal.settings.dcomms_theme.alertHideNumber) {
+        if (!Drupal.settings.doca_theme.alertHideNumber) {
           customFields.cu_CONTACT_NUMBER = $('#cu_CONTACT_NUMBER').val();
         }
         customFields.cu_DEPARTMENT_ID = $('#cu_DEPARTMENT_ID').val();
 
-        var mailGroups = Drupal.settings.dcomms_theme.alertMailGroup.split(',');
+        var mailGroups = Drupal.settings.doca_theme.alertMailGroup.split(',');
         var microSite = "http://ssoalerts.e-newsletter.com.au";
 
         $.getJSON(microSite + "/scripts/subscribe/subscribe.php?callback=?", {
@@ -38,7 +38,7 @@
           // Show response message.
           switch (response.code) {
             case '000':
-              $(messageArea).addClass('messages--status').html(Drupal.settings.dcomms_theme.alertSuccessMessage);
+              $(messageArea).addClass('messages--status').html(Drupal.settings.doca_theme.alertSuccessMessage);
               break;
 
             case '101':

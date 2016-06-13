@@ -8,5 +8,5 @@
   <?php if (!$label_hidden): ?>
     <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
   <?php endif; ?>
-  <?php print dcomms_theme_read_more_link(drupal_get_path_alias('node/' . $element['#object']->nid), t('Have your say'), $external_source); ?>
+  <?php print doca_theme_read_more_link(drupal_get_path_alias('node/' . $element['#object']->nid), t('Have your say'), $external_source); ?>
 </div>

@@ -3,5 +3,5 @@ description = A shiny subtheme admin theme with govCMS Arts website customizatio
 core = 7.x
 base theme  = shiny
 
-stylesheets[all][] = css/dcomms_admin.css
+stylesheets[all][] = css/doca_admin.css
 

@@ -24,9 +24,9 @@
     <?php endif;?>
     <?php print render($content['field_alert_date']); ?>
   </div>
-  <h3 class="alert-list__title"><a href="<?php print $node_url; ?>"><?php print dcomms_theme_trim(render($title), 50); ?></a></h3>
+  <h3 class="alert-list__title"><a href="<?php print $node_url; ?>"><?php print doca_theme_trim(render($title), 50); ?></a></h3>
 
   <?php print render($content['body']); ?>
 
-  <?php print dcomms_theme_read_more_link($node_url, $read_more_text, $external_source); ?>
+  <?php print doca_theme_read_more_link($node_url, $read_more_text, $external_source); ?>
 </div>

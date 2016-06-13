@@ -150,7 +150,7 @@ function _dcomms_admin_return_end_consultation_date($node, $wrapper) {
 /**
  * Render webform.
  */
-function _dcomms_theme_webform_render($nid = NULL) {
+function _doca_theme_webform_render($nid = NULL) {
   $wnode = node_load($nid);
   $form = drupal_get_form('webform_client_form_' . $nid, $wnode, array());
 

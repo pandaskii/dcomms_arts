@@ -6,6 +6,6 @@
 ?>
 <?php foreach ($items as $delta => $item): ?>
   <div class="clearfix__overflow">
-    <?php print dcomms_theme_read_more_link(check_plain($item['#element']['url']), check_plain($item['#element']['title'])); ?>
+    <?php print doca_theme_read_more_link(check_plain($item['#element']['url']), check_plain($item['#element']['title'])); ?>
   </div>
 <?php endforeach; ?>

@@ -40,7 +40,7 @@
     <?php if(isset($content['field_pbundle_image']['#items'])): ?>
       <?php print render($content['field_pbundle_image']); ?>
     <?php else: ?>
-      <img class="alert-signup__svg" src="<?php print base_path() . drupal_get_path('theme', 'dcomms_theme'); ?>/images/SSO-alert-service.svg" />
+      <img class="alert-signup__svg" src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/SSO-alert-service.svg" />
     <?php endif; ?>
   </div>
 </div>

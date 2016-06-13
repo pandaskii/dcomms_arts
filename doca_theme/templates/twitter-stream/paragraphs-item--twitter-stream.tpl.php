@@ -17,7 +17,7 @@
        href="https://twitter.com/CommsAu"></a>
 
     <a class="twitter-account" href="https://twitter.com/CommsAu">
-      <img class="twitter-account__avatar" src="<?php print base_path() . drupal_get_path('theme', 'dcomms_theme'); ?>/sass/components/twitter-account/twitter-avatar.png" alt="@CommsAu avatar" />
+      <img class="twitter-account__avatar" src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/sass/components/twitter-account/twitter-avatar.png" alt="@CommsAu avatar" />
       <b class="twitter-account__title">Dept. Communications</b>
       <i class="twitter-account__icon">on Twitter</i> @CommsAu
     </a>

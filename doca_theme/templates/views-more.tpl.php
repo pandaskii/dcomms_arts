@@ -13,5 +13,5 @@
 ?>
 
 <div class="spacer--bottom">
-  <?php print dcomms_theme_read_more_link($more_url, $link_text); ?>
+  <?php print doca_theme_read_more_link($more_url, $link_text); ?>
 </div>

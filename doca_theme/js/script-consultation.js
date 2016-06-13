@@ -68,8 +68,8 @@
 
   Drupal.behaviors.formalSubmissionValidation = {
     attach: function(context) {
-      var fileUploadsEnabled    = Drupal.settings.dcomms_theme.fileUploadsEnabled;
-      var shortCommentsEnabled  = Drupal.settings.dcomms_theme.shortCommentsEnabled;
+      var fileUploadsEnabled    = Drupal.settings.doca_theme.fileUploadsEnabled;
+      var shortCommentsEnabled  = Drupal.settings.doca_theme.shortCommentsEnabled;
       var message               = 'It looks like you haven\'t added a submission. Please add a submission to have your say.';
       var shortCommentSelector  = 'textarea[name$="[short_comments]"]';
       var firstFileSelector     = 'input[name$="formal_uploads_hys_formal_upload_file_1]"]';

@@ -8,7 +8,7 @@
  */
 ?>
 <?php if ($title): ?>
-    <h2><?php print dcomms_theme_trim(render($title), 35); ?></h2>
+    <h2><?php print doca_theme_trim(render($title), 35); ?></h2>
 <?php endif; ?>
 
 <div>
@@ -16,4 +16,4 @@
 </div>
 
 
-<?php print dcomms_theme_read_more_link($node_url, $read_more_text, $external_source); ?>
+<?php print doca_theme_read_more_link($node_url, $read_more_text, $external_source); ?>

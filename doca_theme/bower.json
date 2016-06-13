@@ -8,8 +8,8 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "dcomms_theme/node_modules",
-    "dcomms_theme/bower_components",
+    "doca_theme/node_modules",
+    "doca_theme/bower_components",
     "test",
     "tests"
   ],

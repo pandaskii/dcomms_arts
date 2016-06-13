@@ -12,9 +12,8 @@
 ; page at admin/appearance.
 
 screenshot  = screenshot.png
-name        = Department of Communications Theme
-description = The Department of Communications theme for govCMS
-
+name        = DoCA Theme
+description = The Department of Communications and Arts theme for the govCMS Arts website
 
 ; This theme is compatible with Drupal 7 core. And it is a sub-theme of Zen.
 

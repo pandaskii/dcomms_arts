@@ -8,7 +8,7 @@
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function dcomms_theme_form_system_theme_settings_alter(&$form, $form_state) {
+function doca_theme_form_system_theme_settings_alter(&$form, $form_state) {
   // Horizontal tabs container
   $form['group_tabs'] = array(
     '#weight' => -99,
