@@ -385,18 +385,18 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     ), 'setting');
 
     // Get the end consultation date.
-    $end_consultation_date = _dcomms_admin_return_end_consultation_date($node, $wrapper);
+    $end_consultation_date = _doca_admin_return_end_consultation_date($node, $wrapper);
     // Get the current timestamp.
     $time = time();
 
     // Check if a fso has been provided.
     if (isset($_GET['fso'])) {
       // Check if the node is able to accept late submissions.
-      $accept_late_submissions = _dcomms_admin_accept_late_submission($node);
+      $accept_late_submissions = _doca_admin_accept_late_submission($node);
       // If the node can accept late submissions.
       if ($accept_late_submissions) {
         // Get the salted hash for this nid.
-        $salted_hash = _dcomms_admin_return_salted_hash($node->nid);
+        $salted_hash = _doca_admin_return_salted_hash($node->nid);
         // If the salted hash and the fso are equal.
         if ($_GET['fso'] == $salted_hash) {
           // Show the relevant HYS sections.
@@ -453,7 +453,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
   }
 
   // Find out whether the node has an 'External source' filled in.
-  $external_source = _dcomms_admin_return_node_has_external_source($node);
+  $external_source = _doca_admin_return_node_has_external_source($node);
   $variables['external_source'] = $external_source;
 
   // Build service links.
@@ -955,7 +955,7 @@ function doca_theme_preprocess_field(&$variables, $hook) {
   // Get the node.
   $node = $element['#object'];
   // Return whether a node has the 'External source' field filled in.
-  $external_source = _dcomms_admin_return_node_has_external_source($node);
+  $external_source = _doca_admin_return_node_has_external_source($node);
   $variables['external_source'] = $external_source;
 
   if ($variables['element']['#field_name'] == 'field_stackla_embed_para') {
