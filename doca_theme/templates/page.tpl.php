@@ -9,7 +9,7 @@
 ?>
 <div class="offscreen__inner <?php print ($is_front) ? 'header-background--blue' : 'header-background'; ?>">
 
-  <?php if ($top_announcements): ?>
+  <?php if (!empty($top_announcements) && $top_announcements): ?>
   <div class="top-notification" id="top-announcements">
     <div class="top-notification__inner">
       <svg class="top-notification__icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
