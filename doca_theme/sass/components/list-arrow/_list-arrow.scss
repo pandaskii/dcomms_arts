@@ -43,22 +43,28 @@
   }
 
   // Subsite theming (doesn't need to be extendable).
-  .subsite__stay-smart-online & {
+  .subsite__sub-theme-1 & {
     &,
     a {
-      @include subsite-link-color(stay-smart-online);
+      @include subsite-link-color(sub-theme-1);
     }
   }
-  .subsite__digital-business & {
+  .subsite__sub-theme-2 & {
     &,
     a {
-      @include subsite-link-color(digital-business);
+      @include subsite-link-color(sub-theme-2);
     }
   }
-  .subsite__bureau-communications-research & {
+  .subsite__sub-theme-3 & {
     &,
     a {
-      @include subsite-link-color(bureau-communications-research);
+      @include subsite-link-color(sub-theme-3);
+    }
+  }
+  .subsite__sub-theme-4 & {
+    &,
+    a {
+      @include subsite-link-color(sub-theme-4);
     }
   }
   .subsite__communications & {

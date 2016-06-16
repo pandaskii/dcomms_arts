@@ -249,13 +249,13 @@ $height: 3.5rem;
 
 // Paletting forks
 
-.subsite__stay-smart-online {
+.subsite__sub-theme-1 {
   .subsite-header__logo-large {
     max-width: 384px;
   }
 }
 
-.subsite__bureau-communications-research {
+.subsite__sub-theme-2 {
   .subsite-header__button-link {
     color: rgba(#000, .8);
   }
@@ -272,7 +272,13 @@ $height: 3.5rem;
   }
 }
 
-.subsite__digital-business {
+.subsite__sub-theme-3 {
+  .subsite-header__logo-large {
+    max-width: 384px;
+  }
+}
+
+.subsite__sub-theme-4 {
   .subsite-header__logo-large {
     max-width: 384px;
   }

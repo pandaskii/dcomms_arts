@@ -121,6 +121,65 @@ function doca_theme_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('feedback_wform_nid'),
     '#description' => t('Do not change it as this is for internal reference.'),
   );
+
+  // Have your Say Form settings
+  $form['have_your_say'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Have your Say'),
+    '#description' => t("Select the webform to appear on the <strong>Consultation</strong> Content Type as the <em>Have Your Say</em> form."),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#group' => 'group_tabs',
+  );
+  $form['have_your_say']['have_your_say_wform_nid'] = array(
+    '#type' => 'select',
+    '#title' => t('Choose <em>Have your Say</em> form'),
+    '#options' => _webform_list(),
+    '#default_value' => theme_get_setting('have_your_say_wform_nid'),
+    '#description' => t('Be careful changing thisvalue as this is for internal reference.'),
+  );
+
+  // Load the terms available to be mini-sites
+  $vocab = taxonomy_vocabulary_machine_name_load('business_area');
+  $minisites = taxonomy_get_tree($vocab->vid);
+  $options = array(0 => '<-- None -->');
+  foreach ($minisites as $site) {
+    $options[$site->tid] = $site->name;
+  }
+
+  // Have your Say Form settings
+  $form['minisite'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Min-site Theme Config'),
+    '#description' => t("You can change the Theme settings related to each Sub site by changing the order of the items below."),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#group' => 'group_tabs',
+  );
+  $form['minisite']['sub_theme_1'] = array(
+    '#type' => 'select',
+    '#title' => 'Sub Theme 1',
+    '#options' => $options,
+    '#default_value' => theme_get_setting('sub_theme_1'),
+  );
+  $form['minisite']['sub_theme_2'] = array(
+    '#type' => 'select',
+    '#title' => 'Sub Theme 2',
+    '#options' => $options,
+    '#default_value' => theme_get_setting('sub_theme_2'),
+  );
+  $form['minisite']['sub_theme_3'] = array(
+    '#type' => 'select',
+    '#title' => 'Sub Theme 3',
+    '#options' => $options,
+    '#default_value' => theme_get_setting('sub_theme_3'),
+  );
+  $form['minisite']['sub_theme_4'] = array(
+    '#type' => 'select',
+    '#title' => 'Sub Theme 4',
+    '#options' => $options,
+    '#default_value' => theme_get_setting('sub_theme_4'),
+  );
 }
 
 /**

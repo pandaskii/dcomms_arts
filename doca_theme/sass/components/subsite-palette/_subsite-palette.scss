@@ -1,7 +1,7 @@
 @import 'components/palette/palette';
 
 $subsite-palette: (
-  stay-smart-online: (
+  sub-theme-1: (
     border:       #f26b21,
     foreground:   #b33f03,
     hover:      darken(#b33f03, 10%),
@@ -10,7 +10,16 @@ $subsite-palette: (
     background-light: #cd4902,
     background-dark: #8d320d,
   ),
-  digital-business: (
+  sub-theme-2: (
+    border:       #ffcb04,
+    foreground:   #aa0f14,
+    hover:      darken(#aa0f14, 10%),
+    background:   #e2e2e2,
+    header-arrow: #aa0f14,
+    background-light: #feca30,
+    background-dark: #f59534,
+  ),
+  sub-theme-3: (
     border:       #004385,
     foreground:   #004385,
     hover:      darken(#004385, 10%),
@@ -19,14 +28,14 @@ $subsite-palette: (
     background-light: #00509d,
     background-dark: #002850,
   ),
-  bureau-communications-research: (
-    border:       #ffcb04,
-    foreground:   #aa0f14,
-    hover:      darken(#aa0f14, 10%),
-    background:   #e2e2e2,
-    header-arrow: #aa0f14,
-    background-light: #feca30,
-    background-dark: #f59534,
+  sub-theme-4: (
+    border:       #004385,
+    foreground:   #004385,
+    hover:      darken(#004385, 10%),
+    background:   #004385,
+    header-arrow: #51a8fb,
+    background-light: #00509d,
+    background-dark: #002850,
   ),
   communications: (
     border:       #5abde9,

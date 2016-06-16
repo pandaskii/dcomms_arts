@@ -144,9 +144,9 @@
 }
 
 $button--yellow__palette: (
-  background: palette($subsite-palette, bureau-communications-research background-light),
+  background: palette($subsite-palette, sub-theme-2 background-light),
   foreground: color(grey-black),
-  border: palette($subsite-palette, bureau-communications-research background-dark),
+  border: palette($subsite-palette, sub-theme-2 background-dark),
 );
 
 .filter--yellow,
@@ -164,7 +164,7 @@ $button--yellow__palette: (
 
   %filter__select,
   .filter__select {
-    color: palette($subsite-palette, bureau-communications-research foreground);
+    color: palette($subsite-palette, sub-theme-2 foreground);
     background-image: url('../sass/components/filter/down--red.svg');
   }
 

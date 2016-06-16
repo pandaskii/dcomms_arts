@@ -1018,27 +1018,9 @@ function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$varia
         $business_area_tid = $variables['field_business_area'][0]['tid'];
       }
 
-      switch ($business_area_tid) {
-        case 20:
-          $business_area_name = 'digital-business';
-          $hide_stream = TRUE;
-          break;
+      $subsites = _doca_theme_get_subsites();
+      $business_area_name = isset($subsites[$business_area_tid]) ? $subsites[$business_area_tid] : $business_area_tid;
 
-        case 40:
-          $business_area_name = 'bureau-communications-research';
-          $hide_stream = TRUE;
-          break;
-
-        case 15:
-          $business_area_name = 'stay-smart-online';
-          $hide_stream = TRUE;
-          break;
-
-        default:
-          $business_area_name = $business_area_tid;
-          break;
-
-      }
       $variables['classes_array'][] = 'grid-stream__item--business-area';
       $variables['classes_array'][] = 'subsite__' . $business_area_name;
 
@@ -1478,6 +1460,27 @@ function doca_theme_node_view_alter(&$build) {
       }
     }
   }
+}
+
+/**
+ * Helper function to get the theme settings for mini sites by term ID.
+ *
+ * @return array
+ *         An array of Theme minisite settings by term ID.
+ */
+function _doca_theme_get_subsites() {
+  $subsites = &drupal_static(__FUNCTION__);
+  if (!isset($subsites)) {
+    $subsites = array(
+      theme_get_setting('sub_theme_1') => 'sub-theme-1',
+      theme_get_setting('sub_theme_2') => 'sub-theme-2',
+      theme_get_setting('sub_theme_3') => 'sub-theme-3',
+      theme_get_setting('sub_theme_4') => 'sub-theme-4',
+    );
+  }
+
+  return $subsites;
+
 }
 
 /**

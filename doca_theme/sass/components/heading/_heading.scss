@@ -75,14 +75,17 @@ $h5-font-size: 1.1rem;
   margin: 1rem 0 2rem;
 
   // Subsite theming (does need to be extendable).
-  .subsite__stay-smart-online & {
-    color: palette($subsite-palette, stay-smart-online foreground);
+  .subsite__sub-theme-1 & {
+    color: palette($subsite-palette, sub-theme-1 foreground);
   }
-  .subsite__digital-business & {
-    color: palette($subsite-palette, digital-business foreground);
+  .subsite__sub-theme-2 & {
+    color: palette($subsite-palette, sub-theme-2 foreground);
   }
-  .subsite__bureau-communications-research & {
-    color: palette($subsite-palette, bureau-communications-research foreground);
+  .subsite__sub-theme-3 & {
+    color: palette($subsite-palette, sub-theme-3 foreground);
+  }
+  .subsite__sub-theme-4 & {
+    color: palette($subsite-palette, sub-theme-4 foreground);
   }
 }
 
