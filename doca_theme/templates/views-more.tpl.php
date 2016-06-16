@@ -1,14 +1,14 @@
 <?php
-
 /**
  * @file
  * Theme the more link.
  *
+ * Variables available:
  * - $view: The view object.
- * - $more_url: the url for the more link.
- * - $link_text: the text for the more link.
+ * - $more_url: The url for the more link.
+ * - $link_text: The text for the more link.
  *
- * @ingroup views_templates
+ * @ingroup views_templates.
  */
 ?>
 

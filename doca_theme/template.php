@@ -5,6 +5,7 @@
  * Contains the theme's functions to manipulate Drupal's default markup.
  *
  * Complete documentation for this file is available online.
+ *
  * @see https://drupal.org/node/1728096
  */
 
@@ -62,7 +63,7 @@ function doca_theme_preprocess_page(&$variables, $hook) {
     $variables['theme_hook_suggestions'][] = 'page__stripped';
   }
 
-  // Define page top announcement variable
+  // Define page top announcement variable.
   $page_top_announcement_paths = drupal_strtolower(theme_get_setting('page_top_announcement_paths'));
   $current_path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
   $page_match = drupal_match_path($current_path, $page_top_announcement_paths);
@@ -575,7 +576,7 @@ function doca_theme_form_alter(&$form, &$form_state, $form_id) {
  *   URL of the read more link.
  * @param string $text
  *   Text of the read more link.
- * @param boolean $external
+ * @param bool $external
  *   Whether the link is external or not. Defaults to FALSE.
  *
  * @return string
@@ -777,9 +778,9 @@ function _dcomms_poll_type($nid) {
   $node = node_load($nid);
   $choices = count($node->choice);
   $poll_type = 'binary';
-  if ($choices > '2'):
+  if ($choices > '2') {
     $poll_type = 'multiple';
-  endif;
+  }
 
   return $poll_type;
 }
@@ -1046,7 +1047,7 @@ function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$varia
       }
     }
 
-    // add different classes to relevant priority levels of SSO Alerts
+    // Add different classes to relevant priority levels of SSO Alerts.
     if ($variables['type'] == 'alert') {
       if (isset($variables['field_priority_level']) && count($variables['field_priority_level'])) {
         $priority_level = $variables['field_priority_level'][LANGUAGE_NONE][0]['tid'];
@@ -1459,11 +1460,10 @@ function doca_theme_pager($variables) {
 }
 
 /**
- * Implements hook_node_view
+ * Implements hook_node_view.
  *
- * @param $node
- * @param $view_mode
- * @param $langcode
+ * @param array &$build
+ *        A renderable array representing the node content.
  */
 function doca_theme_node_view_alter(&$build) {
   if ($build['#node']->type == 'alert' && $build['#view_mode'] == 'rss_feed') {
