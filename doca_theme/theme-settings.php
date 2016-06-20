@@ -133,10 +133,17 @@ function doca_theme_form_system_theme_settings_alter(&$form, $form_state) {
   );
   $form['have_your_say']['have_your_say_wform_nid'] = array(
     '#type' => 'select',
-    '#title' => t('Choose <em>Have your Say</em> form'),
+    '#title' => t('Choose the <em>Have your Say</em> form'),
     '#options' => _webform_list(),
     '#default_value' => theme_get_setting('have_your_say_wform_nid'),
-    '#description' => t('Be careful changing thisvalue as this is for internal reference.'),
+    '#description' => t('Be careful changing this value as this is for internal reference.'),
+  );
+  $form['have_your_say']['funding_default_wform_nid'] = array(
+    '#type' => 'select',
+    '#title' => t('Choose the <em>Default Funding and Support</em> form'),
+    '#options' => _webform_list(),
+    '#default_value' => theme_get_setting('funding_default_wform_nid'),
+    '#description' => t('Be careful changing this value as this is for internal reference.'),
   );
 
   // Load the terms available to be mini-sites
