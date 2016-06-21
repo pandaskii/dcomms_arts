@@ -29,6 +29,7 @@
   <div class="clearfix"></div>
   <div class="layout-sidebar__main">
     <?php print render($content['body']); ?>
+    <?php print render($content['field_para_qna']); ?>
   </div>
   <div class="layout-max">
     <?php print render($content['field_file_attachments']); ?>

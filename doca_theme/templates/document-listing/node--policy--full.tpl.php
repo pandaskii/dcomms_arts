@@ -23,6 +23,7 @@
 
   <div class="layout-sidebar__main">
     <?php print render($content['body']); ?>
+    <?php print render($content['field_para_qna']); ?>
   </div>
   <?php if (isset($content['related_content'])): ?>
     <div class="layout-sidebar__sidebar sidebar--right-align">
