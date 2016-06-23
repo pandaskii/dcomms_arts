@@ -6,7 +6,6 @@
 // Weight: 2
 //
 // Styleguide: base.embedded
-
 // Image
 //
 // An &lt;img&gt; tag represents an image.
@@ -14,7 +13,6 @@
 // Markup: embedded-img.html
 //
 // Styleguide: base.embedded.img
-
 img {
   @if support-legacy-browser(ie, '10') {
     /* Remove border when inside `a` element in IE 8/9/10. */
@@ -28,8 +26,7 @@ svg {
   vertical-align: sub;
 }
 
-img,
-svg {
+img, svg {
   /* Responsive images */
   max-width: 100%;
   height: auto;

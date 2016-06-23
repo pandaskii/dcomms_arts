@@ -14,8 +14,8 @@ require 'singularitygs'
 require 'compass/import-once/activate'
 
 # Location of the theme's resources.
-css_dir         = "css"
-sass_dir        = "sass"
+css_dir         = "dist/css"
+sass_dir        = "src/sass"
 fonts_dir       = "fonts"
 images_dir      = "images"
 javascripts_dir = "js"

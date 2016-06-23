@@ -3,16 +3,12 @@
 // Markup: page-description.html
 //
 // Styleguide components.page-description
-
-%page-description,
-.page-description {
+%page-description, .page-description {
   @extend %spacer--bottom-large;
   @extend %page-description__content;
 }
 
-
-%page-description__content,
-.page-description__content {
+%page-description__content, .page-description__content {
   @extend %font__large;
   p {
     margin: 0;
@@ -20,8 +16,7 @@
       max-width: 75%;
     }
   }
-  .layout-sidebar__main p,
-  &.layout-sidebar__main p {
+  .layout-sidebar__main p, &.layout-sidebar__main p {
     max-width: none !important;
   }
 }

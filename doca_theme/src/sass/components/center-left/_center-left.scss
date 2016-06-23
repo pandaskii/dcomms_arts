@@ -3,11 +3,8 @@
 // Markup: center-left.html
 //
 // Styleguide components.center-left
-
-.center-left,
-%center-left {
+.center-left, %center-left {
   text-align: center;
-
   @include breakpoint($medium) {
     text-align: left;
   }

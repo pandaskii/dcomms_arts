@@ -3,12 +3,9 @@
 // Markup: pager.html
 //
 // Styleguide components.pager
-
 @import 'components/underline-on-hover/underline-on-hover';
 @import 'components/button/button';
-
-%pager__wrapper,
-.pager__wrapper {
+%pager__wrapper, .pager__wrapper {
   width: 100%;
   text-align: center;
 }
@@ -20,7 +17,6 @@
   padding: 20px 0;
   margin: 0 auto;
   line-height: 40px;
-
   > .pager {
     padding: 0;
     margin: 0;
@@ -30,7 +26,6 @@
     text-align: center;
     width: auto;
   }
-
 }
 
 %pager-item {
@@ -45,9 +40,7 @@
 %pager-item__link {
   @extend %underline-on-hover;
   color: color(grey-dark);
-
-  &:hover,
-  &:focus {
+  &:hover, &:focus {
     color: color(blue-light);
   }
 }
@@ -55,7 +48,6 @@
 .pager-item {
   // A list item containing a page number in the list of pages.
   @extend %pager-item;
-
   a {
     @extend %pager-item__link;
   }
@@ -78,11 +70,9 @@
   }
 }
 
-.pager-previous,
-.pager-next {
+.pager-previous, .pager-next {
   // The previous and next page's list item.
   @extend %pager-item;
-
   a {
     @extend %button--alt;
   }
@@ -91,12 +81,12 @@
 .pager-previous {
   float: left;
 }
+
 .pager-next {
   float: right;
 }
 
-.pager-first,
-.pager-last {
+.pager-first, .pager-last {
   // The first and last page's list item.
   display: none;
 }

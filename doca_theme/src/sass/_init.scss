@@ -10,18 +10,13 @@
 // - Next we import Compass plug-ins (Sass mixin libraries).
 // - Last we define our custom mixins for this theme.
 //
-
-
 // Import our variables.
 //
 // Allows us to set variables before a library sets its !default value.
 @import 'variables';
-
-
 // =============================================================================
 // Partials to be shared with all .scss files.
 // =============================================================================
-
 // Add Compass.
 @import 'compass';
 // Add Breakpoint.

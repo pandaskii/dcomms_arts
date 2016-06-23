@@ -10,7 +10,7 @@
 // wrapping it with an "anonymous closure". See:
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
-(function ($, Drupal) {
+(function($, Drupal) {
 
   'use strict';
 
@@ -26,7 +26,7 @@
           var form = document.getElementById(toggled_form_id);
           $(form).hide();
 
-          $(webform_toggle).click(function () {
+          $(webform_toggle).click(function() {
             var toggled_form_id = $(this).attr('data-toggle');
             var form = document.getElementById(toggled_form_id);
 
@@ -40,11 +40,12 @@
       $('#formal-submission-webform #webform-client-form-15 input[id*="remain-anonymous"]').change(function() {
         $('#formal-submission-webform #webform-client-form-15 input[id*="private-submission"]')
           .attr('checked', false);
-        if($(this).is(":checked")) {
+        if ($(this).is(":checked")) {
           $('#formal-submission-webform #webform-client-form-15 input[id*="hys-formal-your-name"]')
             .val('Anonymous')
             .attr('readonly', true);
-        } else {
+        }
+        else {
           $('#formal-submission-webform #webform-client-form-15 input[id*="hys-formal-your-name"]')
             .val('')
             .attr('readonly', false);
@@ -53,11 +54,12 @@
       $('#formal-submission-webform #webform-client-form-15 input[id*="private-submission"]').change(function() {
         $('#formal-submission-webform #webform-client-form-15 input[id*="remain-anonymous"]')
           .attr('checked', false);
-        if($(this).is(":checked")) {
+        if ($(this).is(":checked")) {
           $('#formal-submission-webform #webform-client-form-15 input[id*="hys-formal-your-name"]')
             .val('Not required - private submission')
             .attr('readonly', true);
-        } else {
+        }
+        else {
           $('#formal-submission-webform #webform-client-form-15 input[id*="hys-formal-your-name"]')
             .val('')
             .attr('readonly', false);
@@ -68,13 +70,13 @@
 
   Drupal.behaviors.formalSubmissionValidation = {
     attach: function(context) {
-      var fileUploadsEnabled    = Drupal.settings.doca_theme.fileUploadsEnabled;
-      var shortCommentsEnabled  = Drupal.settings.doca_theme.shortCommentsEnabled;
-      var message               = 'It looks like you haven\'t added a submission. Please add a submission to have your say.';
-      var shortCommentSelector  = 'textarea[name$="[short_comments]"]';
-      var firstFileSelector     = 'input[name$="formal_uploads_hys_formal_upload_file_1]"]';
+      var fileUploadsEnabled = Drupal.settings.doca_theme.fileUploadsEnabled;
+      var shortCommentsEnabled = Drupal.settings.doca_theme.shortCommentsEnabled;
+      var message = 'It looks like you haven\'t added a submission. Please add a submission to have your say.';
+      var shortCommentSelector = 'textarea[name$="[short_comments]"]';
+      var firstFileSelector = 'input[name$="formal_uploads_hys_formal_upload_file_1]"]';
       var submittedFileSelector = 'div[id$="formal-uploads-hys-formal-upload-file-1-upload"] > .file';
-      var $forms                = $('#webform-client-form-15', context);
+      var $forms = $('#webform-client-form-15', context);
 
       $forms.each(function(index, item) {
         var $form = $(item);
@@ -102,12 +104,12 @@
               if (!pass) {
                 // Show error message
                 $form.find('.webform-component--step-1-your-submission > .fieldset-wrapper').each(function() {
-                  $(this).prepend('<div class="messages--error messages error custom-message">'+message+'</div>');
+                  $(this).prepend('<div class="messages--error messages error custom-message">' + message + '</div>');
                   $(window).scrollTop($('.custom-message').position().top);
                 });
               }
             }
-            catch(e) {
+            catch (e) {
               console.log('An error occured validating form. Allowing to pass. ' + e);
               pass = true;
             }
@@ -120,7 +122,7 @@
   };
 
   Drupal.behaviors.submissionCommentDisplay = {
-    attach: function (context) {
+    attach: function(context) {
       var is_mobile = null;
       var $window = $(window);
       var medium_breakpoint = 720 - 15;
@@ -198,7 +200,7 @@
   };
 
   Drupal.behaviors.shortCommentMaxLength = {
-    attach: function (context) {
+    attach: function(context) {
       var maxLengthHandler = function(e) {
         var target = e.target;
         if (target.value.length > 500) {

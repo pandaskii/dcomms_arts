@@ -3,17 +3,13 @@
 // Markup: share-row.html
 //
 // Styleguide components.share-row
-
 @import 'components/heading/heading';
 @import 'components/bordered/bordered';
-
-.share-row,
-%share-row {
+.share-row, %share-row {
   color: color(grey-dark);
   @include breakpoint($medium) {
     text-align: right;
   }
-
   &__bordered {
     @extend %bordered--top;
     line-height: 0;
@@ -23,15 +19,12 @@
       display: inline-block;
     }
   }
-
-  &__left,
-  &__right {
+  &__left, &__right {
     @include breakpoint($x-large) {
       width: 50%;
       float: left;
     }
   }
-
   &__item {
     list-style: none;
     padding-right: 1rem;
@@ -45,7 +38,6 @@
       margin-bottom: 0;
     }
   }
-
   &__label {
     @extend %heading--3;
     font-weight: normal;
@@ -55,25 +47,21 @@
       margin-bottom: 0;
     }
   }
-
   &__svg {
     fill: currentColor;
     width: 20px;
     height: 20px;
   }
-
   a {
     border-bottom: 0;
     color: color(doca-blue);
-    &:focus,
-    &:hover {
+    &:focus, &:hover {
       color: color(blue-light);
     }
     &:active {
       color: color(dark);
     }
   }
-
 }
 
 // fugly
@@ -90,4 +78,3 @@
     @extend %share-row__label;
   }
 }
-

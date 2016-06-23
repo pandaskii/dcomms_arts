@@ -5,21 +5,17 @@
 // Markup: grid-stream.html
 //
 // Styleguide components.grid-stream
-
 @import 'components/heading/heading';
 @import 'components/spacer/spacer';
 @import 'components/background-image/background-image';
 @import 'layouts/layout-two-column/layout-two-column';
-
-.grid-stream,
-%grid-stream {
+.grid-stream, %grid-stream {
   @extend %layout-two-column;
   @extend %spacer;
   @extend %layout-max--sm-med-lrg;
 }
 
-.grid-stream__title,
-%grid-stream__title {
+.grid-stream__title, %grid-stream__title {
   @extend %heading--3--light;
   padding-top: .25rem;
   @include breakpoint(max-width $medium) {
@@ -27,8 +23,7 @@
   }
 }
 
-.grid-stream__icon,
-%grid-stream__icon {
+.grid-stream__icon, %grid-stream__icon {
   img {
     margin-right: .25rem;
     vertical-align: baseline;
@@ -40,7 +35,6 @@
       @include element-invisible;
     }
   }
-
   &__name {
     @include element-invisible;
     .no-mediaqueries & {
@@ -49,8 +43,7 @@
   }
 }
 
-.grid-stream__item,
-%grid-stream__item {
+.grid-stream__item, %grid-stream__item {
   @extend %clearfix;
   background: white;
   margin-bottom: 1rem;
@@ -79,7 +72,6 @@
       bottom: 1.25rem;
     }
   }
-
   // Fugly
   .read-more {
     @extend %grid-stream__item__read-more;
@@ -91,15 +83,13 @@
   }
 }
 
-.grid-stream__has-update,
-%grid-stream__has-update {
+.grid-stream__has-update, %grid-stream__has-update {
   @extend %clearfix;
   // Make sure read more link doesn't overlay updates.
   position: relative;
 }
 
-%grid-stream__image-overlay,
-.grid-stream__image-overlay {
+%grid-stream__image-overlay, .grid-stream__image-overlay {
   padding: 0;
   border: none;
   display: block;
@@ -112,13 +102,10 @@
     width: 100%;
     z-index: 200;
   }
-
   // IE requires z-index to display overlay.
   picture {
     display: block;
-
-    &,
-    * {
+    &, * {
       position: relative;
       z-index: 1;
     }

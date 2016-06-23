@@ -3,10 +3,7 @@
 // Markup: layout-two-thirds.html
 //
 // Styleguide: layouts.two-thirds
-
-
-.layout-two-thirds__main,
-%layout-two-thirds__main {
+.layout-two-thirds__main, %layout-two-thirds__main {
   @include breakpoint($medium) {
     float: left;
     width: 75%;
@@ -14,8 +11,7 @@
   }
 }
 
-.layout-two-thirds__sidebar,
-%layout-two-thirds__sidebar {
+.layout-two-thirds__sidebar, %layout-two-thirds__sidebar {
   @include breakpoint($medium) {
     float: left;
     width: 25%;

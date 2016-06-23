@@ -3,12 +3,9 @@
 // Markup: list-inline-circle.html
 //
 // Styleguide components.list-inline-circle
-
 @import 'base/links/links';
 @import 'components/underline-on-hover/underline-on-hover';
-
-.list-inline-circle,
-%list-inline-circle {
+.list-inline-circle, %list-inline-circle {
   li {
     float: left;
     list-style-type: circle;
@@ -21,4 +18,3 @@
     }
   }
 }
-

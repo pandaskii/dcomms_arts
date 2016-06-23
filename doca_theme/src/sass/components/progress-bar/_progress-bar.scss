@@ -8,14 +8,11 @@
 // .progress-bar--thick - A thicker bar variant
 //
 // Styleguide components.progress-bar
-
-%progress-bar,
-.progress-bar {
+%progress-bar, .progress-bar {
   @extend %max-width__large;
   position: relative;
   clear: both;
   overflow: hidden;
-
   &__text {
     @extend %font__small;
     color: color(dark);
@@ -32,18 +29,15 @@
     float: left;
     text-align: right;
   }
-
   &__label {
     @extend %font__small;
     color: color(dark);
     display: block;
   }
-
   &__percentage {
     color: color(grey-dark);
     float: right;
   }
-
   &__percentage--brackets {
     color: color(dark);
     float: none;
@@ -54,34 +48,28 @@
       content: ')';
     }
   }
-
   &__bar {
     @extend %progress-bar__progress-thin;
     background: color(grey-off-white);
     margin-bottom: 0.5rem;
     position: relative;
   }
-
   &__progress {
     @extend %progress-bar__progress-thin;
     background-color: color(blue-extra-light);
     background-image: url('../images/progress-bar-bg.jpg');
     background-position: 50% 100%;
   }
-
   &__progress--grey {
     @extend %progress-bar__progress;
     background: color(grey-light);
   }
-
   &__progress-thin {
     height: 1rem;
   }
-
   &__progress-thick {
     height: 2rem;
   }
-
   &__start-date {
     @extend %progress-bar__text-left;
     color: color(grey-dark);
@@ -95,44 +83,36 @@
     @extend %progress-bar__text-right;
     color: color(grey-dark);
   }
-
   &__completion {
     float: right;
     color: color(grey-dark);
   }
 }
 
-.progress-bar__highlighted,
-%progress-bar__highlighted {
+.progress-bar__highlighted, %progress-bar__highlighted {
   color: color(blue-light);
   font-weight: bold;
 }
 
-%progress-bar--complete,
-.progress-bar--complete {
+%progress-bar--complete, .progress-bar--complete {
   .progress-bar__progress {
     background: color(doca-red);
   }
-  .progress-bar__highlighted,
-  %progress-bar__highlighted {
+  .progress-bar__highlighted, %progress-bar__highlighted {
     color: color(doca-red);
     font-weight: bold;
   }
 }
 
-%progress-bar--thick,
-.progress-bar--thick {
-  .progress-bar__bar,
-  .progress-bar__progress {
+%progress-bar--thick, .progress-bar--thick {
+  .progress-bar__bar, .progress-bar__progress {
     @extend %progress-bar__progress-thick;
   }
 }
 
-%progress-bar--collapsed,
-.progress-bar--collapsed {
+%progress-bar--collapsed, .progress-bar--collapsed {
   @extend %max-width__medium;
   position: relative;
-
   .progress-bar__text {
     padding: 0.25rem 1rem;
     position: absolute;
@@ -140,34 +120,26 @@
     left: 0;
     width: 50%;
   }
-
   .progress-bar__percentage {
     @extend %progress-bar__percentage--brackets;
   }
-
-  .progress-bar__bar,
-  .progress-bar__progress {
+  .progress-bar__bar, .progress-bar__progress {
     @extend %progress-bar__progress-thick;
   }
-
   .progress-bar:nth-child(2) {
     @include breakpoint($medium) {
       position: absolute;
       top: 0;
       right: 0;
       width: 100%;
-
       .progress-bar__text {
         text-align: right;
         left: 50%;
       }
-
-      .progress-bar__bar,
-      .progress-bar__progress {
+      .progress-bar__bar, .progress-bar__progress {
         background: transparent !important;
       }
     }
-
     .progress-bar__progress {
       @extend %progress-bar__progress-thick;
       @extend %progress-bar__progress--grey;

@@ -3,15 +3,11 @@
 // Markup: alert-signup.html
 //
 // Styleguide components.alert-signup
-
-.alert-signup,
-%alert-signup {
+.alert-signup, %alert-signup {
   @extend %spacer--large;
-
   h2 {
     color: color(blue-alert);
   }
-
   &__svg {
     display: block;
     width: 220px;

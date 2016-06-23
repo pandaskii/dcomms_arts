@@ -6,14 +6,11 @@
 // Markup: header.html
 //
 // Styleguide components.header
-
-%header,
-.header {
+%header, .header {
   @extend %spacer--large;
 }
 
-%header__logo,
-.header__logo {
+%header__logo, .header__logo {
   @extend %underline-on-hover__never;
   display: block;
   float: left;
@@ -22,7 +19,6 @@
   @include breakpoint($medium) {
     width: 360px;
   }
-
   .no-mediaqueries & {
     @extend %hide-text;
     background-image: url('../logo.png');
@@ -33,17 +29,14 @@
   }
 }
 
-%header__logo-image,
-.header__logo-image {
+%header__logo-image, .header__logo-image {
   height: 38px;
-
   @include breakpoint($medium) {
     height: 67px;
   }
 }
 
-%header__item,
-.header__item {
+%header__item, .header__item {
   float: right;
   position: relative;
 }

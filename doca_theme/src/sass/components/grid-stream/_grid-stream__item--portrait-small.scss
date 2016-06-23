@@ -5,12 +5,9 @@
 // Markup: grid-stream__item--portrait-small.html
 //
 // Styleguide components.grid-stream__item--portrait-small
-
 @include add-grid(12);
 @include add-gutter(0);
-
-.grid-stream__item--portrait-small,
-%grid-stream__item--portrait-small {
+.grid-stream__item--portrait-small, %grid-stream__item--portrait-small {
   @extend %grid-stream__item;
   @extend %layout-two-column__item;
   &__left {
@@ -25,9 +22,7 @@
       @include float-span(4, last);
     }
   }
-
-  &__image-overlay-after,
-  &__image-overlay-after {
+  &__image-overlay-after, &__image-overlay-after {
     .grid-stream__item--portrait-small:first-child & {
       @include background-image('bg--cross--light.svg', 25%);
     }
@@ -44,4 +39,3 @@
     @extend %grid-stream__item--portrait-small__image-overlay-after;
   }
 }
-

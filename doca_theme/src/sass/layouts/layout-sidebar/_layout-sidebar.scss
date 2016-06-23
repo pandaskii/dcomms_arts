@@ -3,10 +3,7 @@
 // Markup: layout-sidebar.html
 //
 // Styleguide: layouts.sidebar
-
-
-.layout-sidebar__main,
-%layout-sidebar__main {
+.layout-sidebar__main, %layout-sidebar__main {
   margin-bottom: 1rem;
   @include breakpoint($large) {
     padding-right: 3rem;
@@ -17,8 +14,7 @@
   }
 }
 
-.layout-sidebar__sidebar,
-%layout-sidebar__sidebar {
+.layout-sidebar__sidebar, %layout-sidebar__sidebar {
   @include breakpoint($large) {
     float: right;
     width: 25%;
@@ -26,19 +22,16 @@
       margin-right: -1rem;
     }
   }
-  & > .list-arrow {
+  &> .list-arrow {
     li.list-arrow__item {
-      &:focus,
-      &:active,
-      &:hover {
+      &:focus, &:active, &:hover {
         color: color(doca-blue);
       }
       &, a {
         color: color(doca-blue);
       }
       a {
-        &:focus,
-        &:hover {
+        &:focus, &:hover {
           color: color(blue-light);
         }
         &:active {

@@ -5,8 +5,6 @@
 // Markup: palette-extend.html
 //
 // Styleguide components.palette-extend
-
-
 @mixin palette-extend {
   content: '';
   background-color: inherit;
@@ -17,56 +15,45 @@
   width: 100%;
   display: block;
 }
-.palette-extend,
-%palette-extend {
+
+.palette-extend, %palette-extend {
   @include palette-extend;
 }
 
-.palette-extend--left,
-%palette-extend--left {
+.palette-extend--left, %palette-extend--left {
   position: relative;
-
   &:before {
     @extend %palette-extend;
     left: -100%;
   }
-
   &:after {
     @extend %palette-extend;
     left: 100%;
-
     @include breakpoint($medium) {
       display: none;
     }
   }
 }
 
-.palette-extend--right,
-%palette-extend--right {
+.palette-extend--right, %palette-extend--right {
   position: relative;
-
   &:before {
     @extend %palette-extend;
     left: 100%;
   }
-
   &:after {
     @extend %palette-extend;
     left: -100%;
-
     @include breakpoint($medium) {
       display: none;
     }
   }
 }
-
-
 
 @mixin palette-extend--both {
   position: relative;
   overflow: visible;
-  &:before,
-  &:after {
+  &:before, &:after {
     @include palette-extend;
   }
   &:before {
@@ -76,7 +63,7 @@
     left: -100%;
   }
 }
-.palette-extend--both,
-%palette-extend--both {
+
+.palette-extend--both, %palette-extend--both {
   @include palette-extend--both;
 }

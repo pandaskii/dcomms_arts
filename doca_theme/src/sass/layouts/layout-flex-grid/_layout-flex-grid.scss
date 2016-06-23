@@ -5,9 +5,7 @@
 // Markup: layout-flex-grid.html
 //
 // Styleguide layouts.layout-flex-grid
-
-%layout-flex-grid,
-.layout-flex-grid {
+%layout-flex-grid, .layout-flex-grid {
   @include breakpoint($medium) {
     .flexbox & {
       @include display-flex;
@@ -17,8 +15,7 @@
   }
 }
 
-%layout-flex-grid--reverse,
-.layout-flex-grid--reverse {
+%layout-flex-grid--reverse, .layout-flex-grid--reverse {
   @extend %layout-flex-grid;
   @include breakpoint($medium) {
     .flexbox & {
@@ -26,5 +23,3 @@
     }
   }
 }
-
-

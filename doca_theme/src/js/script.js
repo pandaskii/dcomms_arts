@@ -10,13 +10,13 @@
 // wrapping it with an "anonymous closure". See:
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
-(function ($, Drupal) {
+(function($, Drupal) {
 
   'use strict';
 
   Drupal.behaviors.skipLink = {
-    attach: function () {
-      setTimeout(function () {
+    attach: function() {
+      setTimeout(function() {
         var firstElement = $('#skip-link').siblings().first();
         $(firstElement).before($('#skip-link'));
       }, 2100);
@@ -28,9 +28,9 @@
   };
 
   Drupal.behaviors.twitterFeed = {
-    attach: function () {
-      setTimeout(function () {
-        $("iframe[id^=twitter-widget-").each(function () {
+    attach: function() {
+      setTimeout(function() {
+        $("iframe[id^=twitter-widget-").each(function() {
           var head = $(this).contents().find('head');
           if (head.length) {
             head.append('<style type="text/css">.timeline { max-width: none !important; width: 100% !important; } .timeline .stream { max-width: none !important; width: 100% !important; } </style>');

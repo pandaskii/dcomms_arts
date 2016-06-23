@@ -10,14 +10,10 @@
 // .subsite__sub-theme-4 - Sub Theme 4
 //
 // Styleguide components.grid-stream__item--business-area
-
 @import 'components/subsite-palette/subsite-palette';
-
-.grid-stream__item--business-area,
-%grid-stream__item--business-area {
+.grid-stream__item--business-area, %grid-stream__item--business-area {
   overflow: hidden;
   position: relative;
-
   &__border {
     content: '';
     height: 4px;
@@ -31,18 +27,14 @@
   &:after {
     @extend %grid-stream__item--business-area__border;
   }
-
   &--hide-stream {
     .is-stream {
       display: none;
     }
   }
-
 }
 
-
 // Paletting
-
 @each $subsite, $palette in $subsite-palette {
   .grid-stream__item--business-area.subsite__#{$subsite} {
     .grid-stream__icon {

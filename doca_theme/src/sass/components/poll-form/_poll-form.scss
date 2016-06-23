@@ -5,25 +5,19 @@
 // .poll-form--binary - A simple yes/no poll
 //
 // Styleguide components.poll-form
-
-%poll-form,
-.poll-form {
+%poll-form, .poll-form {
   padding-bottom: 1rem;
-
   &__title {
     @extend %font__medium;
     margin: 0 0 1rem;
   }
-
   &__button {
     @extend %button--alt;
   }
-
   &__option {
     display: block;
     margin-bottom: 0.5rem;
   }
-
   &__binary-option-wrapper {
     margin: 0;
     display: inline-block;
@@ -31,23 +25,20 @@
   }
 }
 
-%poll-form__no-space,
-.poll-form__no-space {
-  &.poll-form { padding: 0; }
+%poll-form__no-space, .poll-form__no-space {
+  &.poll-form {
+    padding: 0;
+  }
 }
 
-%poll-form__binary-option,
-.poll-form__binary-option {
+%poll-form__binary-option, .poll-form__binary-option {
   margin-right: 0.5rem;
   display: inline-block;
-
   .js & input {
     @extend %element-invisible;
   }
-
   label {
     @extend %button--text;
-
     &.is-active {
       border-color: color(doca-green);
       background-color: color(doca-green);
@@ -56,9 +47,7 @@
   }
 }
 
-
-%poll-form--binary,
-.poll-form--binary {
+%poll-form--binary, .poll-form--binary {
   .poll-form__choices {
     @extend %poll-form__binary-option-wrapper;
   }
@@ -68,7 +57,6 @@
 }
 
 // Fugly.
-
 .poll-form {
   .form-type-radio {
     @extend %poll-form__option;
@@ -77,6 +65,7 @@
     @extend %poll-form__button;
   }
 }
+
 .poll-form--binary {
   .form-type-radio {
     @extend %poll-form__binary-option;

@@ -1,4 +1,3 @@
-
 /* Grouping content
    ========================================================================== */
 
@@ -7,7 +6,6 @@
 // Weight: 1
 //
 // Styleguide: base.grouping
-
 // Blockquotes
 //
 // For quoting blocks of content from another source within your document. Wrap
@@ -21,7 +19,6 @@
 // Markup: grouping-blockquote.html
 //
 // Styleguide: base.grouping.blockquote
-
 blockquote {
   /* Set 1 unit of vertical rhythm on the top and bottom margin. */
   /* Also indent the quote on both sides. */
@@ -40,7 +37,6 @@ blockquote {
 // Markup: grouping-figure.html
 //
 // Styleguide: base.grouping.figure
-
 figure {
   /* Address margin not present in IE 8/9 and Safari. */
   @include output-rhythm(margin, 0 0 rhythm(1));
@@ -55,7 +51,6 @@ figure {
 // Markup: grouping-hr.html
 //
 // Styleguide: base.grouping.hr
-
 hr {
   /* Address differences between Firefox and other browsers. */
   @include box-sizing(content-box);
@@ -72,12 +67,11 @@ hr {
 // Markup: grouping-p.html
 //
 // Styleguide: base.grouping.p
-
-p,
-pre {
+p, pre {
   /* Set 1 unit of vertical rhythm on the top and bottom margin. */
   @include output-rhythm(margin, 0 0 rhythm(1));
 }
+
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
@@ -97,7 +91,6 @@ pre {
 // Markup: grouping-pre.html
 //
 // Styleguide: base.grouping.pre
-
 pre {
   @extend %monospace;
   /* Contain overflow in all browsers. */
@@ -107,7 +100,6 @@ pre {
 // Lists
 //
 // Styleguide: base.grouping.lists
-
 // Unordered list
 //
 // A list of items in which the order does <em>not</em> explicitly matter.
@@ -115,7 +107,6 @@ pre {
 // Markup: grouping-lists-ul.html
 //
 // Styleguide: base.grouping.lists.ul
-
 // Ordered list
 //
 // A list of items in which the order <em>does</em> explicitly matter.
@@ -123,7 +114,6 @@ pre {
 // Markup: grouping-lists-ol.html
 //
 // Styleguide: base.grouping.lists.ol
-
 // Description list
 //
 // A list of terms with their associated descriptions.
@@ -131,23 +121,18 @@ pre {
 // Markup: grouping-lists-dl.html
 //
 // Styleguide: base.grouping.lists.dl
-
-dl,
-menu,
-ol,
-ul {
+dl, menu, ol, ul {
   /* Address margins set differently in IE 6/7. */
   @include output-rhythm(margin, 0 0 rhythm(1));
 }
+
 
 /**
  * Turn off margins on nested lists.
  */
 
-ol,
-ul {
-  ol,
-  ul {
+ol, ul {
+  ol, ul {
     margin: 0;
   }
 }
@@ -155,5 +140,3 @@ ul {
 dd {
   margin: 0 0 0 $indent-amount;
 }
-
-

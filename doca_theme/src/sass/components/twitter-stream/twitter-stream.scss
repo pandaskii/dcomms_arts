@@ -7,18 +7,14 @@
 // Markup: twitter-stream.html
 //
 // Styleguide components.twitter-stream
-
 @import 'compass';
 @import 'library/font-size-line-height';
 @import 'layouts/layout-three-column/layout-three-column';
-
-
 $tweet-stream__very-small: 160px;
 $tweet-stream__small: 160px;
 $tweet-stream__medium: 160px;
 $tweet-stream__large: 160px;
 $tweet-stream__margin-bottom: 20px;
-
 html {
   font-size: 100% !important;
 }
@@ -28,35 +24,28 @@ html {
   @include box-sizing(border-box);
 }
 
-
-
 .twitter-timeline {
   width: 100% !important;
   max-width: 100% !important;
-
-  height: ($tweet-stream__very-small + $tweet-stream__margin-bottom) * 3;
+  height: ($tweet-stream__very-small+ $tweet-stream__margin-bottom) * 3;
   @include breakpoint($small) {
-    height: ($tweet-stream__medium + $tweet-stream__margin-bottom) * 3;
+    height: ($tweet-stream__medium+ $tweet-stream__margin-bottom) * 3;
   }
   @include breakpoint($medium) {
-    height: ($tweet-stream__medium + $tweet-stream__margin-bottom) * 2;
+    height: ($tweet-stream__medium+ $tweet-stream__margin-bottom) * 2;
   }
   @include breakpoint($large) {
-    height: ($tweet-stream__large + $tweet-stream__margin-bottom);
+    height: ($tweet-stream__large+ $tweet-stream__margin-bottom);
   }
-
   .timeline {
     max-width: 100% !important;
   }
 }
 
-
 .timeline-TweetList {
-
   .TweetAuthor-avatar {
     display: none !important;
   }
-
   .timeline-Tweet-text, .timeline-Tweet-author, .timeline-Tweet-actions {
     padding-left: 0 !important;
     margin-left: 0 !important;
@@ -71,7 +60,6 @@ html {
     padding: 0 !important;
     margin-bottom: $tweet-stream__margin-bottom !important;
     position: relative !important;
-
     // Set heights on tweets
     height: $tweet-stream__very-small;
     @include breakpoint($small) {
@@ -83,21 +71,13 @@ html {
     @include breakpoint($large) {
       height: $tweet-stream__large;
     }
-
     .timeline-Tweet-text {
       font-weight: 300 !important;
       font-size: 1rem !important;
       line-height: 1.5rem !important;
     }
-
     .MediaCard-media {
       display: none !important;
     }
-
   }
-
 }
-
-
-
-

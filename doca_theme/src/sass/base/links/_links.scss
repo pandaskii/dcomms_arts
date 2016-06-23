@@ -1,22 +1,19 @@
 // Sets the different link state colours
 @mixin link-palette($link: color(doca-blue), $hover: color(blue-light), $active: color(dark), $visited: color(doca-red)) {
   color: $link;
-
-  &:hover,
-  &:focus {
+  &:hover, &:focus {
     color: $hover;
     border-color: currentColor;
   }
-
   &:active {
     color: $active;
     border-color: currentColor;
   }
-
   // &:visited {
   //   color: $visited;
   // }
 }
+
 
 /* Links
    ========================================================================== */
@@ -52,8 +49,7 @@
   border-bottom: 2px solid currentColor;
 }
 
-a,
-%link {
+a, %link {
   @extend %link-palette__normal;
   @extend %link__border--thin;
   @if support-legacy-browser(ie, '10') {
@@ -63,9 +59,6 @@ a,
 }
 
 // Improve readability by removing focus styles when also mouse hovered in all browsers.
-a:hover,
-a:active {
+a:hover, a:active {
   outline: 0;
 }
-
-

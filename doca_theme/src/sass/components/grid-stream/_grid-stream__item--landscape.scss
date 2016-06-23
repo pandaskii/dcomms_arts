@@ -5,9 +5,7 @@
 // Markup: grid-stream__item--landscape.html
 //
 // Styleguide components.grid-stream__item--landscape
-
-.grid-stream__item--landscape,
-%grid-stream__item--landscape {
+.grid-stream__item--landscape, %grid-stream__item--landscape {
   @extend %grid-stream__item;
   &__left {
     @extend %grid-stream__item__left;
@@ -21,9 +19,7 @@
       width: 67.25%;
     }
   }
-
-  &__image-overlay-after,
-  &__image-overlay-after {
+  &__image-overlay-after, &__image-overlay-after {
     @include background-image('bg--big--light.svg', 100%);
   }
 }
@@ -35,4 +31,3 @@
     @extend %grid-stream__item--landscape__image-overlay-after;
   }
 }
-

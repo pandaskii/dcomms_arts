@@ -5,24 +5,19 @@
 // Markup: file.html
 //
 // Styleguide: components.file
-
-%file,
-.file {
+%file, .file {
   display: inline-block;
   margin: 0 2rem 0 0;
-
   a {
     @extend %file__link;
   }
 }
 
-%file__wrapper,
-.file__wrapper {
+%file__wrapper, .file__wrapper {
   margin-bottom: 2rem;
   @include breakpoint($medium) {
     float: right;
   }
-
   &--slim {
     @extend %file__wrapper;
     margin-bottom: 0;
@@ -31,14 +26,12 @@
   }
 }
 
-%file__icon,
-.file__icon {
+%file__icon, .file__icon {
   vertical-align: top;
   margin: .45rem .25rem 0 0;
 }
 
-%file__link,
-.file__link {
+%file__link, .file__link {
   @extend %underline-on-hover;
   text-transform: capitalize;
 }

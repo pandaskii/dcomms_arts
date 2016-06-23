@@ -23,9 +23,7 @@
 // Makes an element visually hidden by default, but visible when focused.
 @mixin element-focusable {
   @include element-invisible;
-
-  &:active,
-  &:focus {
+  &:active, &:focus {
     @include element-invisible-off;
   }
 }

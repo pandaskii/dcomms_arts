@@ -3,9 +3,7 @@
 // Markup: link-external.html
 //
 // Styleguide components.link-external
-
-.link-external__icon,
-%link-external__icon {
+.link-external__icon, %link-external__icon {
   content: url('../images/external.svg');
   vertical-align: baseline;
   display: inline-block;
@@ -14,8 +12,7 @@
   width: 15px;
 }
 
-.link-external,
-%link-external {
+.link-external, %link-external {
   &:after {
     @extend %link-external__icon;
   }

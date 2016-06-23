@@ -5,7 +5,7 @@
   Drupal.behaviors.placeholderFallback = {
     attach: function() {
 
-      var twitterCssUrl = "/" + Drupal.settings.pathToTheme + "/css/components/twitter-stream/twitter-stream.css";
+      var twitterCssUrl = "/" + Drupal.settings.pathToTheme + "/dist/css/components/twitter-stream/twitter-stream.css";
 
       var options = {
         "url": twitterCssUrl

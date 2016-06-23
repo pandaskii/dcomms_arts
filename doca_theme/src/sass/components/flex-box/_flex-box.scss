@@ -9,17 +9,14 @@
 // </div>
 //
 // Styleguide components.flex-box
-
-.flex-box,
-%flex-box {
+.flex-box, %flex-box {
   // check for modernizer class
   .flexbox & {
     @include display-flex;
   }
 }
 
-.flex-box__item,
-%flex-box__item {
+.flex-box__item, %flex-box__item {
   // check for modernizer class
   .flexbox & {
     flex-grow: 1;

@@ -3,27 +3,22 @@
 // Markup: alert-list.html
 //
 // Styleguide components.alert-list
-
 @import 'components/subsite-palette/subsite-palette';
 @import 'components/palette/palette';
 @import 'components/grid-stream/grid-stream';
-
-.alert-list__wrapper,
-%alert-list__wrapper {
+.alert-list__wrapper, %alert-list__wrapper {
   @extend %palette-extend--both;
   @extend %spacer;
   @extend %layout-max--sm-med-lrg;
   background: color(grey-off-white);
 }
 
-.alert-list,
-%alert-list {
+.alert-list, %alert-list {
   @extend %layout-flex-grid;
   overflow: hidden;
 }
 
-.alert-list__item,
-%alert-list__item {
+.alert-list__item, %alert-list__item {
   @extend %spacer;
   @extend %layout-two-column__item;
   position: relative;
@@ -34,19 +29,15 @@
     padding-bottom: 4.4rem;
     margin-bottom: 2rem;
   }
-
   // Fugly.
   .read-more {
     @extend %alert-list__read-more;
   }
-
 }
 
-%alert-list__header,
-.alert-list__header {
+%alert-list__header, .alert-list__header {
   @extend %palette-extend--both;
   background: color(grey-off-white);
-
   .spacer--large {
     padding-bottom: 1rem;
     > h2 {
@@ -55,16 +46,13 @@
   }
 }
 
-.alert-list__title,
-%alert-list__title {
+.alert-list__title, %alert-list__title {
   @extend %grid-stream__title;
 }
 
-%alert-list__icon,
-.alert-list__icon {
+%alert-list__icon, .alert-list__icon {
   color: palette($subsite-palette, alert foreground);
   margin-bottom: 1rem;
-
   svg {
     fill: currentColor;
     margin-right: .25rem;
@@ -83,9 +71,7 @@
   }
 }
 
-
-.alert-list__read-more,
-%alert-list__read-more {
+.alert-list__read-more, %alert-list__read-more {
   @include breakpoint($medium) {
     position: absolute;
     bottom: 1.25rem;
