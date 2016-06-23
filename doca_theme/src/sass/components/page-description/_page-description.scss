@@ -19,4 +19,16 @@
   .layout-sidebar__main p, &.layout-sidebar__main p {
     max-width: none !important;
   }
+  .front & {
+    @extend %font__larger;
+    background: url(../images/arts-brand.png) 50% 0 no-repeat transparent;
+    @include breakpoint($medium) {
+      padding-top: 260px;
+      background-size: 25%
+    }
+    @include breakpoint($large) {
+      padding-top: 360px;
+      background-size: auto;
+    }
+  }
 }

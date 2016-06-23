@@ -16,13 +16,14 @@
   fill: currentColor;
   font-weight: 500;
   @include breakpoint($medium) {
-    font-size: $medium-font-size;
+    font-size: $base-font-size;
   }
   svg {
     padding-left: .25rem;
     padding-bottom: .10rem;
     height: 15px;
     width: 16px;
+    color: #000;
     @include breakpoint($medium) {
       vertical-align: baseline;
       padding-bottom: 0;

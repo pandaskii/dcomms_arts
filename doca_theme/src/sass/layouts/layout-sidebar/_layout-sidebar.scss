@@ -5,12 +5,32 @@
 // Styleguide: layouts.sidebar
 .layout-sidebar__main, %layout-sidebar__main {
   margin-bottom: 1rem;
+  .front & {
+    text-align: center;
+  }
+  @include breakpoint($medium) {
+    .front & {
+      padding-bottom: 1.5rem;
+    }
+  }
   @include breakpoint($large) {
     padding-right: 3rem;
     float: left;
     width: 75%;
     max-width: 760px;
     margin-bottom: 0;
+    .front & {
+      width: 100%;
+      max-width: 100%;
+      float: none;
+      padding-right: 0;
+      padding-bottom: 2.5rem;
+      .read-more {
+        font-size: 1.25rem;
+        line-height: 0.5rem;
+        @include font-smoothing;
+      }
+    }
   }
 }
 
