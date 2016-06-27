@@ -5,10 +5,14 @@
 // Markup: panel-background.html
 //
 // Styleguide components.panel-background
-$module-background-position: 16px 100% 20% 50% 10% 54% 5%;
+$module-background-position: 16px 100% 20% 50% 30% 54% 5%;
 @each $position in $module-background-position {
   $i: index($module-background-position, $position);
   %panel-background-#{$i}, .panel-background-#{$i} {
-    @include background-image('module-bar-#{$i}.png', $position, auto);
+    @include background-image('module-bar-#{$i}.png', 0, 100%);
+    min-height: 5px;
+    @include breakpoint($medium) {
+      @include background-image('module-bar-#{$i}.png', $position, auto);
+    }
   }
 }

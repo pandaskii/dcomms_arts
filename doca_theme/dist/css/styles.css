@@ -1167,7 +1167,7 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 100% 0;
-  background-image: url("../images/bg--big.svg");
+  background-image: url("../images/bg--gradient.png");
 }
 
 .background-image__small {
@@ -3902,51 +3902,114 @@ fieldset.separate .fieldset-legend {
 
 .panel-background-1 {
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 16px 0;
+  background-size: 100%;
+  background-position: 0 0;
   background-image: url("../images/module-bar-1.png");
+  min-height: 5px;
+}
+@media (min-width: 720px) {
+  .panel-background-1 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 16px 0;
+    background-image: url("../images/module-bar-1.png");
+  }
 }
 
 .panel-background-2 {
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 100% 0;
+  background-size: 100%;
+  background-position: 0 0;
   background-image: url("../images/module-bar-2.png");
+  min-height: 5px;
+}
+@media (min-width: 720px) {
+  .panel-background-2 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 100% 0;
+    background-image: url("../images/module-bar-2.png");
+  }
 }
 
 .panel-background-3 {
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 20% 0;
+  background-size: 100%;
+  background-position: 0 0;
   background-image: url("../images/module-bar-3.png");
+  min-height: 5px;
+}
+@media (min-width: 720px) {
+  .panel-background-3 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 20% 0;
+    background-image: url("../images/module-bar-3.png");
+  }
 }
 
 .panel-background-4 {
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 50% 0;
+  background-size: 100%;
+  background-position: 0 0;
   background-image: url("../images/module-bar-4.png");
+  min-height: 5px;
+}
+@media (min-width: 720px) {
+  .panel-background-4 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 50% 0;
+    background-image: url("../images/module-bar-4.png");
+  }
 }
 
 .panel-background-5 {
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 10% 0;
+  background-size: 100%;
+  background-position: 0 0;
   background-image: url("../images/module-bar-5.png");
+  min-height: 5px;
+}
+@media (min-width: 720px) {
+  .panel-background-5 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 30% 0;
+    background-image: url("../images/module-bar-5.png");
+  }
 }
 
 .panel-background-6 {
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 54% 0;
+  background-size: 100%;
+  background-position: 0 0;
   background-image: url("../images/module-bar-6.png");
+  min-height: 5px;
+}
+@media (min-width: 720px) {
+  .panel-background-6 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 54% 0;
+    background-image: url("../images/module-bar-6.png");
+  }
 }
 
 .panel-background-7 {
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 5% 0;
+  background-size: 100%;
+  background-position: 0 0;
   background-image: url("../images/module-bar-7.png");
+  min-height: 5px;
+}
+@media (min-width: 720px) {
+  .panel-background-7 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 5% 0;
+    background-image: url("../images/module-bar-7.png");
+  }
 }
 
 .poll-form {
