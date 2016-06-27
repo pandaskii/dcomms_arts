@@ -1207,6 +1207,11 @@ function doca_theme_preprocess_views_view(&$variables) {
       $variables['classes_array'][] = 'grid-stream--grid-at-three';
     }
   }
+  if ($variables['name'] == 'whats_new_grid' && $variables['display_id'] == 'block_1') {
+    if(count($variables['view']->result) == 2) {
+      $variables['classes_array'][] = 'grid-stream__2-col';
+    }
+  }
 }
 
 
