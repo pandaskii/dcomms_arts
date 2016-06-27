@@ -962,13 +962,6 @@ a:hover, a:active {
   color: #12293a;
 }
 
-.palette__light-grey a, .channel-list__palette a, .promotional-feature a {
-  color: #5265ff;
-}
-.palette__light-grey a:focus, .palette__light-grey a:hover, .channel-list__palette a:focus, .promotional-feature a:focus, .channel-list__palette a:hover, .promotional-feature a:hover {
-  color: #3f4ecf;
-}
-
 h1, .heading--1--no-space, .heading--1--light, .heading--1, h2, .heading--2--no-space, .heading--2--light, .heading--2--spaced, .featured__title, .featured__grid-item h2, .site-feedback-form fieldset legend span, .heading--2, h3, .heading--3--no-space, .grid-stream__title, .alert-list__title, .news-list__title, .heading--3--light, .heading--3--spaced, .fieldset-legend, .form__title, .on-this-page__title, .promotional-feature__title, .share-row__label, .share-row li:first-child, .share-row h3, .heading--3, h4, .list-arrow__header, .heading--4--no-space, .heading--4--light, .heading--4--spaced, .update--extra__title, .heading--4, h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5, .site-feedback-block, .site-feedback-block--no-space, .site-feedback-block--light, .heading {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -3317,14 +3310,14 @@ fieldset.separate .fieldset-legend {
   visibility: hidden;
 }
 
-.link-palette__normal, a {
+.link-palette__normal, a, .grid-stream__item__read-more, .grid-stream__item .read-more, .grid-stream__item--landscape-small .read-more, .grid-stream__item--landscape-small--has-image .read-more, .grid-stream__item--landscape-small--has-image-description .read-more, .grid-stream__item--landscape .read-more, .grid-stream__item--portrait-small .read-more, .grid-stream__item--portrait .read-more, .grid-stream__item--vertical .read-more, .grid-stream__item--vertical--has-image .read-more, .grid-stream__item--vertical--has-image-description .read-more {
   color: #5265ff;
 }
-.link-palette__normal:hover, .link-palette__normal:focus, a:hover, a:focus {
+.link-palette__normal:hover, .link-palette__normal:focus, a:hover, .grid-stream__item__read-more:hover, .grid-stream__item .read-more:hover, .grid-stream__item--landscape-small .read-more:hover, .grid-stream__item--landscape-small--has-image .read-more:hover, .grid-stream__item--landscape-small--has-image-description .read-more:hover, .grid-stream__item--landscape .read-more:hover, .grid-stream__item--portrait-small .read-more:hover, .grid-stream__item--portrait .read-more:hover, .grid-stream__item--vertical .read-more:hover, .grid-stream__item--vertical--has-image .read-more:hover, .grid-stream__item--vertical--has-image-description .read-more:hover, a:focus, .grid-stream__item__read-more:focus, .grid-stream__item .read-more:focus, .grid-stream__item--landscape-small .read-more:focus, .grid-stream__item--landscape-small--has-image .read-more:focus, .grid-stream__item--landscape-small--has-image-description .read-more:focus, .grid-stream__item--landscape .read-more:focus, .grid-stream__item--portrait-small .read-more:focus, .grid-stream__item--portrait .read-more:focus, .grid-stream__item--vertical .read-more:focus, .grid-stream__item--vertical--has-image .read-more:focus, .grid-stream__item--vertical--has-image-description .read-more:focus {
   color: #3f4ecf;
   border-color: currentColor;
 }
-.link-palette__normal:active, a:active {
+.link-palette__normal:active, a:active, .grid-stream__item__read-more:active, .grid-stream__item .read-more:active, .grid-stream__item--landscape-small .read-more:active, .grid-stream__item--landscape-small--has-image .read-more:active, .grid-stream__item--landscape-small--has-image-description .read-more:active, .grid-stream__item--landscape .read-more:active, .grid-stream__item--portrait-small .read-more:active, .grid-stream__item--portrait .read-more:active, .grid-stream__item--vertical .read-more:active, .grid-stream__item--vertical--has-image .read-more:active, .grid-stream__item--vertical--has-image-description .read-more:active {
   color: #12293a;
   border-color: currentColor;
 }
