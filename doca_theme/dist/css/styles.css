@@ -3903,7 +3903,7 @@ fieldset.separate .fieldset-legend {
 .panel-background-1 {
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: 0 0;
+  background-position: 16px 0;
   background-image: url("../images/module-bar-1.png");
 }
 
