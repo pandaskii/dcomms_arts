@@ -322,7 +322,7 @@ a {
   border-bottom: 1px solid currentColor;
 }
 
-.read-more, .read-more--heading, .grid-data__item, .list-inline-circle li a, .on-this-page__menu li a, .on-this-page__item a {
+.read-more, .read-more--heading, .read-more--footer, .grid-data__item, .list-inline-circle li a, .on-this-page__menu li a, .on-this-page__item a {
   text-decoration: none;
   padding-bottom: .25rem;
   border-bottom: 2px solid currentColor;
@@ -428,10 +428,10 @@ a:hover, a:active {
   }
 }
 .layout-sidebar__sidebar > .list-arrow li.list-arrow__item:focus, .layout-sidebar__sidebar > .list-arrow li.list-arrow__item:active, .layout-sidebar__sidebar > .list-arrow li.list-arrow__item:hover {
-  color: #00478c;
+  color: #5265ff;
 }
 .layout-sidebar__sidebar > .list-arrow li.list-arrow__item, .layout-sidebar__sidebar > .list-arrow li.list-arrow__item a {
-  color: #00478c;
+  color: #5265ff;
 }
 .layout-sidebar__sidebar > .list-arrow li.list-arrow__item a:focus, .layout-sidebar__sidebar > .list-arrow li.list-arrow__item a:hover {
   color: #007abb;
@@ -568,20 +568,20 @@ a:hover, a:active {
 }
 
 .form-submit, .form-submit:link, .button--normal, .button--normal:link {
-  border: 1px solid #003a73;
-  background-color: #00478c;
+  border: 1px solid #394eff;
+  background-color: #5265ff;
   color: #fff !important;
 }
 .form-submit .is-focus, .form-submit:hover, .form-submit:focus, .form-submit:link .is-focus, .form-submit:link:hover, .form-submit:link:focus, .button--normal .is-focus, .button--normal:hover, .button--normal:focus, .button--normal:link .is-focus, .button--normal:link:hover, .button--normal:link:focus {
-  background-color: #0054a6;
-  border-color: #00478c;
+  background-color: #6c7cff;
+  border-color: #5265ff;
   color: #fff;
 }
 .form-submit .is-active, .form-submit:active, .form-submit:link .is-active, .form-submit:link:active, .button--normal .is-active, .button--normal:active, .button--normal:link .is-active, .button--normal:link:active {
-  -moz-box-shadow: inset 0 2px 2px 0 #002d59;
-  -webkit-box-shadow: inset 0 2px 2px 0 #002d59;
-  box-shadow: inset 0 2px 2px 0 #002d59;
-  background-color: #003a73;
+  -moz-box-shadow: inset 0 2px 2px 0 #1f38ff;
+  -webkit-box-shadow: inset 0 2px 2px 0 #1f38ff;
+  box-shadow: inset 0 2px 2px 0 #1f38ff;
+  background-color: #394eff;
   color: #fff;
 }
 
@@ -611,19 +611,19 @@ a:hover, a:active {
 .poll-form--binary .poll-form__option label, .poll-form--binary .form-type-radio label, .poll-form__binary-option label, .poll-form--binary .poll-form__option label:link, .poll-form--binary .form-type-radio label:link, .poll-form__binary-option label:link, .button--text, .button--text:link {
   border: 1px solid #b9b9b9;
   background-color: #fff;
-  color: #00478c !important;
+  color: #5265ff !important;
 }
 .poll-form--binary .poll-form__option label .is-focus, .poll-form--binary .form-type-radio label .is-focus, .poll-form__binary-option label .is-focus, .poll-form--binary .poll-form__option label:hover, .poll-form--binary .form-type-radio label:hover, .poll-form__binary-option label:hover, .poll-form--binary .poll-form__option label:focus, .poll-form--binary .form-type-radio label:focus, .poll-form__binary-option label:focus, .poll-form--binary .poll-form__option label:link .is-focus, .poll-form--binary .form-type-radio label:link .is-focus, .poll-form__binary-option label:link .is-focus, .poll-form--binary .poll-form__option label:link:hover, .poll-form--binary .form-type-radio label:link:hover, .poll-form__binary-option label:link:hover, .poll-form--binary .poll-form__option label:link:focus, .poll-form--binary .form-type-radio label:link:focus, .poll-form__binary-option label:link:focus, .button--text .is-focus, .button--text:hover, .button--text:focus, .button--text:link .is-focus, .button--text:link:hover, .button--text:link:focus {
   background-color: white;
   border-color: #c6c6c6;
-  color: #00478c;
+  color: #5265ff;
 }
 .poll-form--binary .poll-form__option label .is-active, .poll-form--binary .form-type-radio label .is-active, .poll-form__binary-option label .is-active, .poll-form--binary .poll-form__option label:active, .poll-form--binary .form-type-radio label:active, .poll-form__binary-option label:active, .poll-form--binary .poll-form__option label:link .is-active, .poll-form--binary .form-type-radio label:link .is-active, .poll-form__binary-option label:link .is-active, .poll-form--binary .poll-form__option label:link:active, .poll-form--binary .form-type-radio label:link:active, .poll-form__binary-option label:link:active, .button--text .is-active, .button--text:active, .button--text:link .is-active, .button--text:link:active {
   -moz-box-shadow: inset 0 2px 2px 0 #e6e6e6;
   -webkit-box-shadow: inset 0 2px 2px 0 #e6e6e6;
   box-shadow: inset 0 2px 2px 0 #e6e6e6;
   background-color: #f2f2f2;
-  color: #00478c;
+  color: #5265ff;
 }
 
 .button--alert, .button--alert:link {
@@ -920,10 +920,10 @@ a:hover, a:active {
 
 .palette__blue-on-grey {
   background-color: #e4e4e4;
-  color: #00478c;
+  color: #5265ff;
 }
 .palette__blue-on-grey a {
-  color: #00478c;
+  color: #5265ff;
 }
 .palette__blue-on-grey a:focus, .palette__blue-on-grey a:hover {
   color: #12293a;
@@ -960,6 +960,13 @@ a:hover, a:active {
 }
 .palette__pale-grey a:focus, .palette__pale-grey a:hover {
   color: #12293a;
+}
+
+.palette__light-grey a, .channel-list__palette a, .promotional-feature a {
+  color: #5265ff;
+}
+.palette__light-grey a:focus, .palette__light-grey a:hover, .channel-list__palette a:focus, .promotional-feature a:focus, .channel-list__palette a:hover, .promotional-feature a:hover {
+  color: #3f4ecf;
 }
 
 h1, .heading--1--no-space, .heading--1--light, .heading--1, h2, .heading--2--no-space, .heading--2--light, .heading--2--spaced, .featured__title, .featured__grid-item h2, .site-feedback-form fieldset legend span, .heading--2, h3, .heading--3--no-space, .grid-stream__title, .alert-list__title, .news-list__title, .heading--3--light, .heading--3--spaced, .fieldset-legend, .form__title, .on-this-page__title, .promotional-feature__title, .share-row__label, .share-row li:first-child, .share-row h3, .heading--3, h4, .list-arrow__header, .heading--4--no-space, .heading--4--light, .heading--4--spaced, .update--extra__title, .heading--4, h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5, .site-feedback-block, .site-feedback-block--no-space, .site-feedback-block--light, .heading {
@@ -1541,11 +1548,11 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   line-height: 1.53125rem;
 }
 
-.underline-on-hover, h1 a, .heading--1--no-space a, .heading--1--light a, .heading--1 a, h2 a, .heading--2--no-space a, .heading--2--light a, .heading--2--spaced a, .featured__title a, .featured__grid-item h2 a, .site-feedback-form fieldset legend span a, .heading--2 a, h3 a, .heading--3--no-space a, .grid-stream__title a, .alert-list__title a, .news-list__title a, .heading--3--light a, .heading--3--spaced a, .fieldset-legend a, .form__title a, .on-this-page__title a, .promotional-feature__title a, .share-row__label a, .share-row li:first-child a, .share-row h3 a, .heading--3 a, h4 a, .list-arrow__header a, .heading--4--no-space a, .heading--4--light a, .heading--4--spaced a, .update--extra__title a, .heading--4 a, h5 a, .heading--5--no-space a, .heading--5--light a, .heading--5--spaced a, .heading--5 a, .site-feedback-block a, .site-feedback-block--no-space a, .site-feedback-block--light a, .heading a, .breadcrumb__link, .breadcrumb a, .underline-on-hover__wrapper a, .document-list__title a, .document-list__title--slim a, .document-list__title--slim--comment a, .list-arrow__list a, .update__title a, .file a, .file__link, .read-more, .read-more--heading, .grid-data__item, .list-inline-circle li a, .on-this-page__menu li a, .on-this-page__item a, .pager-item a, .top-notification a {
+.underline-on-hover, h1 a, .heading--1--no-space a, .heading--1--light a, .heading--1 a, h2 a, .heading--2--no-space a, .heading--2--light a, .heading--2--spaced a, .featured__title a, .featured__grid-item h2 a, .site-feedback-form fieldset legend span a, .heading--2 a, h3 a, .heading--3--no-space a, .grid-stream__title a, .alert-list__title a, .news-list__title a, .heading--3--light a, .heading--3--spaced a, .fieldset-legend a, .form__title a, .on-this-page__title a, .promotional-feature__title a, .share-row__label a, .share-row li:first-child a, .share-row h3 a, .heading--3 a, h4 a, .list-arrow__header a, .heading--4--no-space a, .heading--4--light a, .heading--4--spaced a, .update--extra__title a, .heading--4 a, h5 a, .heading--5--no-space a, .heading--5--light a, .heading--5--spaced a, .heading--5 a, .site-feedback-block a, .site-feedback-block--no-space a, .site-feedback-block--light a, .heading a, .breadcrumb__link, .breadcrumb a, .underline-on-hover__wrapper a, .document-list__title a, .document-list__title--slim a, .document-list__title--slim--comment a, .list-arrow__list a, .update__title a, .file a, .file__link, .read-more, .read-more--heading, .read-more--footer, .grid-data__item, .list-inline-circle li a, .on-this-page__menu li a, .on-this-page__item a, .pager-item a, .top-notification a {
   text-decoration: none;
   border-color: transparent;
 }
-.underline-on-hover:hover, .underline-on-hover:focus, h1 a:hover, .heading--1--no-space a:hover, .heading--1--light a:hover, .heading--1 a:hover, h2 a:hover, .heading--2--no-space a:hover, .heading--2--light a:hover, .heading--2--spaced a:hover, .featured__title a:hover, .site-feedback-form fieldset legend span a:hover, .heading--2 a:hover, h3 a:hover, .heading--3--no-space a:hover, .grid-stream__title a:hover, .alert-list__title a:hover, .news-list__title a:hover, .heading--3--light a:hover, .heading--3--spaced a:hover, .fieldset-legend a:hover, .form__title a:hover, .on-this-page__title a:hover, .promotional-feature__title a:hover, .share-row__label a:hover, .share-row li:first-child a:hover, .heading--3 a:hover, h4 a:hover, .list-arrow__header a:hover, .heading--4--no-space a:hover, .heading--4--light a:hover, .heading--4--spaced a:hover, .update--extra__title a:hover, .heading--4 a:hover, h5 a:hover, .heading--5--no-space a:hover, .heading--5--light a:hover, .heading--5--spaced a:hover, .heading--5 a:hover, .site-feedback-block a:hover, .site-feedback-block--no-space a:hover, .site-feedback-block--light a:hover, .heading a:hover, .breadcrumb__link:hover, .breadcrumb a:hover, .underline-on-hover__wrapper a:hover, .document-list__title a:hover, .document-list__title--slim a:hover, .document-list__title--slim--comment a:hover, .list-arrow__list a:hover, .update__title a:hover, .file a:hover, .file__link:hover, .read-more:hover, .read-more--heading:hover, .grid-data__item:hover, .list-inline-circle li a:hover, .on-this-page__menu li a:hover, .on-this-page__item a:hover, .pager-item a:hover, .top-notification a:hover, h1 a:focus, .heading--1--no-space a:focus, .heading--1--light a:focus, .heading--1 a:focus, h2 a:focus, .heading--2--no-space a:focus, .heading--2--light a:focus, .heading--2--spaced a:focus, .featured__title a:focus, .site-feedback-form fieldset legend span a:focus, .heading--2 a:focus, h3 a:focus, .heading--3--no-space a:focus, .grid-stream__title a:focus, .alert-list__title a:focus, .news-list__title a:focus, .heading--3--light a:focus, .heading--3--spaced a:focus, .fieldset-legend a:focus, .form__title a:focus, .on-this-page__title a:focus, .promotional-feature__title a:focus, .share-row__label a:focus, .share-row li:first-child a:focus, .heading--3 a:focus, h4 a:focus, .list-arrow__header a:focus, .heading--4--no-space a:focus, .heading--4--light a:focus, .heading--4--spaced a:focus, .update--extra__title a:focus, .heading--4 a:focus, h5 a:focus, .heading--5--no-space a:focus, .heading--5--light a:focus, .heading--5--spaced a:focus, .heading--5 a:focus, .site-feedback-block a:focus, .site-feedback-block--no-space a:focus, .site-feedback-block--light a:focus, .heading a:focus, .breadcrumb__link:focus, .breadcrumb a:focus, .underline-on-hover__wrapper a:focus, .document-list__title a:focus, .document-list__title--slim a:focus, .document-list__title--slim--comment a:focus, .list-arrow__list a:focus, .update__title a:focus, .file a:focus, .file__link:focus, .read-more:focus, .read-more--heading:focus, .grid-data__item:focus, .list-inline-circle li a:focus, .on-this-page__menu li a:focus, .on-this-page__item a:focus, .pager-item a:focus, .top-notification a:focus {
+.underline-on-hover:hover, .underline-on-hover:focus, h1 a:hover, .heading--1--no-space a:hover, .heading--1--light a:hover, .heading--1 a:hover, h2 a:hover, .heading--2--no-space a:hover, .heading--2--light a:hover, .heading--2--spaced a:hover, .featured__title a:hover, .site-feedback-form fieldset legend span a:hover, .heading--2 a:hover, h3 a:hover, .heading--3--no-space a:hover, .grid-stream__title a:hover, .alert-list__title a:hover, .news-list__title a:hover, .heading--3--light a:hover, .heading--3--spaced a:hover, .fieldset-legend a:hover, .form__title a:hover, .on-this-page__title a:hover, .promotional-feature__title a:hover, .share-row__label a:hover, .share-row li:first-child a:hover, .heading--3 a:hover, h4 a:hover, .list-arrow__header a:hover, .heading--4--no-space a:hover, .heading--4--light a:hover, .heading--4--spaced a:hover, .update--extra__title a:hover, .heading--4 a:hover, h5 a:hover, .heading--5--no-space a:hover, .heading--5--light a:hover, .heading--5--spaced a:hover, .heading--5 a:hover, .site-feedback-block a:hover, .site-feedback-block--no-space a:hover, .site-feedback-block--light a:hover, .heading a:hover, .breadcrumb__link:hover, .breadcrumb a:hover, .underline-on-hover__wrapper a:hover, .document-list__title a:hover, .document-list__title--slim a:hover, .document-list__title--slim--comment a:hover, .list-arrow__list a:hover, .update__title a:hover, .file a:hover, .file__link:hover, .read-more:hover, .read-more--heading:hover, .read-more--footer:hover, .grid-data__item:hover, .list-inline-circle li a:hover, .on-this-page__menu li a:hover, .on-this-page__item a:hover, .pager-item a:hover, .top-notification a:hover, h1 a:focus, .heading--1--no-space a:focus, .heading--1--light a:focus, .heading--1 a:focus, h2 a:focus, .heading--2--no-space a:focus, .heading--2--light a:focus, .heading--2--spaced a:focus, .featured__title a:focus, .site-feedback-form fieldset legend span a:focus, .heading--2 a:focus, h3 a:focus, .heading--3--no-space a:focus, .grid-stream__title a:focus, .alert-list__title a:focus, .news-list__title a:focus, .heading--3--light a:focus, .heading--3--spaced a:focus, .fieldset-legend a:focus, .form__title a:focus, .on-this-page__title a:focus, .promotional-feature__title a:focus, .share-row__label a:focus, .share-row li:first-child a:focus, .heading--3 a:focus, h4 a:focus, .list-arrow__header a:focus, .heading--4--no-space a:focus, .heading--4--light a:focus, .heading--4--spaced a:focus, .update--extra__title a:focus, .heading--4 a:focus, h5 a:focus, .heading--5--no-space a:focus, .heading--5--light a:focus, .heading--5--spaced a:focus, .heading--5 a:focus, .site-feedback-block a:focus, .site-feedback-block--no-space a:focus, .site-feedback-block--light a:focus, .heading a:focus, .breadcrumb__link:focus, .breadcrumb a:focus, .underline-on-hover__wrapper a:focus, .document-list__title a:focus, .document-list__title--slim a:focus, .document-list__title--slim--comment a:focus, .list-arrow__list a:focus, .update__title a:focus, .file a:focus, .file__link:focus, .read-more:focus, .read-more--heading:focus, .read-more--footer:focus, .grid-data__item:focus, .list-inline-circle li a:focus, .on-this-page__menu li a:focus, .on-this-page__item a:focus, .pager-item a:focus, .top-notification a:focus {
   border-color: currentColor;
 }
 
@@ -1832,7 +1839,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 .document-list__comment--comment-link.link {
   font-weight: 300;
   cursor: pointer;
-  color: #00478c;
+  color: #5265ff;
 }
 .document-list__comment--comment-link.link:hover {
   text-decoration: underline;
@@ -2595,7 +2602,7 @@ fieldset.separate .fieldset-legend {
   color: #12293a;
 }
 
-.read-more, .read-more--heading, .grid-data__item {
+.read-more, .read-more--heading, .read-more--footer, .grid-data__item {
   font-size: 0.95rem;
   line-height: 1.6625rem;
   padding-top: 1rem;
@@ -2604,18 +2611,18 @@ fieldset.separate .fieldset-legend {
   font-weight: 500;
 }
 @media (min-width: 720px) {
-  .read-more, .read-more--heading, .grid-data__item {
+  .read-more, .read-more--heading, .read-more--footer, .grid-data__item {
     font-size: 1.125rem;
   }
 }
-.read-more svg, .read-more--heading svg, .grid-data__item svg {
+.read-more svg, .read-more--heading svg, .read-more--footer svg, .grid-data__item svg {
   padding-left: .25rem;
   padding-bottom: .10rem;
   height: 15px;
   width: 16px;
 }
 @media (min-width: 720px) {
-  .read-more svg, .read-more--heading svg, .grid-data__item svg {
+  .read-more svg, .read-more--heading svg, .read-more--footer svg, .grid-data__item svg {
     vertical-align: baseline;
     padding-bottom: 0;
   }
@@ -2628,6 +2635,10 @@ fieldset.separate .fieldset-legend {
 }
 .read-more--heading svg {
   display: none;
+}
+
+.read-more--footer {
+  color: #000 !important;
 }
 
 .subsite__sub-theme-1 .read-more {
@@ -3307,10 +3318,10 @@ fieldset.separate .fieldset-legend {
 }
 
 .link-palette__normal, a {
-  color: #00478c;
+  color: #5265ff;
 }
 .link-palette__normal:hover, .link-palette__normal:focus, a:hover, a:focus {
-  color: #007abb;
+  color: #3f4ecf;
   border-color: currentColor;
 }
 .link-palette__normal:active, a:active {
@@ -3322,7 +3333,7 @@ fieldset.separate .fieldset-legend {
   color: #616161;
 }
 .link-palette__grey:hover, .link-palette__grey:focus, .list-inline-circle li a:hover, .on-this-page__menu li a:hover, .on-this-page__item a:hover, .list-inline-circle li a:focus, .on-this-page__menu li a:focus, .on-this-page__item a:focus {
-  color: #007abb;
+  color: #3f4ecf;
   border-color: currentColor;
 }
 .link-palette__grey:active, .list-inline-circle li a:active, .on-this-page__menu li a:active, .on-this-page__item a:active {
@@ -3889,6 +3900,55 @@ fieldset.separate .fieldset-legend {
   left: -100%;
 }
 
+.panel-background-1 {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 0 0;
+  background-image: url("../images/module-bar-1.png");
+}
+
+.panel-background-2 {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 100% 0;
+  background-image: url("../images/module-bar-2.png");
+}
+
+.panel-background-3 {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 20% 0;
+  background-image: url("../images/module-bar-3.png");
+}
+
+.panel-background-4 {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 50% 0;
+  background-image: url("../images/module-bar-4.png");
+}
+
+.panel-background-5 {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 10% 0;
+  background-image: url("../images/module-bar-5.png");
+}
+
+.panel-background-6 {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 40% 0;
+  background-image: url("../images/module-bar-6.png");
+}
+
+.panel-background-7 {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 5% 0;
+  background-image: url("../images/module-bar-7.png");
+}
+
 .poll-form {
   padding-bottom: 1rem;
 }
@@ -3971,8 +4031,7 @@ fieldset.separate .fieldset-legend {
   position: relative;
 }
 .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress {
-  background-color: #55c7e3;
-  background-image: url("../images/progress-bar-bg.jpg");
+  background-color: #a2b4fa;
   background-position: 50% 100%;
 }
 .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey {
@@ -4001,7 +4060,7 @@ fieldset.separate .fieldset-legend {
 }
 
 .progress-bar__highlighted {
-  color: #007abb;
+  color: #000;
   font-weight: bold;
 }
 
@@ -4167,7 +4226,7 @@ fieldset.separate .fieldset-legend {
 }
 .share-row a {
   border-bottom: 0;
-  color: #00478c;
+  color: #5265ff;
 }
 .share-row a:focus, .share-row a:hover {
   color: #007abb;
@@ -4802,7 +4861,7 @@ fieldset.separate .fieldset-legend {
   line-height: 2.40625rem;
   display: block;
   background: #fff;
-  color: #00478c;
+  color: #5265ff;
   border: none;
   border-bottom: 2px solid transparent;
   padding: 1rem;
@@ -4821,8 +4880,8 @@ fieldset.separate .fieldset-legend {
 }
 .tabber__mobile-item:focus, .horizontal-tabs .horizontal-tabs-list a:focus, .tabber__mobile-item:hover, .horizontal-tabs .horizontal-tabs-list a:hover, .tabber__nav-item:focus, .tabber__nav-item:hover, .tabber__nav-item--focus {
   background-color: #fff;
-  border-color: #00478c;
-  color: #00478c;
+  border-color: #5265ff;
+  color: #5265ff;
 }
 .tabber__mobile-item {
   border-color: #b9b9b9;

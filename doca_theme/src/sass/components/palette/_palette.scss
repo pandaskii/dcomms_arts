@@ -84,3 +84,12 @@ $palette-main: ( grey-off-white: ( background: color(grey-off-white), ), red: ( 
 .palette__pale-grey, %palette__pale-grey {
   @include palette($palette-main, pale-grey);
 }
+
+.palette__light-grey, %palette__light-grey {
+  a {
+    color: color(doca-blue);
+    &:focus, &:hover {
+      color: color(blue-mid);
+    }
+  }
+}

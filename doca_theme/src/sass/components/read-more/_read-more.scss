@@ -40,6 +40,11 @@
   }
 }
 
+.read-more--footer, %read-more--footer {
+  @extend %read-more;
+  color: #000 !important;
+}
+
 // Paletting
 .read-more {
   @each $subsite, $palette in $subsite-palette {

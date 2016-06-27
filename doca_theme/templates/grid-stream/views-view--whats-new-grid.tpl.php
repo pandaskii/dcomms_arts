@@ -28,7 +28,7 @@
  */
 ?>
 <div class="palette__light-grey <?php print $classes; ?>">
-  <div class="grid-stream">
+  <div class="grid-stream panel-background-1">
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
       <?php print $title; ?>

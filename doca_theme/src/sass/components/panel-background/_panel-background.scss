@@ -1,0 +1,14 @@
+// Header background
+//
+// Background image for the panel module
+//
+// Markup: panel-background.html
+//
+// Styleguide components.panel-background
+$module-background-position: 0 100% 20% 50% 10% 40% 5%;
+@each $position in $module-background-position {
+  $i: index($module-background-position, $position);
+  %panel-background-#{$i}, .panel-background-#{$i} {
+    @include background-image('module-bar-#{$i}.png', $position, auto);
+  }
+}
