@@ -4154,6 +4154,13 @@ fieldset.separate .fieldset-legend {
   }
 }
 
+.promotional-feature--dark {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 0;
+  background-image: url("../images/bg--gradient--dark.png");
+  background-color: transparent;
+}
 @media (min-width: 960px) {
   .promotional-feature--dark {
     padding: 6rem 1rem;
