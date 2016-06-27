@@ -1095,7 +1095,6 @@ function doca_theme_block_view_alter(&$data, $block) {
  * Helper function to add consultation variables to template files.
  */
 function _consultation_vars(&$variables, $element_object) {
-
   $consultation['now'] = time();
   $consultation['wrapped_entity'] = entity_metadata_wrapper('node', $element_object);
   $date = $consultation['wrapped_entity']->field_consultation_date->value();
@@ -1110,8 +1109,10 @@ function _consultation_vars(&$variables, $element_object) {
   $consultation['days_remain'] = _consultation_days_remain($consultation);
   $consultation['submission_enabled'] = $consultation['wrapped_entity']->field_formal_submission_enabled->value();
   $consultation['status_class'] = ($consultation['percentage'] === 100 ? 'progress-bar--complete' : '');
-  $consultation['status_message'] = _consultation_status_message($consultation);
-  $consultation['submissions_closed_message'] = _consultation_submissions_closed_message($consultation);
+  if ($element_object->type == 'consultation') {
+    $consultation['status_message'] = _consultation_status_message($consultation);
+    $consultation['submissions_closed_message'] = _consultation_submissions_closed_message($consultation);
+  }
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
   $variables['consultation'] = $consultation;
 
