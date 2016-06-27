@@ -38,12 +38,15 @@
 
 .featured__img, %featured__img {
   padding-bottom: 0;
-  float: right;
   img {
     width: auto;
-    height: 38px;
+    height: 90px;
     @include breakpoint($medium) {
-      height: 62px;
+      float: right;
+      height: 45px;
+    }
+    @include breakpoint($large) {
+      height: 90px;
     }
   }
 }
@@ -60,4 +63,12 @@
   .read-more {
     @extend %featured__read-more;
   }
+}
+
+.featured__grid-item__left, %featured__grid-item__left {
+  @extend %promotional-feature__left;
+}
+
+.featured__grid-item__right, %featured__grid-item__right {
+  @extend %promotional-feature__right;
 }

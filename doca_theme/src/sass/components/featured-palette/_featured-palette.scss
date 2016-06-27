@@ -39,11 +39,11 @@ $featured-palette__subsite: () !default;
     }
   }
   .featured-palette__wrapper {
-    background-color: palette($default-featured-palette, 6 background);
+    background-color: palette($default-featured-palette, 1 background);
   }
 }
 
-$default-palette: ( default: ( background-light: #0a2e44, background-dark: #0f405e, ), );
+$default-palette: ( default: ( background-light: #bababa, background-dark: #a5a5a5, ), );
 @include feature-palette-apply(default, $default-palette);
 @each $subsite, $palette in $subsite-palette {
   .subsite__#{$subsite} {
