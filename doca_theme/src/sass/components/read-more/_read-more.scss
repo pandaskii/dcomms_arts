@@ -53,3 +53,7 @@
     }
   }
 }
+
+.readmore--footer--wrapper .read-more {
+  @extend %read-more--footer;
+}
