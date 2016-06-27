@@ -1091,7 +1091,7 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   margin: 1rem 0 2rem;
 }
 
-.subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .promotional-feature--dark, .update--extra, .spacer {
+.subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .promotional-feature--dark, .update--extra, .spacer {
   padding: 1rem;
 }
 
@@ -1110,7 +1110,7 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   padding: 2rem 0;
 }
 
-h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal {
+h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal {
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -1228,17 +1228,17 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
     margin-bottom: 2rem;
   }
 }
-.grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left {
+.grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left {
   padding-top: .5rem;
   float: left;
   width: calc(100% - 100px);
 }
 @media (min-width: 1100px) {
-  .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left {
+  .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left {
     padding: 1.5rem 2rem 4.4rem;
   }
 }
-.grid-stream__item__right, .grid-stream__item--landscape-small--has-image .grid-stream__item--landscape-small__right, .grid-stream__item--landscape-small--has-image-description .grid-stream__item--landscape-small__right, .grid-stream__item--landscape__right, .grid-stream__item--portrait-small__right, .grid-stream__item--portrait__right {
+.grid-stream__item__right, .grid-stream__item--landscape-small--has-image .grid-stream__item--landscape-small__right, .grid-stream__item--landscape-small--has-image-description .grid-stream__item--landscape-small__right, .grid-stream__item--landscape__right, .grid-stream__2-col .grid-stream__item--portrait-small__right, .grid-stream__item--portrait-small__right, .grid-stream__item--portrait__right {
   float: right;
   width: 100px;
 }
@@ -2868,12 +2868,12 @@ fieldset.separate .fieldset-legend {
 }
 
 @media (min-width: 720px) {
-  .grid-stream__item--landscape__left {
+  .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left {
     width: 32.75%;
   }
 }
 @media (min-width: 720px) {
-  .grid-stream__item--landscape__right {
+  .grid-stream__item--landscape__right, .grid-stream__2-col .grid-stream__item--portrait-small__right {
     width: 67.25%;
   }
 }
@@ -2912,6 +2912,9 @@ fieldset.separate .fieldset-legend {
   background-size: cover;
   background-position: 0 0;
   background-image: url("../images/bg--point--light.svg");
+}
+.grid-stream__2-col .grid-stream__item--portrait-small {
+  width: 100%;
 }
 
 @media (min-width: 720px) {
