@@ -23,7 +23,7 @@
     @extend %hide-text;
     background-image: url('../logo.png');
     background-repeat: no-repeat;
-    height: 67px;
+    height: 51px;
     width: 360px;
     margin-bottom: 2rem;
   }
@@ -32,7 +32,7 @@
 %header__logo-image, .header__logo-image {
   height: 38px;
   @include breakpoint($medium) {
-    height: 67px;
+    height: 51px;
   }
 }
 

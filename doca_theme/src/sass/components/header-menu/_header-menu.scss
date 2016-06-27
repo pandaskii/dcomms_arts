@@ -10,44 +10,75 @@
 %header-menu__menu, .header-menu__menu {
   @extend %list-unstyled;
   padding: 0 1rem;
+  border-color: transparent;
   @include breakpoint($large) {
-    border: none;
     float: right;
+    padding: 0 0 0 1rem;
   }
 }
 
 %header-menu__item, .header-menu__item {
-  @extend %header-menu__border;
   @include breakpoint($large) {
-    display: inline-block;
-    margin-right: 1.5rem;
+    display: block;
+    float: left;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    padding-bottom: 0.875rem;
+    @extend %header-menu__border;
+    &:first-child {
+      padding-left: 0;
+    }
   }
   .no-mediaqueries & {
-    display: inline-block;
-    margin-right: 1.5rem;
+    display: block;
+    float: left;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    &:first-child {
+      padding-left: 0;
+    }
   }
 }
 
 %header-menu__link, .header-menu__link {
-  @extend %header-menu__border;
   @extend %header-menu__arrow;
-  border-color: transparent;
   display: block;
   padding: 1.25rem 0;
   color: color(dark);
   text-decoration: none;
+  border-bottom: 2px solid #fff;
+  position: relative;
+  &.active {
+    color: color(doca-blue);
+    border-color: color(doca-blue);
+  }
   @include breakpoint($large) {
     padding: 1rem 0 0;
+    border-color: transparent;
+    &.active {
+      color: color(dark);
+      border-color: transparent;
+      &:after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        bottom: -1.25rem;
+        left: 0;
+        height: 6px;
+        z-index: 1;
+        background: url('../images/bg--point--black.svg') repeat-x white 0 50%;
+      }
+    }
+  }
+  &:hover, &:focus {
+    border-color: color(blue-aqua);
+    color: color(dark);
   }
 }
 
 .header-menu__border, %header-menu__border {
-  border-bottom: 1px solid color(grey-extra-light);
   @include breakpoint($large) {
-    border-color: transparent;
-  }
-  &:focus, &:hover, &.is-active, .is-active & {
-    border-color: color(doca-yellow) !important;
+    border-bottom: 3px solid black;
   }
 }
 

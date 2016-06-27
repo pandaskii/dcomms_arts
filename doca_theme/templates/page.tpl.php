@@ -8,7 +8,7 @@
  * @see https://drupal.org/node/1728148
  */
 ?>
-<div class="offscreen__inner <?php print ($is_front) ? 'header-background--blue' : 'header-background'; ?>">
+<div class="offscreen__inner <?php print ($is_front) ? '' : 'header-background'; ?>">
 
   <?php if (!empty($top_announcements) && $top_announcements): ?>
   <div class="top-notification" id="top-announcements">

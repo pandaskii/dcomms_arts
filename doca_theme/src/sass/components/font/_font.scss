@@ -9,10 +9,20 @@
 // .font__small   - Smaller thank base font size.
 //
 // Styleguide: components.font
-// The font sizes for small-large.
+// The font sizes for small-larger.
+$larger-font-size: 2.125rem;
 $large-font-size: 1.5rem;
 $medium-font-size: 1.125rem;
 $small-font-size: 0.875rem;
+%font__larger, .font__larger {
+  @include font-size-line-height(1.5rem);
+  font-weight: 300;
+  color: #000;
+  @include breakpoint($large) {
+    @include font-size-line-height(2.125rem);
+  }
+}
+
 %font__large, .font__large {
   @include font-size-line-height(1.25rem);
   font-weight: 300;
