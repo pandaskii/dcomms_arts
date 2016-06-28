@@ -545,6 +545,7 @@ function doca_theme_preprocess_views_view_field(&$variables) {
   }
 }
 
+
 /**
  * Implements hook_form_alter().
  */
@@ -1205,6 +1206,14 @@ function doca_theme_preprocess_views_view(&$variables) {
   if ($variables['name'] === 'consultations_other') {
     if ($variables['view']->total_rows >= '3' && $variables['display_id'] == 'block') {
       $variables['classes_array'][] = 'grid-stream--grid-at-three';
+    }
+  }
+  if ($variables['name'] == 'whats_new_grid' && $variables['display_id'] == 'block_1') {
+    if(count($variables['view']->result) == 2) {
+      $variables['classes_array'][] = 'grid-stream__2-col';
+      $variables['rows'] = str_replace('grid_stream_medlrg', 'grid_stream_landscape_large', $variables['rows']);
+      $variables['rows'] = str_replace('grid_stream_medium_alt', 'grid_stream_landscape_medlrg', $variables['rows']);
+      $variables['rows'] = str_replace('grid_stream_medium', 'grid_stream_landscape_small', $variables['rows']);
     }
   }
 }

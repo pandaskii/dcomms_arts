@@ -15,11 +15,17 @@
     @include breakpoint($medium) {
       @include float-span(8);
     }
+    .grid-stream__2-col & {
+      @extend %grid-stream__item--landscape__left;
+    }
   }
   &__right {
     @extend %grid-stream__item__right;
     @include breakpoint($medium) {
       @include float-span(4, last);
+    }
+    .grid-stream__2-col & {
+      @extend %grid-stream__item--landscape__right;
     }
   }
   &__image-overlay-after, &__image-overlay-after {
@@ -29,6 +35,9 @@
     .grid-stream__item--portrait-small:last-child & {
       @include background-image('bg--point--light.svg', 0);
     }
+  }
+  .grid-stream__2-col & {
+    width: 100%;
   }
 }
 
