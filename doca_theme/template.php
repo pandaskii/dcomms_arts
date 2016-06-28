@@ -973,7 +973,7 @@ function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$varia
     $feature_types = array('page', 'blog_article', 'alert', 'news_article');
     if ($variables['type'] === 'consultation' || $variables['type'] === 'poll') {
       // If viewed in iframe mode - add additional class.
-      if ($variables['view']->name === 'consultations_iframe') {
+      if (isset($variables['view']) && $variables['view']->name === 'consultations_iframe') {
         $variables['classes_array'][] = 'grid-stream__item--iframe';
       }
       // Modify the class if the node has a Featured Image.
@@ -1078,7 +1078,6 @@ function doca_theme_block_view_alter(&$data, $block) {
  * Helper function to add consultation variables to template files.
  */
 function _consultation_vars(&$variables, $element_object) {
-
   $consultation['now'] = time();
   $consultation['wrapped_entity'] = entity_metadata_wrapper('node', $element_object);
   $date = $consultation['wrapped_entity']->field_consultation_date->value();
@@ -1093,8 +1092,10 @@ function _consultation_vars(&$variables, $element_object) {
   $consultation['days_remain'] = _consultation_days_remain($consultation);
   $consultation['submission_enabled'] = $consultation['wrapped_entity']->field_formal_submission_enabled->value();
   $consultation['status_class'] = ($consultation['percentage'] === 100 ? 'progress-bar--complete' : '');
-  $consultation['status_message'] = _consultation_status_message($consultation);
-  $consultation['submissions_closed_message'] = _consultation_submissions_closed_message($consultation);
+  if ($element_object->type == 'consultation') {
+    $consultation['status_message'] = _consultation_status_message($consultation);
+    $consultation['submissions_closed_message'] = _consultation_submissions_closed_message($consultation);
+  }
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
   $variables['consultation'] = $consultation;
 
@@ -1217,7 +1218,6 @@ function doca_theme_preprocess_views_view(&$variables) {
     }
   }
 }
-
 
 /**
  * Implements hook_theme().

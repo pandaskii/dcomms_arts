@@ -21,6 +21,11 @@ function doca_admin_form_node_form_alter(&$form, &$form_state, $form_id) {
   if (!empty($node->nid) && isset($node->workbench_moderation['published']->vid)) {
     unset($form['options']['workbench_moderation_state_new']['#options']['archive']);
   }
+  if ($node->type == 'funding') {
+    $options = &$form['field_consultation_date_status'][LANGUAGE_NONE]['#options'];
+    $options['upcoming'] = str_replace('consultation', 'funding', $options['upcoming']);
+    $options['current'] = str_replace('consultation', 'funding', $options['current']);
+  }
 }
 
 function doca_admin_form_workbench_moderation_moderate_form_alter(&$form, &$form_state, $form_id) {
