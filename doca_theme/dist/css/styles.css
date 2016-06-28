@@ -1145,9 +1145,6 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
 .spacer--top-large, .form-actions, .image-with-caption__caption, .spacer--top {
   padding-top: 1rem;
 }
-.front .spacer--top-large, .front .form-actions, .front .image-with-caption__caption, .front .spacer--top {
-  padding-top: 0;
-}
 
 .spacer--top-mid {
   padding-top: 2rem;
@@ -1165,9 +1162,6 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
 
 .spacer--bottom-mid {
   padding-bottom: 2rem;
-}
-.front .spacer--bottom-mid {
-  padding-bottom: 0;
 }
 
 @media (min-width: 960px) {
@@ -2998,27 +2992,13 @@ fieldset.separate .fieldset-legend {
   display: block;
 }
 
-.header-background {
-  background-repeat: no-repeat;
-  background-size: 20%;
-  background-position: 100% 0;
-  background-image: url("../images/bg--header-inner.svg");
-}
-@media (min-width: 980px) {
+@media (min-width: 1660px) {
   .header-background {
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: 0% 0;
+    background-image: url("../images/arts-brand-lvl2.png");
     background-size: auto;
-  }
-}
-
-.header-background--blue {
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 100% 0;
-  background-image: url("../images/bg--header-front--small.svg");
-}
-@media (min-width: 980px) {
-  .header-background--blue {
-    background-image: url("../images/bg--header-front--large.svg");
   }
 }
 

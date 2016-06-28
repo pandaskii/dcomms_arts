@@ -39,9 +39,6 @@
 
 %spacer--top, .spacer--top {
   padding-top: 1rem;
-  .front & {
-    padding-top: 0;
-  }
 }
 
 %spacer--top-mid, .spacer--top-mid {
@@ -61,9 +58,6 @@
 
 %spacer--bottom-mid, .spacer--bottom-mid {
   padding-bottom: 2rem;
-  .front & {
-    padding-bottom: 0;
-  }
 }
 
 %spacer--bottom-large, .spacer--bottom-large {
