@@ -6,7 +6,7 @@
 ?>
 <div class="max-width__medium">
   <h3 class="heading--3 spacer--top" <?php print $title_attributes; ?>><?php print t('Formal Submission'); ?></h3>
-  <?php if($consultation['submissions_closed_message']): ?>
+  <?php if(!empty($consultation['submissions_closed_message'])): ?>
     <div class="bordered spacer"><?php print $consultation['submissions_closed_message']; ?></div>
   <?php endif; ?>
   <div class="spacer--vertical">
