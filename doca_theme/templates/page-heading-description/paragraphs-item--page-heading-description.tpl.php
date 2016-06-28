@@ -4,6 +4,7 @@
  * Channels theme implementation for a container.
  */
 ?>
+<?php if ($is_front):?><div class="page-description--arts-brand"></div><?php endif;?>
 <?php if(isset($content['field_pbundle_title'])): ?>
   <h1><?php print render($content['field_pbundle_title']); ?></h1>
 <?php endif; ?>

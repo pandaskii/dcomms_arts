@@ -16,7 +16,7 @@
   fill: currentColor;
   font-weight: 500;
   @include breakpoint($medium) {
-    font-size: $medium-font-size;
+    font-size: $base-font-size;
   }
   svg {
     padding-left: .25rem;
@@ -52,8 +52,4 @@
       @include subsite-link-color($subsite);
     }
   }
-}
-
-.readmore--footer--wrapper .read-more {
-  @extend %read-more--footer;
 }

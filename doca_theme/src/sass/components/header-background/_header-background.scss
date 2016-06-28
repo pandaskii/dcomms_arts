@@ -6,15 +6,8 @@
 //
 // Styleguide components.header-background
 %header-background, .header-background {
-  @include background-image('bg--header-inner.svg', 100%, 20%);
-  @include breakpoint($large) {
+  @include breakpoint($xx-large) {
+    @include background-image('arts-brand-lvl2.png', 0%, 20%);
     background-size: auto;
-  }
-}
-
-%header-background--blue, .header-background--blue {
-  @include background-image('bg--header-front--small.svg', 100%, auto);
-  @include breakpoint($large) {
-    background-image: url('../images/bg--header-front--large.svg');
   }
 }

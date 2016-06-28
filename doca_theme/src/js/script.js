@@ -51,4 +51,18 @@
     }
   };
 
+  Drupal.behaviors.streamLinks = {
+    attach: function(context) {
+      $('.channel-list__grid-item a', context).hover(function() {
+        var imgSrc = $(this).find('img').attr('src');
+        imgSrc = imgSrc.replace('.svg', '_h.svg');
+        $(this).find('img').attr('src', imgSrc);
+      }, function() {
+        var imgSrc = $(this).find('img').attr('src');
+        imgSrc = imgSrc.replace('_h.svg', '.svg');
+        $(this).find('img').attr('src', imgSrc);
+      })
+    }
+  };
+
 })(jQuery, Drupal);
