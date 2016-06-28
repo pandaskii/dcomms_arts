@@ -90,8 +90,8 @@
 }
 
 .channel-list__img, %channel-list__img {
-  width: auto;
-  height: auto;
+  max-width: 50px;
+  max-height: 40px;
   vertical-align: middle;
   @include breakpoint($medium) {
     width: auto;
@@ -100,18 +100,14 @@
 
 .channel-list__title, %channel-list__title {
   display: inline-block;
-  font-size: $medium-font-size;
-  font-weight: 300;
+  font-size: $base-font-size;
+  font-weight: 500;
   vertical-align: middle;
   color: #000;
   @include breakpoint($medium) {
     display: block;
     margin-bottom: .25rem;
-    @include font-size-line-height(1rem, 1.15);
-  }
-  @include breakpoint($large) {
-    font-size: 1.25rem;
-    @include font-size-line-height(1.25rem, 1.15);
+    font-size: $medium-font-size;
   }
   .no-mediaqueries & {
     display: block;

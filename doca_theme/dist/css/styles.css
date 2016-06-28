@@ -1684,8 +1684,8 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 }
 
 .channel-list__img, .channel-list__img-wrapper img {
-  width: auto;
-  height: auto;
+  max-width: 50px;
+  max-height: 40px;
   vertical-align: middle;
 }
 @media (min-width: 720px) {
@@ -1696,8 +1696,8 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 
 .channel-list__title {
   display: inline-block;
-  font-size: 1.125rem;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 500;
   vertical-align: middle;
   color: #000;
 }
@@ -1705,15 +1705,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   .channel-list__title {
     display: block;
     margin-bottom: .25rem;
-    font-size: 1rem;
-    line-height: 1.15rem;
-  }
-}
-@media (min-width: 980px) {
-  .channel-list__title {
-    font-size: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4375rem;
+    font-size: 1.125rem;
   }
 }
 .no-mediaqueries .channel-list__title {
