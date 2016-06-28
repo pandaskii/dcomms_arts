@@ -96,6 +96,10 @@
   @include breakpoint($medium) {
     width: auto;
   }
+  @include breakpoint($large) {
+    max-width: 70px;
+    max-height: 70px;
+  }
 }
 
 .channel-list__title, %channel-list__title {
