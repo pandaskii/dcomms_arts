@@ -56,10 +56,10 @@ stylesheets[all][] = horizontal-tabs.css
 stylesheets[all][] = panels.css
 
 ; Then we add our own stylesheet.
-stylesheets[all][] = css/bower-components.css
-stylesheets[all][] = css/styles.css
-stylesheets[all][] = css/tablesaw.css
-stylesheets[all][] = libraries/gray/css/gray.min.css
+stylesheets[all][] = vendor/css/bower-components.css
+stylesheets[all][] = dist/css/styles.css
+stylesheets[all][] = vendor/css/tablesaw.css
+stylesheets[all][] = vendor/libraries/gray/css/gray.min.css
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
 ; Instead, Zen now adds conditional-comment-included classes to the html
