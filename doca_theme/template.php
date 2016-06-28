@@ -972,7 +972,7 @@ function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$varia
     $feature_types = array('page', 'blog_article', 'alert', 'news_article');
     if ($variables['type'] === 'consultation' || $variables['type'] === 'poll') {
       // If viewed in iframe mode - add additional class.
-      if ($variables['view']->name === 'consultations_iframe') {
+      if (isset($variables['view']) && $variables['view']->name === 'consultations_iframe') {
         $variables['classes_array'][] = 'grid-stream__item--iframe';
       }
       // Modify the class if the node has a Featured Image.
