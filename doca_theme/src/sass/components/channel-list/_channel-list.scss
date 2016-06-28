@@ -90,12 +90,9 @@
 }
 
 .channel-list__img, %channel-list__img {
-  max-width: 50px;
-  max-height: 40px;
+  width: 50px;
+  height: auto;
   vertical-align: middle;
-  @include breakpoint($medium) {
-    width: auto;
-  }
   @include breakpoint($large) {
     max-width: 70px;
     max-height: 70px;
@@ -111,6 +108,8 @@
   @include breakpoint($medium) {
     display: block;
     margin-bottom: .25rem;
+  }
+  @include breakpoint($large) {
     font-size: $medium-font-size;
   }
   .no-mediaqueries & {
