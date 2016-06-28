@@ -1181,7 +1181,14 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 100% 0;
-  background-image: url("../images/bg--gradient.png");
+  background-image: url("../images/bg--big.svg");
+}
+
+.background-image__big--alt {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 0;
+  background-image: url("../images/bg--big--alt.png");
 }
 
 .background-image__small {

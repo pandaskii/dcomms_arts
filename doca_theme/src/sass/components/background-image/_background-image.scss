@@ -15,7 +15,11 @@
 }
 
 %background-image__big, .background-image__big {
-  @include background-image('bg--gradient.png', 100%);
+  @include background-image('bg--big.svg', 100%);
+}
+
+%background-image__big--alt, .background-image__big--alt {
+  @include background-image('bg--big--alt.png');
 }
 
 %background-image__small, .background-image__small {
