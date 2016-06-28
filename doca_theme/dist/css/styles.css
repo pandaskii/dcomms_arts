@@ -1896,32 +1896,32 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 }
 
 .featured-palette, .featured-palette a {
-  color: #12293a;
+  color: #fff;
 }
 .featured-palette:hover, .featured-palette:visited, .featured-palette:link, .featured-palette a:hover, .featured-palette a:visited, .featured-palette a:link {
-  color: #12293a;
+  color: #fff;
 }
 .featured-palette > :nth-child(1n) {
-  background-color: #bababa;
+  background-color: #5265ff;
 }
 .featured-palette > :nth-child(2n) {
-  background-color: #b2b2b2;
+  background-color: #4859e0;
 }
 .featured-palette > :nth-child(3n) {
-  background-color: #adadad;
+  background-color: #4353d1;
 }
 .featured-palette > :nth-child(4n) {
-  background-color: darkgray;
+  background-color: #3e4dc1;
 }
 .featured-palette > :nth-child(5n) {
-  background-color: #a5a5a5;
+  background-color: #3947b2;
 }
 .featured-palette > :nth-child(6n) {
-  background-color: #b6b6b6;
+  background-color: #4d5ff0;
 }
 
 .featured-palette__wrapper {
-  background-color: #bababa;
+  background-color: #4d5ff0;
 }
 
 .subsite__sub-theme-1 .featured-palette, .subsite__sub-theme-1 .featured-palette a {
@@ -1949,7 +1949,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-color: #c04404;
 }
 .subsite__sub-theme-1 .featured-palette__wrapper {
-  background-color: #cd4902;
+  background-color: #c04404;
 }
 
 .subsite__sub-theme-2 .featured-palette, .subsite__sub-theme-2 .featured-palette a {
@@ -1977,7 +1977,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-color: #fcbf31;
 }
 .subsite__sub-theme-2 .featured-palette__wrapper {
-  background-color: #feca30;
+  background-color: #fcbf31;
 }
 
 .subsite__sub-theme-3 .featured-palette, .subsite__sub-theme-3 .featured-palette a {
@@ -2005,7 +2005,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-color: #00488e;
 }
 .subsite__sub-theme-3 .featured-palette__wrapper {
-  background-color: #00509d;
+  background-color: #00488e;
 }
 
 .subsite__sub-theme-4 .featured-palette, .subsite__sub-theme-4 .featured-palette a {
@@ -2033,7 +2033,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-color: #00488e;
 }
 .subsite__sub-theme-4 .featured-palette__wrapper {
-  background-color: #00509d;
+  background-color: #00488e;
 }
 
 .subsite__communications .featured-palette, .subsite__communications .featured-palette a {
@@ -2061,7 +2061,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-color: #00488e;
 }
 .subsite__communications .featured-palette__wrapper {
-  background-color: #00509d;
+  background-color: #00488e;
 }
 
 .subsite__alert .featured-palette, .subsite__alert .featured-palette a {
@@ -2089,7 +2089,35 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-color: #da5e1b;
 }
 .subsite__alert .featured-palette__wrapper {
-  background-color: #f26b21;
+  background-color: #da5e1b;
+}
+
+.featured-palette--grey .featured-palette, .featured-palette--grey .featured-palette a {
+  color: #12293a;
+}
+.featured-palette--grey .featured-palette:hover, .featured-palette--grey .featured-palette:visited, .featured-palette--grey .featured-palette:link, .featured-palette--grey .featured-palette a:hover, .featured-palette--grey .featured-palette a:visited, .featured-palette--grey .featured-palette a:link {
+  color: #12293a;
+}
+.featured-palette--grey .featured-palette > :nth-child(1n) {
+  background-color: #bababa;
+}
+.featured-palette--grey .featured-palette > :nth-child(2n) {
+  background-color: #bababa;
+}
+.featured-palette--grey .featured-palette > :nth-child(3n) {
+  background-color: #bababa;
+}
+.featured-palette--grey .featured-palette > :nth-child(4n) {
+  background-color: #bababa;
+}
+.featured-palette--grey .featured-palette > :nth-child(5n) {
+  background-color: #bababa;
+}
+.featured-palette--grey .featured-palette > :nth-child(6n) {
+  background-color: #bababa;
+}
+.featured-palette--grey .featured-palette__wrapper {
+  background-color: #bababa;
 }
 
 .featured__grid-container {

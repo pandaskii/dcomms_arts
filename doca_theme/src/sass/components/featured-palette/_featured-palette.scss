@@ -39,14 +39,19 @@ $featured-palette__subsite: () !default;
     }
   }
   .featured-palette__wrapper {
-    background-color: palette($default-featured-palette, 1 background);
+    background-color: palette($default-featured-palette, 6 background);
   }
 }
 
-$default-palette: ( default: ( background-light: #bababa, background-dark: #a5a5a5, ), );
+$default-palette: ( default: ( background-light: #5265ff, background-dark: #3947b2, ), );
+$grey-palette: ( grey: ( background-light: #bababa, background-dark: #bababa, ), );
 @include feature-palette-apply(default, $default-palette);
 @each $subsite, $palette in $subsite-palette {
   .subsite__#{$subsite} {
     @include feature-palette-apply($subsite, $subsite-palette);
   }
+}
+
+.featured-palette--grey, %featured-palette--grey {
+  @include feature-palette-apply(grey, $grey-palette);
 }
