@@ -5,7 +5,7 @@
  */
 ?>
 <?php foreach ($items as $delta => $item): ?>
-  <div class="clearfix__overflow readmore--footer--wrapper">
+  <div class="clearfix__overflow read-more--footer-wrapper">
     <?php print doca_theme_read_more_link(check_plain($item['#element']['url']), check_plain($item['#element']['title'])); ?>
   </div>
 <?php endforeach; ?>

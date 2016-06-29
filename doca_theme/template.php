@@ -961,7 +961,7 @@ function doca_theme_preprocess_field(&$variables, $hook) {
   $variables['external_source'] = $external_source;
 
   if ($variables['element']['#field_name'] == 'field_stackla_embed_para') {
-    drupal_add_js(path_to_theme() . '/js/stackla.js', array('file'));
+    drupal_add_js(path_to_theme() . '/vendor/js/stackla.js', array('file'));
   }
 }
 

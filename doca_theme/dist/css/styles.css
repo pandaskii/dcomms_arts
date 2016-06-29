@@ -4040,8 +4040,18 @@ fieldset.separate .fieldset-legend {
   background-position: 0 0;
   background-image: url("../images/module-bar-1.png");
   min-height: 5px;
+  background-size: 100% 3px;
 }
 @media (min-width: 720px) {
+  .panel-background-1 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 16px 0;
+    background-image: url("../images/module-bar-1.png");
+    background-size: 40% 5px;
+  }
+}
+@media (min-width: 980px) {
   .panel-background-1 {
     background-repeat: no-repeat;
     background-size: auto;
@@ -4056,12 +4066,22 @@ fieldset.separate .fieldset-legend {
   background-position: 0 0;
   background-image: url("../images/module-bar-2.png");
   min-height: 5px;
+  background-size: 100% 3px;
 }
 @media (min-width: 720px) {
   .panel-background-2 {
     background-repeat: no-repeat;
     background-size: auto;
-    background-position: 100% 0;
+    background-position: calc(100% - 16px) 0;
+    background-image: url("../images/module-bar-2.png");
+    background-size: 40% 5px;
+  }
+}
+@media (min-width: 980px) {
+  .panel-background-2 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: calc(100% - 16px) 0;
     background-image: url("../images/module-bar-2.png");
   }
 }
@@ -4072,8 +4092,18 @@ fieldset.separate .fieldset-legend {
   background-position: 0 0;
   background-image: url("../images/module-bar-3.png");
   min-height: 5px;
+  background-size: 100% 3px;
 }
 @media (min-width: 720px) {
+  .panel-background-3 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 20% 0;
+    background-image: url("../images/module-bar-3.png");
+    background-size: 40% 5px;
+  }
+}
+@media (min-width: 980px) {
   .panel-background-3 {
     background-repeat: no-repeat;
     background-size: auto;
@@ -4088,8 +4118,18 @@ fieldset.separate .fieldset-legend {
   background-position: 0 0;
   background-image: url("../images/module-bar-4.png");
   min-height: 5px;
+  background-size: 100% 3px;
 }
 @media (min-width: 720px) {
+  .panel-background-4 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 50% 0;
+    background-image: url("../images/module-bar-4.png");
+    background-size: 40% 5px;
+  }
+}
+@media (min-width: 980px) {
   .panel-background-4 {
     background-repeat: no-repeat;
     background-size: auto;
@@ -4104,8 +4144,18 @@ fieldset.separate .fieldset-legend {
   background-position: 0 0;
   background-image: url("../images/module-bar-5.png");
   min-height: 5px;
+  background-size: 100% 3px;
 }
 @media (min-width: 720px) {
+  .panel-background-5 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 30% 0;
+    background-image: url("../images/module-bar-5.png");
+    background-size: 40% 5px;
+  }
+}
+@media (min-width: 980px) {
   .panel-background-5 {
     background-repeat: no-repeat;
     background-size: auto;
@@ -4120,8 +4170,18 @@ fieldset.separate .fieldset-legend {
   background-position: 0 0;
   background-image: url("../images/module-bar-6.png");
   min-height: 5px;
+  background-size: 100% 3px;
 }
 @media (min-width: 720px) {
+  .panel-background-6 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 54% 0;
+    background-image: url("../images/module-bar-6.png");
+    background-size: 40% 5px;
+  }
+}
+@media (min-width: 980px) {
   .panel-background-6 {
     background-repeat: no-repeat;
     background-size: auto;
@@ -4136,8 +4196,18 @@ fieldset.separate .fieldset-legend {
   background-position: 0 0;
   background-image: url("../images/module-bar-7.png");
   min-height: 5px;
+  background-size: 100% 3px;
 }
 @media (min-width: 720px) {
+  .panel-background-7 {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 5% 0;
+    background-image: url("../images/module-bar-7.png");
+    background-size: 40% 5px;
+  }
+}
+@media (min-width: 980px) {
   .panel-background-7 {
     background-repeat: no-repeat;
     background-size: auto;
@@ -4592,6 +4662,22 @@ fieldset.separate .fieldset-legend {
     float: right;
   }
 }
+.stacklafw {
+  padding: 1rem;
+}
+@media (min-width: 720px) {
+  .stacklafw {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+@media (min-width: 980px) {
+  .stacklafw {
+    padding-top: 7.8125rem;
+    padding-bottom: 5.92rem;
+  }
+}
+
 .statistic__wrapper {
   clear: both;
 }
@@ -5079,7 +5165,7 @@ fieldset.separate .fieldset-legend {
 }
 .is-active.tabber__mobile-item, .horizontal-tabs .horizontal-tabs-list a.is-active, .tabber__nav-item.is-active, .horizontal-tabs .horizontal-tabs-list .selected a, .horizontal-tabs .tabber__mobile-item.selected, .tabber__nav-item--active {
   background-color: #fff;
-  border-color: #e69a3d;
+  border-color: #35e5df;
   color: #616161;
 }
 .tabber__mobile-item:focus, .horizontal-tabs .horizontal-tabs-list a:focus, .tabber__mobile-item:hover, .horizontal-tabs .horizontal-tabs-list a:hover, .tabber__nav-item:focus, .tabber__nav-item:hover, .tabber__nav-item--focus {
