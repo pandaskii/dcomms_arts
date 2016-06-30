@@ -2642,10 +2642,6 @@ fieldset.separate .fieldset-legend {
 }
 
 .footer__wrapper {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 0;
-  background-image: url("../images/bg--footer.svg");
   background-color: #e4e4e4;
 }
 
@@ -2658,6 +2654,30 @@ fieldset.separate .fieldset-legend {
 .footer__heading, .footer-menu__title {
   margin-bottom: 1rem;
   color: #12293a;
+}
+
+.footer-bottom__wrapper li {
+  margin: 0.5rem !important;
+}
+@media (min-width: 980px) {
+  .footer-bottom__wrapper {
+    margin-bottom: 1rem;
+  }
+  .footer-bottom__wrapper ul li a {
+    padding: 0 1.5rem;
+  }
+  .footer-bottom__wrapper ul li:first-child a {
+    padding-left: 0;
+  }
+  .footer-bottom__wrapper ul li:last-child a {
+    padding-right: 0;
+  }
+  .footer-bottom__wrapper ul:first-child {
+    margin-bottom: 3.25rem !important;
+  }
+}
+.footer-bottom__wrapper img {
+  vertical-align: middle;
 }
 
 .read-more, .read-more--heading, .read-more--footer, .read-more--footer-wrapper .read-more, .grid-data__item {

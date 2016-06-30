@@ -153,24 +153,26 @@
       <div class="spacer clearfix">
         <h2 class="footer__heading"><?php print t('Connect with the Department'); ?></h2>
         <ul class="list-inline">
-          <li class="list-inline__item"><a href="https://twitter.com/CommsAu" target="_blank" class="underline-on-hover__never"><img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/social/twitter.svg" alt="Follow @CommsAu on Twitter" /></a></li>
-          <li class="list-inline__item"><a href="https://www.youtube.com/user/deptcommsau" target="_blank" class="underline-on-hover__never"><img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/social/youtube.svg" alt="Watch deptcommsau on YouTube" /></a></li>
+          <li class="list-inline__item"><a href="https://twitter.com/artsculturegov" target="_blank" class="underline-on-hover__never"><img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/social/twitter.svg" alt="Follow @CommsAu on Twitter" /></a></li>
+          <li class="list-inline__item"><a href="https://www.youtube.com/user/deptcommsau" target="_blank" class="underline-on-hover__never"><img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/social/youtube.svg" alt="Watch deptcommsau on YouTube" /></a></li>
         </ul>
       </div>
       <div class="spacer--medium"><?php print render($page['footer_bottom']); ?></div>
-
-      <div class="spacer--large footer__border"><div class="copyright">
+      </div>
+      <div class="footer__border">
+      <div class="layout-max spacer--large center-left">
+      <div class="copyright">
         <div class="copyright__left">
           <div class="copyright__item">
             <a href="http://creativecommons.org/licenses/by/3.0" target="_blank">
-              <img class="copyright__icon" src="https://i.creativecommons.org/l/by/3.0/88x31.png" alt="Attribution CC BY" />
+              <img class="copyright__icon" src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/cc_logo.png" alt="Attribution CC BY" />
             </a>
           </div>
           <div class="copyright__item"><?php print t('This work is licensed under a Creative Commons') . ' <br />' . t('Attribution 3.0 International License'); ?></div>
         </div>
         <div class="copyright__right">
           <?php print render($footer_auxilary_menu); ?>
-          <div><?php print t('&copy; Department of Communications and the Arts') . ' ' . date('Y'); ?></div>
+          <div><?php print t('&copy; Ministry for the Arts') . ' ' . date('Y'); ?></div>
         </div>
       </div></div>
 
