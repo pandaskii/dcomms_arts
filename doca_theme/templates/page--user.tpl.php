@@ -8,7 +8,7 @@
  * @see https://drupal.org/node/1728148
  */
 ?>
-<div class="offscreen__inner <?php print ($is_front) ? 'header-background--blue' : 'header-background'; ?>">
+<div class="offscreen__inner <?php print ($is_front) ? '' : 'header-background'; ?>">
 
 <header class="header" id="header" role="banner">
   <div class="layout-max">
@@ -27,7 +27,7 @@
 
   </div>
 </header>
-
+<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo layout-max"></a>
 <div id="page" class="spacer--top-mid">
   <?php print render($tabs); ?>
 

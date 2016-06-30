@@ -9,7 +9,6 @@
  */
 ?>
 <div class="offscreen__inner <?php print ($is_front) ? '' : 'header-background'; ?>">
-
   <?php if (!empty($top_announcements) && $top_announcements): ?>
   <div class="top-notification" id="top-announcements">
     <div class="top-notification__inner">
@@ -71,7 +70,9 @@
 
   </div>
 </header>
-
+<?php if (!$is_front): ?>
+<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo layout-max"></a>
+<?php endif; ?>
 <div id="page" class="spacer--top">
   <?php print render($tabs); ?>
 
