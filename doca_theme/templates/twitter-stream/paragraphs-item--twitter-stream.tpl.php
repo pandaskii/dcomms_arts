@@ -14,11 +14,11 @@
        data-dnt="true"
        data-tweet-limit="3"
        data-widget-id="<?php print $content['field_twitter_widget_id'][0]['#markup']; ?>"
-       href="https://twitter.com/CommsAu"></a>
+       href="https://twitter.com/artsculturegov"></a>
 
-    <a class="twitter-account" href="https://twitter.com/CommsAu">
-      <img class="twitter-account__avatar" src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/sass/components/twitter-account/twitter-avatar.png" alt="@CommsAu avatar" />
+    <a class="twitter-account" href="https://twitter.com/artsculturegov">
+      <img class="twitter-account__avatar" src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/sass/components/twitter-account/twitter-avatar.png" alt="@artsculturegov avatar" />
       <b class="twitter-account__title">Dept. Communications</b>
-      <i class="twitter-account__icon">on Twitter</i> @CommsAu
+      <i class="twitter-account__icon">on Twitter</i> @artsculturegov
     </a>
 </div>
