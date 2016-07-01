@@ -16,41 +16,46 @@
 $height: 3.5rem;
 .subsite-header__layout, %subsite-header__layout {
   @extend %clearfix;
-  >:last-child {
-    float: right;
-  }
-  >:first-child {
-    float: left;
-  }
-}
-
-.subsite-header__layout--small, %subsite-header__layout--small {
-  @extend %subsite-header__layout;
-  >:first-child, >:last-child {
-    @include breakpoint($large) {
-      float: none;
-    }
-  }
-  >:last-child {
-    width: 50%;
-  }
-}
-
-.subsite-header__branding, %subsite-header__branding {
   @extend %layout-max;
-  padding: 1rem;
-  @include breakpoint($large) {
-    padding: 0;
-  }
 }
+
+.subsite-header__branding, %subsite-header__branding {}
 
 .subsite-header__nav, %subsite-header__nav {
-  position: relative;
+  @extend %layout-max;
+  ul {
+    list-style: none;
+  }
+  li {
+    font-weight: bold;
+    a {
+      color: #000;
+      text-decoration: none;
+      border: none;
+    }
+  }
   @include breakpoint($large) {
-    @include palette-extend--both;
-    background: rgba(#000, .2);
-    width: auto !important;
-    height: auto !important;
+    padding: 1rem 0;
+    li {
+      border-color: transparent;
+      &.active {
+        color: color(dark);
+        border-color: transparent;
+        &:after {
+          content: '';
+          width: 100%;
+          position: absolute;
+          bottom: -1.25rem;
+          left: 0;
+          height: 6px;
+          z-index: 1;
+          background: url('../images/bg--point--black.svg') repeat-x white 0 50%;
+        }
+      }
+    }
+    li a {
+      font-size: 1.275rem;
+    }
   }
 }
 
@@ -168,6 +173,7 @@ $height: 3.5rem;
   @extend %show-at__large;
   @extend %underline-on-hover__never;
   width: 100%;
+  padding-bottom: 0;
 }
 
 .subsite-header__logo-small, %subsite-header__logo-small {
@@ -190,10 +196,7 @@ $height: 3.5rem;
 
 // Paletting
 @mixin subsite-header__paletting($subsite, $palette) {
-  .subsite-header {
-    @include background-image('bg--subsite-header.svg', 50%);
-    background-color: palette($palette, $subsite background);
-  }
+  .subsite-header {}
   .is-active .subsite-header__link {
     border-bottom-color: palette($palette, $subsite background);
     color: white;
@@ -207,11 +210,22 @@ $height: 3.5rem;
   .subsite-header__button-link {
     border-bottom-color: palette($palette, $subsite foreground);
   }
+  %subsite-header__layout--nav, .subsite-header__layout--nav {
+    background-color: palette($palette, $subsite background);
+    @extend %header-menu__border;
+    @include breakpoint($large) {
+      border-width: 5px;
+      margin-top: -20px;
+    }
+  }
 }
 
 @each $subsite, $palette in $subsite-palette {
   .subsite__#{$subsite} {
     @include subsite-header__paletting($subsite, $subsite-palette);
+    .header__inner__logo {
+      display: none;
+    }
   }
 }
 

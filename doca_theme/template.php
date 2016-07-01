@@ -971,7 +971,7 @@ function doca_theme_preprocess_field(&$variables, $hook) {
 function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$variables) {
   if (isset($variables['type'])) {
     $feature_types = array('page', 'blog_article', 'alert', 'news_article');
-    if ($variables['type'] === 'consultation' || $variables['type'] === 'poll') {
+    if ($variables['type'] === 'consultation' || $variables['type'] === 'poll' || $variables['type'] === 'funding') {
       // If viewed in iframe mode - add additional class.
       if (isset($variables['view']) && $variables['view']->name === 'consultations_iframe') {
         $variables['classes_array'][] = 'grid-stream__item--iframe';
