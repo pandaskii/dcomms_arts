@@ -5,7 +5,6 @@
 // Styleguide components.footer
 .footer__wrapper {
   @extend %clearfix__overflow;
-  @include background-image('bg--footer.svg', 50%);
   background-color: color(grey-off-white);
 }
 
@@ -19,4 +18,32 @@
   @extend %font__medium;
   margin-bottom: 1rem;
   color: color(dark);
+}
+
+.footer-bottom__wrapper, %footer-bottom__wrapper {
+  ul li {
+    margin: 0.5rem !important;
+  }
+  @include breakpoint($large) {
+    margin-bottom: 1rem;
+    ul {
+      li {
+        a {
+          padding: 0 1.5rem;
+        }
+        &:first-child a {
+          padding-left: 0;
+        }
+        &:last-child a {
+          padding-right: 0;
+        }
+      }
+    }
+    ul:first-child {
+      margin-bottom: 3.25rem !important;
+    }
+  }
+  img {
+    vertical-align: middle;
+  }
 }

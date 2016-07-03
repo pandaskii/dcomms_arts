@@ -29,7 +29,7 @@
 ?>
 <?php
 $bg_module = '';
-if ($title == 'Front page: Our Work'):
+if ($title == 'Front page: Our Work' || $title == 'Our Work'):
   $bg_module = '<div class="panel-background-5 layout-max--sm-med-lrg"></div>';
 endif;
 ?>

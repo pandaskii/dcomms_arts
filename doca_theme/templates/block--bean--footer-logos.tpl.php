@@ -44,11 +44,11 @@
  * @ingroup themeable
  */
 ?>
-<div class="list-inline__wrapper--even-padding underline-on-hover__never__wrapper">
+<div class="list-inline__wrapper--even-padding underline-on-hover__never__wrapper footer-bottom__wrapper">
 
   <?php print render($title_prefix); ?>
   <?php if ($block->subject): ?>
-    <h2 class="footer__heading"><?php print $block->subject ?></h2>
+    <h2 class="footer__heading spacer--bottom"><?php print $block->subject ?></h2>
   <?php endif;?>
   <?php print render($title_suffix); ?>
 

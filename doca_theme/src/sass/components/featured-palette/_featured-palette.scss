@@ -26,7 +26,7 @@ $featured-palette__subsite: () !default;
   $foreground: color-contrast(palette($default-featured-palette, 6 background));
   .featured-palette {
     &, a {
-      color: $foreground;
+      color: $foreground !important;
       &:hover, &:visited, &:link {
         color: $foreground;
       }

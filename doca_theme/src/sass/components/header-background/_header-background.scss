@@ -7,7 +7,6 @@
 // Styleguide components.header-background
 %header-background, .header-background {
   @include breakpoint($xx-large) {
-    @include background-image('arts-brand-lvl2.png', 0%, 20%);
-    background-size: auto;
+    @include background-image('arts-brand-lvl2bg.png', 0%, auto);
   }
 }

@@ -26,6 +26,9 @@
   @extend %grid-stream__item--vertical;
   .grid-stream__item--vertical__top {
     display: block;
+    > a {
+      border: none;
+    }
   }
   .grid-stream__description {
     display: none !important;
@@ -36,5 +39,8 @@
   @extend %grid-stream__item--vertical;
   .grid-stream__item--vertical__top {
     display: block;
+    > a {
+      border: none;
+    }
   }
 }
