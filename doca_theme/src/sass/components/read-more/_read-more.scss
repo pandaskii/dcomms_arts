@@ -16,7 +16,7 @@
   fill: currentColor;
   font-weight: 500;
   @include breakpoint($medium) {
-    font-size: $medium-font-size;
+    font-size: $base-font-size;
   }
   svg {
     padding-left: .25rem;
@@ -37,6 +37,17 @@
   color: color(dark) !important;
   svg {
     display: none;
+  }
+}
+
+.read-more--footer, %read-more--footer {
+  @extend %read-more;
+  color: #000 !important;
+}
+
+.read-more--footer-wrapper, %read-more--footer-wrapper {
+  .read-more {
+    @extend %read-more--footer;
   }
 }
 

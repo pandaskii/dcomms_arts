@@ -66,6 +66,7 @@
   }
   &__read-more {
     display: none;
+    @extend %link-palette__normal;
     @include breakpoint(1100px) {
       display: inline-block;
       position: absolute;

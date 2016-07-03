@@ -56,8 +56,7 @@
   }
   &__progress {
     @extend %progress-bar__progress-thin;
-    background-color: color(blue-extra-light);
-    background-image: url('../images/progress-bar-bg.jpg');
+    background-color: color(purple-light);
     background-position: 50% 100%;
   }
   &__progress--grey {
@@ -90,7 +89,7 @@
 }
 
 .progress-bar__highlighted, %progress-bar__highlighted {
-  color: color(blue-light);
+  color: #000;
   font-weight: bold;
 }
 

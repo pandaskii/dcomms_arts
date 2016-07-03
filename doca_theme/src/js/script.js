@@ -51,4 +51,31 @@
     }
   };
 
+  Drupal.behaviors.streamLinks = {
+    attach: function(context) {
+      var filepath = "/sites/all/themes/dcomms_arts/doca_theme/dist/images/icons/stream/";
+      $('.channel-list__grid-item a', context).each(function() {
+        var imgSrc = $(this).find('img').attr('src');
+        var imgSrc_o = imgSrc;
+        var parts = imgSrc.split('/');
+        imgSrc = parts[parts.length - 1];
+        var imgSrc_h = imgSrc.replace('.svg', '_h.svg');
+        imgSrc_h = filepath + imgSrc_h;
+        var imgSrc_a = imgSrc.replace('.svg', '_a.svg');
+        imgSrc_a = filepath + imgSrc_a;
+        $(this).hover(function() {
+          $(this).find('img').attr('src', imgSrc_h);
+        }, function() {
+          $(this).find('img').attr('src', imgSrc_o);
+        });
+        $(this).mousedown(function() {
+          $(this).find('img').attr('src', imgSrc_a);
+        });
+        $(this).mouseup(function() {
+          $(this).find('img').attr('src', imgSrc_o);
+        });
+      })
+    }
+  };
+
 })(jQuery, Drupal);
