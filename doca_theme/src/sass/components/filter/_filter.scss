@@ -23,7 +23,7 @@
       max-width: none;
     }
     &__input {
-      @include background-image('search--grey.svg', 0, 30px 30px);
+      @include background-image('grey.svg', 0, 30px 30px);
       background-position: 15px 50%;
       background-color: color(grey-white);
       font-size: 1.1rem;
@@ -73,11 +73,9 @@
   }
   &__select {
     border: 0;
-    background: {
-      image: url('../sass/components/filter/down.svg');
-      position: right;
-      color: transparent;
-    }
+    background-image: url('../images/down.svg');
+    background-position: right center;
+    background-color: transparent;
     max-width: 250px;
     padding-right: 20px;
     // scss-lint:enable DuplicateProperty
@@ -134,7 +132,8 @@ $button--yellow__palette: ( background: palette($subsite-palette, sub-theme-2 ba
   }
   %filter__select, .filter__select {
     color: palette($subsite-palette, sub-theme-2 foreground);
-    background-image: url('../sass/components/filter/down--red.svg');
+    background-image: url('../images/down--red.svg');
+    background-position: right center;
   }
   .filter__submit-button, %filter__submit-button {
     @include button-palette($button--yellow__palette);
