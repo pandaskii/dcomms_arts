@@ -106,14 +106,22 @@ function doca_admin_clear_updates($form, &$form_state) {
 }
 
 /**
- * Submit callback to remove an item from the field UI multiple wrapper.
+ * Remove funding update paragraph bundles when start date changes. 
  *
- * When a remove button is submitted, we need to find the item that it
- * referenced and delete it. Since field UI has the deltas as a straight
- * unbroken array key, we have to renumber everything down. Since we do this
- * we *also* need to move all the deltas around in the $form_state['values']
- * and $form_state['input'] so that user changed values follow. This is a bit
- * of a complicated process.
+ * This is an adaptation of the submit callback for confirming 
+ * deletion of a paragraph item. Paragaphs handles all of it's 
+ * CRUD through ajax callbacks that we can't invoke directly or 
+ * just shortcut by unsetting field values in $form_state.
+ *
+ * Instead, we call this function during form validation and spoof
+ * pressing the confirm deletion button on each paragraph item.
+ * This ensures that all the normal paragraphs routines and field API
+ * hooks fire and paragraphs items are retained for old revisions.
+ *
+ * @param $form 
+ *   array $form        [description]
+ * @param  [type] &$form_state [description]
+ * @return [type]              [description]
  */
 function doca_base_paragraphs_deleteconfirm_hack($form, &$form_state) {
   // Loop over each 'updates' paragraph item widget in the form.
