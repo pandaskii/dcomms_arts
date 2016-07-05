@@ -70,72 +70,36 @@ function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
  * Implements hook_form_FORM_ID_alter().
  */
 function doca_admin_form_funding_node_form_alter(&$form, &$form_state) {
-  // Add validation callback.
+  // Add validation callback to handle auto clearing funding updates.
   $form['#validate'][] = 'doca_admin_clear_updates';
-  // dpm($form['#node']);
-  // dpm($form);
-  // dpm($form_state);
 }
 
+/**
+ * Validation callback for funding node forms.
+ */
 function doca_admin_clear_updates($form, &$form_state) {
-  // dpm('lalalalal');
-  // die('called');
-  // dpm($form, 'form');
-  // dpm($form_state, 'form_state');
-
+  // Don't validate on insert, only on changes.
   if (!isset($form['#node']->field_consultation_date) || empty($form['#node']->field_consultation_date)) {
-    // Don't validate on insert, only on changes.
     return;
   }
 
-  // $current_field = reset($form['#node']->field_consultation_date[$form['#node']->language]);
+  // Grab current field value from node.
   $current_field = reset($form_state['node']->field_consultation_date[$form_state['node']->language]);
-  // dpm($current_field, 'current_field');
+
+  // Check validity of form input.
   if (!isset($form_state['values']['field_consultation_date']) || empty($form_state['values']['field_consultation_date'])) {
     // Nothing to validate. Bail.
     return;
   }
 
+  // Get new field value from form_state.
   $new_field = reset($form_state['values']['field_consultation_date'][$form_state['node']->language]);
-  // dpm($new_field, 'new_field');
 
-  // dpm($form);
-  // dpm($form_state);
-
+  // Compare versions of the start dates.
   if ($current_field['value'] != $new_field['value']) {
-    // The funding date is being changed, remove upates.
+    // The funding start date is being changed, remove updates!
     if (isset($form_state['values']['field_updates']) && !empty($form_state['values']['field_updates'])) {
-      doca_base_paragraphs_deleteconfirm_hack($form, $form_state);
-      // foreach ($form['field_updates'][LANGUAGE_NONE] as $delta => $item) {
-      //   // Only look at field values.
-      //   if (is_int($delta)) {
-      //     // $item['#entity']->setHostEntity('node', $form['#node'], $form['#node']->language, FALSE);
-      //     $item['#entity']->deleteRevision(TRUE);
-      //     $item['#entity']->removed = TRUE;
-      //     $item['#entity']->confirmed_removed = TRUE;
-
-      //     // $item['#entity']->deleteHostEntityReference();
-      //     // node_load($form['#node']->nid);
-      //     dpm('tying this');
-      //   }
-      //   $form['#node']->field_updates = array();
-        // field_attach_update('node', $form['#node']);
-      // }
-      // $form['#node']->field_updates = array();
-      // node_save($form['#node']);
-      // unset($form_state['values']['field_updates']);
-      // dpm('big unset');
-      // unset($form_state['values']['field_updates']);
-      // foreach ($form_state['values']['field_updates'][$form['#node']->language] as $key => &$value) {
-      //   dpm('in loop');
-      //   if (is_numeric($key)) {
-      //     // Remove updates from this node save operation, so the paragraph items
-      //     // are still in the db for older revisions but no longer attached to 
-      //     // this revision.
-      //     unset($value);
-      //     dpm('unset');
-      //   }
-      // }
+      doca_base_paragraphs_deleteconfirm_hack($form, $form_state); 
     }      
   }
 
@@ -152,15 +116,19 @@ function doca_admin_clear_updates($form, &$form_state) {
  * of a complicated process.
  */
 function doca_base_paragraphs_deleteconfirm_hack($form, &$form_state) {
-
+  // Loop over each 'updates' paragraph item widget in the form.
   foreach ($form['field_updates'][LANGUAGE_NONE] as $delta => $update) {
     if (!is_int($delta)) {
-      // Only look at field values.
+      // Only look at field values, not formAPI stuff.
       continue;
     }
 
+    // Spoof the #array_parents value for transplanted paragraphs code below.
     $spoofed_array_parents = array('field_updates', 'und', $delta, 'actions', 'remove_button');
     
+    // Code below this point is adapted from
+    // function paragraphs_deleteconfirm_submit().
+
     // Where in the form we'll find the parent element.
     $address = array_slice($spoofed_array_parents, 0, -3);
 
@@ -202,9 +170,9 @@ function doca_base_paragraphs_deleteconfirm_hack($form, &$form_state) {
 
     drupal_array_set_nested_value($form_state['input'], $address, $input);
     field_form_set_state($parents, $field_name, $langcode, $form_state, $field_state);
+  } 
 
-  } // End foreach.
-  // $form_state['rebuild'] = TRUE;
-  drupal_set_message(t('The funding updates for this content have been automatically cleared due to a change in the application deadline start date.'), 'warning');
+  // Alert the editor that we've made some automated changes to their new draft.
+  drupal_set_message(t('The funding updates for this draft have been automatically cleared due to a change in the application deadline start date.'), 'warning');
 }
 
