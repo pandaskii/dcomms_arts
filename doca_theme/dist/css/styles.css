@@ -1722,6 +1722,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   margin: 0 auto;
   line-height: 1.4rem;
   max-width: 150px;
+  color: #000;
 }
 
 @media (min-width: 720px) {
