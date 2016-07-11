@@ -7,13 +7,13 @@
 @import 'layouts/layout-two-column/layout-two-column';
 @import 'components/spacer/spacer';
 .page-404__page-wrapper, %page-404__page-wrapper {
-  @include background-image('bg--cross.svg', 0);
-  background-color: color(grey-off-white);
+  background-color: color(doca-blue);
+  background-image: url('../images/arts-404-graphic.png');
+  background-position: top left;
+  background-repeat: no-repeat;
   min-height: 100%;
-  .multiplebgs & {
-    background-image: url('../images/bg--cross.svg'), url('../images/bg--small.svg');
-    background-position: 0 100%, 100% 0;
-    background-size: cover, auto;
+  .multiplebgs.cssgradients & {
+    background-image: url('../images/arts-404-graphic.png'), linear-gradient(135deg, color(doca-blue) 0%, rgba(224, 173, 135, 0) 100%);
   }
 }
 
@@ -25,7 +25,7 @@
   justify-content: center;
 }
 
-.page-404__two-column, %page-404__two-column {
+.page-404__three-column {
   margin-bottom: 2rem;
   @include breakpoint($medium) {
     width: 50%;
@@ -41,12 +41,41 @@
       padding-left: 0;
     }
   }
+  @include breakpoint($large) {
+    width: 45%;
+  }
+}
+
+.page-404__three-column--ministry-arts-logo {
+  display: none;
+  @include breakpoint($large) {
+    display: inline-block;
+    opacity: 0.5;
+    width: 10%;
+    text-align: center;
+    padding: 0;
+  }
 }
 
 .page-404__message, %page-404__message {
-  background: color(grey-white);
+  background-color: #3f4fcf;
   padding: 5%;
-  color: color(grey-dark);
+  color: color(grey-white);
+}
+
+.page-404__message__link, %page-404__message__link {
+  color: color(grey-white);
+  &:hover {
+    color: color(grey-white);
+  }
+}
+
+.page-404__ministry-arts-logo {
+  display: none;
+  @include breakpoint($large) {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 .page-404__title-wrapper, %page-404__title-wrapper {
@@ -55,9 +84,10 @@
 }
 
 .page-404__column-title, %page-404__column-title {
+  color: #000;
   text-align: center;
   @include breakpoint($medium) {
-    border-left: solid 1px #999;
+    border-left: solid 1px #868df0;
     padding-left: 2rem;
   }
 }
@@ -66,6 +96,7 @@
   font-family: Gafata, serif, monospace;
   font-size: 8rem;
   line-height: 8rem;
+  text-shadow: 0 1px 0px white;
   @include breakpoint($medium) {
     font-size: 12rem;
     line-height: 10rem;
