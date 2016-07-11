@@ -53,7 +53,8 @@
     opacity: 0.5;
     width: 10%;
     text-align: center;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -96,7 +97,6 @@
   font-family: Gafata, serif, monospace;
   font-size: 8rem;
   line-height: 8rem;
-  text-shadow: 0 1px 0px white;
   @include breakpoint($medium) {
     font-size: 12rem;
     line-height: 10rem;
