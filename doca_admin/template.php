@@ -65,3 +65,16 @@ function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
     }
   }
 }
+
+function doca_admin_form_file_entity_edit_alter(&$form, &$form_state) {
+  $form['#validate'][] = '_doca_admin_form_file_entity_edit_validate';
+  dsm($form);
+}
+
+function _doca_admin_form_file_entity_edit_validate(&$form, &$form_state) {
+  dsm($form);
+  dsm($form_state);
+  if (isset($form_state['values']['field_description'][LANGUAGE_NONE])) {
+
+  }
+}
