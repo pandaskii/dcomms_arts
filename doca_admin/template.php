@@ -66,15 +66,40 @@ function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
   }
 }
 
+/**
+ * Implements hook form alter.
+ *
+ * @param array &$form
+ *        The drupal form array
+ * @param array &$form_state
+ *        The drupal form_state array
+ */
 function doca_admin_form_file_entity_edit_alter(&$form, &$form_state) {
-  $form['#validate'][] = '_doca_admin_form_file_entity_edit_validate';
-  dsm($form);
+  if ($form['#bundle'] == 'image') {
+    array_unshift($form['#validate'], '_doca_admin_form_file_entity_edit_validate');
+    array_unshift($form['actions']['submit']['#validate'], '_doca_admin_form_file_entity_edit_validate');
+  }
 }
 
-function _doca_admin_form_file_entity_edit_validate(&$form, &$form_state) {
-  dsm($form);
-  dsm($form_state);
-  if (isset($form_state['values']['field_description'][LANGUAGE_NONE])) {
-
+/**
+ * Form validation function for image file entities.
+ *
+ * This function ensure that, if a title or description is entered there is a
+ * valid artist
+ *
+ * @param array &$form
+ *        The drupal form array
+ * @param array &$form_state
+ *        The drupal form_state array
+ */
+function _doca_admin_form_file_entity_edit_validate($form, &$form_state) {
+  $invalid = ((!isset($form_state['values']['field_read_more_text'][LANGUAGE_NONE]) ||
+        $form_state['values']['field_read_more_text'][LANGUAGE_NONE][0]['value'] != '') ||
+      (!isset($form_state['values']['field_image_title'][LANGUAGE_NONE]) ||
+          $form_state['values']['field_image_title'][LANGUAGE_NONE][0]['value'] != '')) &&
+    (isset($form_state['values']['field_artist'][LANGUAGE_NONE]) &&
+        $form_state['values']['field_artist'][LANGUAGE_NONE][0]['value'] == '');
+  if ($invalid) {
+    form_set_error('field_artist', t('If either a title or description is added, the Artist field cannot be blank.'));
   }
 }
