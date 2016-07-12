@@ -7,13 +7,13 @@
 <div class="subsite-header subsite--research">
   <div class="subsite-header__branding">
     <div class="subsite-header__layout">
-      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/40'); ?>" class="subsite-header__logo-large">
+      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_2')); ?>" class="subsite-header__logo-large">
         <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/example-svgs/business-area/research--large.svg" alt="Logo" />
       </a>
     </div>
 
     <div class="subsite-header__layout--small">
-      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/40'); ?>" class="subsite-header__logo-small">
+      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_2')); ?>" class="subsite-header__logo-small">
         <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/example-svgs/business-area/research--small.svg" alt="Logo" />
       </a>
 

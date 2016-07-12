@@ -481,7 +481,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
   );
 
   if (array_intersect($submit_formal_submission_roles, array_values($user->roles))) {
-    $variables['formal_submission_block'] = module_invoke('webform', 'block_view', 'client-block-15');
+    $variables['formal_submission_block'] = module_invoke('webform', 'block_view', 'client-block-' . theme_get_setting('have_your_say_wform_nid'));
   }
 
   // If this is a 'Consultation' content type.
@@ -550,7 +550,7 @@ function doca_theme_preprocess_views_view_field(&$variables) {
  * Implements hook_form_alter().
  */
 function doca_theme_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'webform_client_form_15') {
+  if ($form_id == 'webform_client_form_' . theme_get_setting('have_your_say_wform_nid')) {
     $component_key = "privacy";
     $form['actions'][$component_key] = $form['submitted'][$component_key];
     unset($form['submitted'][$component_key]);
@@ -1060,16 +1060,16 @@ function doca_theme_block_view_alter(&$data, $block) {
   if ($block->module === 'search' && $block->delta === 'form') {
     $contexts = context_active_contexts();
     if (array_key_exists('display_sso_nav', $contexts) || array_key_exists('clone_of_display_sso_nav', $contexts)) {
-      $data['subsite'] = '15';
-      $data['subsite_name'] = 'Stay Smart Online';
+      $data['subsite'] = theme_get_setting('sub_theme_1');
+      $data['subsite_name'] = theme_get_setting('sub_theme_1_title');
     }
     if (array_key_exists('display_digitalbusiness_nav', $contexts) || array_key_exists('display_digitalbusiness_nav', $contexts)) {
-      $data['subsite'] = '20';
-      $data['subsite_name'] = 'Digital Business';
+      $data['subsite'] = theme_get_setting('sub_theme_3');
+      $data['subsite_name'] = theme_get_setting('sub_theme_3_title');
     }
     if (array_key_exists('display_bcr_nav', $contexts) || array_key_exists('clone_of_display_bcr_nav', $contexts)) {
-      $data['subsite'] = '40';
-      $data['subsite_name'] = 'Bureau of Communications Research';
+      $data['subsite'] = theme_get_setting('sub_theme_4');
+      $data['subsite_name'] = theme_get_setting('sub_theme_4_title');
     }
   }
 }

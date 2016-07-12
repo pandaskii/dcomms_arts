@@ -37,6 +37,14 @@ function doca_admin_form_workbench_moderation_moderate_form_alter(&$form, &$form
   }
 }
 
+function _doca_theme_form_system_theme_settings_alter_validate(&$form, &$form_state) {
+  for ($i = 1; $i < 5; $i++) {
+    if (isset($form_state['values']['sub_theme_' . $i]) && $form_state['values']['sub_theme_' . $i] > 0) {
+      $form_state['values']['sub_theme_' . $i . '_title'] = taxonomy_term_load($form_state['values']['sub_theme_' . $i])->name;
+    }
+  }
+}
+
 /**
  * Implements hook_form_FORM_ID_alter().
  */

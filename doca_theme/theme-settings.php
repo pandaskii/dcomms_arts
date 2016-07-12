@@ -187,6 +187,23 @@ function doca_theme_form_system_theme_settings_alter(&$form, $form_state) {
     '#options' => $options,
     '#default_value' => theme_get_setting('sub_theme_4'),
   );
+  $form['minisite']['sub_theme_1_title'] = array(
+    '#type' => 'hidden',
+    '#default_value' => theme_get_setting('sub_theme_1_title'),
+  );
+  $form['minisite']['sub_theme_2_title'] = array(
+    '#type' => 'hidden',
+    '#default_value' => theme_get_setting('sub_theme_2_title'),
+  );
+  $form['minisite']['sub_theme_3_title'] = array(
+    '#type' => 'hidden',
+    '#default_value' => theme_get_setting('sub_theme_3_title'),
+  );
+  $form['minisite']['sub_theme_4_title'] = array(
+    '#type' => 'hidden',
+    '#default_value' => theme_get_setting('sub_theme_4_title'),
+  );
+  $form['#validate'][] = '_doca_theme_form_system_theme_settings_alter_validate';
 }
 
 /**
