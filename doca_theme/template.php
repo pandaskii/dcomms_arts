@@ -300,53 +300,54 @@ function doca_theme_preprocess_node(&$variables, $hook) {
   // Add a theme hook suggestion for type and view mode.
   $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
 
-  // Add first/second update item to grid_stream_landscape view mode if exist.
-  if ($variables['type'] == 'consultation' && $variables['view_mode'] == 'grid_stream_landscape') {
-    $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
-    if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
-      $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
-      $variables['update_2'] = $wrapped_entity->field_updates[1]->view('teaser');
-    }
-  }
-
-  // Conditionally remove Formal Submission fields where relevant.
-  if ($variables['type'] == 'consultation' && $variables['view_mode'] == 'full') {
-
-    // Include Consultation specific script.
-    drupal_add_js(path_to_theme() . '/js/script-consultation.js', array('file'));
-
-    _consultation_vars($variables, $variables['node']);
-    $consultation = $variables['consultation'];
-
-    // Return if formal submissions are not accepted.
-    if (!empty($consultation['hide_form'])) {
-      field_group_hide_field_groups($variables['elements'], array('group_formal_submission_form'));
-      hide($variables['content']['formal_submission_webform']);
-      // Only hide inro/outro if there is no embedded webform.
-      if (empty($variables['content']['field_other_embedded_webform'])) {
-        hide($variables['content']['field_formal_submission_cta_1']);
-        hide($variables['content']['field_formal_submission_cta_2']);
+  // Conditionally remove Progress bar from all view modes where relevant.
+  if ($variables['type'] == 'consultation') {
+    // Add first/second update item to grid_stream_landscape view mode if exist.
+    if ($variables['view_mode'] == 'grid_stream_landscape') {
+      $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
+      if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
+        $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
+        $variables['update_2'] = $wrapped_entity->field_updates[1]->view('teaser');
       }
     }
 
-    if ($consultation['in_review']) {
-      show($variables['content']['field_formal_submission_cta_1']);
+    // Conditionally remove Formal Submission fields where relevant.
+    if ($variables['view_mode'] == 'full') {
+
+      // Include Consultation specific script.
+      drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
+      drupal_add_js(array('doca_theme' => array('webform_nid' => theme_get_setting('have_your_say_wform_nid'))), 'setting');
+
+      _consultation_vars($variables, $variables['node']);
+      $consultation = $variables['consultation'];
+
+      // Return if formal submissions are not accepted.
+      if (!empty($consultation['hide_form'])) {
+        field_group_hide_field_groups($variables['elements'], array('group_formal_submission_form'));
+        hide($variables['content']['formal_submission_webform']);
+        // Only hide inro/outro if there is no embedded webform.
+        if (empty($variables['content']['field_other_embedded_webform'])) {
+          hide($variables['content']['field_formal_submission_cta_1']);
+          hide($variables['content']['field_formal_submission_cta_2']);
+        }
+      }
+
+      if ($consultation['in_review']) {
+        show($variables['content']['field_formal_submission_cta_1']);
+      }
+
+      // Add formal submission field to JS Drupal.settings if a value is present.
+      if (isset($variables['content']['field_formal_submission_notify']['#items'][0]['value'])) {
+        drupal_add_js(array(
+          'doca_theme' => array(
+            'formalSubmissionNotify' => check_plain($variables['content']['field_formal_submission_notify']['#items'][0]['value']),
+          ),
+        ), 'setting');
+      }
+      hide($variables['content']['field_formal_submission_notify']);
+
     }
 
-    // Add formal submission field to JS Drupal.settings if a value is present.
-    if (isset($variables['content']['field_formal_submission_notify']['#items'][0]['value'])) {
-      drupal_add_js(array(
-        'doca_theme' => array(
-          'formalSubmissionNotify' => check_plain($variables['content']['field_formal_submission_notify']['#items'][0]['value']),
-        ),
-      ), 'setting');
-    }
-    hide($variables['content']['field_formal_submission_notify']);
-
-  }
-
-  // Conditionally remove Progress bar from all view modes where relevant.
-  if ($variables['type'] == 'consultation') {
     // Create the entity metadata wrapper.
     $wrapper = entity_metadata_wrapper('node', $node);
 
@@ -415,6 +416,178 @@ function doca_theme_preprocess_node(&$variables, $hook) {
         drupal_goto('page-404-consultations');
       }
     }
+
+    // Hide 'Discussion Forum' related fields initially.
+    hide($variables['content']['field_discussion_forum_heading']);
+    hide($variables['content']['field_discussion_forum_intro']);
+    // Create an entity metadata wrapper.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    if (!$wrapper->field_short_comments_enabled->value()) {
+      $variables['classes_array'][] = 'hide_short_comments';
+    }
+    if (!$wrapper->field_file_uploads_enabled->value()) {
+      $variables['classes_array'][] = 'hide_files';
+    }
+
+    // If comments are open.
+    if ($variables['comment'] == COMMENT_NODE_OPEN) {
+      // If the heading 'Discussion Forum' heading field exists and is not blank.
+      if (isset($node->field_discussion_forum_heading) && $wrapper->field_discussion_forum_heading->value() != '') {
+        // Show the 'Discussion Forum' heading field.
+        show($variables['content']['field_discussion_forum_heading']);
+      }
+      // If the 'Discussion Forum' introduction field eixsts and is not blank.
+      if (isset($node->field_discussion_forum_intro) && $wrapper->field_discussion_forum_intro->value() != '') {
+        // Show the 'Discussion Forum' introduction field.
+        show($variables['content']['field_discussion_forum_intro']);
+      }
+    }
+  }
+
+  // Conditionally remove Progress bar from all view modes where relevant.
+  if ($variables['type'] == 'funding') {
+    // Add first/second update item to grid_stream_landscape view mode if exist.
+    if ($variables['view_mode'] == 'grid_stream_landscape') {
+      $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
+      if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
+        $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
+        $variables['update_2'] = $wrapped_entity->field_updates[1]->view('teaser');
+      }
+    }
+
+    // Conditionally remove Formal Submission fields where relevant.
+    if ($variables['view_mode'] == 'full') {
+
+      // Include Consultation specific script.
+      drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
+      drupal_add_js(array('doca_theme' => array('webform_nid' => theme_get_setting('funding_default_wform_nid'))), 'setting');
+
+      _funding_vars($variables, $variables['node']);
+      $funding = $variables['funding'];
+
+      // Return if formal submissions are not accepted.
+      if (!empty($funding['hide_form'])) {
+        field_group_hide_field_groups($variables['elements'], array('group_formal_submission_form'));
+        hide($variables['content']['formal_submission_webform']);
+        // Only hide inro/outro if there is no embedded webform.
+        if (empty($variables['content']['field_other_embedded_webform'])) {
+          hide($variables['content']['field_formal_submission_cta_1']);
+          hide($variables['content']['field_formal_submission_cta_2']);
+        }
+      }
+
+      if ($funding['in_review']) {
+        show($variables['content']['field_formal_submission_cta_1']);
+      }
+
+      // Add formal submission field to JS Drupal.settings if a value is present.
+      if (isset($variables['content']['field_formal_submission_notify']['#items'][0]['value'])) {
+        drupal_add_js(array(
+          'doca_theme' => array(
+            'formalSubmissionNotify' => check_plain($variables['content']['field_formal_submission_notify']['#items'][0]['value']),
+          ),
+        ), 'setting');
+      }
+      hide($variables['content']['field_formal_submission_notify']);
+
+    }
+
+    // Create the entity metadata wrapper.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    _consultation_vars($variables, $variables['node']);
+    $funding = $variables['funding'];
+
+    if ($funding['date_status'] === 'upcoming') {
+      field_group_hide_field_groups($variables['elements'], array('group_formal_submissions'));
+      hide($variables['content']['hys_progress_bar']);
+      hide($variables['content']['formal_submission_webform']);
+      hide($variables['content']['field_formal_submission_cta_1']);
+      hide($variables['content']['field_formal_submission_cta_2']);
+      hide($variables['content']['field_other_embedded_webform']);
+    }
+
+    // Set default values.
+    $short_comments_enabled = $file_uploads_enabled = FALSE;
+    // Create the entity metadata wrapper.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    // If the 'Short comments enabled' field exists and is TRUE.
+    if (isset($node->field_short_comments_enabled) && $wrapper->field_short_comments_enabled->value()) {
+      $short_comments_enabled = TRUE;
+    }
+
+    // If the 'File upload enabled' field exists and is TRUE.
+    if (isset($node->field_file_uploads_enabled) && $wrapper->field_file_uploads_enabled->value()) {
+      $file_uploads_enabled = TRUE;
+    }
+
+    // Add the above results to javascript.
+    drupal_add_js(array(
+      'doca_theme' => array(
+        'shortCommentsEnabled' => $short_comments_enabled,
+        'fileUploadsEnabled' => $file_uploads_enabled,
+      ),
+    ), 'setting');
+
+    // Get the end funding date.
+    $end_consultation_date = _doca_admin_return_end_consultation_date($node, $wrapper);
+    // Get the current timestamp.
+    $time = time();
+
+    // Check if a fso has been provided.
+    if (isset($_GET['fso'])) {
+      // Check if the node is able to accept late submissions.
+      $accept_late_submissions = _doca_admin_accept_late_submission($node);
+      // If the node can accept late submissions.
+      if ($accept_late_submissions) {
+        // Get the salted hash for this nid.
+        $salted_hash = _doca_admin_return_salted_hash($node->nid);
+        // If the salted hash and the fso are equal.
+        if ($_GET['fso'] == $salted_hash) {
+          // Show the relevant HYS sections.
+          show($variables['content']['formal_submission_webform']);
+
+          // Build up the message to let the user know of the special case.
+          $message = t("Please note that acceptance of submissions for this round of the funding has closed. It is at the Departments' discretion if late submissions are accepted. Thank you.");
+          // Output the status message.
+          $variables['status_message'] = $message;
+        }
+      }
+      // If the 'Enable late submissions' value is not TRUE and the end funding date is less than now.
+      elseif (isset($node->field_enable_late_submissions) && $wrapper->field_enable_late_submissions->value() !== TRUE && $end_consultation_date < $time) {
+        // Redirect the user to the custom 404 page.
+        drupal_goto('page-404-consultations');
+      }
+    }
+
+    // Hide 'Discussion Forum' related fields initially.
+    hide($variables['content']['field_discussion_forum_heading']);
+    hide($variables['content']['field_discussion_forum_intro']);
+    // Create an entity metadata wrapper.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    if (!$wrapper->field_short_comments_enabled->value()) {
+      $variables['classes_array'][] = 'hide_short_comments';
+    }
+    if (!$wrapper->field_file_uploads_enabled->value()) {
+      $variables['classes_array'][] = 'hide_files';
+    }
+
+    // If comments are open.
+    if ($variables['comment'] == COMMENT_NODE_OPEN) {
+      // If the heading 'Discussion Forum' heading field exists and is not blank.
+      if (isset($node->field_discussion_forum_heading) && $wrapper->field_discussion_forum_heading->value() != '') {
+        // Show the 'Discussion Forum' heading field.
+        show($variables['content']['field_discussion_forum_heading']);
+      }
+      // If the 'Discussion Forum' introduction field eixsts and is not blank.
+      if (isset($node->field_discussion_forum_intro) && $wrapper->field_discussion_forum_intro->value() != '') {
+        // Show the 'Discussion Forum' introduction field.
+        show($variables['content']['field_discussion_forum_intro']);
+      }
+    }
   }
 
   // Variables for optional display of child links grid, 'on this page', suggested content.
@@ -423,6 +596,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
       'bcr_data',
       'blog_article',
       'consultation',
+      'funding',
       'news_article',
       'policy',
       'page',
@@ -482,36 +656,6 @@ function doca_theme_preprocess_node(&$variables, $hook) {
 
   if (array_intersect($submit_formal_submission_roles, array_values($user->roles))) {
     $variables['formal_submission_block'] = module_invoke('webform', 'block_view', 'client-block-' . theme_get_setting('have_your_say_wform_nid'));
-  }
-
-  // If this is a 'Consultation' content type.
-  if ($variables['type'] == 'consultation') {
-    // Hide 'Discussion Forum' related fields initially.
-    hide($variables['content']['field_discussion_forum_heading']);
-    hide($variables['content']['field_discussion_forum_intro']);
-    // Create an entity metadata wrapper.
-    $wrapper = entity_metadata_wrapper('node', $node);
-
-    if (!$wrapper->field_short_comments_enabled->value()) {
-      $variables['classes_array'][] = 'hide_short_comments';
-    }
-    if (!$wrapper->field_file_uploads_enabled->value()) {
-      $variables['classes_array'][] = 'hide_files';
-    }
-
-    // If comments are open.
-    if ($variables['comment'] == COMMENT_NODE_OPEN) {
-      // If the heading 'Discussion Forum' heading field exists and is not blank.
-      if (isset($node->field_discussion_forum_heading) && $wrapper->field_discussion_forum_heading->value() != '') {
-        // Show the 'Discussion Forum' heading field.
-        show($variables['content']['field_discussion_forum_heading']);
-      }
-      // If the 'Discussion Forum' introduction field eixsts and is not blank.
-      if (isset($node->field_discussion_forum_intro) && $wrapper->field_discussion_forum_intro->value() != '') {
-        // Show the 'Discussion Forum' introduction field.
-        show($variables['content']['field_discussion_forum_intro']);
-      }
-    }
   }
 
   if ($variables['type'] == 'alert') {
