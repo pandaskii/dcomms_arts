@@ -157,7 +157,7 @@ function doca_theme_form_system_theme_settings_alter(&$form, $form_state) {
   // Have your Say Form settings
   $form['minisite'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Min-site Theme Config'),
+    '#title' => t('Mini-site Theme Config'),
     '#description' => t("You can change the Theme settings related to each Sub site by changing the order of the items below."),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
