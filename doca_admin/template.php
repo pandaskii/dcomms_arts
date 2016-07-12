@@ -5,6 +5,7 @@
  * Contains the theme's functions to manipulate Drupal's default markup.
  *
  * Complete documentation for this file is available online.
+ *
  * @see https://drupal.org/node/1728096
  */
 
@@ -13,6 +14,7 @@ require_once drupal_get_path('theme', 'doca_theme') . '/template.helpers.inc';
 
 /**
  * Implements hook_form_alter().
+ *
  * Conditionally remove the Archived state from publishing options if the node
  * has a currently published revision.
  */
@@ -28,6 +30,16 @@ function doca_admin_form_node_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
+/**
+ * Implements hook_form_workbench_moderation_moderate_form_alter.
+ *
+ * @param array &$form
+ *        The drupal form array.
+ * @param array &$form_state
+ *        The drupal form_state array.
+ * @param string $form_id
+ *        The drupal form_id string.
+ */
 function doca_admin_form_workbench_moderation_moderate_form_alter(&$form, &$form_state, $form_id) {
   if (!empty($form['node']['#value'])) {
     $node = $form['node']['#value'];
@@ -37,6 +49,14 @@ function doca_admin_form_workbench_moderation_moderate_form_alter(&$form, &$form
   }
 }
 
+/**
+ * An additional validation hook for form_system_theme_settings_alter.
+ *
+ * @param array &$form
+ *        The drupal form array.
+ * @param array &$form_state
+ *        The drupal form_state array.
+ */
 function _doca_theme_form_system_theme_settings_alter_validate(&$form, &$form_state) {
   for ($i = 1; $i < 5; $i++) {
     if (isset($form_state['values']['sub_theme_' . $i]) && $form_state['values']['sub_theme_' . $i] > 0) {
@@ -46,7 +66,70 @@ function _doca_theme_form_system_theme_settings_alter_validate(&$form, &$form_st
 }
 
 /**
+ * An additional post save hook for form_system_theme_settings_alter.
+ *
+ * @param array &$form
+ *        The drupal form array.
+ * @param array &$form_state
+ *        The drupal form_state array.
+ */
+function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_state) {
+  // Go through each of the simple contexts that can be changed to the dynamic
+  // business areas and change their taxonomy term locations.
+  $contexts = context_enabled_contexts();
+  reset($contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values']);
+  $key = key($contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values']);
+  unset($contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values'][$key]);
+  $contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme');
+
+  reset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
+  $key = key($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
+  unset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values'][$key]);
+  $contexts['apply_subsite_class_digital_business']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme');
+
+  reset($contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values']);
+  $key = key($contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values']);
+  unset($contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values'][$key]);
+  $contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme');
+  $contexts['apply_subsite_class_stay-smart-online']->reactions['theme_html']['class'] = 'subsite__sub-theme-1';
+
+  reset($contexts['display_bcr_nav']->conditions['menu']['values']);
+  $key = key($contexts['display_bcr_nav']->conditions['menu']['values']);
+  unset($contexts['display_bcr_nav']->conditions['menu']['values'][$key]);
+  $contexts['display_bcr_nav']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme');
+
+  reset($contexts['display_digitalbusiness_nav']->conditions['menu']['values']);
+  $key = key($contexts['display_digitalbusiness_nav']->conditions['menu']['values']);
+  unset($contexts['display_digitalbusiness_nav']->conditions['menu']['values'][$key]);
+  $contexts['display_digitalbusiness_nav']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme');
+
+  reset($contexts['display_sso_nav_menu']->conditions['menu']['values']);
+  $key = key($contexts['display_sso_nav_menu']->conditions['menu']['values']);
+  unset($contexts['display_sso_nav_menu']->conditions['menu']['values'][$key]);
+  $contexts['display_sso_nav_menu']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme');
+
+  reset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
+  $key = key($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
+  unset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values'][$key]);
+  $contexts['apply_subsite_class_digital_business']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme');
+
+  // Change the default form ID for the Funding and Support.
+  $field = field_read_instance('node', 'field_funding_app_webform', 'funding');
+  $field['default_value'] = array(
+    0 => array(
+      'target_id' => $form_state['values']['funding_default_wform_nid']
+    ),
+  );
+  field_update_instance($field);
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
+ *
+ * @param array &$form
+ *        The drupal form array.
+ * @param array &$form_state
+ *        The drupal form_state array.
  */
 function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
   // Get the node.
@@ -78,9 +161,9 @@ function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
  * Implements hook form alter.
  *
  * @param array &$form
- *        The drupal form array
+ *        The drupal form array.
  * @param array &$form_state
- *        The drupal form_state array
+ *        The drupal form_state array.
  */
 function doca_admin_form_file_entity_edit_alter(&$form, &$form_state) {
   if ($form['#bundle'] == 'image') {
@@ -93,12 +176,12 @@ function doca_admin_form_file_entity_edit_alter(&$form, &$form_state) {
  * Form validation function for image file entities.
  *
  * This function ensure that, if a title or description is entered there is a
- * valid artist
+ * valid artist.
  *
- * @param array &$form
- *        The drupal form array
+ * @param array $form
+ *        The drupal form array.
  * @param array &$form_state
- *        The drupal form_state array
+ *        The drupal form_state array.
  */
 function _doca_admin_form_file_entity_edit_validate($form, &$form_state) {
   $invalid = ((!isset($form_state['values']['field_read_more_text'][LANGUAGE_NONE]) ||

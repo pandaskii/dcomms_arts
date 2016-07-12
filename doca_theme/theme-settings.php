@@ -204,6 +204,7 @@ function doca_theme_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('sub_theme_4_title'),
   );
   $form['#validate'][] = '_doca_theme_form_system_theme_settings_alter_validate';
+  $form['#submit'][] = '_doca_theme_form_system_theme_settings_alter_submit';
 }
 
 /**

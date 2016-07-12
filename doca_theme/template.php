@@ -1068,8 +1068,8 @@ function doca_theme_block_view_alter(&$data, $block) {
       $data['subsite_name'] = theme_get_setting('sub_theme_3_title');
     }
     if (array_key_exists('display_bcr_nav', $contexts) || array_key_exists('clone_of_display_bcr_nav', $contexts)) {
-      $data['subsite'] = theme_get_setting('sub_theme_4');
-      $data['subsite_name'] = theme_get_setting('sub_theme_4_title');
+      $data['subsite'] = theme_get_setting('sub_theme_2');
+      $data['subsite_name'] = theme_get_setting('sub_theme_2_title');
     }
   }
 }
@@ -1210,7 +1210,7 @@ function doca_theme_preprocess_views_view(&$variables) {
     }
   }
   if ($variables['name'] == 'whats_new_grid' && $variables['display_id'] == 'block_1') {
-    if(count($variables['view']->result) == 2) {
+    if (count($variables['view']->result) == 2) {
       $variables['classes_array'][] = 'grid-stream__2-col';
       $variables['rows'] = str_replace('grid_stream_medlrg', 'grid_stream_landscape_large', $variables['rows']);
       $variables['rows'] = str_replace('grid_stream_medium_alt', 'grid_stream_landscape_medlrg', $variables['rows']);
