@@ -464,7 +464,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
       drupal_add_js(array('doca_theme' => array('webform_nid' => theme_get_setting('funding_default_wform_nid'))), 'setting');
 
       _funding_vars($variables, $variables['node']);
-      $funding = $variables['funding'];
+      $funding = $variables['consultation'];
 
       // Return if formal submissions are not accepted.
       if (!empty($funding['hide_form'])) {
@@ -497,7 +497,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     $wrapper = entity_metadata_wrapper('node', $node);
 
     _consultation_vars($variables, $variables['node']);
-    $funding = $variables['funding'];
+    $funding = $variables['consultation'];
 
     if ($funding['date_status'] === 'upcoming') {
       field_group_hide_field_groups($variables['elements'], array('group_formal_submissions'));
@@ -512,16 +512,6 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     $short_comments_enabled = $file_uploads_enabled = FALSE;
     // Create the entity metadata wrapper.
     $wrapper = entity_metadata_wrapper('node', $node);
-
-    // If the 'Short comments enabled' field exists and is TRUE.
-    if (isset($node->field_short_comments_enabled) && $wrapper->field_short_comments_enabled->value()) {
-      $short_comments_enabled = TRUE;
-    }
-
-    // If the 'File upload enabled' field exists and is TRUE.
-    if (isset($node->field_file_uploads_enabled) && $wrapper->field_file_uploads_enabled->value()) {
-      $file_uploads_enabled = TRUE;
-    }
 
     // Add the above results to javascript.
     drupal_add_js(array(
@@ -567,13 +557,6 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     hide($variables['content']['field_discussion_forum_intro']);
     // Create an entity metadata wrapper.
     $wrapper = entity_metadata_wrapper('node', $node);
-
-    if (!$wrapper->field_short_comments_enabled->value()) {
-      $variables['classes_array'][] = 'hide_short_comments';
-    }
-    if (!$wrapper->field_file_uploads_enabled->value()) {
-      $variables['classes_array'][] = 'hide_files';
-    }
 
     // If comments are open.
     if ($variables['comment'] == COMMENT_NODE_OPEN) {
@@ -696,9 +679,10 @@ function doca_theme_preprocess_views_view_field(&$variables) {
 function doca_theme_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'webform_client_form_' . theme_get_setting('have_your_say_wform_nid')) {
     $component_key = "privacy";
-    $form['actions'][$component_key] = $form['submitted'][$component_key];
-    unset($form['submitted'][$component_key]);
-
+    if (isset($form['field_short_comments_enabled'][$component_key])) {
+      $form['actions'][$component_key] = $form['field_short_comments_enabled'][$component_key];
+      unset($form['submitted'][$component_key]);
+    }
     // Check if the 'Short comments' field is available.
     if (isset($form['submitted']['short_comments'])) {
       // Update the attributes and set the maxlength.
