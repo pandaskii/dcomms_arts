@@ -126,24 +126,24 @@ function doca_theme_form_system_theme_settings_alter(&$form, $form_state) {
   $form['have_your_say'] = array(
     '#type' => 'fieldset',
     '#title' => t('Have your Say'),
-    '#description' => t("Select the webform to appear on the <strong>Consultation</strong> Content Type as the <em>Have Your Say</em> form."),
+    '#description' => t("</p>Select the webform to appear on the <strong>Consultation</strong> Content Type as the <em>Have Your Say</em> form.</p>"),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
     '#group' => 'group_tabs',
   );
   $form['have_your_say']['have_your_say_wform_nid'] = array(
     '#type' => 'select',
-    '#title' => t('Choose the <em>Have your Say</em> form'),
+    '#title' => t('Have your Say form'),
     '#options' => _webform_list(),
     '#default_value' => theme_get_setting('have_your_say_wform_nid'),
-    '#description' => t('Be careful changing this value as this is for internal reference.'),
+    '#description' => t('Choose the <em>Have your Say</em> form. Be careful changing this value as this is for internal reference.'),
   );
   $form['have_your_say']['funding_default_wform_nid'] = array(
     '#type' => 'select',
-    '#title' => t('Choose the <em>Default Funding and Support</em> form'),
+    '#title' => t('Default Funding and Support form'),
     '#options' => _webform_list(),
     '#default_value' => theme_get_setting('funding_default_wform_nid'),
-    '#description' => t('Be careful changing this value as this is for internal reference.'),
+    '#description' => t('Choose the <em>Default Funding and Support</em> form. Be careful changing this value as this is for internal reference.'),
   );
 
   // Load the terms available to be mini-sites
