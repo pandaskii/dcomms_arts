@@ -463,7 +463,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
       drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
       drupal_add_js(array('doca_theme' => array('webform_nid' => theme_get_setting('funding_default_wform_nid'))), 'setting');
 
-      _funding_vars($variables, $variables['node']);
+      _consultation_vars($variables, $variables['node']);
       $funding = $variables['consultation'];
 
       // Return if formal submissions are not accepted.
