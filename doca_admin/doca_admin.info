@@ -4,4 +4,3 @@ core = 7.x
 base theme  = shiny
 
 stylesheets[all][] = css/doca_admin.css
-scripts[] = js/script.js

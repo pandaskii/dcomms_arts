@@ -163,6 +163,7 @@ function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
 function doca_admin_form_funding_node_form_alter(&$form, &$form_state) {
   // Add validation callback to handle auto clearing funding updates.
   $form['#validate'][] = 'doca_admin_clear_updates';
+  $form['#attached']['js'][] = drupal_get_path('theme', 'doca_admin') . '/js/script.js';
 }
 
 /**
