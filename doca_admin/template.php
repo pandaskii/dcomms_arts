@@ -99,18 +99,18 @@ function doca_admin_clear_updates($form, &$form_state) {
   if ($current_field['value'] != $new_field['value']) {
     // The funding start date is being changed, remove updates!
     if (isset($form_state['values']['field_updates']) && !empty($form_state['values']['field_updates'])) {
-      doca_base_paragraphs_deleteconfirm_hack($form, $form_state); 
-    }      
+      doca_base_paragraphs_deleteconfirm($form, $form_state);
+    }
   }
 
 }
 
 /**
- * Remove funding update paragraph bundles when start date changes. 
+ * Remove funding update paragraph bundles when start date changes.
  *
- * This is an adaptation of the submit callback for confirming 
- * deletion of a paragraph item. Paragaphs handles all of it's 
- * CRUD through ajax callbacks that we can't invoke directly or 
+ * This is an adaptation of the submit callback for confirming
+ * deletion of a paragraph item. Paragaphs handles all of it's
+ * CRUD through ajax callbacks that we can't invoke directly or
  * just shortcut by unsetting field values in $form_state.
  *
  * Instead, we call this function during form validation and spoof
@@ -118,12 +118,12 @@ function doca_admin_clear_updates($form, &$form_state) {
  * This ensures that all the normal paragraphs routines and field API
  * hooks fire and paragraphs items are retained for old revisions.
  *
- * @param $form 
+ * @param $form
  *   array $form        [description]
  * @param  [type] &$form_state [description]
  * @return [type]              [description]
  */
-function doca_base_paragraphs_deleteconfirm_hack($form, &$form_state) {
+function doca_base_paragraphs_deleteconfirm($form, &$form_state) {
   // Loop over each 'updates' paragraph item widget in the form.
   foreach ($form['field_updates'][LANGUAGE_NONE] as $delta => $update) {
     if (!is_int($delta)) {
@@ -133,7 +133,7 @@ function doca_base_paragraphs_deleteconfirm_hack($form, &$form_state) {
 
     // Spoof the #array_parents value for transplanted paragraphs code below.
     $spoofed_array_parents = array('field_updates', 'und', $delta, 'actions', 'remove_button');
-    
+
     // Code below this point is adapted from
     // function paragraphs_deleteconfirm_submit().
 
@@ -178,9 +178,8 @@ function doca_base_paragraphs_deleteconfirm_hack($form, &$form_state) {
 
     drupal_array_set_nested_value($form_state['input'], $address, $input);
     field_form_set_state($parents, $field_name, $langcode, $form_state, $field_state);
-  } 
+  }
 
   // Alert the editor that we've made some automated changes to their new draft.
   drupal_set_message(t('The funding updates for this draft have been automatically cleared due to a change in the application deadline start date.'), 'warning');
 }
-

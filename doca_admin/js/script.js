@@ -24,21 +24,23 @@
       // Pull in existing datepicker settings for start date field.
       var dateSettings = $.extend(true, {}, Drupal.settings.datePopup['edit-field-consultation-date-und-0-value-datepicker-popup-0']);
       var endDateSettings = Drupal.settings.datePopup['edit-field-consultation-date-und-0-value2-datepicker-popup-0'];
-      
+
       // Select our date widgets.
       var startDate = $('#edit-field-consultation-date-und-0-value-datepicker-popup-0');
       var endDate = $('#edit-field-consultation-date-und-0-value2-datepicker-popup-0');
-      
+
       // Init the end date datepicker before we try to call it's setDate method.
       // This usually happens on focus event in date_popup, but we need it sooner.
       endDate.datepicker(endDateSettings.settings);
 
       // Add the option to respond to onSelect events.
       dateSettings.settings.onSelect = function(d,i) {
-        var formattedDate = $.datepicker.formatDate("d M yy", d);
+        var end = new Date(d);
+        end.setMonth(end.getMonth() + 3);
+        var formattedDate = $.datepicker.formatDate("d M yy", end);
         if (d !== i.lastVal) {
           // Update the end date when the start date changes.
-          endDate.datepicker('setDate', d);
+          endDate.datepicker('setDate', formattedDate);
         }
       }
 
