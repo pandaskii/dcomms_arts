@@ -891,10 +891,14 @@ function doca_theme_menu_link__menu_footer_sub_menu(array $variables) {
  */
 function doca_theme_file_icon($variables) {
   $file = $variables['file'];
-  $icon_directory = drupal_get_path('theme', 'doca_theme') . '/images/document';
+  $icon_directory = drupal_get_path('theme', 'doca_theme') . '/dist/images/document';
 
   $mime = check_plain($file->filemime);
   $icon_url = file_icon_path($file, $icon_directory);
+
+  if ($icon_url == FALSE) {
+    $icon_url = $icon_directory . '/generic.png';
+  }
 
   return '<img alt="" class="file__icon" src="' . base_path() . $icon_url . '" title="' . $mime . '" />';
 }
