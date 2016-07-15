@@ -75,51 +75,64 @@ function _doca_theme_form_system_theme_settings_alter_validate(&$form, &$form_st
  */
 function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_state) {
 
+  $subsite1 = $form_state['values']['sub_theme_1'];
+  $subsite2 = $form_state['values']['sub_theme_2'];
+  $subsite3 = $form_state['values']['sub_theme_3'];
+  $subsite4 = $form_state['values']['sub_theme_4'];
+
   // Go through each of the simple contexts that can be changed to the dynamic
   // business areas and change their taxonomy term locations.
   $contexts = context_enabled_contexts();
   $context = $contexts['apply_subsite_class_bureau_communications_research'];
-  reset($context->conditions['menu']['values']);
-  $key = key($context->conditions['menu']['values']);
-  unset($context->conditions['menu']['values'][$key]);
-  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_2']] = 'taxonomy/term/' . $form_state['values']['sub_theme_2'];
-  context_save($context);
+  // $context = $contexts['apply_subsite_class_subsite_2'];
+  _doca_theme_reset_menu($context, $subsite2);
 
   $context = $contexts['apply_subsite_class_digital_business'];
-  reset($context->conditions['menu']['values']);
-  $key = key($context->conditions['menu']['values']);
-  unset($context->conditions['menu']['values'][$key]);
-  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_3']] = 'taxonomy/term/' . $form_state['values']['sub_theme_3'];
-  context_save($context);
+  // $context = $contexts['apply_subsite_class_subsite_3'];
+  _doca_theme_reset_menu($context, $subsite3);
 
   $context = $contexts['apply_subsite_class_stay-smart-online'];
-  reset($context->conditions['menu']['values']);
-  $key = key($context->conditions['menu']['values']);
-  unset($context->conditions['menu']['values'][$key]);
-  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_1']] = 'taxonomy/term/' . $form_state['values']['sub_theme_1'];
-  $context->reactions['theme_html']['class'] = 'subsite__sub-theme-1';
-  context_save($context);
+  // $context = $contexts['apply_subsite_class_subsite_1'];
+  _doca_theme_reset_menu($context, $subsite1);
 
   $context = $contexts['display_bcr_nav'];
-  reset($context->conditions['menu']['values']);
-  $key = key($context->conditions['menu']['values']);
-  unset($context->conditions['menu']['values'][$key]);
-  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_2']] = 'taxonomy/term/' . $form_state['values']['sub_theme_2'];
-  context_save($context);
+  // $context = $contexts['display_subsite_2_nav'];
+  _doca_theme_reset_block($context, $subsite2);
+  _doca_theme_reset_menu($context, $subsite2);
 
   $context = $contexts['display_digitalbusiness_nav'];
-  reset($context->conditions['menu']['values']);
-  $key = key($context->conditions['menu']['values']);
-  unset($context->conditions['menu']['values'][$key]);
-  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_3']] = 'taxonomy/term/' . $form_state['values']['sub_theme_3'];
-  context_save($context);
+  // $context = $contexts['display_subsite_3_nav'];
+  _doca_theme_reset_block($context, $subsite3);
+  _doca_theme_reset_menu($context, $subsite3);
 
   $context = $contexts['display_sso_nav_menu'];
-  reset($context->conditions['menu']['values']);
-  $key = key($context->conditions['menu']['values']);
-  unset($context->conditions['menu']['values'][$key]);
-  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_1']] = 'taxonomy/term/' . $form_state['values']['sub_theme_1'];
-  context_save($context);
+  // $context = $contexts['display_subsite_1_nav_menu'];
+  _doca_theme_reset_block($context, $subsite1);
+  _doca_theme_reset_menu($context, $subsite1);
+
+  $context = $contexts['clone_of_apply_subsite_class_bureau_communications_research'];
+  _doca_theme_reset_term($context, $subsite2);
+
+  $context = $contexts['clone_of_apply_subsite_class_digital_business'];
+  _doca_theme_reset_term($context, $subsite3);
+
+  $context = $contexts['clone_of_apply_subsite_class_stay-smart-online'];
+  // $context = $contexts['apply_subsite_class_subsite_1'];
+  _doca_theme_reset_term($context, $subsite1);
+
+  $context = $contexts['clone_of_display_bcr_nav'];
+  _doca_theme_reset_block($context, $subsite2);
+  _doca_theme_reset_term($context, $subsite2);
+
+  $context = $contexts['clone_of_display_digitalbusiness_nav'];
+  // $context = $contexts['display_subsite_3_nav'];
+  _doca_theme_reset_block($context, $subsite3);
+  _doca_theme_reset_term($context, $subsite3);
+
+  $context = $contexts['clone_of_display_sso_nav_menu'];
+  // $context = $contexts['display_subsite_1_nav_menu'];
+  _doca_theme_reset_block($context, $subsite1);
+  _doca_theme_reset_term($context, $subsite1);
 
   // Change the default form ID for the Funding and Support.
   $field = field_read_instance('node', 'field_funding_app_webform', 'funding');
@@ -129,6 +142,46 @@ function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_stat
     ),
   );
   field_update_instance($field);
+}
+
+function _doca_theme_reset_menu($context, $tid) {
+  reset($context->conditions['menu']['values']);
+  $key = key($context->conditions['menu']['values']);
+  unset($context->conditions['menu']['values'][$key]);
+  $context->conditions['menu']['values']['taxonomy/term/' . $tid] = 'taxonomy/term/' . $tid;
+  context_save($context);
+}
+
+function _doca_theme_reset_term($context, $tid) {
+  reset($context->conditions['node_taxonomy']['values']);
+  unset($context->conditions['node_taxonomy']['values']);
+  $context->conditions['node_taxonomy']['values'] = array($tid => $tid);
+  context_save($context);
+}
+
+function _doca_theme_reset_block(&$context, $tid) {
+  $key = key($context->reactions['block']['blocks']);
+  if ($tid < 1) {
+    unset($context->reactions['block']['blocks'][$key]);
+  }
+  // Get the block ID for the menu block of the second sub theme
+  $results = db_query("select name from variable where name like 'menu_block___parent'")
+    ->fetchCol(0);
+  foreach ($results as $name) {
+    $value = str_replace('main-menu:', '', variable_get($name));
+    $term = db_query("select link_path from {menu_links} ml where ml.mlid = :mlid", array(':mlid' => $value))
+      ->fetchCol(0)[0];
+    if ($term == 'taxonomy/term/' . $tid) {
+      $menu_block = str_replace('menu_block_', '', str_replace('_parent', '', $name));
+      if ($key != 'menu_block-' . $menu_block) {
+        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['module'] = 'menu_block';
+        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['delta'] = $menu_block;
+        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['region'] = 'highlighted';
+        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['weight'] = -10;
+        unset($context->reactions['block']['blocks'][$key]);
+      }
+    }
+  }
 }
 
 /**
