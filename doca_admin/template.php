@@ -74,44 +74,52 @@ function _doca_theme_form_system_theme_settings_alter_validate(&$form, &$form_st
  *        The drupal form_state array.
  */
 function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_state) {
+
   // Go through each of the simple contexts that can be changed to the dynamic
   // business areas and change their taxonomy term locations.
   $contexts = context_enabled_contexts();
-  reset($contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values']);
-  $key = key($contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values']);
-  unset($contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values'][$key]);
-  $contexts['apply_subsite_class_bureau_communications_research']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme');
+  $context = $contexts['apply_subsite_class_bureau_communications_research'];
+  reset($context->conditions['menu']['values']);
+  $key = key($context->conditions['menu']['values']);
+  unset($context->conditions['menu']['values'][$key]);
+  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_2']] = 'taxonomy/term/' . $form_state['values']['sub_theme_2'];
+  context_save($context);
 
-  reset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
-  $key = key($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
-  unset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values'][$key]);
-  $contexts['apply_subsite_class_digital_business']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme');
+  $context = $contexts['apply_subsite_class_digital_business'];
+  reset($context->conditions['menu']['values']);
+  $key = key($context->conditions['menu']['values']);
+  unset($context->conditions['menu']['values'][$key]);
+  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_3']] = 'taxonomy/term/' . $form_state['values']['sub_theme_3'];
+  context_save($context);
 
-  reset($contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values']);
-  $key = key($contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values']);
-  unset($contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values'][$key]);
-  $contexts['apply_subsite_class_stay-smart-online']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme');
-  $contexts['apply_subsite_class_stay-smart-online']->reactions['theme_html']['class'] = 'subsite__sub-theme-1';
+  $context = $contexts['apply_subsite_class_stay-smart-online'];
+  reset($context->conditions['menu']['values']);
+  $key = key($context->conditions['menu']['values']);
+  unset($context->conditions['menu']['values'][$key]);
+  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_1']] = 'taxonomy/term/' . $form_state['values']['sub_theme_1'];
+  $context->reactions['theme_html']['class'] = 'subsite__sub-theme-1';
+  context_save($context);
 
-  reset($contexts['display_bcr_nav']->conditions['menu']['values']);
-  $key = key($contexts['display_bcr_nav']->conditions['menu']['values']);
-  unset($contexts['display_bcr_nav']->conditions['menu']['values'][$key]);
-  $contexts['display_bcr_nav']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme');
+  $context = $contexts['display_bcr_nav'];
+  reset($context->conditions['menu']['values']);
+  $key = key($context->conditions['menu']['values']);
+  unset($context->conditions['menu']['values'][$key]);
+  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_2']] = 'taxonomy/term/' . $form_state['values']['sub_theme_2'];
+  context_save($context);
 
-  reset($contexts['display_digitalbusiness_nav']->conditions['menu']['values']);
-  $key = key($contexts['display_digitalbusiness_nav']->conditions['menu']['values']);
-  unset($contexts['display_digitalbusiness_nav']->conditions['menu']['values'][$key]);
-  $contexts['display_digitalbusiness_nav']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_3', 'doca_theme');
+  $context = $contexts['display_digitalbusiness_nav'];
+  reset($context->conditions['menu']['values']);
+  $key = key($context->conditions['menu']['values']);
+  unset($context->conditions['menu']['values'][$key]);
+  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_3']] = 'taxonomy/term/' . $form_state['values']['sub_theme_3'];
+  context_save($context);
 
-  reset($contexts['display_sso_nav_menu']->conditions['menu']['values']);
-  $key = key($contexts['display_sso_nav_menu']->conditions['menu']['values']);
-  unset($contexts['display_sso_nav_menu']->conditions['menu']['values'][$key]);
-  $contexts['display_sso_nav_menu']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_1', 'doca_theme');
-
-  reset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
-  $key = key($contexts['apply_subsite_class_digital_business']->conditions['menu']['values']);
-  unset($contexts['apply_subsite_class_digital_business']->conditions['menu']['values'][$key]);
-  $contexts['apply_subsite_class_digital_business']->conditions['menu']['values']['taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme')] = 'taxonomy/term/' . theme_get_setting('sub_theme_2', 'doca_theme');
+  $context = $contexts['display_sso_nav_menu'];
+  reset($context->conditions['menu']['values']);
+  $key = key($context->conditions['menu']['values']);
+  unset($context->conditions['menu']['values'][$key]);
+  $context->conditions['menu']['values']['taxonomy/term/' . $form_state['values']['sub_theme_1']] = 'taxonomy/term/' . $form_state['values']['sub_theme_1'];
+  context_save($context);
 
   // Change the default form ID for the Funding and Support.
   $field = field_read_instance('node', 'field_funding_app_webform', 'funding');
