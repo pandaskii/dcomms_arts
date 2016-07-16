@@ -775,6 +775,7 @@ a:hover, a:active {
   margin-bottom: 0.25rem;
   width: 18px;
   height: 18px;
+  float: right;
 }
 [aria-expanded="true"] .accordion__arrow {
   -moz-transform: scaleY(-1);
