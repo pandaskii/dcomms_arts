@@ -40,13 +40,9 @@
   padding-bottom: 0;
   img {
     width: auto;
-    height: 90px;
-    @include breakpoint($medium) {
-      float: right;
-      height: 45px;
-    }
+    height: 38px;
     @include breakpoint($large) {
-      height: 90px;
+      height: 62px;
     }
   }
 }
@@ -65,10 +61,23 @@
   }
 }
 
-.featured__grid-item__left, %featured__grid-item__left {
+.featured__grid-item__img {
+  float: right;
+  padding-bottom: 0;
+}
+
+.featured__grid-item__left, %featured__grid-item__left, .featured__grid-item-img__left .featured__grid-item__img {
   @extend %promotional-feature__left;
 }
 
-.featured__grid-item__right, %featured__grid-item__right {
+.featured__grid-item__right, %featured__grid-item__right, .featured__grid-item-img__left .featured__grid-item__content {
   @extend %promotional-feature__right;
+  img {
+    @include breakpoint($medium) {
+      height: 45px;
+    }
+    @include breakpoint($large) {
+      height: 90px;
+    }
+  }
 }
