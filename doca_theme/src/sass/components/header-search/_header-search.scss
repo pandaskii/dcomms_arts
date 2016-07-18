@@ -26,6 +26,7 @@
     // Transition the width of the div.
     -moz-transition: width 0.25s;
     -webkit-transition: width 0.25s;
+    transition: width 0.25s;
     width: 0;
     &.is-active {
       width: 100%;
