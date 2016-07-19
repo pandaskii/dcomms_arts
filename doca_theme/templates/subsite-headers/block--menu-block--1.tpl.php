@@ -12,7 +12,10 @@
       </a>
     </div>
 
-    <div class="subsite-header__layout--nav">
+    <div class="subsite-header__layout--nav clearfix">
+      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>" class="subsite-header__logo-small">
+        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo--sm.png" alt="Logo" />
+      </a>
 
       <nav class="subsite-header__nav" role="navigation" id="subsite-naviagtion">
         <button class="subsite-header__button">
@@ -24,3 +27,4 @@
     </div>
    </div>
  </div>
+
