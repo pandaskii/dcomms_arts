@@ -4,7 +4,7 @@
  * Default theme implementation for blocks.
  */
 ?>
-<div class="subsite-header subsite__sub-theme-1">
+<div class="subsite-header subsite__sub-theme-1 spacer--bottom-mid">
   <div class="subsite-header__branding">
     <div class="subsite-header__layout">
       <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>" class="subsite-header__logo-large">

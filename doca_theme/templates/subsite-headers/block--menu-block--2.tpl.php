@@ -4,17 +4,17 @@
  * Default theme implementation for blocks.
  */
 ?>
-<div class="subsite-header subsite--digibus">
+<div class="subsite-header subsite__sub-theme-1 spacer--bottom-mid">
   <div class="subsite-header__branding">
     <div class="subsite-header__layout">
-      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_3')); ?>" class="subsite-header__logo-large">
-        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/example-svgs/business-area/digibus--large.svg" alt="Logo" />
+      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>" class="subsite-header__logo-large">
+        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo.png" alt="Logo" />
       </a>
     </div>
 
-    <div class="subsite-header__layout--small">
-      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_3')); ?>" class="subsite-header__logo-small">
-        <img class="subsite-header__logo-small " src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/example-svgs/business-area/digibus--small.svg" alt="Logo" />
+    <div class="subsite-header__layout--nav clearfix">
+      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>" class="subsite-header__logo-small">
+        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo--sm.png" alt="Logo" />
       </a>
 
       <nav class="subsite-header__nav" role="navigation" id="subsite-naviagtion">
@@ -27,3 +27,4 @@
     </div>
    </div>
  </div>
+
