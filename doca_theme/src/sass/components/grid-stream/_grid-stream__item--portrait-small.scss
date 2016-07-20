@@ -48,3 +48,7 @@
     @extend %grid-stream__item--portrait-small__image-overlay-after;
   }
 }
+
+.grid-stream__2-col .view-content> div.clearfix:nth-child(2) {
+  display: none;
+}
