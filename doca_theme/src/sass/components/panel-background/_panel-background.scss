@@ -20,4 +20,15 @@ $module-background-position: 16px $full_right 20% 67% 30% 54% 5%;
       background-size: auto;
     }
   }
+  .view-whats-new-grid.grid-stream__2-col .attachment-after {
+    display: block;
+    %panel-background-#{$i}, .panel-background-#{$i} {
+      background-image: none;
+      padding: 0;
+      ;
+    }
+  }
+  .view-whats-new-grid .attachment-after {
+    display: none;
+  }
 }

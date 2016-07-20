@@ -84,29 +84,23 @@ function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_stat
   // business areas and change their taxonomy term locations.
   $contexts = context_enabled_contexts();
   $context = $contexts['apply_subsite_class_bureau_communications_research'];
-  // $context = $contexts['apply_subsite_class_subsite_2'];
   _doca_theme_reset_menu($context, $subsite2);
 
   $context = $contexts['apply_subsite_class_digital_business'];
-  // $context = $contexts['apply_subsite_class_subsite_3'];
   _doca_theme_reset_menu($context, $subsite3);
 
   $context = $contexts['apply_subsite_class_stay-smart-online'];
-  // $context = $contexts['apply_subsite_class_subsite_1'];
   _doca_theme_reset_menu($context, $subsite1);
 
   $context = $contexts['display_bcr_nav'];
-  // $context = $contexts['display_subsite_2_nav'];
   _doca_theme_reset_block($context, $subsite2);
   _doca_theme_reset_menu($context, $subsite2);
 
   $context = $contexts['display_digitalbusiness_nav'];
-  // $context = $contexts['display_subsite_3_nav'];
   _doca_theme_reset_block($context, $subsite3);
   _doca_theme_reset_menu($context, $subsite3);
 
   $context = $contexts['display_sso_nav_menu'];
-  // $context = $contexts['display_subsite_1_nav_menu'];
   _doca_theme_reset_block($context, $subsite1);
   _doca_theme_reset_menu($context, $subsite1);
 
@@ -117,7 +111,6 @@ function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_stat
   _doca_theme_reset_term($context, $subsite3);
 
   $context = $contexts['clone_of_apply_subsite_class_stay-smart-online'];
-  // $context = $contexts['apply_subsite_class_subsite_1'];
   _doca_theme_reset_term($context, $subsite1);
 
   $context = $contexts['clone_of_display_bcr_nav'];
@@ -125,12 +118,10 @@ function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_stat
   _doca_theme_reset_term($context, $subsite2);
 
   $context = $contexts['clone_of_display_digitalbusiness_nav'];
-  // $context = $contexts['display_subsite_3_nav'];
   _doca_theme_reset_block($context, $subsite3);
   _doca_theme_reset_term($context, $subsite3);
 
   $context = $contexts['clone_of_display_sso_nav_menu'];
-  // $context = $contexts['display_subsite_1_nav_menu'];
   _doca_theme_reset_block($context, $subsite1);
   _doca_theme_reset_term($context, $subsite1);
 
@@ -144,6 +135,14 @@ function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_stat
   field_update_instance($field);
 }
 
+/**
+ * Helper function to reset the default menu item in the subsite contexts.
+ *
+ * @param object $context
+ *        The drupal context module stdClass object.
+ * @param int $tid
+ *        The new term id.
+ */
 function _doca_theme_reset_menu($context, $tid) {
   reset($context->conditions['menu']['values']);
   $key = key($context->conditions['menu']['values']);
@@ -152,6 +151,14 @@ function _doca_theme_reset_menu($context, $tid) {
   context_save($context);
 }
 
+/**
+ * Helper function to reset the Taxonomy term condition on sub site contexts.
+ *
+ * @param object $context
+ *        The drupal context module stdClass object.
+ * @param int $tid
+ *        The new term id.
+ */
 function _doca_theme_reset_term($context, $tid) {
   reset($context->conditions['node_taxonomy']['values']);
   unset($context->conditions['node_taxonomy']['values']);
@@ -159,12 +166,20 @@ function _doca_theme_reset_term($context, $tid) {
   context_save($context);
 }
 
+/**
+ * Helper function to reset the block reaction in the subsite contexts.
+ *
+ * @param object $context
+ *        The drupal context module stdClass object.
+ * @param int $tid
+ *        The new term id.
+ */
 function _doca_theme_reset_block(&$context, $tid) {
   $key = key($context->reactions['block']['blocks']);
   if ($tid < 1) {
     unset($context->reactions['block']['blocks'][$key]);
   }
-  // Get the block ID for the menu block of the second sub theme
+  // Get the block ID for the menu block of the second sub theme.
   $results = db_query("select name from variable where name like 'menu_block___parent'")
     ->fetchCol(0);
   foreach ($results as $name) {
@@ -271,10 +286,10 @@ function doca_admin_clear_updates($form, &$form_state) {
  * This ensures that all the normal paragraphs routines and field API
  * hooks fire and paragraphs items are retained for old revisions.
  *
- * @param $form
- *   array $form        [description]
- * @param  [type] &$form_state [description]
- * @return [type]              [description]
+ * @param array $form
+ *         Drupal form array.
+ * @param array &$form_state
+ *         Drupal form_state array.
  */
 function doca_base_paragraphs_deleteconfirm($form, &$form_state) {
   // Loop over each 'updates' paragraph item widget in the form.
@@ -285,7 +300,13 @@ function doca_base_paragraphs_deleteconfirm($form, &$form_state) {
     }
 
     // Spoof the #array_parents value for transplanted paragraphs code below.
-    $spoofed_array_parents = array('field_updates', 'und', $delta, 'actions', 'remove_button');
+    $spoofed_array_parents = array(
+      'field_updates',
+      'und',
+      $delta,
+      'actions',
+      'remove_button',
+    );
 
     // Code below this point is adapted from
     // function paragraphs_deleteconfirm_submit().
@@ -317,7 +338,7 @@ function doca_base_paragraphs_deleteconfirm($form, &$form_state) {
     // the user had selected.
     $input = drupal_array_get_nested_value($form_state['input'], $address);
     // Sort by weight,
-    // but first remove garbage values to ensure proper '_weight' sorting
+    // but first remove garbage values to ensure proper '_weight' sorting.
     unset($input['add_more']);
     uasort($input, '_field_sort_items_helper');
 

@@ -3004,6 +3004,10 @@ fieldset.separate .fieldset-legend {
   width: 100%;
 }
 
+.grid-stream__2-col .view-content > div.clearfix:nth-child(2) {
+  display: none;
+}
+
 @media (min-width: 720px) {
   .grid-stream__item--portrait__left {
     width: 50%;
@@ -4150,6 +4154,18 @@ fieldset.separate .fieldset-legend {
   }
 }
 
+.view-whats-new-grid.grid-stream__2-col .attachment-after {
+  display: block;
+}
+.view-whats-new-grid.grid-stream__2-col .attachment-after .panel-background-1 {
+  background-image: none;
+  padding: 0;
+}
+
+.view-whats-new-grid .attachment-after {
+  display: none;
+}
+
 .panel-background-2 {
   background-repeat: no-repeat;
   background-size: auto;
@@ -4167,6 +4183,18 @@ fieldset.separate .fieldset-legend {
   .panel-background-2 {
     background-size: auto;
   }
+}
+
+.view-whats-new-grid.grid-stream__2-col .attachment-after {
+  display: block;
+}
+.view-whats-new-grid.grid-stream__2-col .attachment-after .panel-background-2 {
+  background-image: none;
+  padding: 0;
+}
+
+.view-whats-new-grid .attachment-after {
+  display: none;
 }
 
 .panel-background-3 {
@@ -4188,6 +4216,18 @@ fieldset.separate .fieldset-legend {
   }
 }
 
+.view-whats-new-grid.grid-stream__2-col .attachment-after {
+  display: block;
+}
+.view-whats-new-grid.grid-stream__2-col .attachment-after .panel-background-3 {
+  background-image: none;
+  padding: 0;
+}
+
+.view-whats-new-grid .attachment-after {
+  display: none;
+}
+
 .panel-background-4 {
   background-repeat: no-repeat;
   background-size: auto;
@@ -4205,6 +4245,18 @@ fieldset.separate .fieldset-legend {
   .panel-background-4 {
     background-size: auto;
   }
+}
+
+.view-whats-new-grid.grid-stream__2-col .attachment-after {
+  display: block;
+}
+.view-whats-new-grid.grid-stream__2-col .attachment-after .panel-background-4 {
+  background-image: none;
+  padding: 0;
+}
+
+.view-whats-new-grid .attachment-after {
+  display: none;
 }
 
 .panel-background-5 {
@@ -4226,6 +4278,18 @@ fieldset.separate .fieldset-legend {
   }
 }
 
+.view-whats-new-grid.grid-stream__2-col .attachment-after {
+  display: block;
+}
+.view-whats-new-grid.grid-stream__2-col .attachment-after .panel-background-5 {
+  background-image: none;
+  padding: 0;
+}
+
+.view-whats-new-grid .attachment-after {
+  display: none;
+}
+
 .panel-background-6 {
   background-repeat: no-repeat;
   background-size: auto;
@@ -4245,6 +4309,18 @@ fieldset.separate .fieldset-legend {
   }
 }
 
+.view-whats-new-grid.grid-stream__2-col .attachment-after {
+  display: block;
+}
+.view-whats-new-grid.grid-stream__2-col .attachment-after .panel-background-6 {
+  background-image: none;
+  padding: 0;
+}
+
+.view-whats-new-grid .attachment-after {
+  display: none;
+}
+
 .panel-background-7 {
   background-repeat: no-repeat;
   background-size: auto;
@@ -4262,6 +4338,18 @@ fieldset.separate .fieldset-legend {
   .panel-background-7 {
     background-size: auto;
   }
+}
+
+.view-whats-new-grid.grid-stream__2-col .attachment-after {
+  display: block;
+}
+.view-whats-new-grid.grid-stream__2-col .attachment-after .panel-background-7 {
+  background-image: none;
+  padding: 0;
+}
+
+.view-whats-new-grid .attachment-after {
+  display: none;
 }
 
 .poll-form {
