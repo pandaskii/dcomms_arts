@@ -63,6 +63,10 @@
     @extend %progress-bar__progress;
     background: color(grey-light);
   }
+  &__progress--aqua {
+    @extend %progress-bar__progress;
+    background: color(blue-aqua-mid);
+  }
   &__progress-thin {
     height: 1rem;
   }

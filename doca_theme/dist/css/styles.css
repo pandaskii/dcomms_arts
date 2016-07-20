@@ -4191,7 +4191,7 @@ fieldset.separate .fieldset-legend {
 .panel-background-4 {
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: 50% 0;
+  background-position: 67% 0;
   background-image: url("../images/module-bar-4.png");
   min-height: 5px;
   background-size: 200px 3px;
@@ -4345,14 +4345,17 @@ fieldset.separate .fieldset-legend {
   margin-bottom: 0.5rem;
   position: relative;
 }
-.poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress {
+.poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress--aqua, .progress-bar__progress {
   background-color: #a2b4fa;
   background-position: 50% 100%;
 }
 .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey {
   background: #b9b9b9;
 }
-.progress-bar__bar, .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress, .progress-bar__progress-thin {
+.progress-bar__progress--aqua {
+  background: #48fbf0;
+}
+.progress-bar__bar, .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress--aqua, .progress-bar__progress, .progress-bar__progress-thin {
   height: 1rem;
 }
 .progress-bar--thick .progress-bar__bar, .progress-bar--thick .progress-bar__progress, .poll-results--binary .progress-bar__bar, .poll-results--binary .progress-bar__progress, .progress-bar--collapsed .progress-bar__bar, .progress-bar--collapsed .progress-bar__progress, .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress-thick {
