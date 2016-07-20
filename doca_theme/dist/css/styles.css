@@ -906,6 +906,17 @@ a:hover, a:active {
   color: #000;
 }
 
+.palette__dark-grey {
+  background-color: #a5a5a5;
+  color: #000;
+}
+.palette__dark-grey a {
+  color: #000;
+}
+.palette__dark-grey a:focus, .palette__dark-grey a:hover {
+  color: #000;
+}
+
 .palette__red {
   background-color: #cd4d02;
   color: #fff;
@@ -1112,7 +1123,7 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   margin: 1rem 0 2rem;
 }
 
-.subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .promotional-feature--dark, .update--extra, .spacer {
+.subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .promotional-feature--dark, .update--extra, .spacer {
   padding: 1rem;
 }
 
@@ -1221,7 +1232,7 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
 }
 @media (min-width: 1100px) {
   .grid-stream__icon img {
-    height: 35px;
+    height: 30px;
   }
 }
 .no-mediaqueries .grid-stream__icon img {
@@ -1282,6 +1293,30 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
 }
 .grid-stream__item.grid-stream__item--iframe .read-more, .grid-stream__item--iframe.grid-stream__item--landscape-small .read-more, .grid-stream__item--iframe.grid-stream__item--landscape-small--has-image .read-more, .grid-stream__item--iframe.grid-stream__item--landscape-small--has-image-description .read-more, .grid-stream__item--iframe.grid-stream__item--landscape .read-more, .grid-stream__item--iframe.grid-stream__item--portrait-small .read-more, .grid-stream__item--iframe.grid-stream__item--portrait .read-more, .grid-stream__item--iframe.grid-stream__item--vertical .read-more, .grid-stream__item--iframe.grid-stream__item--vertical--has-image .read-more, .grid-stream__item--iframe.grid-stream__item--vertical--has-image-description .read-more {
   display: block;
+}
+.palette__dark-grey .grid-stream__item, .palette__dark-grey .grid-stream__item--landscape-small, .palette__dark-grey .grid-stream__item--landscape-small--has-image, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description, .palette__dark-grey .grid-stream__item--landscape, .palette__dark-grey .grid-stream__item--portrait-small, .palette__dark-grey .grid-stream__item--portrait, .palette__dark-grey .grid-stream__item--vertical, .palette__dark-grey .grid-stream__item--vertical--has-image, .palette__dark-grey .grid-stream__item--vertical--has-image-description {
+  background: #767679;
+  color: #fff;
+  -moz-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.8);
+}
+.palette__dark-grey .grid-stream__item .read-more, .palette__dark-grey .grid-stream__item--landscape-small .read-more, .palette__dark-grey .grid-stream__item--landscape-small--has-image .read-more, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description .read-more, .palette__dark-grey .grid-stream__item--landscape .read-more, .palette__dark-grey .grid-stream__item--portrait-small .read-more, .palette__dark-grey .grid-stream__item--portrait .read-more, .palette__dark-grey .grid-stream__item--vertical .read-more, .palette__dark-grey .grid-stream__item--vertical--has-image .read-more, .palette__dark-grey .grid-stream__item--vertical--has-image-description .read-more {
+  color: #fff;
+}
+.palette__dark-grey .grid-stream__item a, .palette__dark-grey .grid-stream__item--landscape-small a, .palette__dark-grey .grid-stream__item--landscape-small--has-image a, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description a, .palette__dark-grey .grid-stream__item--landscape a, .palette__dark-grey .grid-stream__item--portrait-small a, .palette__dark-grey .grid-stream__item--portrait a, .palette__dark-grey .grid-stream__item--vertical a, .palette__dark-grey .grid-stream__item--vertical--has-image a, .palette__dark-grey .grid-stream__item--vertical--has-image-description a {
+  color: #fff;
+}
+.palette__dark-grey .grid-stream__item a:hover, .palette__dark-grey .grid-stream__item a:active, .palette__dark-grey .grid-stream__item a:focus, .palette__dark-grey .grid-stream__item--landscape-small a:hover, .palette__dark-grey .grid-stream__item--landscape-small--has-image a:hover, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description a:hover, .palette__dark-grey .grid-stream__item--landscape a:hover, .palette__dark-grey .grid-stream__item--portrait-small a:hover, .palette__dark-grey .grid-stream__item--portrait a:hover, .palette__dark-grey .grid-stream__item--vertical a:hover, .palette__dark-grey .grid-stream__item--vertical--has-image a:hover, .palette__dark-grey .grid-stream__item--vertical--has-image-description a:hover, .palette__dark-grey .grid-stream__item--landscape-small a:active, .palette__dark-grey .grid-stream__item--landscape-small--has-image a:active, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description a:active, .palette__dark-grey .grid-stream__item--landscape a:active, .palette__dark-grey .grid-stream__item--portrait-small a:active, .palette__dark-grey .grid-stream__item--portrait a:active, .palette__dark-grey .grid-stream__item--vertical a:active, .palette__dark-grey .grid-stream__item--vertical--has-image a:active, .palette__dark-grey .grid-stream__item--vertical--has-image-description a:active, .palette__dark-grey .grid-stream__item--landscape-small a:focus, .palette__dark-grey .grid-stream__item--landscape-small--has-image a:focus, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description a:focus, .palette__dark-grey .grid-stream__item--landscape a:focus, .palette__dark-grey .grid-stream__item--portrait-small a:focus, .palette__dark-grey .grid-stream__item--portrait a:focus, .palette__dark-grey .grid-stream__item--vertical a:focus, .palette__dark-grey .grid-stream__item--vertical--has-image a:focus, .palette__dark-grey .grid-stream__item--vertical--has-image-description a:focus {
+  color: #fff;
+  border-color: #fff;
+}
+.palette__dark-grey .grid-stream__item .border-highlight, .palette__dark-grey .grid-stream__item--landscape-small .border-highlight, .palette__dark-grey .grid-stream__item--landscape-small--has-image .border-highlight, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description .border-highlight, .palette__dark-grey .grid-stream__item--landscape .border-highlight, .palette__dark-grey .grid-stream__item--portrait-small .border-highlight, .palette__dark-grey .grid-stream__item--portrait .border-highlight, .palette__dark-grey .grid-stream__item--vertical .border-highlight, .palette__dark-grey .grid-stream__item--vertical--has-image .border-highlight, .palette__dark-grey .grid-stream__item--vertical--has-image-description .border-highlight {
+  height: 9px;
+  width: 60px;
+  background-color: #48fbf0;
+  margin-bottom: 1rem;
+  clear: both;
 }
 
 .grid-stream__has-update {
@@ -3046,6 +3081,17 @@ fieldset.separate .fieldset-legend {
     padding: 1rem 2rem 4.5rem;
   }
 }
+.grid-stream__item--vertical__bottom--small {
+  padding-top: 0;
+}
+.grid-stream__item--vertical__bottom--small .grid-stream__title {
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 1100px) {
+  .grid-stream__item--vertical__bottom--small {
+    padding: 0rem 2rem 2.5rem;
+  }
+}
 
 .grid-stream__item--vertical--has-image .grid-stream__item--vertical__top {
   display: block;
@@ -4324,7 +4370,7 @@ fieldset.separate .fieldset-legend {
 .panel-background-7 {
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: 5% 0;
+  background-position: 12% 0;
   background-image: url("../images/module-bar-7.png");
   min-height: 5px;
   background-size: 200px 3px;

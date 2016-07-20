@@ -20,6 +20,16 @@
       padding: 1rem 2rem 4.5rem;
     }
   }
+  &__bottom--small {
+    @extend %spacer;
+    padding-top: 0;
+    .grid-stream__title {
+      margin-bottom: 2.5rem;
+    }
+    @include breakpoint(1100px) {
+      padding: 0rem 2rem 2.5rem;
+    }
+  }
 }
 
 .grid-stream__item--vertical--has-image, %grid-stream__item--vertical--has-image {

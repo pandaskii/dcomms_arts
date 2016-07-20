@@ -1117,6 +1117,9 @@ function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$varia
       if ($variables['view_mode'] === 'grid_stream_portrait') {
         $variables['classes_array'][] = 'grid-stream__item--vertical' . $modifier_class;
       }
+      if ($variables['view_mode'] === 'grid_stream_portrait_small' && $variables['type'] === 'funding') {
+        $variables['classes_array'][] = 'grid-stream__item--vertical';
+      }
       elseif ($variables['view_mode'] === 'grid_stream_landscape') {
         $variables['classes_array'][] = 'clearfix__overflow grid-stream__item--landscape-small' . $modifier_class;
       }
