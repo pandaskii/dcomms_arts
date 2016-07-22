@@ -5,7 +5,7 @@
  */
 ?>
 <div class="max-width__medium">
-  <h3 class="heading--3 spacer--top" <?php print $title_attributes; ?>><?php print t('Formal Submission'); ?></h3>
+  <h3 class="heading--3 spacer--top" <?php print $title_attributes; ?>><?php print t('How to apply'); ?></h3>
   <?php if(!empty($funding['submissions_closed_message'])): ?>
     <div class="bordered spacer"><?php print $funding['submissions_closed_message']; ?></div>
   <?php endif; ?>

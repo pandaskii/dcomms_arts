@@ -22,6 +22,9 @@
     <div class="layout-max spacer">
         <div class="layout-sidebar__main page-description">
             <?php print $node->field_consultation_summary[LANGUAGE_NONE][0]['safe_value']; ?>
+            <div class="spacer--top-large">
+              <?php print render($content['field_feature_image']); ?>
+            </div>
         </div>
         <?php if (isset($content['related_content'])): ?>
           <div class="layout-sidebar__sidebar sidebar--right-align">
@@ -38,7 +41,9 @@
 
 <?php endif; ?>
 
-<?php print $ds_content; ?>
+<div class="feature-image__hidden">
+  <?php print $ds_content; ?>
+</div>
 </<?php print $ds_content_wrapper ?>>
 
 <?php if (!empty($drupal_render_children)): ?>
@@ -46,7 +51,6 @@
 <?php endif; ?>
 
 <?php if ($view_mode == "full" && isset($formal_submission_block['content']) && $consultation['date_status'] === 'current'): ?>
-
     <div class="bordered palette__light-blue">
         <div class="layout-max">
             <h2 class="spacer">Post-closure Submission</h2>

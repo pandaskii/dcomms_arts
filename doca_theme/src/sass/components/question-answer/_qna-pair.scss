@@ -1,0 +1,50 @@
+// Accordion Item
+//
+// Markup: accordion__item.html
+//
+// Styleguide components.accordion__item
+.qnapair__item.accordion-item {
+  padding: 1.7rem 1rem 1.5rem;
+}
+
+.qnapair__title, %qnapair__title {
+  font-size: 1rem;
+  color: color(doca-blue);
+  max-width: 80%;
+  float: left;
+  margin: 0;
+  line-height: 1.9rem;
+  p {
+    margin: 0;
+  }
+  [aria-expanded="true"] & {
+    color: #000;
+  }
+}
+
+.qnapair__button.accordion__button {
+  background: url("../images/question-blue.png") 0 0 no-repeat transparent;
+  padding-left: 40px;
+  padding-top: 2px;
+  &:hover, &:focus {
+    background: url("../images/question-blue.png") 0 0 no-repeat transparent;
+  }
+  &[aria-expanded="true"], &[aria-expanded="true"]:focus {
+    background-image: url("../images/question-grey.png");
+  }
+}
+
+.qnapair__arrow, %qnapair__arrow {
+  margin-bottom: 0.25rem;
+  width: 32px;
+  height: auto;
+  float: right;
+  fill: color(doca-blue);
+  [aria-expanded="true"] & {
+    @include transform(scaleY(-1));
+    fill: #666;
+  }
+  &:focus {
+    @include single-box-shadow(0, 2px, 10px, 0, color(grey-light));
+  }
+}

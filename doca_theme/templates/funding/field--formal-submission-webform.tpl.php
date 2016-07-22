@@ -5,7 +5,7 @@
  */
 ?>
 <div class="spacer--bottom-large">
-  <button class="button-primary form-submit" data-js="webform-toggle" data-toggle="formal-submission-webform"><?php print t('Have Your Say Now'); ?></button>
+  <button class="button-primary form-submit" data-js="webform-toggle" data-toggle="formal-submission-webform"><?php print t('Apply Now'); ?></button>
 </div>
 <div id="formal-submission-webform">
   <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
