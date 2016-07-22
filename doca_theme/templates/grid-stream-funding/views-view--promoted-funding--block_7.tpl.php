@@ -7,7 +7,7 @@
  * @ingroup views_templates
  */
 ?>
-<div class="palette__dark-grey <?php print $classes; ?>">
+<div class="palette__dark-grey  <?php print $classes; ?>">
   <div class="grid-stream panel-background-7">
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>

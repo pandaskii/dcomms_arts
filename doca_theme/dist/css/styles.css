@@ -1228,12 +1228,8 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
 .grid-stream__icon img {
   margin-right: .25rem;
   vertical-align: baseline;
-  height: 18px;
-}
-@media (min-width: 1100px) {
-  .grid-stream__icon img {
-    height: 30px;
-  }
+  width: 50px;
+  height: auto;
 }
 .no-mediaqueries .grid-stream__icon img {
   position: absolute !important;
@@ -1312,11 +1308,10 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
   border-color: #fff;
 }
 .palette__dark-grey .grid-stream__item .border-highlight, .palette__dark-grey .grid-stream__item--landscape-small .border-highlight, .palette__dark-grey .grid-stream__item--landscape-small--has-image .border-highlight, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description .border-highlight, .palette__dark-grey .grid-stream__item--landscape .border-highlight, .palette__dark-grey .grid-stream__item--portrait-small .border-highlight, .palette__dark-grey .grid-stream__item--portrait .border-highlight, .palette__dark-grey .grid-stream__item--vertical .border-highlight, .palette__dark-grey .grid-stream__item--vertical--has-image .border-highlight, .palette__dark-grey .grid-stream__item--vertical--has-image-description .border-highlight {
-  height: 9px;
-  width: 60px;
   background-color: #48fbf0;
-  margin-bottom: 1rem;
-  clear: both;
+}
+.palette__dark-grey .grid-stream__item .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--landscape-small .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--landscape-small--has-image .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--landscape-small--has-image-description .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--landscape .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--portrait-small .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--portrait .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--vertical .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--vertical--has-image .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding, .palette__dark-grey .grid-stream__item--vertical--has-image-description .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding {
+  display: none;
 }
 
 .grid-stream__has-update {
@@ -1524,6 +1519,16 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   display: block;
   width: 220px;
   margin: 2rem auto;
+}
+
+.border-highlight {
+  height: 9px;
+  width: 50px;
+  background-color: #000;
+  margin-bottom: 1rem;
+  clear: both;
+  position: relative;
+  z-index: 2;
 }
 
 .bordered, .bordered--vertical, .list-arrow, .bordered--top, .on-this-page, .share-row__bordered, .update, .update--extra {
@@ -2890,6 +2895,9 @@ fieldset.separate .fieldset-legend {
 .grid-stream__item--business-area--hide-stream .is-stream {
   display: none;
 }
+.grid-stream__item--business-area .field-name-field-stream.field-type-taxonomy-term-reference {
+  display: none;
+}
 
 .grid-stream__item--business-area.subsite__sub-theme-1 .grid-stream__icon {
   color: #12293a !important;
@@ -2899,6 +2907,7 @@ fieldset.separate .fieldset-legend {
 }
 .grid-stream__item--business-area.subsite__sub-theme-1:after {
   background-color: #f4e731;
+  z-index: 1;
 }
 
 .grid-stream__item--business-area.subsite__sub-theme-2 .grid-stream__icon {
@@ -2909,6 +2918,7 @@ fieldset.separate .fieldset-legend {
 }
 .grid-stream__item--business-area.subsite__sub-theme-2:after {
   background-color: #ffcb04;
+  z-index: 1;
 }
 
 .grid-stream__item--business-area.subsite__sub-theme-3 .grid-stream__icon {
@@ -2919,6 +2929,7 @@ fieldset.separate .fieldset-legend {
 }
 .grid-stream__item--business-area.subsite__sub-theme-3:after {
   background-color: #004385;
+  z-index: 1;
 }
 
 .grid-stream__item--business-area.subsite__sub-theme-4 .grid-stream__icon {
@@ -2929,6 +2940,7 @@ fieldset.separate .fieldset-legend {
 }
 .grid-stream__item--business-area.subsite__sub-theme-4:after {
   background-color: #004385;
+  z-index: 1;
 }
 
 .grid-stream__item--business-area.subsite__communications .grid-stream__icon {
@@ -2939,6 +2951,7 @@ fieldset.separate .fieldset-legend {
 }
 .grid-stream__item--business-area.subsite__communications:after {
   background-color: #5abde9;
+  z-index: 1;
 }
 
 .grid-stream__item--business-area.subsite__alert .grid-stream__icon {
@@ -2949,6 +2962,7 @@ fieldset.separate .fieldset-legend {
 }
 .grid-stream__item--business-area.subsite__alert:after {
   background-color: #0e669c;
+  z-index: 1;
 }
 
 .grid-stream__item--landscape-small__right {

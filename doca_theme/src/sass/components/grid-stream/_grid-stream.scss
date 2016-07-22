@@ -27,10 +27,9 @@
   img {
     margin-right: .25rem;
     vertical-align: baseline;
-    height: 18px;
-    @include breakpoint(1100px) {
-      height: 30px;
-    }
+    width: 50px;
+    height: auto;
+    @include breakpoint(1100px) {}
     .no-mediaqueries & {
       @include element-invisible;
     }
@@ -97,11 +96,10 @@
       }
     }
     .border-highlight {
-      height: 9px;
-      width: 60px;
       background-color: color(blue-aqua-mid);
-      margin-bottom: 1rem;
-      clear: both;
+    }
+    .grid-stream__item--vertical__bottom--small .progress-bar__bar--funding {
+      display: none;
     }
   }
 }
