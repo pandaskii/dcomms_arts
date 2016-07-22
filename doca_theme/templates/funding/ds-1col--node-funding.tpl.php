@@ -46,7 +46,8 @@
 <?php endif; ?>
 
 <?php if ($view_mode == "full" && isset($formal_submission_block['content']) && $consultation['date_status'] === 'current'): ?>
-    <div class="bordered palette__light-grey">
+
+    <div class="bordered palette__light-blue">
         <div class="layout-max">
             <h2 class="spacer">Post-closure Submission</h2>
         </div>

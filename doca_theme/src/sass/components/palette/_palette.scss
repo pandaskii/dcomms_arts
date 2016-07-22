@@ -52,7 +52,7 @@
   }
 }
 
-$palette-main: ( grey-off-white: ( background: color(grey-off-white), ), grey-dark: ( background: color(grey-mid), ), red: ( background: color(doca-red), ), white: ( background: color(grey-white), ), grey-on-grey: ( background: color(grey-off-white), foreground: color(grey-dark), foreground-hover: color(grey-black), ), red-on-grey: ( background: color(grey-off-white), foreground: color(doca-red), foreground-hover: color(grey-black), ), blue-on-grey: ( background: color(grey-off-white), foreground: color(doca-blue), foreground-hover: color(grey-black), ), white-on-dark: ( background: #0f405e, foreground: color(grey-white), foreground-hover: color(grey-white), ), white-on-grey: ( background: #616161, foreground: color(grey-white), foreground-hover: color(grey-white), ), pale-grey: ( background: #f4f4f4, ));
+$palette-main: ( grey-off-white: ( background: color(grey-off-white), ), grey-dark: ( background: color(grey-mid), ), red: ( background: color(doca-red), ), white: ( background: color(grey-white), ), grey-on-grey: ( background: color(grey-off-white), foreground: color(grey-dark), foreground-hover: color(grey-black), ), red-on-grey: ( background: color(grey-off-white), foreground: color(doca-red), foreground-hover: color(grey-black), ), blue-on-grey: ( background: color(grey-off-white), foreground: color(doca-blue), foreground-hover: color(grey-black), ), white-on-dark: ( background: #0f405e, foreground: color(grey-white), foreground-hover: color(grey-white), ), white-on-grey: ( background: #616161, foreground: color(grey-white), foreground-hover: color(grey-white), ), pale-grey: ( background: #f4f4f4, ), pale-blue: ( background: color(blue-aqua-mid), ));
 .palette__light-grey, %palette__light-grey {
   @include palette($palette-main, grey-off-white);
 }
@@ -87,4 +87,8 @@ $palette-main: ( grey-off-white: ( background: color(grey-off-white), ), grey-da
 
 .palette__pale-grey, %palette__pale-grey {
   @include palette($palette-main, pale-grey);
+}
+
+.palette__pale-blue, %palette__pale-blue {
+  @include palette($palette-main, pale-blue);
 }

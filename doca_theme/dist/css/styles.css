@@ -27,7 +27,7 @@ body {
   margin: 0;
   padding: 0;
   background: #fff;
-  color: #12293a;
+  color: #000;
   height: 100%;
 }
 
@@ -775,6 +775,7 @@ a:hover, a:active {
   margin-bottom: 0.25rem;
   width: 18px;
   height: 18px;
+  float: right;
 }
 [aria-expanded="true"] .accordion__arrow {
   -moz-transform: scaleY(-1);
@@ -991,6 +992,17 @@ a:hover, a:active {
   color: #000;
 }
 .palette__pale-grey a:focus, .palette__pale-grey a:hover {
+  color: #000;
+}
+
+.palette__pale-blue {
+  background-color: #48fbf0;
+  color: #000;
+}
+.palette__pale-blue a {
+  color: #000;
+}
+.palette__pale-blue a:focus, .palette__pale-blue a:hover {
   color: #000;
 }
 
