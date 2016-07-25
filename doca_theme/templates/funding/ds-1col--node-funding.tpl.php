@@ -45,7 +45,7 @@
     <?php print $drupal_render_children ?>
 <?php endif; ?>
 
-<?php if ($view_mode == "full" && isset($formal_submission_block['content']) && $consultation['date_status'] === 'current'): ?>
+<?php if ($view_mode == "full" && isset($formal_submission_block['content']) && $funding['date_status'] === 'current'): ?>
     <div class="bordered palette__light-grey">
         <div class="layout-max">
             <h2 class="spacer">Post-closure Submission</h2>
