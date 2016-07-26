@@ -1095,6 +1095,14 @@ function doca_theme_preprocess_field(&$variables, $hook) {
   if ($variables['element']['#field_name'] == 'field_stackla_embed_para') {
     drupal_add_js(path_to_theme() . '/vendor/js/stackla.js', array('file'));
   }
+  if ($element['#field_name'] === 'formal_submission_webform') {
+    if ($element['#bundle'] == 'funding') {
+      $variables['form_id'] = $element['#object']->field_funding_app_webform[LANGUAGE_NONE][0]['target_id'];
+    }
+    else {
+      $variables['form_id'] = theme_get_setting('have_your_say_wform_nid');
+    }
+  }
 }
 
 /**
