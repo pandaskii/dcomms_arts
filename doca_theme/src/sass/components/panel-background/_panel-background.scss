@@ -6,7 +6,7 @@
 //
 // Styleguide components.panel-background
 $full_right: calc(100% - 16px);
-$module-background-position: 16px $full_right 20% 50% 30% 54% 5%;
+$module-background-position: 16px $full_right 20% 67% 30% 54% 12% 17px 15% 20% 43%;
 @each $position in $module-background-position {
   $i: index($module-background-position, $position);
   %panel-background-#{$i}, .panel-background-#{$i} {
@@ -19,5 +19,16 @@ $module-background-position: 16px $full_right 20% 50% 30% 54% 5%;
     @include breakpoint($large) {
       background-size: auto;
     }
+  }
+  .view-whats-new-grid.grid-stream__2-col .attachment-after {
+    display: block;
+    %panel-background-#{$i}, .panel-background-#{$i} {
+      background-image: none;
+      padding: 0;
+      ;
+    }
+  }
+  .view-whats-new-grid .attachment-after {
+    display: none;
   }
 }

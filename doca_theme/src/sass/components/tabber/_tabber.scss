@@ -19,6 +19,7 @@
     color: color(doca-blue);
     border: none;
     border-bottom: 2px solid transparent;
+    position: relative;
     padding: 1rem;
     @include breakpoint($medium) {
       padding: 1rem 0;
@@ -36,6 +37,21 @@
     background-color: color(grey-white);
     border-color: color(blue-aqua);
     color: color(grey-dark);
+    .group-funding-htabs & {
+      border: none;
+      &:after {
+        content: "";
+        background: url(../images/module-bar-9.png) 0% 100% no-repeat color(grey-white);
+        height: 9px;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        @include breakpoint($medium) {
+          background-position-x: 50%;
+        }
+      }
+    }
   }
   &__nav-item--focus {
     background-color: color(grey-white);
@@ -67,6 +83,9 @@
     }
     &.is-hidden {
       @extend %element-invisible;
+    }
+    .group-funding-htabs & {
+      background: #fff;
     }
   }
 }
@@ -110,6 +129,12 @@
     width: 30%; // for browsers without flexbox (IE9 & 10).
     margin: 0;
     padding: 0;
+  }
+}
+
+.group-funding-tabs-heading, %group-funding-tabs-heading {
+  h2 {
+    @extend %layout-max;
   }
 }
 

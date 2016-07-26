@@ -1095,6 +1095,14 @@ function doca_theme_preprocess_field(&$variables, $hook) {
   if ($variables['element']['#field_name'] == 'field_stackla_embed_para') {
     drupal_add_js(path_to_theme() . '/vendor/js/stackla.js', array('file'));
   }
+  if ($element['#field_name'] === 'formal_submission_webform') {
+    if ($element['#bundle'] == 'funding') {
+      $variables['form_id'] = $element['#object']->field_funding_app_webform[LANGUAGE_NONE][0]['target_id'];
+    }
+    else {
+      $variables['form_id'] = theme_get_setting('have_your_say_wform_nid');
+    }
+  }
 }
 
 /**
@@ -1116,6 +1124,9 @@ function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$varia
       // Add the relevant class to the template.
       if ($variables['view_mode'] === 'grid_stream_portrait') {
         $variables['classes_array'][] = 'grid-stream__item--vertical' . $modifier_class;
+      }
+      if ($variables['view_mode'] === 'grid_stream_portrait_small' && $variables['type'] === 'funding') {
+        $variables['classes_array'][] = 'grid-stream__item--vertical';
       }
       elseif ($variables['view_mode'] === 'grid_stream_landscape') {
         $variables['classes_array'][] = 'clearfix__overflow grid-stream__item--landscape-small' . $modifier_class;
@@ -1344,9 +1355,6 @@ function doca_theme_preprocess_views_view(&$variables) {
   if ($variables['name'] == 'whats_new_grid' && $variables['display_id'] == 'block_1') {
     if (count($variables['view']->result) == 2) {
       $variables['classes_array'][] = 'grid-stream__2-col';
-      $variables['rows'] = str_replace('grid_stream_medlrg', 'grid_stream_landscape_large', $variables['rows']);
-      $variables['rows'] = str_replace('grid_stream_medium_alt', 'grid_stream_landscape_medlrg', $variables['rows']);
-      $variables['rows'] = str_replace('grid_stream_medium', 'grid_stream_landscape_small', $variables['rows']);
     }
   }
 }
