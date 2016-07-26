@@ -12,7 +12,8 @@
   </div>
 <?php endif; ?>
 
-<<?php print $ds_content_wrapper; print $layout_attributes; ?> class="ds-1col <?php print $classes;?> clearfix">
+<<?php print $ds_content_wrapper; print $layout_attributes; ?> class="ds-1col <?php print $classes;?> clearfix"><div class="grid-stream__item--vertical__bottom--small">
+<div class="border-highlight"></div>
 
 <?php if (isset($title_suffix['contextual_links'])): ?>
     <?php print render($title_suffix['contextual_links']); ?>
@@ -22,9 +23,6 @@
     <div class="layout-max spacer">
         <div class="layout-sidebar__main page-description">
             <?php print $node->field_consultation_summary[LANGUAGE_NONE][0]['safe_value']; ?>
-            <div class="spacer--top-large">
-              <?php print render($content['field_feature_image']); ?>
-            </div>
         </div>
         <?php if (isset($content['related_content'])): ?>
           <div class="layout-sidebar__sidebar sidebar--right-align">
@@ -41,10 +39,8 @@
 
 <?php endif; ?>
 
-<div class="feature-image__hidden">
-  <?php print $ds_content; ?>
-</div>
-</<?php print $ds_content_wrapper ?>>
+<?php print $ds_content; ?>
+</div></<?php print $ds_content_wrapper ?>>
 
 <?php if (!empty($drupal_render_children)): ?>
     <?php print $drupal_render_children ?>

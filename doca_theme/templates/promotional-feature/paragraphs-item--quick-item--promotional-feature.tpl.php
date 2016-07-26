@@ -11,5 +11,5 @@
 <div class="promotional-feature__right">
   <?php print render($content['field_pbundle_title']); ?>
   <?php print render($content['field_pbundle_text']); ?>
-  <?php print render($content['field_pbundle_destination']); ?>
+  <?php if (isset($content['field_pbundle_destination'])): print render($content['field_pbundle_destination']); endif; ?>
 </div>

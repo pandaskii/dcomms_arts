@@ -48,14 +48,14 @@
   text-decoration: none;
   border-bottom: 2px solid #fff;
   position: relative;
-  &.active {
+  &.active, &.is-active-trail {
     color: color(doca-blue);
     border-color: color(doca-blue);
   }
   @include breakpoint($large) {
     padding: 1rem 0 0;
     border-color: transparent;
-    &.active {
+    &.active, &.is-active-trail {
       color: color(dark);
       border-color: transparent;
       &:after {

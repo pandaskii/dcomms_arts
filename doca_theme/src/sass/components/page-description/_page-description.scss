@@ -24,7 +24,7 @@
 }
 
 %page-description__content, .page-description__content {
-  @extend %font__large;
+  @extend %font__medium-large;
   p {
     margin: 0;
     @include breakpoint($large) {

@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="layout-max spacer--large">
+<div class="palette__light-grey background-image__big">
   <?php print render($content['field_pbundle_title']); ?>
   <div class="layout-sidebar__main">
     <?php print render($content['field_pbundle_text']); ?>

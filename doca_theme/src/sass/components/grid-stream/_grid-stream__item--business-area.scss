@@ -32,6 +32,9 @@
       display: none;
     }
   }
+  .field-name-field-stream.field-type-taxonomy-term-reference {
+    display: none;
+  }
 }
 
 // Paletting
@@ -42,6 +45,7 @@
     }
     &:after {
       background-color: palette($subsite-palette, $subsite border);
+      z-index: 1;
     }
   }
 }
