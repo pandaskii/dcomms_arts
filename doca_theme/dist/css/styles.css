@@ -1183,6 +1183,10 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
   padding-bottom: 1rem;
 }
 
+.spacer--bottom-mid2 {
+  padding-bottom: 1.5rem;
+}
+
 .spacer--bottom-mid {
   padding-bottom: 2rem;
 }
@@ -3131,6 +3135,9 @@ fieldset.separate .fieldset-legend {
   padding-top: 0;
 }
 .grid-stream__item--vertical__bottom--small .grid-stream__title {
+  margin-bottom: 1rem;
+}
+.palette__dark-grey .grid-stream__item--vertical__bottom--small .grid-stream__title {
   margin-bottom: 2.5rem;
 }
 @media (min-width: 1100px) {
