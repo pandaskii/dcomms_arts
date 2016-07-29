@@ -60,6 +60,10 @@
   padding-bottom: 2rem;
 }
 
+%spacer--bottom-mid2, .spacer--bottom-mid2 {
+  padding-bottom: 1.5rem;
+}
+
 %spacer--bottom-large, .spacer--bottom-large {
   @extend %spacer--bottom;
   @include breakpoint(960px) {

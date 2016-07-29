@@ -1,0 +1,13 @@
+// Layout half
+//
+// Markup: layout-half.html
+//
+// Styleguide: layouts.half
+.layout-half__main, %layout-half__main {
+  @include breakpoint($medium) {
+    width: 50%;
+    &.__two-col {
+      float: left;
+    }
+  }
+}

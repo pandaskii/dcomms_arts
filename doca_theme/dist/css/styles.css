@@ -405,6 +405,15 @@ a:hover, a:active {
   }
 }
 
+@media (min-width: 720px) {
+  .layout-half__main {
+    width: 50%;
+  }
+  .layout-half__main.__two-col {
+    float: left;
+  }
+}
+
 .layout-sidebar__main {
   margin-bottom: 1rem;
 }
@@ -1006,6 +1015,17 @@ a:hover, a:active {
   color: #000;
 }
 
+.palette__white {
+  background-color: #fff;
+  color: #000;
+}
+.palette__white a {
+  color: #000;
+}
+.palette__white a:focus, .palette__white a:hover {
+  color: #000;
+}
+
 h1, .heading--1--no-space, .heading--1--light, .heading--1, h2, .heading--2--no-space, .heading--2--light, .heading--2--spaced, .featured__title, .featured__grid-item h2, .site-feedback-form fieldset legend span, .heading--2, h3, .heading--3--no-space, .grid-stream__title, .alert-list__title, .news-list__title, .heading--3--light, .heading--3--spaced, .fieldset-legend, .form__title, .on-this-page__title, .promotional-feature__title, .share-row__label, .share-row li:first-child, .share-row h3, .heading--3, h4, .list-arrow__header, .heading--4--no-space, .heading--4--light, .heading--4--spaced, .update--extra__title, .heading--4, h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5, .site-feedback-block, .site-feedback-block--no-space, .site-feedback-block--light, .heading {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -1135,7 +1155,7 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   margin: 1rem 0 2rem;
 }
 
-.subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .promotional-feature--dark, .update--extra, .spacer {
+.subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding, .promotional-feature--dark, .update--extra, .spacer {
   padding: 1rem;
 }
 
@@ -1185,6 +1205,10 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
 
 .spacer--bottom-mid {
   padding-bottom: 2rem;
+}
+
+.spacer--bottom-mid2 {
+  padding-bottom: 1.5rem;
 }
 
 @media (min-width: 960px) {
@@ -1531,6 +1555,11 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   display: block;
   width: 220px;
   margin: 2rem auto;
+}
+
+.align__right {
+  text-align: right;
+  display: block;
 }
 
 .border-highlight {
@@ -1903,6 +1932,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 
 .document-list__desc {
   clear: both;
+  font-weight: normal;
 }
 .document-list__desc--comment {
   padding-top: 10px;
@@ -3156,6 +3186,35 @@ fieldset.separate .fieldset-legend {
   border: none;
 }
 
+.palette__dark-grey--group .ds-groups-wrapper {
+  background-color: #a5a5a5;
+  color: #000;
+}
+.palette__dark-grey--group .ds-groups-wrapper a {
+  color: #000;
+}
+.palette__dark-grey--group .ds-groups-wrapper a:focus, .palette__dark-grey--group .ds-groups-wrapper a:hover {
+  color: #000;
+}
+.palette__dark-grey--group .ds-groups-wrapper .group-formal-submissions {
+  background: url(../images/module-bar-10.png) 50% 0 no-repeat transparent;
+  background-size: 160px 3px;
+}
+@media (min-width: 720px) {
+  .palette__dark-grey--group .ds-groups-wrapper .group-formal-submissions {
+    background-size: auto;
+  }
+}
+.palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding {
+  background-color: #767679;
+}
+.palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar {
+  max-width: none;
+}
+.palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__text, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__days-remain, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__label, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__highlighted, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__start-date, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__end-date {
+  color: #fff;
+}
+
 @media (min-width: 1700px) {
   .header-background {
     background-repeat: no-repeat;
@@ -3612,6 +3671,15 @@ fieldset.separate .fieldset-legend {
 .link-palette__grey:active, .list-inline-circle li a:active, .on-this-page__menu li a:active, .on-this-page__item a:active {
   color: #000;
   border-color: currentColor;
+}
+
+.link-default, .document-list__inner--comment .file a {
+  color: #5265ff !important;
+  text-decoration: none;
+  border: none;
+}
+.link-default:hover, .document-list__inner--comment .file a:hover {
+  color: #000;
 }
 
 .link-top {
@@ -5660,6 +5728,9 @@ fieldset.separate .fieldset-legend {
 .group-funding-htabs .horizontal-tabs .horizontal-tabs-pane, .horizontal-tabs .group-funding-htabs .horizontal-tabs-pane, .group-funding-htabs .tabber__pane {
   background: #fff;
 }
+.horizontal-tabs .field-name-field-consultation-issue-text, .tabber .field-name-field-consultation-issue-text {
+  word-break: break;
+}
 
 .tabber__pane--no-space {
   padding: 0 !important;
@@ -5706,6 +5777,12 @@ fieldset.separate .fieldset-legend {
 
 .horizontal-tabs .horizontal-tabs-list strong {
   font-weight: 300;
+}
+.horizontal-tabs .horizontal-tabs-pane {
+  padding-top: 0;
+}
+.horizontal-tabs .horizontal-tabs-pane .update {
+  border-width: 0;
 }
 .horizontal-tabs .heading--4, .horizontal-tabs .list-arrow__header, .horizontal-tabs .heading--4--no-space, .horizontal-tabs .heading--4--light {
   color: #12293a;

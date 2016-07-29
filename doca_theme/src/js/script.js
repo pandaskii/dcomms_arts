@@ -77,5 +77,21 @@
       })
     }
   };
+  Drupal.behaviors.qanda = {
+    attach: function(context) {
+      $('#qa-expand', context).on('click', function(e) {
+        e.preventDefault();
+        if ($('#qa-expand').hasClass('open-all')) {
+          $('#qa-expand').removeClass('open-all');
+          $('#qa-expand span').text('+');
+        }
+        else {
+          $('#qa-expand').addClass('open-all');
+          $('#qa-expand span').text('-');
+        }
+        $('.accordion__button').click();
+      })
+    }
+  };
 
 })(jQuery, Drupal);

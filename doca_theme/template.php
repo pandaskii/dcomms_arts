@@ -448,7 +448,11 @@ function doca_theme_preprocess_node(&$variables, $hook) {
   // Conditionally remove Progress bar from all view modes where relevant.
   if ($variables['type'] == 'funding') {
     // Add first/second update item to grid_stream_landscape view mode if exist.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
     if ($variables['view_mode'] == 'grid_stream_landscape') {
+      // Create an entity metadata wrapper.
+    
       $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
       if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
         $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
@@ -456,9 +460,11 @@ function doca_theme_preprocess_node(&$variables, $hook) {
       }
     }
 
-    // Conditionally remove Formal Submission fields where relevant.
+    // Conditionally remove Formal Submission fields where relevant and add support class.
     if ($variables['view_mode'] == 'full') {
-
+      if ($wrapper->field_funding_item->value() == 'support') {
+        $variables['classes_array'][] = 'palette__dark-grey--group';
+      }
       // Include Consultation specific script.
       drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
       drupal_add_js(array('doca_theme' => array('webform_nid' => theme_get_setting('funding_default_wform_nid'))), 'setting');

@@ -10,3 +10,12 @@
 .link-palette__grey, %link-palette__grey {
   @include link-palette(color(grey-dark));
 }
+
+.link-default, %link-default {
+  color: color(doca-blue) !important;
+  text-decoration: none;
+  border: none;
+  &:hover {
+    color: #000;
+  }
+}

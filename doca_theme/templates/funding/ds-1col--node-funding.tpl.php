@@ -42,7 +42,9 @@
 <?php endif; ?>
 
 <div class="feature-image__hidden">
-  <?php print $ds_content; ?>
+  <div class="ds-groups-wrapper">
+    <?php print $ds_content; ?>
+  </div>
 </div>
 </<?php print $ds_content_wrapper ?>>
 

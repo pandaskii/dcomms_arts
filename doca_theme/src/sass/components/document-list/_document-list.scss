@@ -37,6 +37,9 @@
       @include breakpoint($medium) {
         display: inline-block;
       }
+      a {
+        @extend %link-default;
+      }
     }
   }
 }
@@ -92,6 +95,7 @@
   @extend %clearfix;
   @extend %font__small;
   clear: both;
+  font-weight: normal;
   &--comment {
     @extend %clearfix;
     @extend %font__small;

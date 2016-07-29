@@ -19,6 +19,17 @@
             $(this).attr('aria-expanded', state);
             $(this).next(".accordion__description").attr('aria-hidden', !state);
         });
+        $('#qa-expand').on('click', function() {
+            console.log('in acc');
+            if ($('#qa-expand').hasClass('open-all')) {
+                $('#qa-expand').removeClass('open-all');
+                $('#qa-expand span').text('+');
+            } else {
+                $('#qa-expand').addClass('open-all');
+                $('#qa-expand span').text('-');
+            }
+            $('.accordion__button').click();
+        })
 
     });
 

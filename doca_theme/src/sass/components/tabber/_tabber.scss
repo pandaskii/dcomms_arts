@@ -88,6 +88,9 @@
       background: #fff;
     }
   }
+  .field-name-field-consultation-issue-text {
+    word-break: break;
+  }
 }
 
 %tabber__pane--no-space, .tabber__pane--no-space {
@@ -161,6 +164,10 @@
   }
   .horizontal-tabs-pane {
     @extend %tabber__pane;
+    padding-top: 0;
+    .update {
+      border-width: 0;
+    }
   }
   .horizontal-tab-hidden {
     @extend %element-invisible;
