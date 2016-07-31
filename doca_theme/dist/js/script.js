@@ -79,15 +79,15 @@
   };
   Drupal.behaviors.qanda = {
     attach: function(context) {
-      $('#qa-expand', context).on('click', function(e) {
+      $('#qa-expand', context).bind('click', function(e) {
         e.preventDefault();
         if ($('#qa-expand').hasClass('open-all')) {
           $('#qa-expand').removeClass('open-all');
-          $('#qa-expand').html('Expand All <span>+</span>');
+          $('#qa-expand span').text('+');
         }
         else {
           $('#qa-expand').addClass('open-all');
-          $('#qa-expand').html('Close All <span>-</span>');
+          $('#qa-expand span').text('-');
         }
         $('.accordion__button').click();
       })

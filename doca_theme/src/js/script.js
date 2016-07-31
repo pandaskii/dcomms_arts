@@ -79,7 +79,7 @@
   };
   Drupal.behaviors.qanda = {
     attach: function(context) {
-      $('#qa-expand', context).on('click', function(e) {
+      $('#qa-expand', context).bind('click', function(e) {
         e.preventDefault();
         if ($('#qa-expand').hasClass('open-all')) {
           $('#qa-expand').removeClass('open-all');
