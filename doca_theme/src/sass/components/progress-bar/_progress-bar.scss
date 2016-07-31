@@ -99,10 +99,10 @@
 
 %progress-bar--complete, .progress-bar--complete {
   .progress-bar__progress {
-    background: color(doca-red);
+    background: color(purple-light);
   }
   .progress-bar__highlighted, %progress-bar__highlighted {
-    color: color(doca-red);
+    color: color(purple-light);
     font-weight: bold;
   }
 }

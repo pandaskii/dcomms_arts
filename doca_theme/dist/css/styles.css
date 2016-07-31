@@ -4756,10 +4756,10 @@ fieldset.separate .fieldset-legend {
 }
 
 .progress-bar--complete .progress-bar__progress {
-  background: #cd4d02;
+  background: #a2b4fa;
 }
 .progress-bar--complete .progress-bar__highlighted {
-  color: #cd4d02;
+  color: #a2b4fa;
   font-weight: bold;
 }
 
