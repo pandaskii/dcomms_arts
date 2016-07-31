@@ -3213,7 +3213,7 @@ fieldset.separate .fieldset-legend {
   border-bottom: 2px solid #fff;
   position: relative;
 }
-.active.subsite-header__link, .is-active-trail.subsite-header__link, .header-menu__link.active, .header-menu__link.is-active-trail {
+.active.subsite-header__link, .is-active-trail.subsite-header__link, .subsite-header__link:hover, .subsite-header__link:focus, .header-menu__link.active, .header-menu__link.is-active-trail, .header-menu__link:hover, .header-menu__link:focus {
   color: #5265ff;
   border-color: #5265ff;
 }
@@ -3222,11 +3222,11 @@ fieldset.separate .fieldset-legend {
     padding: 1rem 0 0;
     border-color: transparent;
   }
-  .active.subsite-header__link, .is-active-trail.subsite-header__link, .header-menu__link.active, .header-menu__link.is-active-trail {
+  .active.subsite-header__link, .is-active-trail.subsite-header__link, .subsite-header__link:hover, .subsite-header__link:focus, .header-menu__link.active, .header-menu__link.is-active-trail, .header-menu__link:hover, .header-menu__link:focus {
     color: #12293a;
     border-color: transparent;
   }
-  .active.subsite-header__link:after, .is-active-trail.subsite-header__link:after, .header-menu__link.active:after, .header-menu__link.is-active-trail:after {
+  .active.subsite-header__link:after, .is-active-trail.subsite-header__link:after, .subsite-header__link:hover:after, .subsite-header__link:focus:after, .header-menu__link.active:after, .header-menu__link.is-active-trail:after, .header-menu__link:hover:after, .header-menu__link:focus:after {
     content: '';
     width: 100%;
     position: absolute;
@@ -3236,10 +3236,6 @@ fieldset.separate .fieldset-legend {
     z-index: 1;
     background: url("../images/bg--point--black.svg") repeat-x white 0 50%;
   }
-}
-.subsite-header__link:hover, .subsite-header__link:focus, .header-menu__link:hover, .header-menu__link:focus {
-  border-color: #35e5df;
-  color: #12293a;
 }
 
 @media (min-width: 980px) {
