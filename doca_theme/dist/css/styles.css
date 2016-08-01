@@ -699,6 +699,7 @@ a:hover, a:active {
 .accordion__item, .accordion__item--with-image {
   border-top: 1px solid #b9b9b9;
   padding: 1.5rem 1rem;
+  position: relative;
 }
 .accordion__item:last-child, .accordion__item--with-image:last-child {
   border-bottom: 1px solid #b9b9b9;
@@ -711,6 +712,7 @@ a:hover, a:active {
 }
 
 .accordion__button {
+  position: relative;
   background: none;
   border: 0;
   cursor: pointer;
@@ -781,10 +783,11 @@ a:hover, a:active {
 }
 
 .accordion__arrow {
-  margin-bottom: 0.25rem;
-  width: 18px;
-  height: 18px;
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  top: calc(50% - 10px);
+  left: auto;
 }
 [aria-expanded="true"] .accordion__arrow {
   -moz-transform: scaleY(-1);
