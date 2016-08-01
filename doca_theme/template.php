@@ -452,7 +452,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
 
     if ($variables['view_mode'] == 'grid_stream_landscape') {
       // Create an entity metadata wrapper.
-    
+
       $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
       if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
         $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
@@ -662,8 +662,13 @@ function doca_theme_preprocess_node(&$variables, $hook) {
  * Implements hook__field_group_build_pre_render_alter().
  */
 function doca_theme_field_group_build_pre_render_alter(&$element) {
-  $object = isset($element['field_feature_image']) ? $element['field_feature_image']['#object'] : $element['field_consultation_summary']['#object'];
-  if ($object->field_funding_item[LANGUAGE_NONE][0]['value'] == 'support') {
+  if (isset($element['field_feature_image'])) {
+    $object = $element['field_feature_image']['#object'];
+  }
+  elseif (isset($element['field_consultation_summary'])) {
+    $object = $element['field_consultation_summary']['#object'];
+  }
+  if (!empty($object) && !empty($object->field_funding_item) && $object->field_funding_item[LANGUAGE_NONE][0]['value'] == 'support') {
     $element['group_formal_submissions']['#prefix'] = str_replace('Funding applications', 'Support applications', $element['group_formal_submissions']['#prefix']);
   }
 }
