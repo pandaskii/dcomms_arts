@@ -48,14 +48,14 @@
   text-decoration: none;
   border-bottom: 2px solid #fff;
   position: relative;
-  &.active, &.is-active-trail {
+  &.active, &.is-active-trail, &:hover, &:focus {
     color: color(doca-blue);
     border-color: color(doca-blue);
   }
   @include breakpoint($large) {
     padding: 1rem 0 0;
     border-color: transparent;
-    &.active, &.is-active-trail {
+    &.active, &.is-active-trail, &:hover, &:focus {
       color: color(dark);
       border-color: transparent;
       &:after {
@@ -70,10 +70,7 @@
       }
     }
   }
-  &:hover, &:focus {
-    border-color: color(blue-aqua);
-    color: color(dark);
-  }
+  &:hover, &:focus {}
 }
 
 .header-menu__border, %header-menu__border {
