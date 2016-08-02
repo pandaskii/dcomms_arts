@@ -3240,6 +3240,14 @@ fieldset.separate .fieldset-legend {
 .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__text, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__days-remain, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__label, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__highlighted, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__start-date, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__end-date {
   color: #fff;
 }
+.ds-groups-wrapper .group-formal-submissions .progress-bar__bar--funding {
+  margin-bottom: 30px;
+}
+@media (min-width: 720px) {
+  .ds-groups-wrapper .group-formal-submissions .progress-bar__bar--funding {
+    margin-bottom: 50px;
+  }
+}
 
 @media (min-width: 1700px) {
   .header-background {
