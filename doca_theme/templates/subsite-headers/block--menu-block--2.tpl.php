@@ -4,17 +4,19 @@
  * Default theme implementation for blocks.
  */
 ?>
-<div class="subsite-header subsite__sub-theme-1 spacer--bottom-mid">
+<div class="subsite-header subsite__sub-theme-2 spacer--bottom-mid">
   <div class="subsite-header__branding">
+  <div class="background-left"></div><div class="background-right"></div>
     <div class="subsite-header__layout">
-      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>" class="subsite-header__logo-large">
-        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo.png" alt="Logo" />
-      </a>
+      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_2')); ?>" class="subsite-header__logo-large">
+        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/mcm_logo.png" alt="Logo" />
+      </a> 
+      <span><?php print t('Meeting of Cultural Ministers'); ?></span>
     </div>
 
     <div class="subsite-header__layout--nav clearfix">
-      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>" class="subsite-header__logo-small">
-        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo--sm.png" alt="Logo" />
+      <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_2')); ?>" class="subsite-header__logo-small">
+        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/mcm_logo--sm.png" alt="Logo" />
       </a>
 
       <nav class="subsite-header__nav" role="navigation" id="subsite-naviagtion">

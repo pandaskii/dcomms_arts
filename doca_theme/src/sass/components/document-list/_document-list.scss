@@ -18,6 +18,14 @@
     padding: 2rem 1rem 2rem 5rem;
     background-position: 2.5rem 2rem;
   }
+  .file {
+    a {
+      @extend %link-default;
+    }
+    .file-size {
+      color: color(doca-blue);
+    }
+  }
 }
 
 .document-list__inner, %document-list__inner {
@@ -37,9 +45,6 @@
       @include breakpoint($medium) {
         display: inline-block;
       }
-      a {
-        @extend %link-default;
-      }
     }
   }
 }
@@ -48,6 +53,7 @@
   @extend %font__medium;
   @extend %link-arrow--after;
   @extend %underline-on-hover__wrapper;
+  color: color(doca-blue);
   @include small-screens() {
     margin-bottom: 0;
   }
