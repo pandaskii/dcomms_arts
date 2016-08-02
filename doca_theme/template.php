@@ -42,6 +42,10 @@ function doca_theme_preprocess_page(&$variables, $hook) {
     $variables['site_pages_feedback_form'] = _doca_theme_webform_render($wf_nid);
   }
 
+  // Add the correct google analytics code for the active environment.
+  $ga_code = variable_get('googleanalytics_account');
+  drupal_add_js(array('gaSettings' => array('gaCode' => $ga_code)), 'setting');
+
   // Create template variables for the header menu block.
   $variables['header_search'] = _doca_theme_block_render('search', 'form');
   $variables['header_menu'] = _doca_theme_block_render('system', 'main-menu');
