@@ -72,12 +72,6 @@
     @include breakpoint($medium) {
       float: right;
       width: 25%;
-      &.sidebar--right-align {
-        margin-right: -1rem;
-        &.sidebar--large {
-          margin-right: 0;
-        }
-      }
       &--related {
         width: 100%;
         float: right;

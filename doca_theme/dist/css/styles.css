@@ -488,12 +488,6 @@ a:hover, a:active {
     float: right;
     width: 25%;
   }
-  .layout-sidebar__with-img .layout-sidebar__sidebar.sidebar--right-align {
-    margin-right: -1rem;
-  }
-  .layout-sidebar__with-img .layout-sidebar__sidebar.sidebar--right-align.sidebar--large {
-    margin-right: 0;
-  }
   .layout-sidebar__with-img .layout-sidebar__sidebar--related {
     width: 100%;
     float: right;

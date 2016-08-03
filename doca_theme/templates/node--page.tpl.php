@@ -47,7 +47,7 @@ endif;
   <?php endif; ?>
   <div class="layout-sidebar__main">
     <?php if(isset($content['field_image_with_caption'])): ?>
-      <div class="spacer--top-large">
+      <div class="spacer--bottom-large">
         <?php print render($content['field_image_with_caption']); ?>
       </div>
     <?php endif; ?>
