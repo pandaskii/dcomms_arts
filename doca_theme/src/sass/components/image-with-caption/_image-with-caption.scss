@@ -27,3 +27,30 @@
 %image-with-caption__credit, .image-with-caption__credit {
   font-style: italic;
 }
+
+%featured-with-caption, .featured-with-caption {
+  position: relative;
+  &__caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
+    z-index: 2;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: right;
+    a {
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      &:hover, &:active {
+        color: #fff;
+      }
+      &:hover {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}

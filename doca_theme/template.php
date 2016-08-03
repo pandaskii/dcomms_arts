@@ -1127,6 +1127,36 @@ function doca_theme_preprocess_field(&$variables, $hook) {
       $variables['form_id'] = theme_get_setting('have_your_say_wform_nid');
     }
   }
+
+  if ($element['#field_name'] === 'field_feature_image') {
+    $img_class = '';
+    $img_url = '';
+    $has_caption = 0;
+    $img_caption = '';
+    $variables['img_caption'] = '';
+    foreach ($variables['items'] as $delta => $item) {
+      if (isset($item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'])) { 
+        $img_class ='featured-with-caption';
+        $has_caption = 1;
+      }
+      if (isset($item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'])) {
+        $img_url = $item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'];
+      }
+      if ($has_caption):
+        $img_caption .= '<div class="featured-with-caption__caption">';
+        if ($img_url):
+          $img_caption .= '<a href="' . $img_url . '">';
+        endif;
+        $img_caption .= $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'];
+        if ($img_url):
+          $img_caption .= '<span class="feature-caption"> (detail) +</span></a>';
+        endif;
+        $img_caption .='</div>';
+      endif;
+      $variables['img_caption'] = $img_caption;
+    }
+    $variables['img_class'] = $img_class;
+  }
 }
 
 /**
