@@ -94,4 +94,55 @@
     }
   };
 
+  Drupal.behaviors.ga = {
+    attach: function(context) {
+      // Only set up GA tracking and custom event bindings once.
+      $('body', context).once('gaBehavior', function() {
+        // Grab appropriate GA code for the active environment.
+        var gaCode = Drupal.settings.gaSettings.gaCode;
+
+        // Add GA magic.
+        (function(i, s, o, g, r, a, m) {
+          i["GoogleAnalyticsObject"] = r;
+          i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+          a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+        })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+        ga("create", gaCode, {
+          "cookieDomain": "auto"
+        });
+
+        // GTM tracking. If GTM is used - it will use GA tracker created by this module and send Pageview later. If GTM is not used - send Pageview right now
+        ga("set", "page", location.pathname + location.search + location.hash);
+        var isGTMUsed = true;
+        if (!isGTMUsed) {
+          ga("send", "pageview");
+        }
+        ga('create', gaCode, 'auto', {
+          'name': 'govcms'
+        });
+        ga('govcms.send', 'pageview', {
+          'anonymizeIp': true
+        });
+
+        // Track frontend webform submisions as custom events.
+        $('.webform-client-form').submit(function(event) {
+          // Wrap the form in a jQuery object.
+          var $form = $(this);
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'webform',
+            eventAction: 'submit',
+            // Pass the form ID as the label argument.
+            eventLabel: $form.attr('id'),
+          });
+        });
+      });
+    }
+  };
+
 })(jQuery, Drupal);
