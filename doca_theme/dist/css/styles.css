@@ -447,6 +447,14 @@ a:hover, a:active {
     -moz-osx-font-smoothing: grayscale;
   }
 }
+@media (min-width: 720px) {
+  .layout-sidebar__with-img .layout-sidebar__main {
+    padding-right: 3rem;
+    float: left;
+    width: 75%;
+    margin-bottom: 0;
+  }
+}
 
 @media (min-width: 980px) {
   .layout-sidebar__sidebar {
@@ -455,6 +463,40 @@ a:hover, a:active {
   }
   .layout-sidebar__sidebar.sidebar--right-align {
     margin-right: -1rem;
+  }
+  .layout-sidebar__sidebar.sidebar--right-align.sidebar--large {
+    margin-right: 0;
+  }
+  .layout-sidebar__sidebar--related {
+    width: 100%;
+    float: right;
+  }
+}
+@media (min-width: 1280px) {
+  .layout-sidebar__sidebar--related {
+    width: 312px;
+  }
+  .layout-sidebar__sidebar.sidebar--large {
+    width: 480px;
+  }
+  .layout-sidebar__sidebar.sidebar--large.sidebar--right-align {
+    margin-right: -1rem;
+  }
+}
+@media (min-width: 720px) {
+  .layout-sidebar__with-img .layout-sidebar__sidebar {
+    float: right;
+    width: 25%;
+  }
+  .layout-sidebar__with-img .layout-sidebar__sidebar.sidebar--right-align {
+    margin-right: -1rem;
+  }
+  .layout-sidebar__with-img .layout-sidebar__sidebar.sidebar--right-align.sidebar--large {
+    margin-right: 0;
+  }
+  .layout-sidebar__with-img .layout-sidebar__sidebar--related {
+    width: 100%;
+    float: right;
   }
 }
 .layout-sidebar__sidebar > .list-arrow li.list-arrow__item:focus, .layout-sidebar__sidebar > .list-arrow li.list-arrow__item:active, .layout-sidebar__sidebar > .list-arrow li.list-arrow__item:hover {
@@ -3598,8 +3640,17 @@ fieldset.separate .fieldset-legend {
   position: relative;
 }
 
+@media (min-width: 980px) {
+  .sidebar--large .image-with-caption img {
+    width: 100%;
+  }
+}
+
 .image-with-caption__caption {
   color: #616161;
+}
+.sidebar--large .image-with-caption__caption {
+  text-align: right;
 }
 
 .image-with-caption__credit {
@@ -6254,4 +6305,18 @@ html {
 
 .update--extra__description {
   font-weight: bold;
+}
+
+@media (min-width: 720px) {
+  .visible--xs {
+    display: none !important;
+  }
+}
+.visible--md {
+  display: none;
+}
+@media (min-width: 720px) {
+  .visible--md {
+    display: block;
+  }
 }

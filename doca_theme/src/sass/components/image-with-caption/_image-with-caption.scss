@@ -5,10 +5,23 @@
 // Markup: image-with-caption.html
 //
 // Styleguide: components.image-with-caption
+%image-with-caption, .image-with-caption {
+  .sidebar--large & {
+    @include breakpoint($large) {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
 %image-with-caption__caption, .image-with-caption__caption {
   @extend %font__small;
   @extend %spacer--top;
   color: color(grey-dark);
+  .sidebar--large & {
+    text-align: right;
+  }
 }
 
 %image-with-caption__credit, .image-with-caption__credit {

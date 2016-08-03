@@ -8,7 +8,11 @@
  * @see https://drupal.org/node/1728164
  */
 ?>
-
+<?php $with_img = 0;
+if (isset($content['field_show_hero_image']) && isset($content['field_feature_image'])): 
+    $with_img = 1;
+endif;
+?>
 <?php if (isset($node->body[$node->language][0]['safe_summary'])): ?>
     <div class="layout-sidebar layout-max spacer <?php if(!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
         <div class="layout-sidebar__main page-description__content">
@@ -24,14 +28,23 @@
     <?php print $service_links; ?>
   </div>
 <?php endif; ?>
-
 <?php if (!$hide_on_this_page) : ?>
   <div class="on-this-page" data-js="on-this-page"></div>
 <?php endif; ?>
 
 <?php print render($content['field_summary_cta_with_links']); ?>
 
-<div class="layout-sidebar layout-max spacer">
+<div class="layout-sidebar layout-max spacer <?php if($with_img) {print 'layout-sidebar__with-img';} ?>">
+<?php if (isset($content['related_content']) || $with_img): ?>
+    <div class="layout-sidebar__sidebar sidebar--large sidebar--right-align">     
+      <?php if ($with_img): ?>
+        <?php print render($content['field_feature_image']); ?>
+      <?php endif; ?>
+      <div class="layout-sidebar__sidebar--related visible--md">
+        <?php print render($content['related_content']); ?>
+      </div>
+    </div>
+  <?php endif; ?>
   <div class="layout-sidebar__main">
     <?php if(isset($content['field_image_with_caption'])): ?>
       <div class="spacer--top-large">
@@ -39,12 +52,13 @@
       </div>
     <?php endif; ?>
     <?php print render($content['body']); ?>
+    <?php if (isset($content['related_content'])): ?>
+      <div class="visible--xs">
+       <?php print render($content['related_content']); ?>
+      </div>
+    <?php endif; ?>
   </div>
-  <?php if (isset($content['related_content'])): ?>
-    <div class="layout-sidebar__sidebar sidebar--right-align">
-      <?php print render($content['related_content']); ?>
-    </div>
-  <?php endif; ?>
+  
 </div>
 
 <?php print render($content['field_entity_content']); ?>
