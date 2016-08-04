@@ -3662,10 +3662,14 @@ fieldset.separate .fieldset-legend {
   color: #fff;
   z-index: 2;
   width: 100%;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.7rem;
   font-size: 0.8rem;
   line-height: 1.2;
   text-align: right;
+  font-style: italic;
+}
+.featured-with-caption__caption .feature-caption-link {
+  display: none;
 }
 .featured-with-caption__caption a {
   color: #fff;
@@ -3677,6 +3681,15 @@ fieldset.separate .fieldset-legend {
 }
 .featured-with-caption__caption a:hover {
   color: rgba(255, 255, 255, 0.8);
+}
+.featured-with-caption__caption a .feature-caption-link {
+  display: inline;
+}
+@media (min-width: 720px) {
+  .featured-with-caption__caption {
+    font-style: normal;
+    padding: 0.25rem 1rem;
+  }
 }
 
 .link-arrow, .link-arrow--after:after, .document-list__title:after, .document-list__title--slim:after, .document-list__title--slim--comment:after, .link-arrow--before:before {
