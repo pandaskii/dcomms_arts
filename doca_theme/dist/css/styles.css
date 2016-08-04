@@ -4148,14 +4148,9 @@ fieldset.separate .fieldset-legend {
 }
 
 .page-404__page-wrapper {
-  background-color: #5265ff;
-  background-image: url("../images/arts-404-graphic.png");
   background-position: top left;
   background-repeat: no-repeat;
   min-height: 100%;
-}
-.multiplebgs.cssgradients .page-404__page-wrapper {
-  background-image: url("../images/arts-404-graphic.png"), linear-gradient(135deg, #5265ff 0%, rgba(224, 173, 135, 0) 100%);
 }
 
 .page-404__wrapper {

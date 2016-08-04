@@ -7,14 +7,9 @@
 @import 'layouts/layout-two-column/layout-two-column';
 @import 'components/spacer/spacer';
 .page-404__page-wrapper, %page-404__page-wrapper {
-  background-color: color(doca-blue);
-  background-image: url('../images/arts-404-graphic.png');
   background-position: top left;
   background-repeat: no-repeat;
   min-height: 100%;
-  .multiplebgs.cssgradients & {
-    background-image: url('../images/arts-404-graphic.png'), linear-gradient(135deg, color(doca-blue) 0%, rgba(224, 173, 135, 0) 100%);
-  }
 }
 
 .page-404__wrapper, %page-404__wrapper {
