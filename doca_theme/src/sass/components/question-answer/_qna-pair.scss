@@ -3,8 +3,11 @@
 // Markup: accordion__item.html
 //
 // Styleguide components.accordion__item
-.qnapair__item.accordion-item {
+.qnapair__item.accordion__item {
   padding: 1.7rem 1rem 1.5rem;
+  .accordion__description {
+    padding-left: 40px;
+  }
 }
 
 .qnapair__title, %qnapair__title {
@@ -26,6 +29,7 @@
   background: url("../images/question-blue.png") 0 0 no-repeat transparent;
   padding-left: 40px;
   padding-top: 2px;
+  text-align: left;
   &:hover, &:focus {
     background: url("../images/question-blue.png") 0 0 no-repeat transparent;
   }

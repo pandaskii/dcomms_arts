@@ -4935,8 +4935,11 @@ fieldset.separate .fieldset-legend {
   }
 }
 
-.qnapair__item.accordion-item {
+.qnapair__item.accordion__item {
   padding: 1.7rem 1rem 1.5rem;
+}
+.qnapair__item.accordion__item .accordion__description {
+  padding-left: 40px;
 }
 
 .qnapair__title {
@@ -4958,6 +4961,7 @@ fieldset.separate .fieldset-legend {
   background: url("../images/question-blue.png") 0 0 no-repeat transparent;
   padding-left: 40px;
   padding-top: 2px;
+  text-align: left;
 }
 .qnapair__button.accordion__button:hover, .qnapair__button.accordion__button:focus {
   background: url("../images/question-blue.png") 0 0 no-repeat transparent;

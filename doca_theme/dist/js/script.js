@@ -83,13 +83,15 @@
         e.preventDefault();
         if ($('#qa-expand').hasClass('open-all')) {
           $('#qa-expand').removeClass('open-all');
-          $('#qa-expand span').text('+');
+          $('#qa-expand').html('Expand All <span>+</span>');
+          $('.accordion__button[aria-expanded="true"]').click();
         }
         else {
           $('#qa-expand').addClass('open-all');
-          $('#qa-expand span').text('-');
+          $('#qa-expand').html('Collapse All <span>-</span>');
+          $('.accordion__button[aria-expanded="false"]').click();
         }
-        $('.accordion__button').click();
+
       })
     }
   };
