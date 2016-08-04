@@ -6,6 +6,7 @@
 ?>
 <div class="subsite-header subsite__sub-theme-1 spacer--bottom-mid">
   <div class="subsite-header__branding">
+  <div class="background-left"></div><div class="background-right"></div>
     <div class="subsite-header__layout">
       <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>" class="subsite-header__logo-large">
         <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo.png" alt="Logo" />

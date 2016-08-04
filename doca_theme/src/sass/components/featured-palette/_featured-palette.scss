@@ -52,6 +52,22 @@ $grey-palette: ( grey: ( background-light: #bababa, background-dark: #bababa, ),
   }
 }
 
+//Override for sub-theme2 that is outside the function values
+.subsite__sub-theme-2 .featured-palette {
+  >:nth-child(3n) {
+    background-color: #8983ea;
+  }
+  >:nth-child(4n) {
+    background-color: #918bec;
+  }
+  >:nth-child(5n) {
+    background-color: #9893ed;
+  }
+  >:nth-child(6n) {
+    background-color: #7b74e8;
+  }
+}
+
 .featured-palette--grey, %featured-palette--grey {
   @include feature-palette-apply(grey, $grey-palette);
 }

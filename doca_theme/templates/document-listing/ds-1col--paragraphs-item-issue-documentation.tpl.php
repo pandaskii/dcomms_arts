@@ -6,7 +6,7 @@
  */
 ?>
 <div class="spacer--top spacer--bottom">
-	<h3>Relevant documents</h3>
+	<h3>Relevant Documents</h3>
 	<div class="document-list__item">
 	  <<?php print $ds_content_wrapper; print $layout_attributes; ?> class="ds-1col document-list__inner <?php print $classes;?> clearfix">
 
