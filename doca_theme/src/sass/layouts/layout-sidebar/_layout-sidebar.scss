@@ -57,24 +57,35 @@
       float: right;
     }
   }
-  @include breakpoint($x-large) {
-    &--related {
-      width: 312px;
-    }
-    &.sidebar--large {
-      width: 480px;
-      &.sidebar--right-align {
-        margin-right: -1rem;
-      }
-    }
-  }
   .layout-sidebar__with-img & {
+    &.sidebar--large {
+      text-align: center;
+    }
+    &--related {
+      text-align: left;
+    }
     @include breakpoint($medium) {
-      float: right;
-      width: 25%;
+      &.sidebar--large {
+        float: right;
+        width: 25%;
+        img {
+          width: 100%;
+        }
+      }
       &--related {
         width: 100%;
         float: right;
+      }
+    }
+    @include breakpoint($x-large) {
+      &--related {
+        width: 312px;
+      }
+      &.sidebar--large {
+        width: 460px;
+        &.sidebar--right-align {
+          margin-right: -1rem;
+        }
       }
     }
   }

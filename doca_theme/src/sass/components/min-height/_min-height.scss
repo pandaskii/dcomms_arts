@@ -8,4 +8,9 @@
   img {
     height: 50px;
   }
+  .spotlight--alt & {
+    img {
+      height: auto;
+    }
+  }
 }
