@@ -13,6 +13,7 @@
 .accordion__item, %accordion__item {
   border-top: 1px solid color(grey-light);
   padding: 1.5rem 1rem;
+  position: relative;
   &:last-child {
     border-bottom: 1px solid color(grey-light);
   }
@@ -26,6 +27,7 @@
 
 // scss-lint:disable NestingDepth
 .accordion__button, %accordion__button {
+  position: relative;
   @include button__reset;
   width: 100%;
   cursor: pointer;
@@ -67,10 +69,11 @@
 }
 
 .accordion__arrow, %accordion__arrow {
-  margin-bottom: 0.25rem;
-  width: 18px;
-  height: 18px;
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  top: calc(50% - 10px);
+  left: auto;
   [aria-expanded="true"] & {
     @include transform(scaleY(-1));
   }
