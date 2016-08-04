@@ -1269,7 +1269,7 @@ function _consultation_vars(&$variables, $element_object) {
   }
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
   $variables['consultation'] = $consultation;
-  if ($element_object->type == 'funding'){
+  if ($element_object->type == 'funding') {
     $variables['funding'] = $consultation;
   }
   return $variables;
