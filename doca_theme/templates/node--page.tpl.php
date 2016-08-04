@@ -9,7 +9,7 @@
  */
 ?>
 <?php $with_img = 0;
-$show_img = $content['field_show_hero_image']['#items'][0]['value'];
+$show_img = isset($content['field_show_hero_image']) ? $content['field_show_hero_image']['#items'][0]['value'] : '';
 if (!empty($content['field_show_hero_image']) && !empty($show_img)):
     $with_img = 1;
 endif;
