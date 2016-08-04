@@ -3365,7 +3365,7 @@ fieldset.separate .fieldset-legend {
     content: '';
     width: 100%;
     position: absolute;
-    bottom: -1.25rem;
+    bottom: -1.26rem;
     left: 0;
     height: 6px;
     z-index: 1;
@@ -3632,6 +3632,7 @@ fieldset.separate .fieldset-legend {
     top: 385px;
     left: 120px;
     margin-bottom: 0;
+    margin-left: 0;
   }
 }
 
