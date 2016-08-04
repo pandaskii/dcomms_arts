@@ -14,9 +14,22 @@
 @import 'components/button/button';
 @import 'components/subsite-palette/subsite-palette';
 $height: 5rem;
+.subsite-header, %subsite-header {
+  @include breakpoint($large) {
+    margin-top: 20px;
+  }
+  @include breakpoint($xx-large) {
+    margin-top: 165px;
+  }
+}
+
 .subsite-header__layout, %subsite-header__layout {
   @extend %clearfix;
   @extend %layout-max;
+  margin-left: 1rem;
+  @include breakpoint($x-large) {
+    margin-left: auto;
+  }
 }
 
 %subsite-header__layout--nav, .subsite-header__layout--nav {
@@ -123,7 +136,7 @@ $height: 5rem;
     color: #000;
     padding: 1.6rem 0 1.0rem 0;
     display: inline-block;
-    &.active, &.is-active, &:hover {
+    &.active, &.is-active, &:hover, &.is-active-trail {
       color: #000;
       display: inline-block;
       border: none;
@@ -131,7 +144,7 @@ $height: 5rem;
         bottom: -0.95rem;
       }
     }
-    &:hover {
+    &:hover, &.active, &.is-active-trail {
       border: none;
     }
   }
@@ -218,9 +231,6 @@ $height: 5rem;
 @each $subsite, $palette in $subsite-palette {
   .subsite__#{$subsite} {
     @include subsite-header__paletting($subsite, $subsite-palette);
-    .header__inner__logo {
-      display: none;
-    }
   }
 }
 
@@ -247,6 +257,11 @@ $height: 5rem;
       clear: none;
     }
   }
+  .subsite-header__nav {
+    @include breakpoint($large) {
+      padding: 0.5rem 20px;
+    }
+  }
 }
 
 .subsite__sub-theme-2 {
@@ -265,10 +280,8 @@ $height: 5rem;
   .subsite-header__link, %subsite-header__link {
     @include breakpoint($large) {
       color: #fff;
-      display: block;
       &.active, &.is-active, &:hover {
         color: #fff;
-        display: inline-block;
       }
     }
   }
