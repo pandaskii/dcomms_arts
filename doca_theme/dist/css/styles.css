@@ -576,9 +576,7 @@ a:hover, a:active {
 .form-submit, .button--normal, .pager-previous a, .pager-next a, .poll-form .form-submit, .poll-form__button, .button--alt, .poll-form--binary .poll-form__option label, .poll-form--binary .form-type-radio label, .poll-form__binary-option label, .button--text, .button--alert, .button--clear, .button {
   font-size: 0.875em;
   line-height: 1.78571em;
-  -moz-box-shadow: 0 2px 2px 0 #b9b9b9;
-  -webkit-box-shadow: 0 2px 2px 0 #b9b9b9;
-  box-shadow: 0 2px 2px 0 #b9b9b9;
+  box-shadow: none;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -589,11 +587,9 @@ a:hover, a:active {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 500;
+  border-style: none;
 }
 .form-submit:hover, .button--normal:hover, .pager-previous a:hover, .pager-next a:hover, .poll-form__button:hover, .button--alt:hover, .poll-form--binary .poll-form__option label:hover, .poll-form--binary .form-type-radio label:hover, .poll-form__binary-option label:hover, .button--text:hover, .button--alert:hover, .button--clear:hover, .form-submit:focus, .button--normal:focus, .pager-previous a:focus, .pager-next a:focus, .poll-form__button:focus, .button--alt:focus, .poll-form--binary .poll-form__option label:focus, .poll-form--binary .form-type-radio label:focus, .poll-form__binary-option label:focus, .button--text:focus, .button--alert:focus, .button--clear:focus, .button:hover, .button:focus {
-  -moz-box-shadow: 0 2px 10px 0 #b9b9b9;
-  -webkit-box-shadow: 0 2px 10px 0 #b9b9b9;
-  box-shadow: 0 2px 10px 0 #b9b9b9;
   cursor: pointer;
 }
 
@@ -993,6 +989,17 @@ a:hover, a:active {
   color: #fff;
 }
 
+.palette__white-on-black {
+  background-color: #000;
+  color: #fff;
+}
+.palette__white-on-black a {
+  color: #fff;
+}
+.palette__white-on-black a:focus, .palette__white-on-black a:hover {
+  color: #fff;
+}
+
 .palette__pale-grey {
   background-color: #f4f4f4;
   color: #000;
@@ -1226,6 +1233,13 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
   background-size: cover;
   background-position: 50% 0;
   background-image: url("../images/bg--cross.svg");
+}
+
+.background-image__blue-lines {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 100% 0;
+  background-image: url("../images/blue-lines.png");
 }
 
 .background-image__big {

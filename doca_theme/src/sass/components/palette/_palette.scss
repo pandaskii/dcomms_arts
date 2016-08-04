@@ -52,7 +52,7 @@
   }
 }
 
-$palette-main: ( grey-off-white: ( background: color(grey-off-white), ), grey-dark: ( background: color(grey-mid), ), red: ( background: color(doca-red), ), white: ( background: color(grey-white), ), grey-on-grey: ( background: color(grey-off-white), foreground: color(grey-dark), foreground-hover: color(grey-black), ), red-on-grey: ( background: color(grey-off-white), foreground: color(doca-red), foreground-hover: color(grey-black), ), blue-on-grey: ( background: color(grey-off-white), foreground: color(doca-blue), foreground-hover: color(grey-black), ), white-on-dark: ( background: #0f405e, foreground: color(grey-white), foreground-hover: color(grey-white), ), white-on-grey: ( background: #616161, foreground: color(grey-white), foreground-hover: color(grey-white), ), pale-grey: ( background: #f4f4f4, ), pale-blue: ( background: color(blue-aqua-mid), white: (background: #fff), ));
+$palette-main: ( grey-off-white: ( background: color(grey-off-white), ), grey-dark: ( background: color(grey-mid), ), red: ( background: color(doca-red), ), white: ( background: color(grey-white), ), grey-on-grey: ( background: color(grey-off-white), foreground: color(grey-dark), foreground-hover: color(grey-black), ), red-on-grey: ( background: color(grey-off-white), foreground: color(doca-red), foreground-hover: color(grey-black), ), blue-on-grey: ( background: color(grey-off-white), foreground: color(doca-blue), foreground-hover: color(grey-black), ), white-on-black: ( background: #000, foreground: #fff, foreground-hover: #fff, ), white-on-dark: ( background: #0f405e, foreground: color(grey-white), foreground-hover: color(grey-white), ), white-on-grey: ( background: #616161, foreground: color(grey-white), foreground-hover: color(grey-white), ), black-on-grey: ( background: #000, foreground: #fff, foreground-hover: #fff, ), pale-grey: ( background: #f4f4f4, ), pale-blue: ( background: color(blue-aqua-mid), white: (background: #fff), ));
 .palette__light-grey, %palette__light-grey {
   @include palette($palette-main, grey-off-white);
 }
@@ -83,6 +83,10 @@ $palette-main: ( grey-off-white: ( background: color(grey-off-white), ), grey-da
 
 .palette__white-on-grey, %palette__white-on-grey {
   @include palette($palette-main, white-on-grey);
+}
+
+.palette__white-on-black, %palette__white-on-black {
+  @include palette($palette-main, white-on-black);
 }
 
 .palette__pale-grey, %palette__pale-grey {

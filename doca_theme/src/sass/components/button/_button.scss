@@ -50,7 +50,7 @@
 
 %button, .button {
   @include adjust-font-size-to(0.875rem);
-  @include single-box-shadow(0, 2px, 2px, 0, color(grey-light));
+  box-shadow: none;
   @include border-radius(2px);
   line-height: 40px;
   height: 40px;
@@ -59,8 +59,8 @@
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 500;
+  border-style: none;
   &:hover, &:focus {
-    @include single-box-shadow(0, 2px, 10px, 0, color(grey-light));
     cursor: pointer;
   }
 }
