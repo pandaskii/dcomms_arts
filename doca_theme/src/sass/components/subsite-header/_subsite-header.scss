@@ -173,7 +173,6 @@ $height: 5rem;
 }
 
 .subsite-header__logo-large, %subsite-header__logo-large {
-  @extend %spacer--medium;
   @extend %show-at__large;
   @extend %underline-on-hover__never;
   width: 100%;
@@ -230,6 +229,24 @@ $height: 5rem;
   .subsite-header__logo-large {
     max-width: 384px;
   }
+  .background-left {
+    width: 50%;
+    background-color: transparent;
+    float: left;
+    height: 185px;
+  }
+  .background-right {
+    width: 50%;
+    background-color: color(yellow-xlight);
+    left: 50%;
+    height: 185px;
+  }
+  .subsite-header__layout {
+    @include breakpoint($large) {
+      background-color: color(yellow-xlight);
+      clear: none;
+    }
+  }
 }
 
 .subsite__sub-theme-2 {
@@ -285,7 +302,6 @@ $height: 5rem;
   }
   .subsite-header__logo-large {
     max-width: 345px;
-    padding: 0;
     position: relative;
     z-index: 0;
     float: left;

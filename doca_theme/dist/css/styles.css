@@ -1155,12 +1155,12 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   margin: 1rem 0 2rem;
 }
 
-.subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding, .promotional-feature--dark, .update--extra, .spacer {
+.subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .alert-signup, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding, .promotional-feature--dark, .update--extra, .spacer {
   padding: 1rem;
 }
 
 @media (min-width: 960px) {
-  .subsite-header__logo-large, .subsite-header__emblem, .update--extra__wrapper, .spacer--medium {
+  .subsite-header__emblem, .update--extra__wrapper, .spacer--medium {
     padding: 2rem 1rem;
   }
 }
@@ -5671,6 +5671,24 @@ fieldset.separate .fieldset-legend {
 .subsite__sub-theme-1 .subsite-header__logo-large {
   max-width: 384px;
 }
+.subsite__sub-theme-1 .background-left {
+  width: 50%;
+  background-color: transparent;
+  float: left;
+  height: 185px;
+}
+.subsite__sub-theme-1 .background-right {
+  width: 50%;
+  background-color: #fdf6a8;
+  left: 50%;
+  height: 185px;
+}
+@media (min-width: 980px) {
+  .subsite__sub-theme-1 .subsite-header__layout {
+    background-color: #fdf6a8;
+    clear: none;
+  }
+}
 
 .subsite__sub-theme-2 .background-left {
   width: 50%;
@@ -5726,7 +5744,6 @@ fieldset.separate .fieldset-legend {
 }
 .subsite__sub-theme-2 .subsite-header__logo-large {
   max-width: 345px;
-  padding: 0;
   position: relative;
   z-index: 0;
   float: left;
