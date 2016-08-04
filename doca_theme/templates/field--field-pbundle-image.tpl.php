@@ -13,4 +13,3 @@
     <?php print $img_caption; ?>
   </div>
 <?php endforeach; ?>
-

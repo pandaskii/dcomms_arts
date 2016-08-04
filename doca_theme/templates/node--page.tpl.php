@@ -10,7 +10,7 @@
 ?>
 <?php $with_img = 0;
 $show_img = $content['field_show_hero_image']['#items'][0]['value'];
-if (!empty($content['field_show_hero_image']) && !empty($show_img)): 
+if (!empty($content['field_show_hero_image']) && !empty($show_img)):
     $with_img = 1;
 endif;
 ?>
@@ -37,7 +37,7 @@ endif;
 
 <div class="layout-sidebar layout-max spacer <?php if($with_img) {print 'layout-sidebar__with-img';} ?>">
 <?php if (isset($content['related_content']) || $with_img): ?>
-    <div class="layout-sidebar__sidebar sidebar--large sidebar--right-align">     
+    <div class="layout-sidebar__sidebar sidebar--large sidebar--right-align">
       <?php if ($with_img): ?>
         <?php print render($content['field_feature_image']); ?>
       <?php endif; ?>
@@ -59,7 +59,7 @@ endif;
       </div>
     <?php endif; ?>
   </div>
-  
+
 </div>
 
 <?php print render($content['field_entity_content']); ?>

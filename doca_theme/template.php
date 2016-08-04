@@ -1136,26 +1136,26 @@ function doca_theme_preprocess_field(&$variables, $hook) {
     $caption_mob = '<span class="visible--xs">Image credit</span>';
     $variables['img_caption'] = '';
     foreach ($variables['items'] as $delta => $item) {
-      if (isset($item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'])) { 
-        $img_class ='featured-with-caption';
+      if (isset($item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'])) {
+        $img_class = 'featured-with-caption';
         $has_caption = 1;
         $caption_d = '<span class="visible--md">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'] . '<span class="feature-caption-link"> (detail) +</span></span>';
       }
       if (isset($item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'])) {
         $img_url = $item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'];
-        $caption_mob = '<span class="visible--xs">Image credit +</span>';    
+        $caption_mob = '<span class="visible--xs">Image credit +</span>';
       }
-      if ($has_caption):
+      if ($has_caption) :
         $img_caption .= '<div class="featured-with-caption__caption">';
-        if ($img_url):
+        if ($img_url) :
           $img_caption .= '<a href="' . $img_url . '"target="_blank">';
         endif;
         $img_caption .= $caption_mob;
         $img_caption .= $caption_d;
-        if ($img_url):
+        if ($img_url) :
           $img_caption .= '</a>';
         endif;
-        $img_caption .='</div>';
+        $img_caption .= '</div>';
       endif;
       $variables['img_caption'] = $img_caption;
     }
