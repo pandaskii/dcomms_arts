@@ -1,0 +1,20 @@
+// Visible content
+//
+// Presentation of visible content on site
+//
+// Markup: visible.html
+//
+// Styleguide visible.tabber
+%visible, .visible {
+  &--xs {
+    @include breakpoint($medium) {
+      display: none! important;
+    }
+  }
+  &--md {
+    display: none;
+    @include breakpoint($medium) {
+      display: block;
+    }
+  }
+}

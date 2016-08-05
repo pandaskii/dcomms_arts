@@ -5,12 +5,63 @@
 // Markup: image-with-caption.html
 //
 // Styleguide: components.image-with-caption
+%image-with-caption, .image-with-caption {
+  .sidebar--large & {
+    @include breakpoint($large) {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
 %image-with-caption__caption, .image-with-caption__caption {
   @extend %font__small;
   @extend %spacer--top;
   color: color(grey-dark);
+  .sidebar--large & {
+    text-align: right;
+  }
 }
 
 %image-with-caption__credit, .image-with-caption__credit {
   font-style: italic;
+}
+
+%featured-with-caption, .featured-with-caption {
+  position: relative;
+  &__caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
+    z-index: 2;
+    width: 100%;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: right;
+    font-style: italic;
+    .feature-caption-link {
+      display: none;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      &:hover, &:active {
+        color: #fff;
+      }
+      &:hover {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .feature-caption-link {
+        display: inline;
+      }
+    }
+    @include breakpoint($medium) {
+      font-style: normal;
+      padding: 0.25rem 1rem;
+    }
+  }
 }

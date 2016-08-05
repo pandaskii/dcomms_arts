@@ -83,45 +83,45 @@ function _doca_theme_form_system_theme_settings_alter_submit(&$form, &$form_stat
   // Go through each of the simple contexts that can be changed to the dynamic
   // business areas and change their taxonomy term locations.
   $contexts = context_enabled_contexts();
-  $context = $contexts['apply_subsite_class_bureau_communications_research'];
+  $context = $contexts['apply_subsite_class_subsite_2'];
   _doca_theme_reset_menu($context, $subsite2);
 
-  $context = $contexts['apply_subsite_class_digital_business'];
+  $context = $contexts['apply_subsite_class_subsite_3'];
   _doca_theme_reset_menu($context, $subsite3);
 
-  $context = $contexts['apply_subsite_class_stay-smart-online'];
+  $context = $contexts['apply_subsite_class_subsite_1'];
   _doca_theme_reset_menu($context, $subsite1);
 
-  $context = $contexts['display_bcr_nav'];
+  $context = $contexts['display_subsite_2_nav'];
   _doca_theme_reset_block($context, $subsite2);
   _doca_theme_reset_menu($context, $subsite2);
 
-  $context = $contexts['display_digitalbusiness_nav'];
+  $context = $contexts['display_subsite_3_nav'];
   _doca_theme_reset_block($context, $subsite3);
   _doca_theme_reset_menu($context, $subsite3);
 
-  $context = $contexts['display_sso_nav_menu'];
+  $context = $contexts['display_subsite_1_nav_menu'];
   _doca_theme_reset_block($context, $subsite1);
   _doca_theme_reset_menu($context, $subsite1);
 
-  $context = $contexts['clone_of_apply_subsite_class_bureau_communications_research'];
+  $context = $contexts['clone_of_apply_subsite_class_subsite_2'];
   _doca_theme_reset_term($context, $subsite2);
 
-  $context = $contexts['clone_of_apply_subsite_class_digital_business'];
+  $context = $contexts['clone_of_apply_subsite_class_subsite_3'];
   _doca_theme_reset_term($context, $subsite3);
 
-  $context = $contexts['clone_of_apply_subsite_class_stay-smart-online'];
+  $context = $contexts['clone_of_apply_subsite_class_subsite_1'];
   _doca_theme_reset_term($context, $subsite1);
 
-  $context = $contexts['clone_of_display_bcr_nav'];
+  $context = $contexts['clone_of_display_subsite_2_nav'];
   _doca_theme_reset_block($context, $subsite2);
   _doca_theme_reset_term($context, $subsite2);
 
-  $context = $contexts['clone_of_display_digitalbusiness_nav'];
+  $context = $contexts['clone_of_display_subsite_3_nav'];
   _doca_theme_reset_block($context, $subsite3);
   _doca_theme_reset_term($context, $subsite3);
 
-  $context = $contexts['clone_of_display_sso_nav_menu'];
+  $context = $contexts['clone_of_display_subsite_1_nav_menu'];
   _doca_theme_reset_block($context, $subsite1);
   _doca_theme_reset_term($context, $subsite1);
 

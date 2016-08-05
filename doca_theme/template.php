@@ -56,6 +56,14 @@ function doca_theme_preprocess_page(&$variables, $hook) {
   $header = drupal_get_http_header("status");
   if ($header === "404 Not Found") {
     $variables['theme_hook_suggestions'][] = 'page__404';
+    $element = array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'http-equiv' => 'refresh',
+        'content' => '10;url=/',
+      ),
+    );
+    drupal_add_html_head($element, 'page_404_redirect');
   }
   if ($header === "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__403';
@@ -1056,7 +1064,6 @@ function doca_theme_preprocess_field(&$variables, $hook) {
           }
         }
       }
-
     }
   }
 
@@ -1126,6 +1133,41 @@ function doca_theme_preprocess_field(&$variables, $hook) {
     else {
       $variables['form_id'] = theme_get_setting('have_your_say_wform_nid');
     }
+  }
+
+  if ($element['#field_name'] === 'field_feature_image' || $element['#field_name'] === 'field_pbundle_image' || $element['#field_name'] === 'field_image') {
+    $img_class = '';
+    $img_url = '';
+    $has_caption = 0;
+    $img_caption = '';
+    $caption_d = '';
+    $caption_mob = '<span class="visible--xs">Image credit</span>';
+    $variables['img_caption'] = '';
+    foreach ($variables['items'] as $delta => $item) {
+      if (isset($item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'])) {
+        $img_class = 'featured-with-caption';
+        $has_caption = 1;
+        $caption_d = '<span class="visible--md">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'] . '<span class="feature-caption-link"> (detail) +</span></span>';
+      }
+      if (isset($item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'])) {
+        $img_url = $item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'];
+        $caption_mob = '<span class="visible--xs">Image credit +</span>';
+      }
+      if ($has_caption) :
+        $img_caption .= '<div class="featured-with-caption__caption">';
+        if ($img_url) :
+          $img_caption .= '<a href="' . $img_url . '"target="_blank">';
+        endif;
+        $img_caption .= $caption_mob;
+        $img_caption .= $caption_d;
+        if ($img_url) :
+          $img_caption .= '</a>';
+        endif;
+        $img_caption .= '</div>';
+      endif;
+      $variables['img_caption'] = $img_caption;
+    }
+    $variables['img_class'] = $img_class;
   }
 }
 
@@ -1657,7 +1699,6 @@ function _doca_theme_get_subsites() {
       theme_get_setting('sub_theme_4') => 'sub-theme-4',
     );
   }
-
   return $subsites;
 
 }
