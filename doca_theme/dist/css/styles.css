@@ -2797,11 +2797,17 @@ fieldset.separate .fieldset-legend {
 .footer-menu__title {
   text-decoration: none;
   border-color: transparent;
-  display: inline;
+  display: inline-block;
   line-height: 1.5;
+  max-width: 10rem;
 }
 .footer-menu__title:hover, .footer-menu__title:focus {
   border-color: currentColor;
+}
+@media (min-width: 811px) {
+  .footer-menu__title {
+    max-width: none;
+  }
 }
 
 .footer-menu__item {
