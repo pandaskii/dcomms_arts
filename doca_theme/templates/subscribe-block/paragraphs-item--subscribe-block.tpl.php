@@ -5,15 +5,15 @@
  */
 ?>
 <div class="palette__white-on-black background-image__blue-lines">
-<div class="panel-background-3 layout-two-columns layout-max spacer">
+<div class="panel-background-3 layout-max spacer--large">
+  <?php print render($content['field_pbundle_title']); ?>
 
-  <div class="layout-two-column__item">
-    <?php print render($content['field_pbundle_title']); ?>
+  <div class="layout-one-third__sidebar"> 
     <?php print render($content['field_pbundle_text']); ?>
   </div>
 
-  <div class="layout-two-column__item">
-    <form method="post" class="alert-signup__form">
+  <div class="layout-one-two-thirds__main">
+    <form method="post" class="spacer--horizontal--medium alert-signup">
       <?php if($content['field_hide_name_field']['#items'][0]['value'] === '0'): ?>
         <div class="form__item">
           <label class="form__label" for="cu_FULL_NAME"><?php print t('Name'); ?> <span class="form__label__required"><?php print t('(mandatory)'); ?></span></label>

@@ -87,6 +87,9 @@ $palette-main: ( grey-off-white: ( background: color(grey-off-white), ), grey-da
 
 .palette__white-on-black, %palette__white-on-black {
   @include palette($palette-main, white-on-black);
+  p, h2 {
+    @include font-smoothing(antialiased);
+  }
 }
 
 .palette__pale-grey, %palette__pale-grey {

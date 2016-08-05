@@ -20,6 +20,10 @@
 %form__label, .form__label {
   font-weight: 500;
   color: color(grey-black);
+  .palette__white-on-black & {
+    color: #fff;
+    @include font-smoothing;
+  }
 }
 
 .form__label--inline, %form__label--inline {
@@ -29,6 +33,9 @@
 
 .form__label__required, %form__label__required {
   color: color(doca-red);
+  .palette__white-on-black & {
+    color: #fff;
+  }
 }
 
 %form__description, .form__description {
@@ -54,6 +61,12 @@
   }
   &.has-error {
     border-color: color(doca-red);
+  }
+  .palette__white-on-black & {
+    background-color: #2d2c2c;
+    color: #fff;
+    border-color: #2d2c2c;
+    @include border-radius(2px);
   }
 }
 

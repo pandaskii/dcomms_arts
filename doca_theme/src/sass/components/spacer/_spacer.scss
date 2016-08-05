@@ -30,6 +30,10 @@
   padding-bottom: 0;
 }
 
+%spacer--horizontal--medium, .spacer--horizontal--medium {
+  padding: 0 2rem;
+}
+
 %spacer--large, .spacer--large {
   @extend %spacer;
   @include breakpoint(960px) {
