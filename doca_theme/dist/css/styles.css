@@ -5087,6 +5087,9 @@ img.iefix {
     margin-bottom: 0;
   }
 }
+.promotional-feature__left .link-external__icon, .promotional-feature__left .link-external:after, .featured__grid-item__left .link-external__icon, .featured__grid-item-img__left .featured__grid-item__img .link-external__icon, .featured__grid-item__left .link-external:after, .featured__grid-item-img__left .featured__grid-item__img .link-external:after {
+  display: none;
+}
 
 .qnapair__item.accordion__item {
   padding: 1.7rem 1rem 1.5rem;
