@@ -4,13 +4,23 @@
 //
 // Styleguide components.alert-signup
 .alert-signup, %alert-signup {
-  @extend %spacer--large;
-  h2 {
-    color: color(blue-alert);
-  }
-  &__svg {
-    display: block;
-    width: 220px;
-    margin: 2rem auto;
+  @include breakpoint($large) {
+    .form__item, .form__action {
+      float: left;
+      width: 48%;
+      margin-right: 0.5%;
+      .form__input {
+        min-width: 0;
+        width: 100%;
+      }
+    }
+    .form__action {
+      margin-top: 1.7rem;
+      text-align: right;
+    }
+    .form__input {
+      height: 50px;
+      line-height: 50px;
+    }
   }
 }

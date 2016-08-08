@@ -14,6 +14,10 @@
   @include background-image('bg--cross.svg');
 }
 
+%background-image__blue-lines, .background-image__blue-lines {
+  @include background-image('blue-lines.png', 100%, auto);
+}
+
 %background-image__big, .background-image__big {
   @include background-image('bg--big.svg', 100%);
 }
