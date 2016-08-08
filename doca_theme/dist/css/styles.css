@@ -4993,7 +4993,8 @@ fieldset.separate .fieldset-legend {
   max-width: 80%;
   float: left;
   margin: 0;
-  line-height: 1.9rem;
+  line-height: 1.3rem;
+  padding-top: 0.3rem;
 }
 .qnapair__title p {
   margin: 0;
@@ -5018,7 +5019,7 @@ fieldset.separate .fieldset-legend {
 .qnapair__arrow {
   margin-bottom: 0.25rem;
   width: 32px;
-  height: auto;
+  height: 24px;
   float: right;
   fill: #5265ff;
 }

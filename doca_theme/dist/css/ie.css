@@ -1,0 +1,26 @@
+.page-404__ministry-arts-logo, .page-404__column-title {
+  margin-top: 100px;
+}
+@media screen and (min-width: 720px) {
+  .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait {
+    min-height: 476px;
+  }
+  .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait_small {
+    height: 220px;
+  }
+  .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait .grid-stream__icon {
+    max-height: 50px;
+  }
+}
+@media screen and (min-width: 980px) {
+  .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait {
+    min-height: 476px;
+  }
+  .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait_small {
+    height: 220px;
+  }
+}
+
+.view-display-id-block_7 .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait_small {
+   height: 148px;
+}

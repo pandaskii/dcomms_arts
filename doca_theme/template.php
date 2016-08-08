@@ -18,6 +18,7 @@ require_once drupal_get_path('theme', 'doca_theme') . '/template.helpers.inc';
 function doca_theme_preprocess_html(&$variables, $hook) {
   // Add offscreen class to body for mobile navigation.
   $variables['classes_array'][] = 'offscreen';
+  drupal_add_css(path_to_theme() . '/dist/css/ie.css', array('browsers' => array('IE' => 'lte IE 10', '!IE' =>FALSE),));
 }
 
 /**
@@ -65,6 +66,7 @@ function doca_theme_preprocess_page(&$variables, $hook) {
     );
     drupal_add_html_head($element, 'page_404_redirect');
   }
+
   if ($header === "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__403';
   }

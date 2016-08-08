@@ -23,7 +23,7 @@
 
   <div class="page-404__wrapper">
 
-    <div class="page-404__three-column">
+    <div class="page-404__three-column page-404__three-column--page-title">
       <div class="page-404__column-title">
         <h1>
           <div class="page-404__title">404</div>
