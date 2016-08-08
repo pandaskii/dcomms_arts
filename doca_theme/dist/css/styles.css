@@ -2842,6 +2842,48 @@ fieldset.separate .fieldset-legend {
   flex-basis: 0;
 }
 
+.no-flexbox .page-404__ministry-arts-logo, .page-404__column-title {
+  margin-top: 100px;
+}
+
+@media screen and (min-width: 720px) {
+  .no-flexbox .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait {
+    min-height: 476px;
+  }
+
+  .no-flexbox .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait_small {
+    height: 220px;
+  }
+
+  .no-flexbox .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait .grid-stream__icon {
+    max-height: 50px;
+  }
+
+  .no-flexbox .ie-fix.view-content .view-mode-grid_stream_portrait {
+    min-height: 476px;
+  }
+}
+@media screen and (min-width: 980px) {
+  .no-flexbox .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait, .no-flexbox .ie-fix.view-content .view-mode-grid_stream_portrait {
+    min-height: 580px;
+  }
+
+  .no-flexbox .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait_small {
+    height: 220px;
+  }
+
+  .no-flexbox .header-menu__link.active:after, .header-menu__link.is-active-trail:after {
+    display: inline-block;
+  }
+}
+.no-flexbox .view-display-id-block_7 .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait_small {
+  height: 148px;
+}
+
+img.iefix {
+  visibility: hidden;
+}
+
 .footer-menu__column > ul.footer-menu {
   margin-top: 1rem;
 }
@@ -3441,6 +3483,7 @@ fieldset.separate .fieldset-legend {
   .active.subsite-header__link, .is-active-trail.subsite-header__link, .subsite-header__link:hover, .subsite-header__link:focus, .header-menu__link.active, .header-menu__link.is-active-trail, .header-menu__link:hover, .header-menu__link:focus {
     color: #12293a;
     border-color: transparent;
+    position: relative;
   }
   .active.subsite-header__link:after, .is-active-trail.subsite-header__link:after, .subsite-header__link:hover:after, .subsite-header__link:focus:after, .header-menu__link.active:after, .header-menu__link.is-active-trail:after, .header-menu__link:hover:after, .header-menu__link:focus:after {
     content: '';
@@ -3696,6 +3739,7 @@ fieldset.separate .fieldset-legend {
   background-image: url("../images/arts-brand-lvl2-sm.svg");
   height: 70px;
   width: 100%;
+  max-width: 200px;
   margin-bottom: 50px;
   text-decoration: none;
   border: none;
