@@ -6068,7 +6068,7 @@ fieldset.separate .fieldset-legend {
   padding-top: 0;
 }
 .horizontal-tabs .horizontal-tabs-pane .update {
-  border-width: 0;
+  margin-top: 1rem;
 }
 .horizontal-tabs .heading--4, .horizontal-tabs .list-arrow__header, .horizontal-tabs .heading--4--no-space, .horizontal-tabs .heading--4--light {
   color: #12293a;
@@ -6353,6 +6353,12 @@ html {
     margin-top: .25rem;
   }
 }
+.update__title a {
+  color: #5265ff;
+}
+.palette__pale-grey .update__title a {
+  color: #5265ff;
+}
 .update__date {
   color: #616161;
   margin-bottom: 0;
@@ -6362,6 +6368,10 @@ html {
     font-size: 1.25rem;
     line-height: 2.1875rem;
   }
+}
+.update__summary {
+  margin-left: 7rem;
+  margin-top: 1rem;
 }
 
 .update--extra {
