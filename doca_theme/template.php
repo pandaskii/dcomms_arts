@@ -1304,13 +1304,13 @@ function _consultation_vars(&$variables, $element_object) {
   if ($element_object->type == 'consultation') {
     $consultation['status_message'] = _consultation_status_message($consultation);
     $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
-    $consultation['status_msg_class'] = strtolower($consultation['status_msg_class']);
-    $consultation['submissions_closed_message'] = _consultation_submissions_closed_message($consultation);
   }
   else {
     $consultation['status_message'] = $consultation['wrapped_entity']->field_consultation_date_status->value();
     $consultation['status_message'] .= $consultation['wrapped_entity']->field_description->value()['safe_value'];
   }
+  $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
+  $consultation['status_msg_class'] = strtolower($consultation['status_msg_class']);
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
   $variables['consultation'] = $consultation;
   if ($element_object->type == 'funding') {

@@ -4950,8 +4950,11 @@ fieldset.separate .fieldset-legend {
   font-weight: bold;
 }
 
-.progress-bar__open .progress-bar__progress {
+.progress-bar__open .progress-bar__progress, .progress-bar__current .progress-bar__progress {
   background: #a2b4fa;
+}
+.progress-bar__bar--funding .progress-bar__open .progress-bar__progress, .progress-bar__bar--funding .progress-bar__current .progress-bar__progress {
+  background: #48fbf0;
 }
 
 .progress-bar--complete .progress-bar__progress {
@@ -4960,8 +4963,11 @@ fieldset.separate .fieldset-legend {
 .progress-bar--complete .progress-bar__highlighted {
   font-weight: bold;
 }
-.progress-bar--complete.progress-bar__now-under-review .progress-bar__progress {
+.progress-bar--complete.progress-bar__now-under-review .progress-bar__progress, .progress-bar--complete.progress-bar__under-consideration .progress-bar__progress, .progress-bar--complete.progress-bar__applications-under-consideration .progress-bar__progress {
   background-color: #6b86ed;
+}
+.progress-bar__bar--funding .progress-bar--complete.progress-bar__now-under-review .progress-bar__progress, .progress-bar__bar--funding .progress-bar--complete.progress-bar__under-consideration .progress-bar__progress, .progress-bar__bar--funding .progress-bar--complete.progress-bar__applications-under-consideration .progress-bar__progress {
+  background-color: #00aaaa;
 }
 
 .poll-results--binary, .progress-bar--collapsed {

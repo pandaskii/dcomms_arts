@@ -97,9 +97,12 @@
   font-weight: bold;
 }
 
-%progress-bar__open, .progress-bar__open {
+%progress-bar__open, .progress-bar__open, .progress-bar__current {
   .progress-bar__progress {
     background: color(purple-light);
+    .progress-bar__bar--funding & {
+      background: color(blue-aqua-mid);
+    }
   }
 }
 
@@ -110,9 +113,12 @@
   .progress-bar__highlighted, %progress-bar__highlighted {
     font-weight: bold;
   }
-  &.progress-bar__now-under-review {
+  &.progress-bar__now-under-review, &.progress-bar__under-consideration, &.progress-bar__applications-under-consideration {
     .progress-bar__progress {
       background-color: #6b86ed;
+      .progress-bar__bar--funding & {
+        background-color: #00aaaa;
+      }
     }
   }
 }
