@@ -8,7 +8,7 @@
   <?php if (!$label_hidden): ?>
     <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
   <?php endif; ?>
-  <div class="progress-bar <?php print $consultation['status_class']; ?>"<?php print $content_attributes; ?>>
+  <div class="progress-bar <?php print $consultation['status_class']; ?> progress-bar__<?php print ($consultation['status_msg_class']); ?>"<?php print $content_attributes; ?>>
     <div class="progress-bar__text">
       <div class="progress-bar__start-date">
         <?php print t('Started') . ' ' . format_date($consultation['start'], 'full_with_timezone'); ?></div>

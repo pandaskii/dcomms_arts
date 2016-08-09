@@ -4914,7 +4914,7 @@ fieldset.separate .fieldset-legend {
   position: relative;
 }
 .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress--aqua, .progress-bar__progress {
-  background-color: #a2b4fa;
+  background-color: #9d9d9d;
   background-position: 50% 100%;
 }
 .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey {
@@ -4950,12 +4950,18 @@ fieldset.separate .fieldset-legend {
   font-weight: bold;
 }
 
-.progress-bar--complete .progress-bar__progress {
+.progress-bar__open .progress-bar__progress {
   background: #a2b4fa;
 }
+
+.progress-bar--complete .progress-bar__progress {
+  background: #9d9d9d;
+}
 .progress-bar--complete .progress-bar__highlighted {
-  color: #a2b4fa;
   font-weight: bold;
+}
+.progress-bar--complete.progress-bar__now-under-review .progress-bar__progress {
+  background-color: #6b86ed;
 }
 
 .poll-results--binary, .progress-bar--collapsed {

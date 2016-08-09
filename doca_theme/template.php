@@ -1303,6 +1303,8 @@ function _consultation_vars(&$variables, $element_object) {
   $consultation['status_class'] = ($consultation['percentage'] === 100 ? 'progress-bar--complete' : '');
   if ($element_object->type == 'consultation') {
     $consultation['status_message'] = _consultation_status_message($consultation);
+    $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
+    $consultation['status_msg_class'] = strtolower($consultation['status_msg_class']);
     $consultation['submissions_closed_message'] = _consultation_submissions_closed_message($consultation);
   }
   else {
