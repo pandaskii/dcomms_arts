@@ -201,6 +201,9 @@ table {
   border-spacing: 0;
   width: 100%;
 }
+table.tablesaw-fix-persist {
+  table-layout: auto;
+}
 
 caption {
   padding: 10px 15px;
