@@ -98,13 +98,16 @@
 
   Drupal.behaviors.caption_hover = {
     attach: function(context) {
-      $('html.no-touch .featured-with-caption', context).hover(function() {
-        $(this).find('.featured-overlay').fadeIn(100);
-        $(this).closest('div.node').css('overflow', 'visible');
-      }, function() {
-        $(this).find('.featured-overlay').fadeOut(100);
-        $(this).closest('div.node').css('overflow', 'hidden');
-      })
+      var checkTouch = window.ontouchstart || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+      if (!checkTouch) {
+        $('.featured-with-caption', context).hover(function() {
+          $(this).find('.featured-overlay').fadeIn(100);
+          $(this).closest('div.node').css('overflow', 'visible');
+        }, function() {
+          $(this).find('.featured-overlay').fadeOut(100);
+          $(this).closest('div.node').css('overflow', 'hidden');
+        })
+      }
     }
   };
 
