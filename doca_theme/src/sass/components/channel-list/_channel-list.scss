@@ -55,12 +55,14 @@
   display: block;
   padding: 1rem .5rem;
   border-bottom: 1px solid #ccc;
+  @include clearfix;
   @include breakpoint($medium) {
     @include border-radius(3px);
     border-bottom: 0;
     max-width: 180px;
     margin: 0 auto;
     padding: 0 .5rem 1rem;
+    clear: none;
   }
   @include breakpoint($large) {
     min-height: 200px;
@@ -72,10 +74,13 @@
 }
 
 .channel-list__img-wrapper, %channel-list__img-wrapper {
-  margin-right: 1rem;
   display: inline-block;
   vertical-align: middle;
+  width: 19%;
+  margin-right: 5%;
+  float: left;
   @include breakpoint($medium) {
+    float: none;
     margin-right: 0;
     margin-bottom: 1rem;
     display: block;
@@ -83,6 +88,7 @@
     max-height: 66px;
     line-height: 66px;
     vertical-align: middle;
+    width: auto;
   }
   .no-mediaqueries & {
     display: none;
@@ -105,9 +111,13 @@
   font-weight: 500;
   vertical-align: middle;
   color: #000;
+  width: 75%;
+  float: left;
   @include breakpoint($medium) {
     display: block;
     margin-bottom: .25rem;
+    width: auto;
+    float: none;
   }
   @include breakpoint($large) {
     font-size: $medium-font-size;

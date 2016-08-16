@@ -65,6 +65,7 @@ function doca_theme_preprocess_page(&$variables, $hook) {
     );
     drupal_add_html_head($element, 'page_404_redirect');
   }
+
   if ($header === "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__403';
   }
@@ -1140,6 +1141,7 @@ function doca_theme_preprocess_field(&$variables, $hook) {
     $img_url = '';
     $has_caption = 0;
     $img_caption = '';
+    $img_hover = '';
     $caption_d = '';
     $caption_mob = '<span class="visible--xs">Image credit</span>';
     $variables['img_caption'] = '';
@@ -1148,7 +1150,15 @@ function doca_theme_preprocess_field(&$variables, $hook) {
         $img_class = 'featured-with-caption';
         $has_caption = 1;
         $caption_d = '<span class="visible--md">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'] . '<span class="feature-caption-link"> (detail) +</span></span>';
+        $img_hover ='<div class="featured-overlay">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'];
       }
+      if (isset($item['#item']['field_file_image_title_text'][LANGUAGE_NONE][0]['safe_value'])) {
+        $img_hover .= ' - ' . $item['#item']['field_file_image_title_text'][LANGUAGE_NONE][0]['safe_value'];
+      }
+      if (isset($item['#item']['field_read_more_text'][LANGUAGE_NONE][0]['safe_value'])) {
+        $img_hover .= '<span>' . $item['#item']['field_read_more_text'][LANGUAGE_NONE][0]['safe_value'] . '</span>';
+      }
+      $img_hover .= '</div>';
       if (isset($item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'])) {
         $img_url = $item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'];
         $caption_mob = '<span class="visible--xs">Image credit +</span>';
@@ -1163,7 +1173,7 @@ function doca_theme_preprocess_field(&$variables, $hook) {
         if ($img_url) :
           $img_caption .= '</a>';
         endif;
-        $img_caption .= '</div>';
+        $img_caption .= '</div>' . $img_hover;
       endif;
       $variables['img_caption'] = $img_caption;
     }

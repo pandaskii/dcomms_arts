@@ -33,7 +33,7 @@
     <?php endif; ?>
 
     <?php if ($rows): ?>
-      <div class="view-content">
+      <div class="view-content ie-fix">
         <?php print $rows; ?>
       </div>
     <?php elseif ($empty): ?>

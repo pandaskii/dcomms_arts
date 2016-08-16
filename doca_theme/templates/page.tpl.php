@@ -71,7 +71,9 @@
   </div>
 </header>
 <?php if (!$is_front): ?>
-<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo layout-max"></a>
+  <div class="layout-max">
+    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo"></a>
+  </div>
 <?php endif; ?>
 <div id="page" class="spacer--top">
   <?php print render($tabs); ?>
@@ -144,7 +146,7 @@
     </div>
   </div>
   <?php endif; ?>
-
+ <img class="iefix" src="<?php print path_to_theme(); ?>/dist/images/bg--point--black.svg">
   <?php print render($page['footer_top']); ?>
   <div class="footer__wrapper">
 
