@@ -1377,6 +1377,15 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
   width: auto;
   overflow: auto;
 }
+.no-flexbox .grid-stream__icon {
+  height: 40px;
+  text-align: left;
+}
+.no-flexbox .grid-stream__icon img {
+  width: auto;
+  max-height: 100%;
+  max-width: 50px;
+}
 
 .grid-stream__item, .grid-stream__item--landscape-small, .grid-stream__item--landscape-small--has-image, .grid-stream__item--landscape-small--has-image-description, .grid-stream__item--landscape, .grid-stream__item--portrait-small, .grid-stream__item--portrait, .grid-stream__item--vertical, .grid-stream__item--vertical--has-image, .grid-stream__item--vertical--has-image-description {
   background: white;
@@ -2895,7 +2904,7 @@ fieldset.separate .fieldset-legend {
   }
 }
 .no-flexbox .view-display-id-block_7 .layout-flex-grid.ie-fix > .view-mode-grid_stream_portrait_small {
-  height: 148px;
+  height: 178px;
 }
 
 img.iefix {
