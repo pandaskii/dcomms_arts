@@ -40,6 +40,15 @@
       @include element-invisible-off;
     }
   }
+  .no-flexbox & {
+    height: 40px;
+    text-align: left;
+    img {
+      width: auto;
+      max-height: 100%;
+      max-width: 50px;
+    }
+  }
 }
 
 .grid-stream__item, %grid-stream__item {
