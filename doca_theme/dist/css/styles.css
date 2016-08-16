@@ -3353,6 +3353,9 @@ img.iefix {
   background-image: url("../images/bg--point--light.svg");
 }
 
+.grid-stream__item--vertical, .grid-stream__item--vertical--has-image, .grid-stream__item--vertical--has-image-description {
+  margin-right: 1.9%;
+}
 .grid-stream__item--vertical__top {
   display: none;
 }

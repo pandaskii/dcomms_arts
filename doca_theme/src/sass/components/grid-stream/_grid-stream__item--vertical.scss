@@ -11,6 +11,7 @@
 .grid-stream__item--vertical, %grid-stream__item--vertical {
   @extend %grid-stream__item;
   @extend %layout-three-column__item;
+  margin-right: 1.9%;
   &__top {
     display: none;
   }
