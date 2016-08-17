@@ -568,6 +568,9 @@ table {
   // Prevent cramped-looking tables
   width: 100%;
   // Add vertical rhythm margins.
+  &.tablesaw-fix-persist {
+    table-layout: auto;
+  }
 }
 
 caption {
