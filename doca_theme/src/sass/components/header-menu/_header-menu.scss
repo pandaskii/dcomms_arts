@@ -58,6 +58,7 @@
     &.active, &.is-active-trail, &:hover, &:focus {
       color: color(dark);
       border-color: transparent;
+      position: relative;
       &:after {
         content: '';
         width: 100%;

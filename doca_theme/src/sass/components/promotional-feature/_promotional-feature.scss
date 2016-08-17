@@ -37,6 +37,9 @@
   @include breakpoint($medium) {
     margin-bottom: 0;
   }
+  .link-external__icon, .link-external:after {
+    display: none;
+  }
 }
 
 .promotional-feature__right, %promotional-feature__right {

@@ -24,7 +24,7 @@
   <div class="page-404__wrapper">
 
     <div class="page-404__two-column">
-      <div class="page-404__column-title">
+      <div class="page-404__column-title page-404__three-column--page-title">
         <h1>
           <div class="page-404__title">404</div>
           <div class="page-404__sub-title">page not found</div>

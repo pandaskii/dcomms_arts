@@ -28,8 +28,12 @@
 .footer-menu__title, %footer-menu__title {
   @extend %footer__heading;
   @include underline-on-hover;
-  display: inline;
+  display: inline-block;
   line-height: 1.5;
+  max-width: 10rem;
+  @include breakpoint($x-medium) {
+    max-width: none;
+  }
 }
 
 .footer-menu__item, %footer-menu__item {

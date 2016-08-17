@@ -23,3 +23,43 @@
     flex-basis: 0;
   }
 }
+
+//Fixes for ie9/10
+.no-flexbox .page-404__ministry-arts-logo, .page-404__column-title {
+  margin-top: 100px;
+}
+
+@media screen and (min-width: 720px) {
+  .no-flexbox .layout-flex-grid.ie-fix> .view-mode-grid_stream_portrait {
+    min-height: 476px;
+  }
+  .no-flexbox .layout-flex-grid.ie-fix> .view-mode-grid_stream_portrait_small {
+    height: 220px;
+  }
+  .no-flexbox .layout-flex-grid.ie-fix> .view-mode-grid_stream_portrait .grid-stream__icon {
+    max-height: 50px;
+  }
+  .no-flexbox .ie-fix.view-content .view-mode-grid_stream_portrait {
+    min-height: 476px;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .no-flexbox .layout-flex-grid.ie-fix> .view-mode-grid_stream_portrait, .no-flexbox .ie-fix.view-content .view-mode-grid_stream_portrait {
+    min-height: 580px;
+  }
+  .no-flexbox .layout-flex-grid.ie-fix> .view-mode-grid_stream_portrait_small {
+    height: 220px;
+  }
+  .no-flexbox .header-menu__link.active:after, .header-menu__link.is-active-trail:after {
+    display: inline-block;
+  }
+}
+
+.no-flexbox .view-display-id-block_7 .layout-flex-grid.ie-fix> .view-mode-grid_stream_portrait_small {
+  height: 178px;
+}
+
+img.iefix {
+  visibility: hidden;
+}
