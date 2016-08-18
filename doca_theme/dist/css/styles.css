@@ -435,9 +435,6 @@ a:hover, a:active {
 .layout-sidebar__main {
   margin-bottom: 1rem;
 }
-.front .layout-sidebar__main {
-  text-align: center;
-}
 @media (min-width: 720px) {
   .front .layout-sidebar__main {
     padding-bottom: 1.5rem;
@@ -459,8 +456,8 @@ a:hover, a:active {
     padding-bottom: 2.5rem;
   }
   .front .layout-sidebar__main .read-more {
-    font-size: 1.25rem;
-    line-height: 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -1728,43 +1725,43 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   }
 }
 
-.front .page-description, .front .page-description__content, .font__larger {
+.font__larger {
   font-size: 1.5rem;
   line-height: 2.625rem;
   font-weight: 300;
   color: #000;
 }
 @media (min-width: 980px) {
-  .front .page-description, .front .page-description__content, .font__larger {
+  .font__larger {
     font-size: 2.125rem;
     line-height: 3.71875rem;
   }
 }
 
-.font__large {
+.page-description, .page-description__content, .font__large {
   font-size: 1.25rem;
   line-height: 2.1875rem;
   font-weight: 300;
 }
 @media (min-width: 980px) {
-  .font__large {
+  .page-description, .page-description__content, .font__large {
     font-size: 1.5rem;
     line-height: 2.625rem;
   }
 }
 
-.page-description, .page-description__content, .font__medium-large {
+.font__medium-large {
   font-weight: 300;
   color: #12293a;
 }
 @media (min-width: 720px) {
-  .page-description, .page-description__content, .font__medium-large {
+  .font__medium-large {
     font-size: 1.375rem;
     line-height: 2.40625rem;
   }
 }
 @media (min-width: 980px) {
-  .page-description, .page-description__content, .font__medium-large {
+  .font__medium-large {
     font-size: 2rem;
     line-height: 3.5rem;
   }
@@ -3789,9 +3786,9 @@ img.iefix {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 0% 0;
-    background-image: url("../images/arts-brand-lvl2.svg");
+    background-image: url("../images/arts-brand-lvl2-sm.svg");
     width: 85px;
-    height: 205px;
+    height: 100px;
     position: absolute;
     top: 385px;
     left: 120px;

@@ -15,7 +15,7 @@
   <?php if (isset($logo)): ?>
     <div class="layout-max spacer--large">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" />
+        <img src="/<?php print path_to_theme(); ?>/logo.svg"  alt="<?php print t('Home'); ?>" class="header__logo-image" />
       </a>
     </div>
   <?php endif; ?>

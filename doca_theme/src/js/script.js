@@ -83,12 +83,12 @@
         e.preventDefault();
         if ($('#qa-expand').hasClass('open-all')) {
           $('#qa-expand').removeClass('open-all');
-          $('#qa-expand').html('Expand All <span>+</span>');
+          $('#qa-expand').html('Expand all <span>+</span>');
           $('.accordion__button[aria-expanded="true"]').click();
         }
         else {
           $('#qa-expand').addClass('open-all');
-          $('#qa-expand').html('Collapse All <span>-</span>');
+          $('#qa-expand').html('Collapse all <span>-</span>');
           $('.accordion__button[aria-expanded="false"]').click();
         }
 

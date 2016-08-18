@@ -15,7 +15,7 @@
   <?php if (isset($logo)): ?>
     <div class="layout-max spacer--large">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" />
+        <img src="/<?php print path_to_theme(); ?>/logo.svg"  alt="<?php print t('Home'); ?>" class="header__logo-image" />
       </a>
     </div>
   <?php endif; ?>
@@ -36,7 +36,7 @@
       <div class="page-404__ministry-arts-logo">
         <?php
           print theme('image', array(
-            'path' => path_to_theme() . '/dist/images/ministry-for-the-arts-logo.svg',
+            'path' => path_to_theme() . '/dist/images/arts-brand-lvl2-sm.svg',
             'alt' => 'Ministry for the Arts',
             'width' => 104,
             'height' => 239,

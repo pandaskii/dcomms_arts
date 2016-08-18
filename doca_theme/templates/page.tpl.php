@@ -8,7 +8,7 @@
  * @see https://drupal.org/node/1728148
  */
 ?>
-<div class="offscreen__inner <?php print ($is_front) ? '' : 'header-background'; ?>">
+<div class="offscreen__inner header-background">
   <?php if (!empty($top_announcements) && $top_announcements): ?>
   <div class="top-notification" id="top-announcements">
     <div class="top-notification__inner">
@@ -57,7 +57,7 @@
 
     <?php if (isset($logo)): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" />
+          <img src="/<?php print path_to_theme(); ?>/logo.svg"  alt="<?php print t('Home'); ?>" class="header__logo-image" />
         </a>
     <?php endif; ?>
 
@@ -70,16 +70,14 @@
 
   </div>
 </header>
-<?php if (!$is_front): ?>
-  <div class="layout-max">
-    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo"></a>
-  </div>
-<?php endif; ?>
+<div class="layout-max">
+  <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo"></a>
+</div>
 <div id="page" class="spacer--top">
   <?php print render($tabs); ?>
 
   <div class="spacer--bottom-mid">
-    <?php if ($title): ?>
+    <?php if ($title && !$is_front): ?>
       <div class="layout-max spacer">
         <?php print $breadcrumb; ?>
       </div>

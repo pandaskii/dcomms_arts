@@ -15,7 +15,7 @@
 
     <?php if (isset($logo)): ?>
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" />
+          <img src="/<?php print path_to_theme(); ?>/logo.svg"  alt="<?php print t('Home'); ?>" class="header__logo-image" />
         </a>
     <?php endif; ?>
 
@@ -27,7 +27,9 @@
 
   </div>
 </header>
-<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo layout-max"></a>
+<div class="layout-max">
+  <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__inner__logo"></a>
+</div>
 <div id="page" class="spacer--top-mid">
   <?php print render($tabs); ?>
 
