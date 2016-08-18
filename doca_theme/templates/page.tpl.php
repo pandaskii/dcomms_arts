@@ -76,14 +76,16 @@
 <div id="page" class="spacer--top">
   <?php print render($tabs); ?>
 
-  <div class="spacer--bottom-mid">
-    <?php if ($title && !$is_front): ?>
-      <div class="layout-max spacer">
-        <?php print $breadcrumb; ?>
-      </div>
-    <?php endif; ?>
-    <?php print render($page['highlighted']); ?>
-  </div>
+  <?php if (!$is_front): ?>
+    <div class="spacer--bottom-mid">
+      <?php if ($title): ?>
+        <div class="layout-max spacer">
+          <?php print $breadcrumb; ?>
+        </div>
+      <?php endif; ?>
+      <?php print render($page['highlighted']); ?>
+    </div>
+  <?php endif; ?>
   <?php if (!$is_front):?><a id="skip-content" href="#skip-content"></a><?php endif;?>
   <div class="main_content" data-js="on-this-page__content responsive-video external-links">
 

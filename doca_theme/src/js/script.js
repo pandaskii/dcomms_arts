@@ -98,8 +98,8 @@
 
   Drupal.behaviors.caption_hover = {
     attach: function(context) {
-      var checkTouch = window.ontouchstart || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
-      if (!checkTouch) {
+      var is_touch_screen = 'ontouchstart' in document.documentElement;
+      if (!is_touch_screen) {
         $('.featured-with-caption', context).hover(function() {
           $(this).find('.featured-overlay').fadeIn(100);
           $(this).closest('div.node').css('overflow', 'visible');

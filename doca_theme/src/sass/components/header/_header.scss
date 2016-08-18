@@ -47,10 +47,16 @@
   height: 70px;
   width: 100%;
   max-width: 200px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   text-decoration: none;
   border: none;
   display: block;
+  @include breakpoint($medium) {
+    margin-bottom: 30px;
+  }
+  @include breakpoint($large) {
+    margin-bottom: 50px;
+  }
   @include breakpoint($xx-large) {
     @include background-image('arts-brand-lvl2-sm.svg', 0%, contain);
     width: 85px;

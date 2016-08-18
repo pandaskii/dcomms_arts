@@ -3776,10 +3776,20 @@ img.iefix {
   height: 70px;
   width: 100%;
   max-width: 200px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   text-decoration: none;
   border: none;
   display: block;
+}
+@media (min-width: 720px) {
+  .header__inner__logo {
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 980px) {
+  .header__inner__logo {
+    margin-bottom: 50px;
+  }
 }
 @media (min-width: 1700px) {
   .header__inner__logo {
@@ -3851,6 +3861,14 @@ img.iefix {
 }
 .featured-with-caption__caption a .feature-caption-link {
   display: inline;
+}
+.featured-with-caption__caption.no-url {
+  display: none;
+}
+@media (min-width: 720px) {
+  .featured-with-caption__caption.no-url {
+    display: block;
+  }
 }
 @media (min-width: 720px) {
   .featured-with-caption__caption {

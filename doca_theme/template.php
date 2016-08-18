@@ -1143,7 +1143,7 @@ function doca_theme_preprocess_field(&$variables, $hook) {
     $img_caption = '';
     $img_hover = '';
     $caption_d = '';
-    $caption_mob = '<span class="visible--xs">Image credit</span>';
+    $caption_mob = '';
     $variables['img_caption'] = '';
     foreach ($variables['items'] as $delta => $item) {
       if (isset($item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'])) {
@@ -1164,9 +1164,9 @@ function doca_theme_preprocess_field(&$variables, $hook) {
         $caption_mob = '<span class="visible--xs">Image credit +</span>';
       }
       if ($has_caption) :
-        $img_caption .= '<div class="featured-with-caption__caption">';
+        $img_caption .= '<div class="featured-with-caption__caption no-url">';
         if ($img_url) :
-          $img_caption .= '<a href="' . $img_url . '"target="_blank">';
+          $img_caption = '<div class="featured-with-caption__caption"><a href="' . $img_url . '"target="_blank">';
         endif;
         $img_caption .= $caption_mob;
         $img_caption .= $caption_d;
