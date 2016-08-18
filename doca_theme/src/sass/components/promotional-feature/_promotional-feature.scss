@@ -14,9 +14,6 @@
     @extend %spacer;
     @include background-image('bg--gradient--dark.png');
     background-color: transparent;
-    @include breakpoint(960px) {
-      padding: 6rem 1rem;
-    }
   }
 }
 

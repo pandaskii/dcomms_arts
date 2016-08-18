@@ -5113,11 +5113,6 @@ img.iefix {
   background-image: url("../images/bg--gradient--dark.png");
   background-color: transparent;
 }
-@media (min-width: 960px) {
-  .promotional-feature--dark {
-    padding: 6rem 1rem;
-  }
-}
 
 .promotional-feature__item {
   overflow: hidden;
