@@ -3463,6 +3463,12 @@ img.iefix {
   list-style-image: none;
 }
 
+@media (min-width: 980px) {
+  .header-menu {
+    padding-left: 1rem;
+  }
+}
+
 .header-menu__menu {
   padding: 0 1rem;
   border-color: transparent;
@@ -3470,7 +3476,7 @@ img.iefix {
 @media (min-width: 980px) {
   .header-menu__menu {
     float: right;
-    padding: 0 0 0 1rem;
+    padding: 0;
   }
 }
 
@@ -3531,7 +3537,7 @@ img.iefix {
 }
 
 @media (min-width: 980px) {
-  .header-menu__border, .subsite-header__item, .header-menu__item, .header-search__icon-wrapper, .subsite-header__layout--nav {
+  .header-menu__border, .header-menu__menu, .subsite-header__layout--nav {
     border-bottom: 3px solid black;
   }
 }

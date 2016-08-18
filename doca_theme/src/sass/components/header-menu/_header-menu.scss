@@ -7,13 +7,20 @@
 //
 // Styleguide components.header-menu
 @import 'components/list-unstyled/list-unstyled';
+.header-menu {
+  @include breakpoint($large) {
+    padding-left: 1rem;
+  }
+}
+
 %header-menu__menu, .header-menu__menu {
   @extend %list-unstyled;
   padding: 0 1rem;
   border-color: transparent;
   @include breakpoint($large) {
     float: right;
-    padding: 0 0 0 1rem;
+    padding: 0;
+    @extend %header-menu__border;
   }
 }
 
@@ -24,7 +31,6 @@
     padding-left: 1.125rem;
     padding-right: 1.125rem;
     padding-bottom: 0.875rem;
-    @extend %header-menu__border;
     &:first-child {
       padding-left: 0;
     }
