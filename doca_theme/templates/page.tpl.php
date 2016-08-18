@@ -175,7 +175,7 @@
         </div>
         <div class="copyright__right">
           <?php print render($footer_auxilary_menu); ?>
-          <div><?php print t('&copy; Ministry for the Arts') . ' ' . date('Y'); ?></div>
+          <div><?php print t('&copy; Department of Communications and the Arts') . ' ' . date('Y'); ?></div>
         </div>
       </div></div>
 
