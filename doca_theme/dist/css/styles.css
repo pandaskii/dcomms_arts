@@ -449,10 +449,6 @@ a:hover, a:active {
     margin-bottom: 0;
   }
   .front .layout-sidebar__main {
-    width: 100%;
-    max-width: 100%;
-    float: none;
-    padding-right: 0;
     padding-bottom: 2.5rem;
   }
   .front .layout-sidebar__main .read-more {
