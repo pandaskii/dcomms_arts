@@ -23,6 +23,12 @@
       @include font-size-line-height(1.8rem);
       margin-top: .25rem;
     }
+    a {
+      color: color(doca-blue);
+      .palette__pale-grey & {
+        color: color(doca-blue);
+      }
+    }
   }
   &__date {
     color: color(grey-dark);
@@ -30,5 +36,9 @@
     @include breakpoint($large) {
       @include font-size-line-height(1.25rem);
     }
+  }
+  &__summary {
+    margin-left: 7rem;
+    margin-top: 1rem;
   }
 }
