@@ -93,3 +93,12 @@
     }
   }
 }
+
+.media-element-container.media-full .file-image {
+  .field-name-field-artist, .field-name-field-image-title {
+    display: inline-block;
+  }
+  .field-name-field-artist:after {
+    content: " ";
+  }
+}

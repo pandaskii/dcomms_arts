@@ -1346,6 +1346,13 @@ h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__
   }
 }
 
+@media (min-width: 720px) {
+  .grid-stream__icon {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+}
 .grid-stream__icon img {
   margin-right: .25rem;
   vertical-align: baseline;
@@ -3895,6 +3902,13 @@ img.iefix {
   display: block;
   font-weight: 300;
   padding-top: 0.4rem;
+}
+
+.media-element-container.media-full .file-image .field-name-field-artist, .media-element-container.media-full .file-image .field-name-field-image-title {
+  display: inline-block;
+}
+.media-element-container.media-full .file-image .field-name-field-artist:after {
+  content: " ";
 }
 
 .link-arrow, .link-arrow--after:after, .document-list__title:after, .document-list__title--slim:after, .document-list__title--slim--comment:after, .link-arrow--before:before {
