@@ -357,11 +357,11 @@ a:hover, a:active {
   }
 }
 
-.clearfix:before, .layout-four-column:before, .grid-data:before, .statistic__wrapper:before, .twitter-stream:before, .layout-three-column:before, .grid-stream:before, .page-404__wrapper:before, .layout-two-column:before, .alert-list__wrapper:before, .channel-list__grid-container:before, .featured__grid-container:before, .page-description--arts-brand:before, .promotional-feature__item:before, .layout-max--sm-med-lrg:before, .tabs-primary:before, h1:before, .heading--1--no-space:before, .heading--1--light:before, .heading--1:before, .document-list:before, .webform-client-form:before, .contact-form:before, .form:before, .filter__wrapper:before, .messages--status:before, .messages--warning:before, .messages--error:before, .messages:before, .news-list:before, .on-this-page:before, .site-feedback-block__inner:before, .subsite-header__layout:before, .subsite-header__nav:before, .subsite-header__list:before, .group-funding-tabs-heading h2:before, .top-notification__inner:before, .layout-max:before, .grid-stream__item:before, .grid-stream__item--landscape-small:before, .grid-stream__item--landscape-small--has-image:before, .grid-stream__item--landscape-small--has-image-description:before, .grid-stream__item--landscape:before, .grid-stream__item--portrait-small:before, .grid-stream__item--portrait:before, .grid-stream__item--vertical:before, .grid-stream__item--vertical--has-image:before, .grid-stream__item--vertical--has-image-description:before, .grid-stream__has-update:before, .copyright:before, .document-list__desc:before, .document-list__desc--comment:before, .on-this-page__menu:before {
+.clearfix:before, .layout-four-column:before, .grid-data:before, .statistic__wrapper:before, .twitter-stream:before, .layout-three-column:before, .grid-stream:before, .page-404__wrapper:before, .layout-two-column:before, .alert-list__wrapper:before, .channel-list__grid-container:before, .featured__grid-container:before, .page-description--arts-brand:before, .promotional-feature__item:before, .layout-max--sm-med-lrg:before, .tabs-primary:before, h1:before, .heading--1--no-space:before, .heading--1--light:before, .heading--1:before, .document-list:before, .webform-client-form:before, .contact-form:before, .form:before, .filter__wrapper:before, .messages--status:before, .messages--warning:before, .messages--error:before, .messages:before, .news-list:before, .on-this-page:before, body.node-type-poll #page .main_content:before, .site-feedback-block__inner:before, .subsite-header__layout:before, .subsite-header__nav:before, .subsite-header__list:before, .group-funding-tabs-heading h2:before, .top-notification__inner:before, .layout-max:before, .grid-stream__item:before, .grid-stream__item--landscape-small:before, .grid-stream__item--landscape-small--has-image:before, .grid-stream__item--landscape-small--has-image-description:before, .grid-stream__item--landscape:before, .grid-stream__item--portrait-small:before, .grid-stream__item--portrait:before, .grid-stream__item--vertical:before, .grid-stream__item--vertical--has-image:before, .grid-stream__item--vertical--has-image-description:before, .grid-stream__has-update:before, .copyright:before, .document-list__desc:before, .document-list__desc--comment:before, .on-this-page__menu:before {
   content: '';
   display: table;
 }
-.clearfix:after, .layout-four-column:after, .grid-data:after, .statistic__wrapper:after, .twitter-stream:after, .layout-three-column:after, .grid-stream:after, .page-404__wrapper:after, .layout-two-column:after, .alert-list__wrapper:after, .channel-list__grid-container:after, .featured__grid-container:after, .page-description--arts-brand:after, .promotional-feature__item:after, .layout-max--sm-med-lrg:after, .tabs-primary:after, h1:after, .heading--1--no-space:after, .heading--1--light:after, .heading--1:after, .document-list:after, .webform-client-form:after, .contact-form:after, .form:after, .filter__wrapper:after, .messages--status:after, .messages--warning:after, .messages--error:after, .messages:after, .news-list:after, .on-this-page:after, .site-feedback-block__inner:after, .subsite-header__layout:after, .subsite-header__nav:after, .subsite-header__list:after, .group-funding-tabs-heading h2:after, .top-notification__inner:after, .layout-max:after, .grid-stream__item:after, .grid-stream__item--landscape-small:after, .grid-stream__item--landscape-small--has-image:after, .grid-stream__item--landscape-small--has-image-description:after, .grid-stream__item--landscape:after, .grid-stream__item--portrait-small:after, .grid-stream__item--portrait:after, .grid-stream__item--vertical:after, .grid-stream__item--vertical--has-image:after, .grid-stream__item--vertical--has-image-description:after, .grid-stream__has-update:after, .copyright:after, .document-list__desc:after, .document-list__desc--comment:after, .on-this-page__menu:after {
+.clearfix:after, .layout-four-column:after, .grid-data:after, .statistic__wrapper:after, .twitter-stream:after, .layout-three-column:after, .grid-stream:after, .page-404__wrapper:after, .layout-two-column:after, .alert-list__wrapper:after, .channel-list__grid-container:after, .featured__grid-container:after, .page-description--arts-brand:after, .promotional-feature__item:after, .layout-max--sm-med-lrg:after, .tabs-primary:after, h1:after, .heading--1--no-space:after, .heading--1--light:after, .heading--1:after, .document-list:after, .webform-client-form:after, .contact-form:after, .form:after, .filter__wrapper:after, .messages--status:after, .messages--warning:after, .messages--error:after, .messages:after, .news-list:after, .on-this-page:after, body.node-type-poll #page .main_content:after, .site-feedback-block__inner:after, .subsite-header__layout:after, .subsite-header__nav:after, .subsite-header__list:after, .group-funding-tabs-heading h2:after, .top-notification__inner:after, .layout-max:after, .grid-stream__item:after, .grid-stream__item--landscape-small:after, .grid-stream__item--landscape-small--has-image:after, .grid-stream__item--landscape-small--has-image-description:after, .grid-stream__item--landscape:after, .grid-stream__item--portrait-small:after, .grid-stream__item--portrait:after, .grid-stream__item--vertical:after, .grid-stream__item--vertical--has-image:after, .grid-stream__item--vertical--has-image-description:after, .grid-stream__has-update:after, .copyright:after, .document-list__desc:after, .document-list__desc--comment:after, .on-this-page__menu:after {
   content: '';
   display: table;
   clear: both;
@@ -373,7 +373,7 @@ a:hover, a:active {
   width: 100%;
 }
 
-.layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg, .tabs-primary, h1, .heading--1--no-space, .heading--1--light, .heading--1, .document-list, .webform-client-form, .contact-form, .form, .filter__wrapper, .messages--status, .messages--warning, .messages--error, .messages, .news-list, .on-this-page, .site-feedback-block__inner, .subsite-header__layout, .subsite-header__nav, .subsite-header__list, .group-funding-tabs-heading h2, .top-notification__inner, .layout-max {
+.layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg, .tabs-primary, h1, .heading--1--no-space, .heading--1--light, .heading--1, .document-list, .webform-client-form, .contact-form, .form, .filter__wrapper, .messages--status, .messages--warning, .messages--error, .messages, .news-list, .on-this-page, body.node-type-poll #page .main_content, .site-feedback-block__inner, .subsite-header__layout, .subsite-header__nav, .subsite-header__list, .group-funding-tabs-heading h2, .top-notification__inner, .layout-max {
   clear: both;
   max-width: 1280px;
   margin-left: auto;
@@ -3000,6 +3000,13 @@ img.iefix {
   vertical-align: middle;
 }
 
+img.iefix {
+  height: 0px;
+  width: 0px;
+  visibility: hidden;
+  display: block;
+}
+
 .read-more, .read-more--heading, .read-more--footer, .read-more--footer-wrapper .read-more, .grid-data__item {
   font-size: 0.95rem;
   line-height: 1.6625rem;
@@ -4977,7 +4984,8 @@ img.iefix {
 }
 
 .poll-form {
-  padding-bottom: 1rem;
+  padding: 1rem;
+  background: #fff;
 }
 .poll-form__title {
   margin: 0 0 1rem;
@@ -4990,6 +4998,11 @@ img.iefix {
   margin: 0;
   display: inline-block;
   vertical-align: top;
+}
+@media (min-width: 720px) {
+  .poll-form {
+    padding: 2rem;
+  }
 }
 
 .poll-form__no-space.poll-form {
@@ -5057,7 +5070,7 @@ img.iefix {
   margin-bottom: 0.5rem;
   position: relative;
 }
-.poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress--aqua, .progress-bar__progress {
+.poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress--aqua, .progress-bar__progress--doca-blue, .progress-bar__progress {
   background-color: #9d9d9d;
   background-position: 50% 100%;
 }
@@ -5067,10 +5080,13 @@ img.iefix {
 .progress-bar__progress--aqua {
   background: #48fbf0;
 }
-.progress-bar__bar, .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress--aqua, .progress-bar__progress, .progress-bar__progress-thin {
+.progress-bar__progress--doca-blue {
+  background: #5265ff;
+}
+.progress-bar__bar, .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress--grey, .progress-bar__progress--aqua, .progress-bar__progress--doca-blue, .progress-bar__progress, .progress-bar__progress-thin {
   height: 1rem;
 }
-.progress-bar--thick .progress-bar__bar, .progress-bar--thick .progress-bar__progress, .poll-results--binary .progress-bar__bar, .poll-results--binary .progress-bar__progress, .progress-bar--collapsed .progress-bar__bar, .progress-bar--collapsed .progress-bar__progress, .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress-thick {
+.progress-bar--thick .progress-bar__bar, .progress-bar--thick .progress-bar__progress, .poll-results--binary .progress-bar__bar, .poll-results--binary .progress-bar__progress, .poll-results--binary .progress-bar__progress--doca-blue, .progress-bar--collapsed .progress-bar__bar, .progress-bar--collapsed .progress-bar__progress, .progress-bar--collapsed .progress-bar__progress--doca-blue, .poll-results--binary .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar--collapsed .progress-bar:nth-child(2) .progress-bar__progress, .progress-bar__progress-thick {
   height: 2rem;
 }
 .progress-bar__start-date {
