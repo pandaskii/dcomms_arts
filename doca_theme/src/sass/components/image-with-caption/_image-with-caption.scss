@@ -95,8 +95,12 @@
 }
 
 .media-element-container.media-full .file-image {
+  text-align: right;
   .field-name-field-artist, .field-name-field-image-title {
     display: inline-block;
+    color: color(grey-dark);
+    font-size: 0.875rem;
+    padding-top: 1rem;
   }
   .field-name-field-artist:after {
     content: " ";

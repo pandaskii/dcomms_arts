@@ -3904,8 +3904,14 @@ img.iefix {
   padding-top: 0.4rem;
 }
 
+.media-element-container.media-full .file-image {
+  text-align: right;
+}
 .media-element-container.media-full .file-image .field-name-field-artist, .media-element-container.media-full .file-image .field-name-field-image-title {
   display: inline-block;
+  color: #616161;
+  font-size: 0.875rem;
+  padding-top: 1rem;
 }
 .media-element-container.media-full .file-image .field-name-field-artist:after {
   content: " ";
