@@ -1319,6 +1319,14 @@ function _consultation_vars(&$variables, $element_object) {
   $consultation['date_status'] = $consultation['wrapped_entity']->field_consultation_date_status->value();
   $consultation['archived'] = _consultation_is_archived($consultation);
   $consultation['in_review'] = ($consultation['end'] < $consultation['now']) && !$consultation['archived'];
+  $consultation['started_text'] = 'Started';
+  if ($consultation['start'] > $consultation['now']) {
+    $consultation['started_text'] = 'Starts';
+  }
+  $consultation['ended_text'] = 'Ends';
+  if ($consultation['end'] < $consultation['now']) {
+    $consultation['ended_text'] = 'Ended';
+  }
   $consultation['percentage'] = _consultation_percentage($consultation);
   $consultation['days_total'] = round($consultation['duration'] / strtotime('1 day', 0));
   $consultation['days_remain'] = _consultation_days_remain($consultation);

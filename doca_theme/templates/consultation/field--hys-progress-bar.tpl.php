@@ -12,9 +12,9 @@
     class="progress-bar <?php print $consultation['status_class']; ?> progress-bar__<?php print ($consultation['status_msg_class']); ?>"<?php print $content_attributes; ?>>
     <div class="progress-bar__text">
       <div class="progress-bar__start-date">
-        <?php print t('Started') . ' ' . format_date($consultation['start'], 'full_with_timezone'); ?></div>
+        <?php print $consultation['started_text'] . ' ' . format_date($consultation['start'], 'full_with_timezone'); ?></div>
       <div class="progress-bar__end-date">
-        <?php print t('Ends') . ' ' . format_date($consultation['end'], 'full_with_timezone'); ?></div>
+        <?php print $consultation['ended_text'] . ' ' . format_date($consultation['end'], 'full_with_timezone'); ?></div>
     </div>
     <div class="progress-bar__bar">
       <div class="progress-bar__progress" style="width: <?php print round($consultation['percentage']); ?>%;"></div>
