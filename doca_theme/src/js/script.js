@@ -83,12 +83,12 @@
         e.preventDefault();
         if ($(this).hasClass('open-all')) {
           $(this).removeClass('open-all');
-          $(this).html('Expand all <span>+</span>');
+          $(this).html('Expand All <span>+</span>');
           $('.accordion__button[aria-expanded="true"]').click();
         }
         else {
           $(this).addClass('open-all');
-          $(this).html('Collapse all <span>-</span>');
+          $(this).html('Collapse All <span>-</span>');
           $('.accordion__button[aria-expanded="false"]').click();
         }
 
