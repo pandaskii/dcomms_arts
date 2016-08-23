@@ -1326,12 +1326,11 @@ function _consultation_vars(&$variables, $element_object) {
   $consultation['status_class'] = ($consultation['percentage'] === 100 ? 'progress-bar--complete' : '');
   if ($element_object->type == 'consultation') {
     $consultation['status_message'] = _consultation_status_message($consultation);
-    $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
   }
   else {
-    $consultation['status_message'] = $consultation['wrapped_entity']->field_consultation_date_status->value();
-    $consultation['status_message'] .= $consultation['wrapped_entity']->field_description->value()['safe_value'];
+    $consultation['status_message'] = _consultation_status_message($consultation, 'Applications under consideration', 'Funding round finalised', FALSE);
   }
+  $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
   $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
   $consultation['status_msg_class'] = strtolower($consultation['status_msg_class']);
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
@@ -1366,23 +1365,43 @@ function _consultation_days_remain($consultation) {
 }
 
 /**
- * Helper function for status message.
+ * Helper function for the consultation status message.
  */
-function _consultation_status_message($consultation) {
+function _consultation_status_message($consultation, $in_review = 'Now under review', $public = 'Submissions now public', $archive = TRUE) {
 
   $status_message = t('Open');
 
   if ($consultation['in_review']) {
-    $status_message = t('Now under review');
+    $status_message = t($in_review);
   }
 
   $formal_submission_public = $consultation['wrapped_entity']->field_formal_submission_public->value();
   if ($formal_submission_public) {
-    $status_message = t('Submissions now public');
+    $status_message = t($public);
   }
 
-  if ($consultation['archived']) {
+  if ($archive && $consultation['archived']) {
     $status_message = t('Archived');
+  }
+
+  return $status_message;
+
+}
+
+/**
+ * Helper function for the funding status message.
+ */
+function _funding_status_message($consultation) {
+
+  $status_message = t('Open');
+
+  if ($consultation['in_review']) {
+    $status_message = t('Applications under consideration');
+  }
+
+  $formal_submission_public = $consultation['wrapped_entity']->field_formal_submission_public->value();
+  if ($formal_submission_public) {
+    $status_message = t('Funding round finalised');
   }
 
   return $status_message;
