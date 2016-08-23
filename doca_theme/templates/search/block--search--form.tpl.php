@@ -14,7 +14,8 @@
     <?php if (isset($block->subsite)) : ?>
       <div class="header-search__item">
         <input type="checkbox" name="ss" id="search_subsite_only" checked value="<?php print $block->subsite; ?>">
-        <label for="search_subsite_only" class="form__label--inline">Only search within <?php print $block->subsite_name; ?></label>
+        <label for="search_subsite_only" class="form__label--inline">Only search
+          within <?php print $block->subsite_name; ?></label>
       </div>
     <?php endif; ?>
     <div class="header-search__button-wrapper">

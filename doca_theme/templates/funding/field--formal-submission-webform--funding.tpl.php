@@ -5,7 +5,8 @@
  */
 ?>
 <div class="spacer--bottom-large">
-  <button class="button-primary form-submit" data-js="webform-toggle" data-toggle="formal-submission-webform"><?php print t('Apply Now'); ?></button>
+  <button class="button-primary form-submit" data-js="webform-toggle"
+          data-toggle="formal-submission-webform"><?php print t('Apply Now'); ?></button>
 </div>
 <div id="formal-submission-webform">
   <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
@@ -19,7 +20,7 @@
           print $item_attributes['client-block-' . $form_id];
         endif;
         ?>>
-        <?php print module_invoke('webform', 'block_view', 'client-block-' . $form_id)['content']; ?>
+          <?php print module_invoke('webform', 'block_view', 'client-block-' . $form_id)['content']; ?>
         </div>
       <?php endforeach; ?>
     </div>

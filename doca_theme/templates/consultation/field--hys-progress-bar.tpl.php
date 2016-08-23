@@ -8,7 +8,8 @@
   <?php if (!$label_hidden): ?>
     <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
   <?php endif; ?>
-  <div class="progress-bar <?php print $consultation['status_class']; ?> progress-bar__<?php print ($consultation['status_msg_class']); ?>"<?php print $content_attributes; ?>>
+  <div
+    class="progress-bar <?php print $consultation['status_class']; ?> progress-bar__<?php print ($consultation['status_msg_class']); ?>"<?php print $content_attributes; ?>>
     <div class="progress-bar__text">
       <div class="progress-bar__start-date">
         <?php print t('Started') . ' ' . format_date($consultation['start'], 'full_with_timezone'); ?></div>
@@ -20,10 +21,11 @@
     </div>
     <div class="progress-bar__days-remain">
       <span class="progress-bar__label"><?php print t('Days Remaining'); ?> </span>
-      <span class="progress-bar__highlighted"><?php print $consultation["days_remain"]; ?></span> <?php print 'of ' . $consultation["days_total"]; ?>
+      <span
+        class="progress-bar__highlighted"><?php print $consultation["days_remain"]; ?></span> <?php print 'of ' . $consultation["days_total"]; ?>
     </div>
 
-    <?php if(isset($consultation['status_message'])): ?>
+    <?php if (isset($consultation['status_message'])): ?>
       <div class="progress-bar__highlighted">
         <?php print $consultation['status_message']; ?>
       </div>

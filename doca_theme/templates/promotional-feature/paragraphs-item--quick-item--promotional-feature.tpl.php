@@ -5,7 +5,8 @@
  */
 ?>
 <div class="promotional-feature__left">
-  <a href="<?php print $content['field_pbundle_destination']['#items'][0]['url']; ?>" title="<?php print $content['field_pbundle_title']['#items'][0]['safe_value']; ?>"><?php print render($content['field_pbundle_image']); ?></a>
+  <a href="<?php print $content['field_pbundle_destination']['#items'][0]['url']; ?>"
+     title="<?php print $content['field_pbundle_title']['#items'][0]['safe_value']; ?>"><?php print render($content['field_pbundle_image']); ?></a>
 </div>
 
 <div class="promotional-feature__right">

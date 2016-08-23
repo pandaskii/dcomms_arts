@@ -7,6 +7,6 @@
 <div class="grid-stream__icon is-stream">
   <?php foreach ($items as $delta => $item): ?>
     <?php print render($item); ?>
-      <span class="grid-stream__icon__name"><?php print check_plain($element['#object']->name); ?></span>
+    <span class="grid-stream__icon__name"><?php print check_plain($element['#object']->name); ?></span>
   <?php endforeach; ?>
 </div>

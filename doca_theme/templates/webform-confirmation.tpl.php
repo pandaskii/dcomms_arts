@@ -26,9 +26,11 @@
     <?php if ($confirmation_message): ?>
       <?php print $confirmation_message ?>
     <?php else: ?>
-      <p><?php print t('Thank you, your submission has been received.'); ?></p>
+      <p><?php print t('Thank you, your submission has been received.');
+      ?>
+      </p>
     <?php endif; ?>
-  
+
 
     <div class="links">
       <a href="<?php print $url; ?>"><?php print t('Go back to the form') ?></a>

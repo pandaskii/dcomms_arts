@@ -9,7 +9,7 @@
     <span class="font__medium"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</span>
   <?php endif; ?>
   <span class="font__medium--light">
-    <?php if($funding['date_status'] === 'upcoming'): ?>
+    <?php if ($funding['date_status'] === 'upcoming'): ?>
       <?php print t('To be advised'); ?>
     <?php else: ?>
       <?php foreach ($items as $delta => $item): ?>

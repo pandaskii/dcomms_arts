@@ -24,36 +24,25 @@
  * @ingroup views_templates
  */
 
-  $field = $fields['field_submission_name'];
-  if (!empty($field->separator)):
-    print $field->separator;
-  endif;
-  print $field->wrapper_prefix;
-  print $field->label_html;
-  print $field->content;
-  print $field->wrapper_suffix;
+$field = $fields['field_submission_name'];
+if (!empty($field->separator)):
+  print $field->separator;
+endif;
+print $field->wrapper_prefix;
+print $field->label_html;
+print $field->content;
+print $field->wrapper_suffix;
 ?>
 <?php
-  $comment_content = trim(drupal_html_to_text($fields['body']->content));
-  $is_comment_available = !empty($comment_content);
+$comment_content = trim(drupal_html_to_text($fields['body']->content));
+$is_comment_available = !empty($comment_content);
 ?>
 <div class="document-list__comment--comment-docs">
   <div class="document-list__comment--comment-link<?php print ($is_comment_available) ? " link" : ""; ?>">
     <?php print ($is_comment_available) ? "View comment" : "&nbsp;"; ?>
   </div>
   <?php
-    $field = $fields['nothing'];
-    if (!empty($field->separator)):
-      print $field->separator;
-    endif;
-    print $field->wrapper_prefix;
-    print $field->label_html;
-    print $field->content;
-    print $field->wrapper_suffix;
-  ?>
-</div>
-<?php
-  $field = $fields['body'];
+  $field = $fields['nothing'];
   if (!empty($field->separator)):
     print $field->separator;
   endif;
@@ -61,4 +50,15 @@
   print $field->label_html;
   print $field->content;
   print $field->wrapper_suffix;
+  ?>
+</div>
+<?php
+$field = $fields['body'];
+if (!empty($field->separator)):
+  print $field->separator;
+endif;
+print $field->wrapper_prefix;
+print $field->label_html;
+print $field->content;
+print $field->wrapper_suffix;
 ?>

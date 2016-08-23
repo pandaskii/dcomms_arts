@@ -44,7 +44,7 @@
  */
 ?>
 <?php foreach ($items as $delta => $item): ?>
-<a class="read-more--heading" href="<?php print check_plain($item['#element']['url']); ?>">
-  <?php print check_plain($item['#element']['title']); ?>
-</a>
+  <a class="read-more--heading" href="<?php print check_plain($item['#element']['url']); ?>">
+    <?php print check_plain($item['#element']['title']); ?>
+  </a>
 <?php endforeach; ?>

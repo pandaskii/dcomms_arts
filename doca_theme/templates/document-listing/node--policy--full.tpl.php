@@ -9,13 +9,14 @@
 ?>
 
 <div class="layout-max spacer spacer--bottom-large">
-  <?php if(isset($node->body[$node->language][0]['safe_summary'])): ?>
-    <div class="layout-sidebar__main page-description__content <?php if(!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
-        <?php print render($node->body[$node->language][0]['safe_summary']);  ?>
+  <?php if (isset($node->body[$node->language][0]['safe_summary'])): ?>
+    <div
+      class="layout-sidebar__main page-description__content <?php if (!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
+      <?php print render($node->body[$node->language][0]['safe_summary']); ?>
     </div>
   <?php endif; ?>
 
-  <?php if(isset($service_links)): ?>
+  <?php if (isset($service_links)): ?>
     <div class="layout-max spacer">
       <?php print $service_links; ?>
     </div>

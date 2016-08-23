@@ -12,7 +12,7 @@
     <?php print render($content['field_pbundle_destination']); ?>
     <?php print render($content['field_video']); ?>
   </div>
-  <?php if(isset($content['field_pbundle_for_more'])): ?>
+  <?php if (isset($content['field_pbundle_for_more'])): ?>
     <div class="layout-sidebar__sidebar">
       <?php print render($content['field_pbundle_for_more']); ?>
     </div>

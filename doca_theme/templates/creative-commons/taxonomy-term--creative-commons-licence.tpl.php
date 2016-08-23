@@ -9,7 +9,8 @@
 
   <div class="copyright__item">
     <a href="<?php print check_plain($field_license_url[0]['value']); ?>" target="_blank">
-      <img src="<?php print check_plain($field_cc_icon[0]['value']); ?>" alt="<?php print $term_name . ' ' . check_plain($field_cc_shortcode[0]['value']); ?>" />
+      <img src="<?php print check_plain($field_cc_icon[0]['value']); ?>"
+           alt="<?php print $term_name . ' ' . check_plain($field_cc_shortcode[0]['value']); ?>"/>
     </a>
   </div>
 

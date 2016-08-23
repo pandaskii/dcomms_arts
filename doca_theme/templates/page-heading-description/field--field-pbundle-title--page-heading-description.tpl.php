@@ -43,6 +43,6 @@
  * @ingroup themeable
  */
 ?>
-<?php foreach ($items as $delta => $item):?>
+<?php foreach ($items as $delta => $item): ?>
   <h1><?php print check_plain($item['#markup']); ?></h1>
 <?php endforeach; ?>

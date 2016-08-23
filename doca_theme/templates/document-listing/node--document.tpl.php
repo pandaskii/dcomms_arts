@@ -9,7 +9,7 @@
 
 ?>
 
-<?php if(isset($service_links)): ?>
+<?php if (isset($service_links)): ?>
   <div class="layout-max spacer">
     <?php print $service_links; ?>
   </div>

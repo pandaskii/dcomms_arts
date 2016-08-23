@@ -43,6 +43,6 @@
  * @ingroup themeable
  */
 ?>
-<?php foreach ($items as $delta => $item):?>
+<?php foreach ($items as $delta => $item): ?>
   <h3 class="heading--4--no-space spacer--vertical bordered--top"><?php print check_plain($item['#markup']); ?></h3>
 <?php endforeach; ?>

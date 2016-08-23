@@ -8,7 +8,7 @@
   <img src="/<?php print path_to_theme(); ?>/dist/images/icons/spotlight/fs_spotlight2.png">
 </div>
 <div class="heading--5">
-    <?php foreach ($items as $delta => $item): ?>
-        <?php print render($item); ?>
-    <?php endforeach; ?>
+  <?php foreach ($items as $delta => $item): ?>
+    <?php print render($item); ?>
+  <?php endforeach; ?>
 </div>

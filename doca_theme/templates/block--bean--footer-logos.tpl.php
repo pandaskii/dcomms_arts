@@ -49,7 +49,7 @@
   <?php print render($title_prefix); ?>
   <?php if ($block->subject): ?>
     <h2 class="footer__heading spacer--bottom"><?php print $block->subject ?></h2>
-  <?php endif;?>
+  <?php endif; ?>
   <?php print render($title_suffix); ?>
 
   <div class="layout-centered center-left">

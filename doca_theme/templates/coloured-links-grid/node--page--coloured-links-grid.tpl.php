@@ -8,11 +8,11 @@
  */
 ?>
 <?php if ($title): ?>
-    <h2><?php print doca_theme_trim(render($title), 35); ?></h2>
+  <h2><?php print doca_theme_trim(render($title), 35); ?></h2>
 <?php endif; ?>
 
 <div>
-    <?php print render($content); ?>
+  <?php print render($content); ?>
 </div>
 
 

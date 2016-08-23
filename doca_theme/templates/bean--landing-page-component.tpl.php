@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Default theme implementation for beans.
@@ -34,10 +35,10 @@ if ($title == 'Front page: Our Work' || $title == 'Our Work'):
 endif;
 ?>
 <div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="content"<?php print $content_attributes; ?>> 
+  <div class="content"<?php print $content_attributes; ?>>
     <?php
-      print $bg_module;
-      print render($content);
+    print $bg_module;
+    print render($content);
     ?>
   </div>
 </div>

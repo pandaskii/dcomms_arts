@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Returns the HTML for a node.
@@ -14,16 +15,19 @@
 </div>
 
 <?php if (isset($node->body[$node->language][0]['safe_summary'])): ?>
-    <div class="layout-sidebar layout-max spacer <?php if(!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
-        <div class="layout-sidebar__main page-description__content">
-          <?php if (isset($node->body[$node->language][0]['safe_summary'])): ?>
-            <?php print render($node->body[$node->language][0]['safe_summary']);  ?>
-          <?php endif; ?>
-        </div>
+  <div class="layout-sidebar layout-max spacer <?php
+  if (!isset($service_links)):
+    print 'spacer--bottom-large';
+  endif;?>">
+    <div class="layout-sidebar__main page-description__content">
+      <?php if (isset($node->body[$node->language][0]['safe_summary'])): ?>
+        <?php print render($node->body[$node->language][0]['safe_summary']); ?>
+      <?php endif; ?>
     </div>
+  </div>
 <?php endif; ?>
 
-<?php if(isset($service_links)): ?>
+<?php if (isset($service_links)): ?>
   <div class="layout-max">
     <?php print $service_links; ?>
   </div>

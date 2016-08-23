@@ -10,7 +10,8 @@
   <?php endif; ?>
   <div class="progress-bar <?php print $consultation['status_class']; ?>"<?php print $content_attributes; ?>>
     <div class="progress-bar__bar">
-      <div class="progress-bar__progress--aqua " style="width: <?php print round($consultation['percentage']); ?>%;"></div>
+      <div class="progress-bar__progress--aqua "
+           style="width: <?php print round($consultation['percentage']); ?>%;"></div>
     </div>
   </div>
 </div>

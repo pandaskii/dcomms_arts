@@ -594,15 +594,15 @@ function doca_theme_preprocess_node(&$variables, $hook) {
 
   // Variables for optional display of child links grid, 'on this page', suggested content.
   if (in_array($variables['type'], array(
-      'alert',
-      'bcr_data',
-      'blog_article',
-      'consultation',
-      'funding',
-      'news_article',
-      'policy',
-      'page',
-    ))
+    'alert',
+    'bcr_data',
+    'blog_article',
+    'consultation',
+    'funding',
+    'news_article',
+    'policy',
+    'page',
+  ))
     && $variables['view_mode'] == 'full'
   ) {
     $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
@@ -704,7 +704,6 @@ function doca_theme_preprocess_views_view_field(&$variables) {
     }
   }
 }
-
 
 /**
  * Implements hook_form_alter().
@@ -936,7 +935,6 @@ function doca_theme_file_icon($variables) {
   return '<img alt="" class="file__icon" src="' . base_path() . $icon_url . '" title="' . $mime . '" />';
 }
 
-
 /**
  * Returns the poll type based on number of choices.
  */
@@ -1150,7 +1148,7 @@ function doca_theme_preprocess_field(&$variables, $hook) {
         $img_class = 'featured-with-caption';
         $has_caption = 1;
         $caption_d = '<span class="visible--md">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'] . '<span class="feature-caption-link"> (detail) +</span></span>';
-        $img_hover ='<div class="featured-overlay">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'];
+        $img_hover = '<div class="featured-overlay">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'];
       }
       if (isset($item['#item']['field_file_image_title_text'][LANGUAGE_NONE][0]['safe_value'])) {
         $img_hover .= ' - ' . $item['#item']['field_file_image_title_text'][LANGUAGE_NONE][0]['safe_value'];
@@ -1665,9 +1663,10 @@ function doca_theme_pager($variables) {
 
     $output = '<div class="pager__wrapper">';
     $output .= '<h2 class="element-invisible">' . t('Pages') . '</h2>' . theme('item_list', array(
-        'items' => $items,
-        'attributes' => array('class' => array('pager')),
-      ));
+      'items' => $items,
+      'attributes' => array('class' => array('pager')),
+    )
+    );
     $output .= "</div>";
 
     return $output;
