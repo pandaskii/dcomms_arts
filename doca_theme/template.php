@@ -1372,6 +1372,10 @@ function _consultation_status_message(&$consultation, $in_review = 'Now under re
     $status_message = t('Archived');
   }
 
+  if ($consultation['start'] > $consultation['now'] && $consultation['wrapped_entity']->field_consultation_date_status->value() == 'current') {
+    $status_message = 'Upcoming';
+  }
+
   if ($ongoing) {
     $status_message = 'Open';
     $consultation['ongoing'] = TRUE;
@@ -1380,26 +1384,6 @@ function _consultation_status_message(&$consultation, $in_review = 'Now under re
   $consultation['status_msg_class'] = str_replace(' ', '-', $status_message);
 
   $consultation['status_message'] = $status_message;
-
-}
-
-/**
- * Helper function for the funding status message.
- */
-function _funding_status_message($consultation) {
-
-  $status_message = t('Open');
-
-  if ($consultation['in_review']) {
-    $status_message = t('Applications under consideration');
-  }
-
-  $formal_submission_public = $consultation['wrapped_entity']->field_formal_submission_public->value();
-  if ($formal_submission_public) {
-    $status_message = t('Funding round finalised');
-  }
-
-  return $status_message;
 
 }
 
