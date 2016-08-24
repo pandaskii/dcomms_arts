@@ -271,6 +271,13 @@ function doca_admin_clear_updates($form, &$form_state) {
     }
   }
 
+  // Ensure the user has only selected either a webform or a smartygrants link.
+  $smart_grant = isset($form_state['values']['field_smartygrants_link'][LANGUAGE_NONE]) && !empty($form_state['values']['field_smartygrants_link'][LANGUAGE_NONE][0]['url']);
+  $application_webform = isset($form_state['values']['field_funding_app_webform'][LANGUAGE_NONE]) && !empty($form_state['values']['field_funding_app_webform'][LANGUAGE_NONE][0]['target_id']);
+  if ($smart_grant && $application_webform) {
+    form_set_error('field_smartygrants_link', 'Please add either an <em>Application webform</em> or a <em>Smartygrants link</em>, you cannot use both.');
+    form_set_error('field_funding_app_webform', '');
+  }
 }
 
 /**

@@ -456,6 +456,19 @@ function doca_theme_preprocess_node(&$variables, $hook) {
         show($variables['content']['field_discussion_forum_intro']);
       }
     }
+
+    // Check to see if $user has the administrator role then show form.
+    global $user;
+    $submit_formal_submission_roles = array(
+      "Site builder",
+      "Site editor",
+      "Publisher",
+      "administrator",
+    );
+
+    if (array_intersect($submit_formal_submission_roles, array_values($user->roles))) {
+      $variables['formal_submission_block'] = module_invoke('webform', 'block_view', 'client-block-' . theme_get_setting('have_your_say_wform_nid'));
+    }
   }
 
   // Conditionally remove Progress bar from all view modes where relevant.
@@ -478,9 +491,15 @@ function doca_theme_preprocess_node(&$variables, $hook) {
       if ($wrapper->field_funding_item->value() == 'support') {
         $variables['classes_array'][] = 'palette__dark-grey--group';
       }
-      // Include Consultation specific script.
-      drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
-      drupal_add_js(array('doca_theme' => array('webform_nid' => theme_get_setting('funding_default_wform_nid'))), 'setting');
+      // Include Funding specific script.
+      hide($variables['content']['field_funding_app_webform']);
+      if (isset($variables['field_funding_app_webform'][0]) && isset($variables['field_funding_app_webform'][0]['target_id'])) {
+        drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
+        drupal_add_js(array('doca_theme' => array('webform_nid' => $variables['field_funding_app_webform'][0]['target_id'])), 'setting');
+      }
+      else {
+        hide($variables['content']['formal_submission_webform']);
+      }
 
       _consultation_vars($variables, $variables['node']);
       $funding = $variables['consultation'];
@@ -544,32 +563,6 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     $end_consultation_date = _doca_admin_return_end_consultation_date($node, $wrapper);
     // Get the current timestamp.
     $time = time();
-
-    // Check if a fso has been provided.
-    if (isset($_GET['fso'])) {
-      // Check if the node is able to accept late submissions.
-      $accept_late_submissions = _doca_admin_accept_late_submission($node);
-      // If the node can accept late submissions.
-      if ($accept_late_submissions) {
-        // Get the salted hash for this nid.
-        $salted_hash = _doca_admin_return_salted_hash($node->nid);
-        // If the salted hash and the fso are equal.
-        if ($_GET['fso'] == $salted_hash) {
-          // Show the relevant HYS sections.
-          show($variables['content']['formal_submission_webform']);
-
-          // Build up the message to let the user know of the special case.
-          $message = t("Please note that acceptance of submissions for this round of the funding has closed. It is at the Departments' discretion if late submissions are accepted. Thank you.");
-          // Output the status message.
-          $variables['status_message'] = $message;
-        }
-      }
-      // If the 'Enable late submissions' value is not TRUE and the end funding date is less than now.
-      elseif (isset($node->field_enable_late_submissions) && $wrapper->field_enable_late_submissions->value() !== TRUE && $end_consultation_date < $time) {
-        // Redirect the user to the custom 404 page.
-        drupal_goto('page-404-consultations');
-      }
-    }
 
     // Hide 'Discussion Forum' related fields initially.
     hide($variables['content']['field_discussion_forum_heading']);
@@ -645,19 +638,6 @@ function doca_theme_preprocess_node(&$variables, $hook) {
         'url' => url('node/' . $node->nid, $options),
       ));
     }
-  }
-
-  // Check to see if $user has the administrator role then show form.
-  global $user;
-  $submit_formal_submission_roles = array(
-    "Site builder",
-    "Site editor",
-    "Publisher",
-    "administrator",
-  );
-
-  if (array_intersect($submit_formal_submission_roles, array_values($user->roles))) {
-    $variables['formal_submission_block'] = module_invoke('webform', 'block_view', 'client-block-' . theme_get_setting('have_your_say_wform_nid'));
   }
 
   if ($variables['type'] == 'alert') {
@@ -1142,7 +1122,9 @@ function doca_theme_preprocess_field(&$variables, $hook) {
   }
   if ($element['#field_name'] === 'formal_submission_webform') {
     if ($element['#bundle'] == 'funding') {
-      $variables['form_id'] = $element['#object']->field_funding_app_webform[LANGUAGE_NONE][0]['target_id'];
+      if (isset($element['#object']->field_funding_app_webform[LANGUAGE_NONE])) {
+        $variables['form_id'] = $element['#object']->field_funding_app_webform[LANGUAGE_NONE][0]['target_id'];
+      }
     }
     else {
       $variables['form_id'] = theme_get_setting('have_your_say_wform_nid');
@@ -1333,13 +1315,11 @@ function _consultation_vars(&$variables, $element_object) {
   $consultation['submission_enabled'] = $consultation['wrapped_entity']->field_formal_submission_enabled->value();
   $consultation['status_class'] = ($consultation['percentage'] === 100 ? 'progress-bar--complete' : '');
   if ($element_object->type == 'consultation') {
-    $consultation['status_message'] = _consultation_status_message($consultation);
+    _consultation_status_message($consultation);
   }
   else {
-    $consultation['status_message'] = _consultation_status_message($consultation, 'Applications under consideration', 'Funding round finalised', FALSE);
+    _consultation_status_message($consultation, 'Applications under consideration', 'Funding round finalised', FALSE, $consultation['wrapped_entity']->field_funding_type->value()->name == 'Ongoing');
   }
-  $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
-  $consultation['status_msg_class'] = str_replace(' ', '-', $consultation['status_message']);
   $consultation['status_msg_class'] = strtolower($consultation['status_msg_class']);
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
   $variables['consultation'] = $consultation;
@@ -1375,7 +1355,7 @@ function _consultation_days_remain($consultation) {
 /**
  * Helper function for the consultation status message.
  */
-function _consultation_status_message($consultation, $in_review = 'Now under review', $public = 'Submissions now public', $archive = TRUE) {
+function _consultation_status_message(&$consultation, $in_review = 'Now under review', $public = 'Submissions now public', $archive = TRUE, $ongoing = FALSE) {
 
   $status_message = t('Open');
 
@@ -1392,7 +1372,14 @@ function _consultation_status_message($consultation, $in_review = 'Now under rev
     $status_message = t('Archived');
   }
 
-  return $status_message;
+  if ($ongoing) {
+    $status_message = 'Open';
+    $consultation['ongoing'] = TRUE;
+  }
+
+  $consultation['status_msg_class'] = str_replace(' ', '-', $status_message);
+
+  $consultation['status_message'] = $status_message;
 
 }
 
