@@ -6493,10 +6493,18 @@ html {
 .update__icon, .update--extra__icon {
   float: left;
   margin-right: 1rem;
-  width: 6rem;
+  width: 5rem;
   text-align: center;
   padding-top: 1rem;
-  min-height: 5rem;
+}
+.update__icon img, .update--extra__icon img {
+  width: 90%;
+  height: auto;
+}
+@media (min-width: 720px) {
+  .update__icon, .update--extra__icon {
+    width: 6rem;
+  }
 }
 .update__title {
   font-size: 1.25rem;
