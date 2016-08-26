@@ -13,7 +13,7 @@
     </div>
 
     <div class="layout-one-two-thirds__main">
-      <form method="post" class="spacer--horizontal--medium alert-signup">
+      <form method="post" class="spacer--horizontal--medium alert-signup alert-signup__form">
         <?php if ($content['field_hide_name_field']['#items'][0]['value'] === '0'): ?>
           <div class="form__item">
             <label class="form__label" for="cu_FULL_NAME"><?php print t('Name'); ?> <span
