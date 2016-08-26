@@ -1358,12 +1358,13 @@ function _consultation_days_remain($consultation) {
 function _consultation_status_message(&$consultation, $in_review = 'Now under review', $public = 'Submissions now public', $archive = TRUE, $ongoing = FALSE) {
 
   $status_message = t('Open');
+  $consultation['ongoing'] = FALSE;
 
   if ($consultation['in_review']) {
     $status_message = t($in_review);
   }
 
-  $formal_submission_public = $consultation['wrapped_entity']->field_formal_submission_public->value();
+  $formal_submission_public = isset($consultation['wrapped_entity']->field_formal_submission_public) && $consultation['wrapped_entity']->field_formal_submission_public->value();
   if ($formal_submission_public) {
     $status_message = t($public);
   }
