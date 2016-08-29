@@ -37,30 +37,37 @@
         });
       }
 
-      $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="remain-anonymous"]').change(function() {
-        $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="private-submission"]')
+      if ($('body.node-type-consultation').length) {
+        var webform_nid = Drupal.settings.doca_theme.webform_nid;
+      }
+      else {
+        var webform_nid = Drupal.settings.doca_theme.fund_webform_nid;
+      }
+
+      $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="remain-anonymous"]').change(function() {
+        $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="private-submission"]')
           .attr('checked', false);
         if ($(this).is(":checked")) {
-          $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="hys-formal-your-name"]')
+          $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="hys-formal-your-name"]')
             .val('Anonymous')
             .attr('readonly', true);
         }
         else {
-          $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="hys-formal-your-name"]')
+          $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="hys-formal-your-name"]')
             .val('')
             .attr('readonly', false);
         }
       });
-      $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="private-submission"]').change(function() {
-        $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="remain-anonymous"]')
+      $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="private-submission"]').change(function() {
+        $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="remain-anonymous"]')
           .attr('checked', false);
         if ($(this).is(":checked")) {
-          $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="hys-formal-your-name"]')
+          $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="hys-formal-your-name"]')
             .val('Not required - private submission')
             .attr('readonly', true);
         }
         else {
-          $('#formal-submission-webform #webform-client-form-' + Drupal.settings.doca_theme.webform_nid + ' input[id*="hys-formal-your-name"]')
+          $('#formal-submission-webform #webform-client-form-' + webform_nid + ' input[id*="hys-formal-your-name"]')
             .val('')
             .attr('readonly', false);
         }
@@ -76,7 +83,7 @@
       var shortCommentSelector = 'textarea[name$="[short_comments]"]';
       var firstFileSelector = 'input[name$="formal_uploads_hys_formal_upload_file_1]"]';
       var submittedFileSelector = 'div[id$="formal-uploads-hys-formal-upload-file-1-upload"] > .file';
-      var $forms = $('#webform-client-form-' + Drupal.settings.doca_theme.webform_nid, context);
+      var $forms = $('#webform-client-form-' + webform_nid, context);
 
       $forms.each(function(index, item) {
         var $form = $(item);

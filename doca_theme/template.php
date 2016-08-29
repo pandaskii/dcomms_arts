@@ -496,7 +496,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
       hide($variables['content']['field_funding_app_webform']);
       if (isset($variables['field_funding_app_webform'][0]) && isset($variables['field_funding_app_webform'][0]['target_id'])) {
         drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
-        drupal_add_js(array('doca_theme' => array('webform_nid' => $variables['field_funding_app_webform'][0]['target_id'])), 'setting');
+        drupal_add_js(array('doca_theme' => array('fund_webform_nid' => $variables['field_funding_app_webform'][0]['target_id'])), 'setting');
       }
       else {
         hide($variables['content']['formal_submission_webform']);
