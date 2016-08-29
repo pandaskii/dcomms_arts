@@ -83,6 +83,12 @@
       var shortCommentSelector = 'textarea[name$="[short_comments]"]';
       var firstFileSelector = 'input[name$="formal_uploads_hys_formal_upload_file_1]"]';
       var submittedFileSelector = 'div[id$="formal-uploads-hys-formal-upload-file-1-upload"] > .file';
+      if ($('body.node-type-consultation').length) {
+        var webform_nid = Drupal.settings.doca_theme.webform_nid;
+      }
+      else {
+        var webform_nid = Drupal.settings.doca_theme.fund_webform_nid;
+      }
       var $forms = $('#webform-client-form-' + webform_nid, context);
 
       $forms.each(function(index, item) {
