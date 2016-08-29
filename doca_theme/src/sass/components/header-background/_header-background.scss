@@ -1,0 +1,12 @@
+// Header background
+//
+// Background image for the header
+//
+// Markup: header-background.html
+//
+// Styleguide components.header-background
+%header-background, .header-background {
+  @include breakpoint($xx-large) {
+    @include background-image('arts-brand-lvl2bg.png', 0%, auto);
+  }
+}

@@ -1,0 +1,37 @@
+// Page description
+//
+// Markup: page-description.html
+//
+// Styleguide components.page-description
+%page-description, .page-description {
+  @extend %spacer--bottom-large;
+  @extend %page-description__content;
+}
+
+%page-description--arts-brand, .page-description--arts-brand {
+  @include background-image('arts-brand.svg', 50%, contain);
+  width: 150px;
+  height: 150px;
+  @extend %layout-max--sm-med-lrg;
+  @include breakpoint($medium) {
+    width: 220px;
+    height: 220px;
+  }
+  @include breakpoint($large) {
+    width: 310px;
+    height: 320px;
+  }
+}
+
+%page-description__content, .page-description__content {
+  @extend %font__large;
+  p {
+    margin: 0;
+    @include breakpoint($large) {
+      max-width: 75%;
+    }
+  }
+  .layout-sidebar__main p, &.layout-sidebar__main p {
+    max-width: none !important;
+  }
+}

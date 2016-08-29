@@ -1,0 +1,75 @@
+// Header
+//
+// An inline list of links on large screens which collapses down into an
+// vertical list of links
+//
+// Markup: header.html
+//
+// Styleguide components.header
+%header, .header {
+  @extend %spacer--large;
+  .not-front & {
+    padding-bottom: 1.7rem;
+    @include breakpoint($xx-large) {
+      padding-bottom: 3rem;
+    }
+  }
+}
+
+%header__logo, .header__logo {
+  @extend %underline-on-hover__never;
+  display: block;
+  float: left;
+  margin-right: 1rem;
+  width: 206px;
+  @include breakpoint($medium) {
+    width: 360px;
+  }
+  .no-mediaqueries & {
+    @extend %hide-text;
+    background-image: url('../logo.png');
+    background-repeat: no-repeat;
+    height: 67px;
+    width: 360px;
+    margin-bottom: 2rem;
+  }
+}
+
+%header__logo-image, .header__logo-image {
+  height: 38px;
+  @include breakpoint($medium) {
+    height: 67px;
+  }
+}
+
+%header__inner__logo, .header__inner__logo {
+  @include background-image('arts-brand-lvl2-sm.svg', 1rem, contain);
+  height: 70px;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 0px;
+  text-decoration: none;
+  border: none;
+  display: block;
+  @include breakpoint($medium) {
+    margin-bottom: 30px;
+  }
+  @include breakpoint($large) {
+    margin-bottom: 50px;
+  }
+  @include breakpoint($xx-large) {
+    @include background-image('arts-brand-lvl2-sm.svg', 0%, contain);
+    width: 85px;
+    height: 100px;
+    position: absolute;
+    top: 385px;
+    left: 120px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+}
+
+%header__item, .header__item {
+  float: right;
+  position: relative;
+}

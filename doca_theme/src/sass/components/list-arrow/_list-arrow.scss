@@ -1,0 +1,79 @@
+// List Arrow
+//
+// Markup: list-arrow.html
+//
+// Styleguide components.list-arrow
+@import 'components/list-unstyled/list-unstyled';
+@import 'components/underline-on-hover/underline-on-hover';
+@import 'components/spacer/spacer';
+@import 'components/subsite-palette/subsite-palette';
+@import 'components/bordered/bordered';
+.list-arrow {
+  @extend %bordered--vertical;
+}
+
+.list-arrow__header {
+  @extend %heading--4--no-space;
+}
+
+.list-arrow__list, %list-arrow__list {
+  @extend %list-unstyled;
+  @extend %spacer--bottom;
+  @extend %underline-on-hover__wrapper;
+}
+
+.list-arrow__item, %list-arrow__item {
+  margin: 0 0 .5rem;
+  fill: currentColor;
+  position: relative;
+  padding-left: 20px;
+  svg {
+    height: 16px;
+    width: 16px;
+    padding-right: .25rem;
+    vertical-align: baseline;
+    position: absolute;
+    top: 3px;
+    left: 0;
+  }
+  // Subsite theming (doesn't need to be extendable).
+  .subsite__sub-theme-1 & {
+    &, a {
+      @include subsite-link-color(sub-theme-1);
+    }
+  }
+  .subsite__sub-theme-2 & {
+    &, a {
+      @include subsite-link-color(sub-theme-2);
+    }
+  }
+  .subsite__sub-theme-3 & {
+    &, a {
+      @include subsite-link-color(sub-theme-3);
+    }
+  }
+  .subsite__sub-theme-4 & {
+    &, a {
+      @include subsite-link-color(sub-theme-4);
+    }
+  }
+  .subsite__communications & {
+    &, a {
+      @include subsite-link-color(communications);
+    }
+  }
+  .alert-list__header & {
+    &, a {
+      @include subsite-link-color(alert);
+    }
+  }
+}
+
+// Fugly.
+// Required for Related content list.
+// scss-lint:disable MergeableSelector
+.list-arrow {
+  li {
+    @extend %list-arrow__item;
+  }
+}

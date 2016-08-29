@@ -1,0 +1,14 @@
+// Border Highlight
+//
+// Markup: border-highlight.html
+//
+// Styleguide components.border-highlight
+.border-highlight, %border-highlight {
+  height: 9px;
+  width: 50px;
+  background-color: #000;
+  margin-bottom: 1rem;
+  clear: both;
+  position: relative;
+  z-index: 2;
+}

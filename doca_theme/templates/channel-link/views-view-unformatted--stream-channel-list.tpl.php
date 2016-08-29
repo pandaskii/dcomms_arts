@@ -7,7 +7,7 @@
  * @ingroup views_templates
  */
 ?>
-<div class="palette__pale-grey clearfix">
+<div class="clearfix">
   <div class="channel-list__grid-container">
     <?php if (!empty($title)): ?>
       <h3><?php print $title; ?></h3>

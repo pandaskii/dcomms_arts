@@ -1,0 +1,44 @@
+// Footer menu
+//
+// A four column grid of links on large screens which collapses down into a
+// single inline list of links on smaller screens.
+//
+// Markup: footer-menu.html
+//
+// Styleguide components.footer-menu
+.footer-menu, %footer-menu {
+  @extend %center-left;
+  @extend %list-unstyled__wrapper;
+}
+
+.footer-menu__column> ul.footer-menu {
+  margin-top: 1rem;
+}
+
+.footer-menu__column, %footer-menu__column {
+  display: inline-block;
+  vertical-align: top;
+  @include breakpoint($medium) {
+    float: left;
+    width: 24%;
+    margin-right: 1%;
+  }
+}
+
+.footer-menu__title, %footer-menu__title {
+  @extend %footer__heading;
+  @include underline-on-hover;
+  display: inline-block;
+  line-height: 1.5;
+  max-width: 10rem;
+  @include breakpoint($x-medium) {
+    max-width: none;
+  }
+}
+
+.footer-menu__item, %footer-menu__item {
+  padding-bottom: 0.5rem;
+  a {
+    @include link-palette(color(grey-dark), color(dark));
+  }
+}

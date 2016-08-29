@@ -1,0 +1,34 @@
+// Header background
+//
+// Background image for the panel module
+//
+// Markup: panel-background.html
+//
+// Styleguide components.panel-background
+$full_right: calc(100% - 16px);
+$module-background-position: 16px $full_right 40% 67% 30% 54% 12% 17px 15% 20% 43%;
+@each $position in $module-background-position {
+  $i: index($module-background-position, $position);
+  %panel-background-#{$i}, .panel-background-#{$i} {
+    @include background-image('module-bar-#{$i}.png', $position, auto);
+    min-height: 5px;
+    background-size: 200px 3px;
+    @include breakpoint($medium) {
+      background-size: 40% 5px;
+    }
+    @include breakpoint($large) {
+      background-size: auto;
+    }
+  }
+  .view-whats-new-grid.grid-stream__2-col .attachment-after {
+    display: block;
+    %panel-background-#{$i}, .panel-background-#{$i} {
+      background-image: none;
+      padding: 0;
+      ;
+    }
+  }
+  .view-whats-new-grid .attachment-after {
+    display: none;
+  }
+}

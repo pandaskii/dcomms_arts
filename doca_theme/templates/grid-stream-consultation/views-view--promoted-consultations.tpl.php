@@ -7,7 +7,7 @@
  * @ingroup views_templates
  */
 ?>
-<div class="palette__light-grey background-image__point <?php print $classes; ?>">
+<div class="palette__light-grey panel-background-6 <?php print $classes; ?>">
   <div class="grid-stream">
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
@@ -33,7 +33,7 @@
     <?php endif; ?>
 
     <?php if ($rows): ?>
-      <div class="view-content">
+      <div class="view-content ie-fix">
         <?php print $rows; ?>
       </div>
     <?php elseif ($empty): ?>

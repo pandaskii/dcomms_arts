@@ -1,0 +1,26 @@
+// Alert signup
+//
+// Markup: alert-signup.html
+//
+// Styleguide components.alert-signup
+.alert-signup, %alert-signup {
+  @include breakpoint($large) {
+    .form__item, .form__action {
+      float: left;
+      width: 48%;
+      margin-right: 0.5%;
+      .form__input {
+        min-width: 0;
+        width: 100%;
+      }
+    }
+    .form__action {
+      margin-top: 1.7rem;
+      text-align: right;
+    }
+    .form__input {
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+}

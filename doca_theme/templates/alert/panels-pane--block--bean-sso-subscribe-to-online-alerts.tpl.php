@@ -22,14 +22,18 @@
 
     <?php print render($content); ?>
 
-    <form method="post" class="em_wfe_form serviceSubscribe" id="em_subscribe_form" name="em_subscribe_form" action="https://alerts.staysmartonline.gov.au/em/forms/subscribe.php?db=367399&s=82046&a=38192&k=20950e0&wt=1" enctype="multipart/form-data" target="_blank">
+    <form method="post" class="em_wfe_form serviceSubscribe" id="em_subscribe_form" name="em_subscribe_form"
+          action="https://alerts.staysmartonline.gov.au/em/forms/subscribe.php?db=367399&s=82046&a=38192&k=20950e0&wt=1"
+          enctype="multipart/form-data" target="_blank">
       <div class="form__action">
-        <input type="submit" value="Subscribe" title="Subscribe to the Stay Smart Online alert service" class="button--alert">
+        <input type="submit" value="Subscribe" title="Subscribe to the Stay Smart Online alert service"
+               class="button--alert">
       </div>
     </form>
   </div>
   <div class="layout-two-column__item show-at__medium">
-    <img class="alert-signup__svg" src="<?php print base_path() . drupal_get_path('theme', 'dcomms_theme'); ?>/images/SSO-alert-service.svg" />
+    <img class="alert-signup__svg"
+         src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/images/SSO-alert-service.svg"/>
   </div>
 </div>
 

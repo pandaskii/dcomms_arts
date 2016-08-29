@@ -9,6 +9,9 @@
 ?>
 <div class="spacer--bottom-mid">
   <?php foreach ($items as $delta => $item): ?>
-    <?php print render($item); ?>
+    <div class="<?php print $img_class; ?>">
+      <?php print render($item); ?>
+      <?php print $img_caption; ?>
+    </div>
   <?php endforeach; ?>
 </div>

@@ -5,5 +5,5 @@
  */
 ?>
 <?php foreach ($items as $delta => $item): ?>
-  <div class="heading--5"><?php print dcomms_theme_trim(render($item), 50); ?></div>
+  <div class="heading--5"><?php print doca_theme_trim(render($item), 50); ?></div>
 <?php endforeach; ?>

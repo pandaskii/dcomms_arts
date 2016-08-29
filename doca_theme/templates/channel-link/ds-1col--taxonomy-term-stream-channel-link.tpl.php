@@ -6,10 +6,10 @@
  */
 ?>
 <div class="channel-list__grid-item">
-  <a href="<?php print $variables['term_url']; ?>" class="channel-list__grid-inner <?php print $classes;?>">
+  <a href="<?php print $variables['term_url']; ?>" class="channel-list__grid-inner <?php print $classes; ?>">
 
     <?php if (isset($title_suffix['contextual_links'])): ?>
-    <?php print render($title_suffix['contextual_links']); ?>
+      <?php print render($title_suffix['contextual_links']); ?>
     <?php endif; ?>
 
     <?php print $ds_content; ?>

@@ -5,16 +5,17 @@
  * Contains the theme's functions to manipulate Drupal's default markup.
  *
  * Complete documentation for this file is available online.
+ *
  * @see https://drupal.org/node/1728096
  */
 
 // Include the helper functions to make sharing between the main and admin themes easier.
-require_once drupal_get_path('theme', 'dcomms_theme') . '/template.helpers.inc';
+require_once drupal_get_path('theme', 'doca_theme') . '/template.helpers.inc';
 
 /**
  * Implements hook_preprocess_page().
  */
-function dcomms_theme_preprocess_html(&$variables, $hook) {
+function doca_theme_preprocess_html(&$variables, $hook) {
   // Add offscreen class to body for mobile navigation.
   $variables['classes_array'][] = 'offscreen';
 }
@@ -22,7 +23,7 @@ function dcomms_theme_preprocess_html(&$variables, $hook) {
 /**
  * Implements hook_js_alter().
  */
-function dcomms_theme_js_alter(&$javascript) {
+function doca_theme_js_alter(&$javascript) {
   $tabs_js_path = drupal_get_path('module', 'field_group') . '/horizontal-tabs/horizontal-tabs.js';
   unset($javascript[$tabs_js_path]);
 }
@@ -30,7 +31,7 @@ function dcomms_theme_js_alter(&$javascript) {
 /**
  * Implements hook_preprocess_page().
  */
-function dcomms_theme_preprocess_page(&$variables, $hook) {
+function doca_theme_preprocess_page(&$variables, $hook) {
   // Add pathToTheme to Drupal.settings in JS.
   drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . path_to_theme() . '" });', 'inline');
 
@@ -38,20 +39,33 @@ function dcomms_theme_preprocess_page(&$variables, $hook) {
   if (theme_get_setting('feedback_enabled')) {
     $wf_nid = theme_get_setting('feedback_wform_nid');
     drupal_add_js(array('sitePagesFeedback' => array('nid' => $wf_nid)), 'setting');
-    $variables['site_pages_feedback_form'] = _dcomms_theme_webform_render($wf_nid);
+    $variables['site_pages_feedback_form'] = _doca_theme_webform_render($wf_nid);
   }
 
+  // Add the correct google analytics code for the active environment.
+  $ga_code = variable_get('googleanalytics_account');
+  drupal_add_js(array('gaSettings' => array('gaCode' => $ga_code)), 'setting');
+
   // Create template variables for the header menu block.
-  $variables['header_search'] = _dcomms_theme_block_render('search', 'form');
-  $variables['header_menu'] = _dcomms_theme_block_render('system', 'main-menu');
+  $variables['header_search'] = _doca_theme_block_render('search', 'form');
+  $variables['header_menu'] = _doca_theme_block_render('system', 'main-menu');
   // Create template variables for the footer menu blocks.
-  $variables['footer_menu'] = _dcomms_theme_block_render('menu', 'menu-footer-menu');
-  $variables['footer_auxilary_menu'] = _dcomms_theme_block_render('menu', 'menu-footer-sub-menu');
+  $variables['footer_menu'] = _doca_theme_block_render('menu', 'menu-footer-menu');
+  $variables['footer_auxilary_menu'] = _doca_theme_block_render('menu', 'menu-footer-sub-menu');
 
   $header = drupal_get_http_header("status");
   if ($header === "404 Not Found") {
     $variables['theme_hook_suggestions'][] = 'page__404';
+    $element = array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'http-equiv' => 'refresh',
+        'content' => '10;url=/',
+      ),
+    );
+    drupal_add_html_head($element, 'page_404_redirect');
   }
+
   if ($header === "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__403';
   }
@@ -62,7 +76,7 @@ function dcomms_theme_preprocess_page(&$variables, $hook) {
     $variables['theme_hook_suggestions'][] = 'page__stripped';
   }
 
-  // Define page top announcement variable
+  // Define page top announcement variable.
   $page_top_announcement_paths = drupal_strtolower(theme_get_setting('page_top_announcement_paths'));
   $current_path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
   $page_match = drupal_match_path($current_path, $page_top_announcement_paths);
@@ -83,7 +97,7 @@ function dcomms_theme_preprocess_page(&$variables, $hook) {
  * @return array
  *   Node ids that are menu children of $item.
  */
-function dcomms_theme_get_standard_page_menu_children($item) {
+function doca_theme_get_standard_page_menu_children($item) {
   if ($item === FALSE || empty($item['menu_name']) || !isset($item['mlid'])) {
     return array();
   }
@@ -107,13 +121,13 @@ ORDER BY ml.weight";
 /**
  * Implements hook_preprocess_entity().
  */
-function dcomms_theme_preprocess_entity(&$variables, $hook) {
+function doca_theme_preprocess_entity(&$variables, $hook) {
   if ($variables['entity_type'] === 'bean' && $variables['bean']->type === 'standard_page_children' && $variables['view_mode'] === 'coloured_links_grid') {
     // Get menu link of current page.
     $item = menu_link_get_preferred();
 
     // Get children menu items that are standard pages.
-    $nids = dcomms_theme_get_standard_page_menu_children($item);
+    $nids = doca_theme_get_standard_page_menu_children($item);
 
     // Render the nodes in coloured grid view mode.
     $node_elements = array();
@@ -160,10 +174,11 @@ function dcomms_theme_preprocess_entity(&$variables, $hook) {
   if ($variables['entity_type'] === 'paragraphs_item') {
     if ($variables['elements']['#bundle'] === 'subscribe_block') {
       drupal_add_js(array(
-        'dcomms_theme' => array(
+        'doca_theme' => array(
           'alertHideName' => $variables['field_hide_name_field'][0]['value'],
           'alertHideNumber' => $variables['field_hide_contact_number_field'][0]['value'],
           'alertMailGroup' => $variables['field_mail_groups'][0]['value'],
+          'microSite' => 'http://ssoalerts.e-newsletter.com.au',
           'alertSuccessMessage' => $variables['field_success_message'][0]['value'],
         ),
       ), 'setting');
@@ -183,7 +198,7 @@ function dcomms_theme_preprocess_entity(&$variables, $hook) {
  * @param string $field_name
  *   Field name with category term.
  */
-function _dcomms_theme_related_content_category_term(&$related_content_nids, $limit, $node, $field_name) {
+function _doca_theme_related_content_category_term(&$related_content_nids, $limit, $node, $field_name) {
   if (count($related_content_nids) < $limit && isset($node->{$field_name}[LANGUAGE_NONE][0]['tid'])) {
     $query = db_select('node', 'n')
       ->fields('n', array('nid'));
@@ -214,7 +229,7 @@ function _dcomms_theme_related_content_category_term(&$related_content_nids, $li
  * @return array
  *   Render Array.
  */
-function _dcomms_theme_related_content($node) {
+function _doca_theme_related_content($node) {
   $limit = 4;
   $related_content_nids = array();
 
@@ -246,13 +261,13 @@ function _dcomms_theme_related_content($node) {
   }
 
   // Next fill related content with content of same type in this business area.
-  _dcomms_theme_related_content_category_term($related_content_nids, $limit, $node, 'field_business_area');
+  _doca_theme_related_content_category_term($related_content_nids, $limit, $node, 'field_business_area');
 
   // Next fill related content with content of same type in this stream.
-  _dcomms_theme_related_content_category_term($related_content_nids, $limit, $node, 'field_stream');
+  _doca_theme_related_content_category_term($related_content_nids, $limit, $node, 'field_stream');
 
   // Next fill related content with content of same type in this audience.
-  _dcomms_theme_related_content_category_term($related_content_nids, $limit, $node, 'field_audience');
+  _doca_theme_related_content_category_term($related_content_nids, $limit, $node, 'field_audience');
 
   // Finally fill related content with content of same type.
   if (count($related_content_nids) < $limit) {
@@ -288,7 +303,7 @@ function _dcomms_theme_related_content($node) {
 /**
  * Implements hook_preprocess_node().
  */
-function dcomms_theme_preprocess_node(&$variables, $hook) {
+function doca_theme_preprocess_node(&$variables, $hook) {
   $node = $variables['node'];
   // Adjust the submitted date format.
   $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['node']->created, 'custom', 'c') . '">' . format_date($variables['node']->created, 'custom', 'jS M Y') . '</time>';
@@ -299,53 +314,54 @@ function dcomms_theme_preprocess_node(&$variables, $hook) {
   // Add a theme hook suggestion for type and view mode.
   $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
 
-  // Add first/second update item to grid_stream_landscape view mode if exist.
-  if ($variables['type'] == 'consultation' && $variables['view_mode'] == 'grid_stream_landscape') {
-    $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
-    if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
-      $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
-      $variables['update_2'] = $wrapped_entity->field_updates[1]->view('teaser');
-    }
-  }
-
-  // Conditionally remove Formal Submission fields where relevant.
-  if ($variables['type'] == 'consultation' && $variables['view_mode'] == 'full') {
-
-    // Include Consultation specific script.
-    drupal_add_js(path_to_theme() . '/js/script-consultation.js', array('file'));
-
-    _consultation_vars($variables, $variables['node']);
-    $consultation = $variables['consultation'];
-
-    // Return if formal submissions are not accepted.
-    if (!empty($consultation['hide_form'])) {
-      field_group_hide_field_groups($variables['elements'], array('group_formal_submission_form'));
-      hide($variables['content']['formal_submission_webform']);
-      // Only hide inro/outro if there is no embedded webform.
-      if (empty($variables['content']['field_other_embedded_webform'])) {
-        hide($variables['content']['field_formal_submission_cta_1']);
-        hide($variables['content']['field_formal_submission_cta_2']);
+  // Conditionally remove Progress bar from all view modes where relevant.
+  if ($variables['type'] == 'consultation') {
+    // Add first/second update item to grid_stream_landscape view mode if exist.
+    if ($variables['view_mode'] == 'grid_stream_landscape') {
+      $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
+      if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
+        $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
+        $variables['update_2'] = $wrapped_entity->field_updates[1]->view('teaser');
       }
     }
 
-    if ($consultation['in_review']) {
-      show($variables['content']['field_formal_submission_cta_1']);
+    // Conditionally remove Formal Submission fields where relevant.
+    if ($variables['view_mode'] == 'full') {
+
+      // Include Consultation specific script.
+      drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
+      drupal_add_js(array('doca_theme' => array('webform_nid' => theme_get_setting('have_your_say_wform_nid'))), 'setting');
+
+      _consultation_vars($variables, $variables['node']);
+      $consultation = $variables['consultation'];
+
+      // Return if formal submissions are not accepted.
+      if (!empty($consultation['hide_form'])) {
+        field_group_hide_field_groups($variables['elements'], array('group_formal_submission_form'));
+        hide($variables['content']['formal_submission_webform']);
+        // Only hide inro/outro if there is no embedded webform.
+        if (empty($variables['content']['field_other_embedded_webform'])) {
+          hide($variables['content']['field_formal_submission_cta_1']);
+          hide($variables['content']['field_formal_submission_cta_2']);
+        }
+      }
+
+      if ($consultation['in_review']) {
+        show($variables['content']['field_formal_submission_cta_1']);
+      }
+
+      // Add formal submission field to JS Drupal.settings if a value is present.
+      if (isset($variables['content']['field_formal_submission_notify']['#items'][0]['value'])) {
+        drupal_add_js(array(
+          'doca_theme' => array(
+            'formalSubmissionNotify' => check_plain($variables['content']['field_formal_submission_notify']['#items'][0]['value']),
+          ),
+        ), 'setting');
+      }
+      hide($variables['content']['field_formal_submission_notify']);
+
     }
 
-    // Add formal submission field to JS Drupal.settings if a value is present.
-    if (isset($variables['content']['field_formal_submission_notify']['#items'][0]['value'])) {
-      drupal_add_js(array(
-        'dcomms_theme' => array(
-          'formalSubmissionNotify' => check_plain($variables['content']['field_formal_submission_notify']['#items'][0]['value']),
-        ),
-      ), 'setting');
-    }
-    hide($variables['content']['field_formal_submission_notify']);
-
-  }
-
-  // Conditionally remove Progress bar from all view modes where relevant.
-  if ($variables['type'] == 'consultation') {
     // Create the entity metadata wrapper.
     $wrapper = entity_metadata_wrapper('node', $node);
 
@@ -378,25 +394,25 @@ function dcomms_theme_preprocess_node(&$variables, $hook) {
 
     // Add the above results to javascript.
     drupal_add_js(array(
-      'dcomms_theme' => array(
+      'doca_theme' => array(
         'shortCommentsEnabled' => $short_comments_enabled,
         'fileUploadsEnabled' => $file_uploads_enabled,
       ),
     ), 'setting');
 
     // Get the end consultation date.
-    $end_consultation_date = _dcomms_admin_return_end_consultation_date($node, $wrapper);
+    $end_consultation_date = _doca_admin_return_end_consultation_date($node, $wrapper);
     // Get the current timestamp.
     $time = time();
 
     // Check if a fso has been provided.
     if (isset($_GET['fso'])) {
       // Check if the node is able to accept late submissions.
-      $accept_late_submissions = _dcomms_admin_accept_late_submission($node);
+      $accept_late_submissions = _doca_admin_accept_late_submission($node);
       // If the node can accept late submissions.
       if ($accept_late_submissions) {
         // Get the salted hash for this nid.
-        $salted_hash = _dcomms_admin_return_salted_hash($node->nid);
+        $salted_hash = _doca_admin_return_salted_hash($node->nid);
         // If the salted hash and the fso are equal.
         if ($_GET['fso'] == $salted_hash) {
           // Show the relevant HYS sections.
@@ -414,77 +430,7 @@ function dcomms_theme_preprocess_node(&$variables, $hook) {
         drupal_goto('page-404-consultations');
       }
     }
-  }
 
-  // Variables for optional display of child links grid, 'on this page', suggested content.
-  if (in_array($variables['type'], array(
-      'alert',
-      'bcr_data',
-      'blog_article',
-      'consultation',
-      'news_article',
-      'policy',
-      'page',
-    ))
-    && $variables['view_mode'] == 'full'
-  ) {
-    $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
-    if ($variables['type'] == 'page') {
-      $hide_child_pages = $variables['hide_child_pages'] = $wrapped_entity->field_hide_child_pages->value();
-      $variables['hide_on_this_page'] = $wrapped_entity->field_hide_on_this_page->value();
-    }
-    $hide_related_content = $wrapped_entity->field_hide_related_content->value();
-
-    // Child pages.
-    if (isset($hide_child_pages) && !$hide_child_pages) {
-      $block = module_invoke('bean', 'block_view', 'standard-page-children---coloure');
-      $variables['child_pages_block'] = render($block['content']);
-    }
-
-    // Related content.
-    if (isset($hide_related_content) && !$hide_related_content) {
-      $variables['content']['related_content'] = _dcomms_theme_related_content($variables['node']);
-    }
-  }
-
-  $variables['read_more_text'] = t('Learn more');
-  if (!empty($node->field_read_more_text[LANGUAGE_NONE][0]['safe_value'])) {
-    $variables['read_more_text'] = $node->field_read_more_text[LANGUAGE_NONE][0]['safe_value'];
-  }
-
-  // Find out whether the node has an 'External source' filled in.
-  $external_source = _dcomms_admin_return_node_has_external_source($node);
-  $variables['external_source'] = $external_source;
-
-  // Build service links.
-  $variables['service_links'] = NULL;
-  // If 'Hide social links' field is not set/empty.
-  if (!isset($variables['field_social_links'][LANGUAGE_NONE]) || $variables['field_social_links'][LANGUAGE_NONE][0]['value'] == 0) {
-    // And it's the full view mode.
-    if ($variables['view_mode'] === 'full') {
-      $options = array('absolute' => TRUE);
-      $variables['service_links'] = theme('share_row', array(
-        'title' => $node->title,
-        'url' => url('node/' . $node->nid, $options),
-      ));
-    }
-  }
-
-  // Check to see if $user has the administrator role then show form.
-  global $user;
-  $submit_formal_submission_roles = array(
-    "Site builder",
-    "Site editor",
-    "Publisher",
-    "administrator",
-  );
-
-  if (array_intersect($submit_formal_submission_roles, array_values($user->roles))) {
-    $variables['formal_submission_block'] = module_invoke('webform', 'block_view', 'client-block-15');
-  }
-
-  // If this is a 'Consultation' content type.
-  if ($variables['type'] == 'consultation') {
     // Hide 'Discussion Forum' related fields initially.
     hide($variables['content']['field_discussion_forum_heading']);
     hide($variables['content']['field_discussion_forum_intro']);
@@ -511,6 +457,188 @@ function dcomms_theme_preprocess_node(&$variables, $hook) {
         show($variables['content']['field_discussion_forum_intro']);
       }
     }
+
+    // Check to see if $user has the administrator role then show form.
+    global $user;
+    $submit_formal_submission_roles = array(
+      "Site builder",
+      "Site editor",
+      "Publisher",
+      "administrator",
+    );
+
+    if (array_intersect($submit_formal_submission_roles, array_values($user->roles))) {
+      $variables['formal_submission_block'] = module_invoke('webform', 'block_view', 'client-block-' . theme_get_setting('have_your_say_wform_nid'));
+    }
+  }
+
+  // Conditionally remove Progress bar from all view modes where relevant.
+  if ($variables['type'] == 'funding') {
+    // Add first/second update item to grid_stream_landscape view mode if exist.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    if ($variables['view_mode'] == 'grid_stream_landscape') {
+      // Create an entity metadata wrapper.
+
+      $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
+      if (isset($wrapped_entity->field_updates[0]) && isset($wrapped_entity->field_updates[1])) {
+        $variables['update_1'] = $wrapped_entity->field_updates[0]->view('teaser');
+        $variables['update_2'] = $wrapped_entity->field_updates[1]->view('teaser');
+      }
+    }
+
+    // Conditionally remove Formal Submission fields where relevant and add support class.
+    if ($variables['view_mode'] == 'full') {
+      if ($wrapper->field_funding_item->value() == 'support') {
+        $variables['classes_array'][] = 'palette__dark-grey--group';
+      }
+      // Include Funding specific script.
+      hide($variables['content']['field_funding_app_webform']);
+      if (isset($variables['field_funding_app_webform'][0]) && isset($variables['field_funding_app_webform'][0]['target_id'])) {
+        drupal_add_js(path_to_theme() . '/dist/js/script-consultation.js', array('file'));
+        drupal_add_js(array('doca_theme' => array('fund_webform_nid' => $variables['field_funding_app_webform'][0]['target_id'])), 'setting');
+      }
+      else {
+        hide($variables['content']['formal_submission_webform']);
+      }
+
+      _consultation_vars($variables, $variables['node']);
+      $funding = $variables['consultation'];
+
+      // Return if formal submissions are not accepted.
+      if (!empty($funding['hide_form'])) {
+        field_group_hide_field_groups($variables['elements'], array('group_formal_submission_form'));
+        hide($variables['content']['formal_submission_webform']);
+        // Only hide inro/outro if there is no embedded webform.
+        if (empty($variables['content']['field_other_embedded_webform'])) {
+          hide($variables['content']['field_formal_submission_cta_1']);
+          hide($variables['content']['field_formal_submission_cta_2']);
+        }
+      }
+
+      if ($funding['in_review']) {
+        show($variables['content']['field_formal_submission_cta_1']);
+      }
+
+      // Add formal submission field to JS Drupal.settings if a value is present.
+      if (isset($variables['content']['field_formal_submission_notify']['#items'][0]['value'])) {
+        drupal_add_js(array(
+          'doca_theme' => array(
+            'formalSubmissionNotify' => check_plain($variables['content']['field_formal_submission_notify']['#items'][0]['value']),
+          ),
+        ), 'setting');
+      }
+      hide($variables['content']['field_formal_submission_notify']);
+
+    }
+
+    // Create the entity metadata wrapper.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    _consultation_vars($variables, $variables['node']);
+    $funding = $variables['consultation'];
+
+    if ($funding['date_status'] === 'upcoming') {
+      field_group_hide_field_groups($variables['elements'], array('group_formal_submissions'));
+      hide($variables['content']['hys_progress_bar']);
+      hide($variables['content']['formal_submission_webform']);
+      hide($variables['content']['field_formal_submission_cta_1']);
+      hide($variables['content']['field_formal_submission_cta_2']);
+      hide($variables['content']['field_other_embedded_webform']);
+    }
+
+    // Set default values.
+    $short_comments_enabled = $file_uploads_enabled = FALSE;
+    // Create the entity metadata wrapper.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    // Add the above results to javascript.
+    drupal_add_js(array(
+      'doca_theme' => array(
+        'shortCommentsEnabled' => $short_comments_enabled,
+        'fileUploadsEnabled' => $file_uploads_enabled,
+      ),
+    ), 'setting');
+
+    // Get the end funding date.
+    $end_consultation_date = _doca_admin_return_end_consultation_date($node, $wrapper);
+    // Get the current timestamp.
+    $time = time();
+
+    // Hide 'Discussion Forum' related fields initially.
+    hide($variables['content']['field_discussion_forum_heading']);
+    hide($variables['content']['field_discussion_forum_intro']);
+    // Create an entity metadata wrapper.
+    $wrapper = entity_metadata_wrapper('node', $node);
+
+    // If comments are open.
+    if ($variables['comment'] == COMMENT_NODE_OPEN) {
+      // If the heading 'Discussion Forum' heading field exists and is not blank.
+      if (isset($node->field_discussion_forum_heading) && $wrapper->field_discussion_forum_heading->value() != '') {
+        // Show the 'Discussion Forum' heading field.
+        show($variables['content']['field_discussion_forum_heading']);
+      }
+      // If the 'Discussion Forum' introduction field eixsts and is not blank.
+      if (isset($node->field_discussion_forum_intro) && $wrapper->field_discussion_forum_intro->value() != '') {
+        // Show the 'Discussion Forum' introduction field.
+        show($variables['content']['field_discussion_forum_intro']);
+      }
+    }
+  }
+
+  // Variables for optional display of child links grid, 'on this page', suggested content.
+  if (in_array($variables['type'], array(
+    'alert',
+    'bcr_data',
+    'blog_article',
+    'consultation',
+    'funding',
+    'news_article',
+    'policy',
+    'page',
+  ))
+    && $variables['view_mode'] == 'full'
+  ) {
+    $wrapped_entity = entity_metadata_wrapper('node', $variables['node']);
+    if ($variables['type'] == 'page') {
+      $hide_child_pages = $variables['hide_child_pages'] = $wrapped_entity->field_hide_child_pages->value();
+      $variables['hide_on_this_page'] = $wrapped_entity->field_hide_on_this_page->value();
+    }
+    $hide_related_content = $wrapped_entity->field_hide_related_content->value();
+
+    // Child pages.
+    if (isset($hide_child_pages) && !$hide_child_pages) {
+      $block = module_invoke('bean', 'block_view', 'standard-page-children---coloure');
+      $variables['child_pages_block'] = render($block['content']);
+    }
+
+    // Related content.
+    if (isset($hide_related_content) && !$hide_related_content) {
+      $variables['content']['related_content'] = _doca_theme_related_content($variables['node']);
+    }
+  }
+
+  $variables['read_more_text'] = t('Learn more');
+  if (!empty($node->field_read_more_text[LANGUAGE_NONE][0]['safe_value'])) {
+    $variables['read_more_text'] = $node->field_read_more_text[LANGUAGE_NONE][0]['safe_value'];
+  }
+
+  // Find out whether the node has an 'External source' filled in.
+  $external_source = _doca_admin_return_node_has_external_source($node);
+  $variables['external_source'] = $external_source;
+
+  // Build service links.
+  $variables['service_links'] = NULL;
+  // If 'Hide social links' field is not set/empty.
+  if (!isset($variables['field_social_links'][LANGUAGE_NONE]) || $variables['field_social_links'][LANGUAGE_NONE][0]['value'] == 0) {
+    // And it's the full view mode.
+    if ($variables['view_mode'] === 'full') {
+      $options = array('absolute' => TRUE);
+      $variables['service_links'] = theme('share_row', array(
+        'title' => $node->title,
+        'url' => url('node/' . $node->nid, $options),
+      ));
+    }
   }
 
   if ($variables['type'] == 'alert') {
@@ -522,13 +650,42 @@ function dcomms_theme_preprocess_node(&$variables, $hook) {
       }
     }
   }
+}
 
+/**
+ * Implements hook_preprocess_panels_pane().
+ */
+function doca_theme_preprocess_panels_pane(&$variables) {
+  if (isset($variables['content']['bean'])) {
+    $bean = reset($variables['content']['bean']);
+    if ($bean['#bundle'] == 'qna_pair_alt') {
+      $variables['theme_hook_suggestions'][] = 'panels_pane__qna_pair_alt';
+    }
+    elseif ($bean['#bundle'] == 'qna_pair') {
+      $variables['theme_hook_suggestions'][] = 'panels_pane__qna_pair';
+    }
+  }
+}
+
+/**
+ * Implements hook__field_group_build_pre_render_alter().
+ */
+function doca_theme_field_group_build_pre_render_alter(&$element) {
+  if (isset($element['#node'])) {
+    $object = $element['#node'];
+    if ($object->type != 'funding') {
+      $object = NULL;
+    }
+  }
+  if (!empty($object) && !empty($object->field_funding_item) && $object->field_funding_item[LANGUAGE_NONE][0]['value'] == 'support') {
+    $element['group_formal_submissions']['#prefix'] = str_replace('Funding applications', 'Support applications', $element['group_formal_submissions']['#prefix']);
+  }
 }
 
 /**
  * Implements template_preprocess_views_view_fields().
  */
-function dcomms_theme_preprocess_views_view_field(&$variables) {
+function doca_theme_preprocess_views_view_field(&$variables) {
   if ($variables["field"]->options["id"] == "value_2") {
     $nid = $variables['field']->options['webform_nid'];
     $sid = $variables['row']->sid;
@@ -547,12 +704,13 @@ function dcomms_theme_preprocess_views_view_field(&$variables) {
 /**
  * Implements hook_form_alter().
  */
-function dcomms_theme_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'webform_client_form_15') {
+function doca_theme_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'webform_client_form_' . theme_get_setting('have_your_say_wform_nid')) {
     $component_key = "privacy";
-    $form['actions'][$component_key] = $form['submitted'][$component_key];
-    unset($form['submitted'][$component_key]);
-
+    if (isset($form['field_short_comments_enabled'][$component_key])) {
+      $form['actions'][$component_key] = $form['field_short_comments_enabled'][$component_key];
+      unset($form['submitted'][$component_key]);
+    }
     // Check if the 'Short comments' field is available.
     if (isset($form['submitted']['short_comments'])) {
       // Update the attributes and set the maxlength.
@@ -575,14 +733,14 @@ function dcomms_theme_form_alter(&$form, &$form_state, $form_id) {
  *   URL of the read more link.
  * @param string $text
  *   Text of the read more link.
- * @param boolean $external
+ * @param bool $external
  *   Whether the link is external or not. Defaults to FALSE.
  *
  * @return string
  *   HTML markup for read more link.
  */
-function dcomms_theme_read_more_link($href, $text, $external = FALSE) {
-  $template_file = drupal_get_path('theme', 'dcomms_theme') . '/templates/read-more-link.tpl.php';
+function doca_theme_read_more_link($href, $text, $external = FALSE) {
+  $template_file = drupal_get_path('theme', 'doca_theme') . '/templates/read-more-link.tpl.php';
 
   // Make sure relative links start with /.
   if (substr($href, 0, 4) != 'http' && substr($href, 0, 1) != '/') {
@@ -599,7 +757,7 @@ function dcomms_theme_read_more_link($href, $text, $external = FALSE) {
 /**
  * Implements hook_preprocess_block().
  */
-function dcomms_theme_preprocess_block(&$variables) {
+function doca_theme_preprocess_block(&$variables) {
   // Theming various blocks.
   switch ($variables['block_html_id']) {
     case 'block-system-main-menu':
@@ -633,7 +791,7 @@ function dcomms_theme_preprocess_block(&$variables) {
 /**
  * Returns HTML for a menu with a heading and wrapper.
  */
-function _dcomms_theme_block_render($module, $delta) {
+function _doca_theme_block_render($module, $delta) {
   $output = '';
   $block = block_load($module, $delta);
   if (isset($block->bid)) {
@@ -648,7 +806,7 @@ function _dcomms_theme_block_render($module, $delta) {
 /**
  * Implements theme_menu_tree__MENU_NAME().
  */
-function dcomms_theme_menu_tree__main_menu($variables) {
+function doca_theme_menu_tree__main_menu($variables) {
   if (strpos($variables['tree'], 'subsite-header__item') !== FALSE) {
     // If it's a menu block menu.
     $output = '<ul class="subsite-header__list">' . $variables['tree'] . '</ul>';
@@ -672,7 +830,7 @@ function dcomms_theme_menu_tree__main_menu($variables) {
 /**
  * Implements theme_menu_link__MENU_NAME().
  */
-function dcomms_theme_menu_link__main_menu(array $variables) {
+function doca_theme_menu_link__main_menu(array $variables) {
   $element = $variables['element'];
 
   if (isset($element['#bid'])) {
@@ -703,14 +861,14 @@ function dcomms_theme_menu_link__main_menu(array $variables) {
 /**
  * Implements theme_menu_tree__MENU_NAME().
  */
-function dcomms_theme_menu_tree__menu_footer_menu($variables) {
+function doca_theme_menu_tree__menu_footer_menu($variables) {
   return '<ul class="footer-menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
  * Implements theme_menu_link__MENU_NAME().
  */
-function dcomms_theme_menu_link__menu_footer_menu(array $variables) {
+function doca_theme_menu_link__menu_footer_menu(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
   if ($element['#original_link']['depth'] === '1') {
@@ -735,14 +893,14 @@ function dcomms_theme_menu_link__menu_footer_menu(array $variables) {
 /**
  * Implements theme_menu_tree__MENU_NAME().
  */
-function dcomms_theme_menu_tree__menu_footer_sub_menu($variables) {
+function doca_theme_menu_tree__menu_footer_sub_menu($variables) {
   return '<ul class="list-unstyled list-inline">' . $variables['tree'] . '</ul>';
 }
 
 /**
  * Implements theme_menu_link__MENU_NAME().
  */
-function dcomms_theme_menu_link__menu_footer_sub_menu(array $variables) {
+function doca_theme_menu_link__menu_footer_sub_menu(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
@@ -759,16 +917,19 @@ function dcomms_theme_menu_link__menu_footer_sub_menu(array $variables) {
 /**
  * Implements theme_file_icon().
  */
-function dcomms_theme_file_icon($variables) {
+function doca_theme_file_icon($variables) {
   $file = $variables['file'];
-  $icon_directory = drupal_get_path('theme', 'dcomms_theme') . '/images/document';
+  $icon_directory = drupal_get_path('theme', 'doca_theme') . '/dist/images/document';
 
   $mime = check_plain($file->filemime);
   $icon_url = file_icon_path($file, $icon_directory);
 
+  if ($icon_url == FALSE) {
+    $icon_url = $icon_directory . '/generic.png';
+  }
+
   return '<img alt="" class="file__icon" src="' . base_path() . $icon_url . '" title="' . $mime . '" />';
 }
-
 
 /**
  * Returns the poll type based on number of choices.
@@ -777,9 +938,9 @@ function _dcomms_poll_type($nid) {
   $node = node_load($nid);
   $choices = count($node->choice);
   $poll_type = 'binary';
-  if ($choices > '2'):
+  if ($choices > '2') {
     $poll_type = 'multiple';
-  endif;
+  }
 
   return $poll_type;
 }
@@ -787,7 +948,7 @@ function _dcomms_poll_type($nid) {
 /**
  * Implements theme_breadcrumb().
  */
-function dcomms_theme_breadcrumb($variables) {
+function doca_theme_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
   $output = '';
 
@@ -851,14 +1012,14 @@ function dcomms_theme_breadcrumb($variables) {
  * @return string
  *   Plain text trimmed version of the HTML.
  */
-function dcomms_theme_trim($markup, $trim_length) {
+function doca_theme_trim($markup, $trim_length) {
   return truncate_utf8(strip_tags($markup), $trim_length, TRUE, TRUE);
 }
 
 /**
  * Implements template_preprocess_field().
  */
-function dcomms_theme_preprocess_field(&$variables, $hook) {
+function doca_theme_preprocess_field(&$variables, $hook) {
   $element =& $variables['element'];
   $variables['theme_hook_suggestions'][] = 'field__' . $element['#field_name'] . '__' . $element['#view_mode'];
   $variables['theme_hook_suggestions'][] = 'field__' . $element['#bundle'] . '__' . $element['#view_mode'];
@@ -871,7 +1032,7 @@ function dcomms_theme_preprocess_field(&$variables, $hook) {
     $use_summary = $element['#formatter'] === 'text_summary_or_trimmed';
     foreach ($element['#items'] as $delta => $item) {
       $markup = ($use_summary && !empty($item['safe_summary'])) ? $item['safe_summary'] : $item['safe_value'];
-      $variables['items'][$delta]['#markup'] = dcomms_theme_trim($markup, $trim_length);
+      $variables['items'][$delta]['#markup'] = doca_theme_trim($markup, $trim_length);
     }
   }
 
@@ -898,7 +1059,6 @@ function dcomms_theme_preprocess_field(&$variables, $hook) {
           }
         }
       }
-
     }
   }
 
@@ -911,6 +1071,12 @@ function dcomms_theme_preprocess_field(&$variables, $hook) {
   $is_consultation_field = in_array($variables['element']['#field_name'], $consultation_fields);
   if ($is_consultation_field) {
     _consultation_vars($variables, $element['#object']);
+  }
+
+  if ($element['#field_name'] == 'field_consultation_date') {
+    if (isset($element['#object']->field_display_fund_period[LANGUAGE_NONE]) && $element['#object']->field_display_fund_period[LANGUAGE_NONE][0]['value']) {
+      $variables['hide_date'] = TRUE;
+    }
   }
 
   // Replace title with promotional one-liner in non-full view modes.
@@ -955,23 +1121,77 @@ function dcomms_theme_preprocess_field(&$variables, $hook) {
   // Get the node.
   $node = $element['#object'];
   // Return whether a node has the 'External source' field filled in.
-  $external_source = _dcomms_admin_return_node_has_external_source($node);
+  $external_source = _doca_admin_return_node_has_external_source($node);
   $variables['external_source'] = $external_source;
 
   if ($variables['element']['#field_name'] == 'field_stackla_embed_para') {
-    drupal_add_js(path_to_theme() . '/js/stackla.js', array('file'));
+    drupal_add_js(path_to_theme() . '/vendor/js/stackla.js', array('file'));
+  }
+  if ($element['#field_name'] === 'formal_submission_webform') {
+    if ($element['#bundle'] == 'funding') {
+      if (isset($element['#object']->field_funding_app_webform[LANGUAGE_NONE])) {
+        $variables['form_id'] = $element['#object']->field_funding_app_webform[LANGUAGE_NONE][0]['target_id'];
+      }
+    }
+    else {
+      $variables['form_id'] = theme_get_setting('have_your_say_wform_nid');
+    }
+  }
+
+  if ($element['#field_name'] === 'field_feature_image' || $element['#field_name'] === 'field_pbundle_image' || $element['#field_name'] === 'field_image') {
+    $img_class = '';
+    $img_url = '';
+    $has_caption = 0;
+    $img_caption = '';
+    $img_hover = '';
+    $caption_d = '';
+    $caption_mob = '';
+    $variables['img_caption'] = '';
+    foreach ($variables['items'] as $delta => $item) {
+      if (isset($item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'])) {
+        $img_class = 'featured-with-caption';
+        $has_caption = 1;
+        $caption_d = '<span class="visible--md">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'] . '<span class="feature-caption-link"> (detail) +</span></span>';
+        $img_hover = '<div class="featured-overlay">' . $item['#item']['field_artist'][LANGUAGE_NONE][0]['safe_value'];
+      }
+      if (isset($item['#item']['field_file_image_title_text'][LANGUAGE_NONE][0]['safe_value'])) {
+        $img_hover .= ' - ' . $item['#item']['field_file_image_title_text'][LANGUAGE_NONE][0]['safe_value'];
+      }
+      if (isset($item['#item']['field_read_more_text'][LANGUAGE_NONE][0]['safe_value'])) {
+        $img_hover .= '<span>' . $item['#item']['field_read_more_text'][LANGUAGE_NONE][0]['safe_value'] . '</span>';
+      }
+      $img_hover .= '</div>';
+      if (isset($item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'])) {
+        $img_url = $item['#item']['field_link_to'][LANGUAGE_NONE][0]['url'];
+        $caption_mob = '<span class="visible--xs">Image credit +</span>';
+      }
+      if ($has_caption) :
+        $img_caption .= '<div class="featured-with-caption__caption no-url">';
+        if ($img_url) :
+          $img_caption = '<div class="featured-with-caption__caption"><a href="' . $img_url . '"target="_blank">';
+        endif;
+        $img_caption .= $caption_mob;
+        $img_caption .= $caption_d;
+        if ($img_url) :
+          $img_caption .= '</a>';
+        endif;
+        $img_caption .= '</div>' . $img_hover;
+      endif;
+      $variables['img_caption'] = $img_caption;
+    }
+    $variables['img_class'] = $img_class;
   }
 }
 
 /**
  * Implements hook_ds_pre_render_alter().
  */
-function dcomms_theme_ds_pre_render_alter(&$layout_render_array, $context, &$variables) {
+function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$variables) {
   if (isset($variables['type'])) {
     $feature_types = array('page', 'blog_article', 'alert', 'news_article');
-    if ($variables['type'] === 'consultation' || $variables['type'] === 'poll') {
+    if ($variables['type'] === 'consultation' || $variables['type'] === 'poll' || $variables['type'] === 'funding') {
       // If viewed in iframe mode - add additional class.
-      if ($variables['view']->name === 'consultations_iframe') {
+      if (isset($variables['view']) && $variables['view']->name === 'consultations_iframe') {
         $variables['classes_array'][] = 'grid-stream__item--iframe';
       }
       // Modify the class if the node has a Featured Image.
@@ -982,6 +1202,9 @@ function dcomms_theme_ds_pre_render_alter(&$layout_render_array, $context, &$var
       // Add the relevant class to the template.
       if ($variables['view_mode'] === 'grid_stream_portrait') {
         $variables['classes_array'][] = 'grid-stream__item--vertical' . $modifier_class;
+      }
+      if ($variables['view_mode'] === 'grid_stream_portrait_small' && $variables['type'] === 'funding') {
+        $variables['classes_array'][] = 'grid-stream__item--vertical';
       }
       elseif ($variables['view_mode'] === 'grid_stream_landscape') {
         $variables['classes_array'][] = 'clearfix__overflow grid-stream__item--landscape-small' . $modifier_class;
@@ -1017,27 +1240,9 @@ function dcomms_theme_ds_pre_render_alter(&$layout_render_array, $context, &$var
         $business_area_tid = $variables['field_business_area'][0]['tid'];
       }
 
-      switch ($business_area_tid) {
-        case 20:
-          $business_area_name = 'digital-business';
-          $hide_stream = TRUE;
-          break;
+      $subsites = _doca_theme_get_subsites();
+      $business_area_name = isset($subsites[$business_area_tid]) ? $subsites[$business_area_tid] : $business_area_tid;
 
-        case 40:
-          $business_area_name = 'bureau-communications-research';
-          $hide_stream = TRUE;
-          break;
-
-        case 15:
-          $business_area_name = 'stay-smart-online';
-          $hide_stream = TRUE;
-          break;
-
-        default:
-          $business_area_name = $business_area_tid;
-          break;
-
-      }
       $variables['classes_array'][] = 'grid-stream__item--business-area';
       $variables['classes_array'][] = 'subsite__' . $business_area_name;
 
@@ -1046,7 +1251,7 @@ function dcomms_theme_ds_pre_render_alter(&$layout_render_array, $context, &$var
       }
     }
 
-    // add different classes to relevant priority levels of SSO Alerts
+    // Add different classes to relevant priority levels of SSO Alerts.
     if ($variables['type'] == 'alert') {
       if (isset($variables['field_priority_level']) && count($variables['field_priority_level'])) {
         $priority_level = $variables['field_priority_level'][LANGUAGE_NONE][0]['tid'];
@@ -1062,7 +1267,7 @@ function dcomms_theme_ds_pre_render_alter(&$layout_render_array, $context, &$var
 /**
  * Implements template_preprocess_poll_results().
  */
-function dcomms_theme_preprocess_poll_results(&$variables) {
+function doca_theme_preprocess_poll_results(&$variables) {
   $node = node_load($variables['nid']);
   $keys = array_keys($node->choice);
   $variables['votes_1'] = $node->choice[$keys[0]]['chvotes'];
@@ -1072,20 +1277,20 @@ function dcomms_theme_preprocess_poll_results(&$variables) {
 /**
  * Implements hook_block_view_alter().
  */
-function dcomms_theme_block_view_alter(&$data, $block) {
+function doca_theme_block_view_alter(&$data, $block) {
   if ($block->module === 'search' && $block->delta === 'form') {
     $contexts = context_active_contexts();
     if (array_key_exists('display_sso_nav', $contexts) || array_key_exists('clone_of_display_sso_nav', $contexts)) {
-      $data['subsite'] = '15';
-      $data['subsite_name'] = 'Stay Smart Online';
+      $data['subsite'] = theme_get_setting('sub_theme_1');
+      $data['subsite_name'] = theme_get_setting('sub_theme_1_title');
     }
     if (array_key_exists('display_digitalbusiness_nav', $contexts) || array_key_exists('display_digitalbusiness_nav', $contexts)) {
-      $data['subsite'] = '20';
-      $data['subsite_name'] = 'Digital Business';
+      $data['subsite'] = theme_get_setting('sub_theme_3');
+      $data['subsite_name'] = theme_get_setting('sub_theme_3_title');
     }
     if (array_key_exists('display_bcr_nav', $contexts) || array_key_exists('clone_of_display_bcr_nav', $contexts)) {
-      $data['subsite'] = '40';
-      $data['subsite_name'] = 'Bureau of Communications Research';
+      $data['subsite'] = theme_get_setting('sub_theme_2');
+      $data['subsite_name'] = theme_get_setting('sub_theme_2_title');
     }
   }
 }
@@ -1094,7 +1299,6 @@ function dcomms_theme_block_view_alter(&$data, $block) {
  * Helper function to add consultation variables to template files.
  */
 function _consultation_vars(&$variables, $element_object) {
-
   $consultation['now'] = time();
   $consultation['wrapped_entity'] = entity_metadata_wrapper('node', $element_object);
   $date = $consultation['wrapped_entity']->field_consultation_date->value();
@@ -1104,16 +1308,31 @@ function _consultation_vars(&$variables, $element_object) {
   $consultation['date_status'] = $consultation['wrapped_entity']->field_consultation_date_status->value();
   $consultation['archived'] = _consultation_is_archived($consultation);
   $consultation['in_review'] = ($consultation['end'] < $consultation['now']) && !$consultation['archived'];
+  $consultation['started_text'] = 'Started';
+  if ($consultation['start'] > $consultation['now']) {
+    $consultation['started_text'] = 'Starts';
+  }
+  $consultation['ended_text'] = 'Ends';
+  if ($consultation['end'] < $consultation['now']) {
+    $consultation['ended_text'] = 'Ended';
+  }
   $consultation['percentage'] = _consultation_percentage($consultation);
   $consultation['days_total'] = round($consultation['duration'] / strtotime('1 day', 0));
   $consultation['days_remain'] = _consultation_days_remain($consultation);
   $consultation['submission_enabled'] = $consultation['wrapped_entity']->field_formal_submission_enabled->value();
   $consultation['status_class'] = ($consultation['percentage'] === 100 ? 'progress-bar--complete' : '');
-  $consultation['status_message'] = _consultation_status_message($consultation);
-  $consultation['submissions_closed_message'] = _consultation_submissions_closed_message($consultation);
+  if ($element_object->type == 'consultation') {
+    _consultation_status_message($consultation);
+  }
+  else {
+    _consultation_status_message($consultation, 'Applications under consideration', 'Funding round finalised');
+  }
+  $consultation['status_msg_class'] = strtolower($consultation['status_msg_class']);
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
   $variables['consultation'] = $consultation;
-
+  if ($element_object->type == 'funding') {
+    $variables['funding'] = $consultation;
+  }
   return $variables;
 }
 
@@ -1141,26 +1360,44 @@ function _consultation_days_remain($consultation) {
 }
 
 /**
- * Helper function for status message.
+ * Helper function for the consultation status message.
  */
-function _consultation_status_message($consultation) {
+function _consultation_status_message(&$consultation, $in_review = 'Now under review', $public = 'Submissions now public') {
 
   $status_message = t('Open');
+  $consultation['ongoing'] = FALSE;
+  $node_wrapper = $consultation['wrapped_entity'];
+  $is_funding = $node_wrapper->getBundle() == 'funding';
 
   if ($consultation['in_review']) {
-    $status_message = t('Now under review');
+    $status_message = t($in_review);
   }
 
-  $formal_submission_public = $consultation['wrapped_entity']->field_formal_submission_public->value();
+  $formal_submission_public = isset($node_wrapper->field_formal_submission_public) && $node_wrapper->field_formal_submission_public->value();
   if ($formal_submission_public) {
-    $status_message = t('Submissions now public');
+    $status_message = t($public);
   }
 
-  if ($consultation['archived']) {
+  if (!$is_funding && $consultation['archived']) {
     $status_message = t('Archived');
   }
 
-  return $status_message;
+  if ($consultation['start'] > $consultation['now'] && $node_wrapper->field_consultation_date_status->value() == 'current') {
+    $status_message = 'Upcoming';
+  }
+
+  if ($is_funding && $node_wrapper->field_funding_type->value()->name == 'Ongoing') {
+    $status_message = 'Open';
+    $consultation['ongoing'] = TRUE;
+  }
+
+  if ($is_funding && !is_null($node_wrapper->field_outcomes_posted->value())) {
+    $status_message = 'This program has closed';
+  }
+
+  $consultation['status_msg_class'] = str_replace(' ', '-', $status_message);
+
+  $consultation['status_message'] = $status_message;
 
 }
 
@@ -1211,7 +1448,7 @@ function _consultation_percentage($consultation) {
 /**
  * Implements template_preprocess_views_view().
  */
-function dcomms_theme_preprocess_views_view(&$variables) {
+function doca_theme_preprocess_views_view(&$variables) {
   if ($variables['name'] === 'formal_submissions') {
     $node = menu_get_object();
     if (isset($node->field_hide_submission_filters[LANGUAGE_NONE][0]['value']) && $node->field_hide_submission_filters[LANGUAGE_NONE][0]['value'] === '1') {
@@ -1224,13 +1461,17 @@ function dcomms_theme_preprocess_views_view(&$variables) {
       $variables['classes_array'][] = 'grid-stream--grid-at-three';
     }
   }
+  if ($variables['name'] == 'whats_new_grid' && $variables['display_id'] == 'block_1') {
+    if (count($variables['view']->result) == 2) {
+      $variables['classes_array'][] = 'grid-stream__2-col';
+    }
+  }
 }
-
 
 /**
  * Implements hook_theme().
  */
-function dcomms_theme_theme($existing, $type, $theme, $path) {
+function doca_theme_theme($existing, $type, $theme, $path) {
   return array(
     'share_row' => array(
       'template' => 'templates/share-row',
@@ -1251,7 +1492,7 @@ function dcomms_theme_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_theme().
  */
-function dcomms_theme_item_list($variables) {
+function doca_theme_item_list($variables) {
   $items = $variables['items'];
   $title = $variables['title'];
   $type = $variables['type'];
@@ -1316,7 +1557,7 @@ function dcomms_theme_item_list($variables) {
 /**
  * Implements theme_pager().
  */
-function dcomms_theme_pager($variables) {
+function doca_theme_pager($variables) {
   $tags = $variables['tags'];
   $element = $variables['element'];
   $parameters = $variables['parameters'];
@@ -1449,9 +1690,10 @@ function dcomms_theme_pager($variables) {
 
     $output = '<div class="pager__wrapper">';
     $output .= '<h2 class="element-invisible">' . t('Pages') . '</h2>' . theme('item_list', array(
-        'items' => $items,
-        'attributes' => array('class' => array('pager')),
-      ));
+      'items' => $items,
+      'attributes' => array('class' => array('pager')),
+    )
+    );
     $output .= "</div>";
 
     return $output;
@@ -1459,13 +1701,12 @@ function dcomms_theme_pager($variables) {
 }
 
 /**
- * Implements hook_node_view
+ * Implements hook_node_view.
  *
- * @param $node
- * @param $view_mode
- * @param $langcode
+ * @param array &$build
+ *        A renderable array representing the node content.
  */
-function dcomms_theme_node_view_alter(&$build) {
+function doca_theme_node_view_alter(&$build) {
   if ($build['#node']->type == 'alert' && $build['#view_mode'] == 'rss_feed') {
     $node = $build['#node'];
     if (!empty($node->field_priority_level[LANGUAGE_NONE][0]['tid'])) {
@@ -1478,6 +1719,26 @@ function dcomms_theme_node_view_alter(&$build) {
       }
     }
   }
+}
+
+/**
+ * Helper function to get the theme settings for mini sites by term ID.
+ *
+ * @return array
+ *         An array of Theme minisite settings by term ID.
+ */
+function _doca_theme_get_subsites() {
+  $subsites = &drupal_static(__FUNCTION__);
+  if (!isset($subsites)) {
+    $subsites = array(
+      theme_get_setting('sub_theme_1') => 'sub-theme-1',
+      theme_get_setting('sub_theme_2') => 'sub-theme-2',
+      theme_get_setting('sub_theme_3') => 'sub-theme-3',
+      theme_get_setting('sub_theme_4') => 'sub-theme-4',
+    );
+  }
+  return $subsites;
+
 }
 
 /**

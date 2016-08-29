@@ -8,18 +8,18 @@
  */
 ?>
 
-<div class="layout-max spacer <?php if(!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
-    <?php if(isset($node->body[$node->language][0]['safe_summary'])): ?>
-        <div class="layout-sidebar__main page-description__content">
-            <?php print render($node->body[$node->language][0]['safe_summary']);  ?>
-        </div>
-    <?php endif; ?>
-    <div class="layout-sidebar__sidebar">
-      <?php print render($content['field_blog_categories']); ?>
+<div class="layout-max spacer <?php if (!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
+  <?php if (isset($node->body[$node->language][0]['safe_summary'])): ?>
+    <div class="layout-sidebar__main page-description__content">
+      <?php print render($node->body[$node->language][0]['safe_summary']); ?>
     </div>
+  <?php endif; ?>
+  <div class="layout-sidebar__sidebar">
+    <?php print render($content['field_blog_categories']); ?>
+  </div>
 </div>
 
-<?php if(isset($service_links)): ?>
+<?php if (isset($service_links)): ?>
   <div class="layout-max">
     <?php print $service_links; ?>
   </div>
@@ -27,7 +27,7 @@
 
 <div class="layout-max spacer spacer--bottom-large">
   <?php print render($submitted); ?>
-  <?php if(isset($content['field_image_with_caption'])): ?>
+  <?php if (isset($content['field_image_with_caption'])): ?>
     <div class="spacer--top-large">
       <?php print render($content['field_image_with_caption']); ?>
     </div>

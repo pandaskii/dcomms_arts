@@ -8,7 +8,7 @@
 /*
  * Helper function: Return the 'External source' field value.
  */
-function _dcomms_admin_return_external_source($node, $wrapper = NULL) {
+function _doca_admin_return_external_source($node, $wrapper = NULL) {
   // Set default external source value.
   $external_source = FALSE;
 
@@ -33,8 +33,8 @@ function _dcomms_admin_return_external_source($node, $wrapper = NULL) {
 /**
  * Helper function: Return whether an entity has an 'External source' filled in.
  */
-function _dcomms_admin_return_node_has_external_source($node) {
-  return (_dcomms_admin_return_external_source($node)) != FALSE ? TRUE : FALSE;
+function _doca_admin_return_node_has_external_source($node) {
+  return (_doca_admin_return_external_source($node)) != FALSE ? TRUE : FALSE;
 }
 
 /**
@@ -43,7 +43,7 @@ function _dcomms_admin_return_node_has_external_source($node) {
  * Check that the 'Enable late submissions' value is set.
  * Check that the date has passed.
  */
-function _dcomms_admin_accept_late_submission($node) {
+function _doca_admin_accept_late_submission($node) {
   // Set a default answer.
   $answer = FALSE;
   // Create an entity metadata wrapper.
@@ -52,7 +52,7 @@ function _dcomms_admin_accept_late_submission($node) {
   // Check if the 'Enable late submissions' field exists and is TRUE.
   if (isset($node->field_enable_late_submissions) && $wrapper->field_enable_late_submissions->value() === TRUE) {
     // Get the consultation date end.
-    $consultation_date_end = _dcomms_admin_return_end_consultation_date($node, $wrapper);
+    $consultation_date_end = _doca_admin_return_end_consultation_date($node, $wrapper);
     // Get the current time.
     $time = time();
     // Check if the current date is greater than the end date (i.e. it's in the past).
@@ -69,18 +69,18 @@ function _dcomms_admin_accept_late_submission($node) {
 /**
  * Helper function: Return salted hash for a given node ID.
  */
-function _dcomms_admin_return_salted_hash($nid) {
+function _doca_admin_return_salted_hash($nid) {
   return crc32($nid);
 }
 
 /**
  * Helper function: Return formatted late submission URL.
  */
-function _dcomms_admin_return_late_submission_url($node) {
+function _doca_admin_return_late_submission_url($node) {
   global $base_url;
 
   // Get the salted hash for this nid.
-  $salted_hash = _dcomms_admin_return_salted_hash($node->nid);
+  $salted_hash = _doca_admin_return_salted_hash($node->nid);
 
   // Get the node path.
   $uri = entity_uri('node', $node);
@@ -96,7 +96,7 @@ function _dcomms_admin_return_late_submission_url($node) {
 /**
  * Helper function: Return whether a user has a given role.
  */
-function _dcomms_admin_return_user_has_role($roles = array()) {
+function _doca_admin_return_user_has_role($roles = array()) {
   global $user;
 
   // Set default access value.
@@ -131,7 +131,7 @@ function _dcomms_admin_return_user_has_role($roles = array()) {
 /**
  * Helper function: Return end consultation date.
  */
-function _dcomms_admin_return_end_consultation_date($node, $wrapper) {
+function _doca_admin_return_end_consultation_date($node, $wrapper) {
   // Set default consultation date end value.
   $consultation_date_end = '';
 
@@ -150,7 +150,7 @@ function _dcomms_admin_return_end_consultation_date($node, $wrapper) {
 /**
  * Render webform.
  */
-function _dcomms_theme_webform_render($nid = NULL) {
+function _doca_theme_webform_render($nid = NULL) {
   $wnode = node_load($nid);
   $form = drupal_get_form('webform_client_form_' . $nid, $wnode, array());
 

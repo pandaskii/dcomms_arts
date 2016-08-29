@@ -1,0 +1,146 @@
+// Header search
+//
+// Search icon
+//
+// Markup: header-search.html
+//
+// Styleguide components.header-search
+@import 'components/form/form';
+@import 'components/button/button';
+@import 'components/background-image/background-image';
+%header-search__form, .header-search__form {
+  padding: 1rem 1rem;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+  @include breakpoint($large) {
+    padding: 0;
+    border-color: transparent;
+    background: transparent;
+    position: absolute;
+    top: 0px;
+    right: -1rem;
+    z-index: 2;
+    height: 70px;
+    overflow: hidden;
+    // Transition the width of the div.
+    -moz-transition: width 0.25s;
+    -webkit-transition: width 0.25s;
+    transition: width 0.25s;
+    width: 0;
+    &.is-active {
+      width: 100%;
+    }
+  }
+  .no-mediaqueries & {
+    margin-bottom: 1rem;
+    border-bottom: none;
+    width: 30%;
+    float: right;
+  }
+}
+
+%header-search__item, .header-search__item {
+  width: 100%;
+  z-index: 1;
+}
+
+%header-search__input, .header-search__input {
+  @extend %form__input;
+  min-width: 0;
+  padding: 0 3rem 0 0;
+  @include placeholder-color(#fff);
+  color: #fff;
+  width: 100% !important;
+  font-family: Gafata, serif;
+  font-size: 1.25rem;
+  height: 38px;
+  background-color: #000;
+  border-color: transparent;
+  @include breakpoint($large) {
+    padding-left: 1rem;
+    border-width: 0 0 3px;
+    font-size: 1rem;
+    border-color: color(blue-aqua-mid);
+    height: 60px;
+    &:hover {
+      border-color: color(blue-aqua);
+    }
+    &:focus {
+      border-color: color(blue-aqua-mid);
+    }
+  }
+}
+
+%header-search__icon-wrapper, .header-search__icon-wrapper {
+  display: none;
+  margin-right: 0.75rem;
+  @include breakpoint($large) {
+    display: inline-block;
+    margin-top: 1rem;
+    padding-left: 1.125rem;
+    padding-bottom: 1rem;
+    margin-right: 0;
+  }
+}
+
+%header-search__button-wrapper, .header-search__button-wrapper {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+  @include breakpoint($large) {
+    top: 1rem;
+  }
+}
+
+%header-search__icon, .header-search__icon {
+  @extend %hide-text;
+  width: 18px;
+  height: auto;
+  display: inline-block;
+  @include breakpoint($large) {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+%header-search__icon--button, .header-search__icon--button {
+  @extend %header-search__icon;
+  @include button__reset;
+  @include background-image('search--white.png', 0, contain);
+  .no-mediaqueries & {
+    background-image: url('../images/search--white.png');
+  }
+  &:hover {
+    @include background-image('search--white.png', 0, contain);
+  }
+}
+
+%header-search__icon--link, .header-search__icon--link {
+  @extend %header-search__icon;
+  @include underline-on-hover__never;
+  @include background-image('search.svg', 0, contain);
+  vertical-align: bottom;
+  .no-mediaqueries & {
+    background-image: url('../images/search-.png');
+  }
+}
+
+// Fugly.
+.header-search__form {
+  .form-item {
+    @extend %header-search__item;
+  }
+  .form-text {
+    @extend %header-search__input;
+  }
+  .form-actions {
+    @extend %header-search__button-wrapper;
+  }
+  .form-submit {
+    @extend %header-search__icon--button;
+  }
+}

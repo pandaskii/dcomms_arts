@@ -8,9 +8,10 @@
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function dcomms_theme_form_webform_client_form_alter(&$form, &$form_state, $form_id) {
+function doca_theme_form_webform_client_form_alter(&$form, &$form_state, $form_id) {
   $wf_nid = theme_get_setting('feedback_wform_nid');
-  if (!empty($wf_nid) && ($form_id == 'webform_client_form_' . $wf_nid)) {
+  $wf_enabled = theme_get_setting('feedback_enabled');
+  if ($wf_enabled && !empty($wf_nid) && ($form_id == 'webform_client_form_' . $wf_nid)) {
     $webform = $form['#node']->webform;
 
     // Reset webform action.

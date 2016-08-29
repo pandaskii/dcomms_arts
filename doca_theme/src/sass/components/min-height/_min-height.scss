@@ -1,0 +1,16 @@
+// Min-height
+//
+// Markup: min-height.html
+//
+// Styleguide components.min-height
+%min-height__icon, .min-height__icon {
+  min-height: 70px;
+  img {
+    height: 50px;
+  }
+  .spotlight--alt & {
+    img {
+      height: auto;
+    }
+  }
+}

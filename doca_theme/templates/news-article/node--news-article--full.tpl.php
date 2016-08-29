@@ -9,13 +9,14 @@
 ?>
 
 <div class="layout-max spacer spacer--bottom-large">
-  <?php if(isset($node->body[$node->language][0]['safe_summary'])): ?>
-    <div class="layout-sidebar__main page-description__content <?php if(!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
-      <?php print render($node->body[$node->language][0]['safe_summary']);  ?>
+  <?php if (isset($node->body[$node->language][0]['safe_summary'])): ?>
+    <div
+      class="layout-sidebar__main page-description__content <?php if (!isset($service_links)): print 'spacer--bottom-large'; endif; ?>">
+      <?php print render($node->body[$node->language][0]['safe_summary']); ?>
     </div>
   <?php endif; ?>
 
-  <?php if(isset($service_links)): ?>
+  <?php if (isset($service_links)): ?>
     <div class="layout-max spacer">
       <?php print $service_links; ?>
     </div>
@@ -23,7 +24,7 @@
 
   <div class="spacer--bottom-large">
     <?php print render($content['field_news_date']); ?>
-    <?php if(isset($content['field_image_with_caption'])): ?>
+    <?php if (isset($content['field_image_with_caption'])): ?>
       <div class="spacer--top-large">
         <?php print render($content['field_image_with_caption']); ?>
       </div>
@@ -31,6 +32,7 @@
   </div>
   <div class="layout-sidebar__main">
     <?php print render($content['body']); ?>
+    <?php print render($content['field_para_qna']); ?>
   </div>
   <?php if (isset($content['related_content'])): ?>
     <div class="layout-sidebar__sidebar sidebar--right-align">

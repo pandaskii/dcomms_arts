@@ -1,0 +1,105 @@
+// Sidebar layout
+//
+// Markup: layout-sidebar.html
+//
+// Styleguide: layouts.sidebar
+.layout-sidebar__main, %layout-sidebar__main {
+  margin-bottom: 1rem;
+  @include breakpoint($medium) {
+    .front & {
+      padding-bottom: 1.5rem;
+    }
+  }
+  @include breakpoint($large) {
+    padding-right: 3rem;
+    float: left;
+    width: 75%;
+    max-width: 760px;
+    margin-bottom: 0;
+    .front & {
+      padding-bottom: 2.5rem;
+      .read-more {
+        font-size: 1.125rem;
+        line-height: 1rem;
+        @include font-smoothing;
+      }
+    }
+  }
+  .layout-sidebar__with-img & {
+    @include breakpoint($medium) {
+      padding-right: 3rem;
+      float: left;
+      width: 75%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.layout-sidebar__sidebar, %layout-sidebar__sidebar {
+  @include breakpoint($large) {
+    float: right;
+    width: 25%;
+    &.sidebar--right-align {
+      margin-right: -1rem;
+      &.sidebar--large {
+        margin-right: 0;
+      }
+    }
+    &--related {
+      width: 100%;
+      float: right;
+    }
+  }
+  .layout-sidebar__with-img & {
+    &.sidebar--large {
+      text-align: center;
+    }
+    &--related {
+      text-align: left;
+    }
+    @include breakpoint($medium) {
+      &.sidebar--large {
+        float: right;
+        width: 25%;
+        img {
+          width: 100%;
+        }
+      }
+      &--related {
+        width: 100%;
+        float: right;
+      }
+    }
+    @include breakpoint($x-large) {
+      &--related {
+        width: 312px;
+      }
+      &.sidebar--large {
+        width: 460px;
+        &.sidebar--right-align {
+          margin-right: -1rem;
+        }
+      }
+    }
+  }
+  &> .list-arrow {
+    li.list-arrow__item {
+      &:focus, &:active, &:hover {
+        color: color(doca-blue);
+      }
+      &, a {
+        color: color(doca-blue);
+      }
+      a {
+        &:focus, &:hover {
+          color: color(blue-light);
+        }
+        &:active {
+          color: color(dark);
+        }
+      }
+    }
+  }
+}
+
+.layout-sidebar__with-img {}

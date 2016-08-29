@@ -44,5 +44,5 @@
  */
 ?>
 <?php foreach ($items as $delta => $item): ?>
-  <?php print dcomms_theme_read_more_link(check_plain($item['#element']['url']), check_plain($item['#element']['title'])); ?>
+  <?php print doca_theme_read_more_link(check_plain($item['#element']['url']), check_plain($item['#element']['title'])); ?>
 <?php endforeach; ?>

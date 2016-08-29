@@ -1,0 +1,42 @@
+// Group
+//
+// Style field groups as required.
+//
+// Markup: group.html
+//
+// Styleguide components.group
+.ds-groups-wrapper {
+  .palette__dark-grey--group & {
+    @include palette($palette-main, grey-dark);
+    .group-formal-submissions {
+      background: url(../images/module-bar-10.png) 50% 0 no-repeat transparent;
+      background-size: 160px 3px;
+      @include breakpoint($medium) {
+        background-size: auto;
+      }
+    }
+    .progress-bar__bar--funding {
+      background-color: color(grey-darker);
+      @extend %spacer;
+      .progress-bar {
+        max-width: none;
+      }
+      .progress-bar__text, .progress-bar__days-remain, .progress-bar__label, .progress-bar__highlighted, .progress-bar__start-date, .progress-bar__end-date {
+        color: #fff;
+      }
+    }
+  }
+  .group-formal-submissions {
+    .progress-bar__bar--funding {
+      margin-bottom: 30px;
+      margin-top: 30px;
+      @include breakpoint($medium) {
+        margin-bottom: 50px;
+        margin-top: 50px;
+      }
+      &.ongoing {
+        margin: 0;
+      }
+    }
+  }
+}

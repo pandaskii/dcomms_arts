@@ -23,5 +23,5 @@
  */
 ?>
 <div class="file__wrapper--slim">
-<?php print $output; ?>
+  <?php print $output; ?>
 </div>

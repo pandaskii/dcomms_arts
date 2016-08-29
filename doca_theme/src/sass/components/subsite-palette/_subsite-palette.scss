@@ -1,0 +1,8 @@
+@import 'components/palette/palette';
+$subsite-palette: ( sub-theme-1: ( border: #f4e731, foreground: #12293a, hover: #000, background: #f4e83d, header-arrow: #000, background-light: #f3e631, background-dark: #f7ee6f, ), sub-theme-2: ( border: #7b74e8, foreground: #12293a, hover: darken(#aa0f14, 10%), background: color(purple-dark), header-arrow: #fff, background-light: #a7a2ef, background-dark: #9893ed, ), sub-theme-3: ( border: #004385, foreground: #004385, hover: darken(#004385, 10%), background: #004385, header-arrow: #51a8fb, background-light: #00509d, background-dark: #002850, ), sub-theme-4: ( border: #004385, foreground: #004385, hover: darken(#004385, 10%), background: #004385, header-arrow: #51a8fb, background-light: #00509d, background-dark: #002850, ), communications: ( border: #5abde9, foreground: #3192bc, hover: darken(#3192bc, 15%), background-light: #00509d, background-dark: #002850, ), alert: ( border: #0e669c, foreground: #0e669c, hover: darken(#0e669c, 10%), background-light: #f26b21, background-dark: #7b2c01, ), );
+@mixin subsite-link-color($subsite) {
+  color: palette($subsite-palette, $subsite foreground) !important;
+  &:focus, &:hover {
+    color: palette($subsite-palette, $subsite hover) !important;
+  }
+}

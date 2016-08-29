@@ -1,0 +1,73 @@
+// Featured palette
+//
+// Colour palette for the featured content
+//
+// Markup: featured-palette.html
+//
+// .subsite__sub-theme-1 - Sub Theme 1 featured content.
+// .subsite__sub-theme-2 - Sub Theme 2 featured content.
+// .subsite__sub-theme-3 - Sub Theme 3 featured content.
+// .subsite__sub-theme-4 - Sub Theme 4 featured content.
+//
+// Styleguide components.featured-palette
+@import 'components/palette/palette';
+@import 'components/subsite-palette/subsite-palette';
+$featured-palette__subsite: () !default;
+@function featured-palette__add-subsite($subsite-palette) {
+  $lightest: palette($subsite-palette, background-light);
+  $darkest: palette($subsite-palette, background-dark);
+  $this-featured-palette: ( 1: ( background: $lightest), 2: ( background: mix($lightest, $darkest, 60%), ), 3: ( background: mix($lightest, $darkest, 40%), ), 4: ( background: mix($lightest, $darkest, 20%), ), 5: ( background: $darkest, ), 6: ( background: mix($lightest, $darkest, 80%), ), );
+  @return map-merge($featured-palette__subsite, $this-featured-palette);
+}
+
+@mixin feature-palette-apply($subsite, $palette) {
+  $default-featured-palette: featured-palette__add-subsite(map-get($palette, $subsite));
+  // Get color contrast of darkest nth-child for foreground
+  $foreground: color-contrast(palette($default-featured-palette, 6 background));
+  .featured-palette {
+    &, a {
+      color: $foreground !important;
+      &:hover, &:visited, &:link {
+        color: $foreground;
+      }
+    }
+    @for $i from 1 through length($default-featured-palette) {
+      $background: palette($default-featured-palette, $i background);
+      >:nth-child(#{$i}n) {
+        background-color: $background;
+      }
+    }
+  }
+  .featured-palette__wrapper {
+    background-color: palette($default-featured-palette, 6 background);
+  }
+}
+
+$default-palette: ( default: ( background-light: #5265ff, background-dark: #3947b2, ), );
+$grey-palette: ( grey: ( background-light: #bababa, background-dark: #bababa, ), );
+@include feature-palette-apply(default, $default-palette);
+@each $subsite, $palette in $subsite-palette {
+  .subsite__#{$subsite} {
+    @include feature-palette-apply($subsite, $subsite-palette);
+  }
+}
+
+//Override for sub-theme2 that is outside the function values
+.subsite__sub-theme-2 .featured-palette {
+  >:nth-child(3n) {
+    background-color: #8983ea;
+  }
+  >:nth-child(4n) {
+    background-color: #918bec;
+  }
+  >:nth-child(5n) {
+    background-color: #9893ed;
+  }
+  >:nth-child(6n) {
+    background-color: #7b74e8;
+  }
+}
+
+.featured-palette--grey, %featured-palette--grey {
+  @include feature-palette-apply(grey, $grey-palette);
+}

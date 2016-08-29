@@ -1,0 +1,19 @@
+// Sidebar Two Thirds
+//
+// Markup: layout-two-thirds.html
+//
+// Styleguide: layouts.two-thirds
+.layout-one-two-thirds__main, %layout-one-two-thirds__main {
+  @include breakpoint($medium) {
+    float: left;
+    width: 66%;
+    padding: 0 1rem;
+  }
+}
+
+.layout-one-third__sidebar, %layout-one-third__sidebar {
+  @include breakpoint($medium) {
+    float: left;
+    width: 33%;
+  }
+}

@@ -1,0 +1,99 @@
+// Header menu
+//
+// An inline list of links on large screens which collapses down into an
+// vertical list of links
+//
+// Markup: header-menu.html
+//
+// Styleguide components.header-menu
+@import 'components/list-unstyled/list-unstyled';
+.header-menu {
+  @include breakpoint($large) {
+    padding-left: 1rem;
+  }
+}
+
+%header-menu__menu, .header-menu__menu {
+  @extend %list-unstyled;
+  padding: 0 1rem;
+  border-color: transparent;
+  @include breakpoint($large) {
+    float: right;
+    padding: 0;
+    @extend %header-menu__border;
+  }
+}
+
+%header-menu__item, .header-menu__item {
+  @include breakpoint($large) {
+    display: block;
+    float: left;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    padding-bottom: 0.875rem;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+  .no-mediaqueries & {
+    display: block;
+    float: left;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+%header-menu__link, .header-menu__link {
+  @extend %header-menu__arrow;
+  display: block;
+  padding: 1.25rem 0;
+  color: color(dark);
+  text-decoration: none;
+  border-bottom: 2px solid #fff;
+  position: relative;
+  &.active, &.is-active-trail, &:hover, &:focus {
+    color: color(doca-blue);
+    border-color: color(doca-blue);
+  }
+  @include breakpoint($large) {
+    padding: 1rem 0 0;
+    border-color: transparent;
+    &.active, &.is-active-trail, &:hover, &:focus {
+      color: color(dark);
+      border-color: transparent;
+      position: relative;
+      &:after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        bottom: -1.26rem;
+        left: 0;
+        height: 6px;
+        z-index: 1;
+        background: url('../images/bg--point--black.svg') repeat-x white 0 50%;
+      }
+    }
+  }
+  &:hover, &:focus {}
+}
+
+.header-menu__border, %header-menu__border {
+  @include breakpoint($large) {
+    border-bottom: 3px solid black;
+  }
+}
+
+.header-menu__arrow, %header-menu__arrow {
+  &:after {
+    content: url('../images/arrow--blue.svg');
+    padding-left: .25rem;
+    float: right;
+    @include breakpoint($large) {
+      content: '';
+      padding-left: 0;
+    }
+  }
+}
