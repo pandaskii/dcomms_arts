@@ -6241,6 +6241,18 @@ img.iefix {
 .tablesaw.tablesaw-stack tbody tr {
   border-bottom: none;
 }
+.layout-sidebar__main .tablesaw thead, .layout-sidebar__main .tablesaw th {
+  background: #a5a5a5;
+  color: #000;
+}
+.tablesaw tr.tr-even {
+  background: #e4e4e4;
+}
+.layout-sidebar__main .tablesaw td, .layout-sidebar__main .tablesaw th {
+  vertical-align: top;
+  text-align: center;
+  line-height: 1.5em;
+}
 
 .top-notification#cookie-alert {
   background: #0d293b;
