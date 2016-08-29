@@ -3,8 +3,9 @@
  * @file
  * Default template implementation to display the value of a field.
  */
+if (!empty($hide_date) && $hide_date):
 ?>
-<div class="spacer--vertical">
+<div class="spacer--top">
   <?php if (!$label_hidden): ?>
     <span class="font__medium"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</span>
   <?php endif; ?>
@@ -18,3 +19,4 @@
     <?php endif; ?>
   </span>
 </div>
+<?php endif; ?>

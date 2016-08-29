@@ -239,6 +239,13 @@ function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
 function doca_admin_form_funding_node_form_alter(&$form, &$form_state) {
   // Add validation callback to handle auto clearing funding updates.
   $form['#validate'][] = 'doca_admin_clear_updates';
+  $ongoing = taxonomy_get_term_by_name('Ongoing', 'funding_type');
+  $ongoing = reset($ongoing);
+  drupal_add_js(array(
+    'doca_admin' => array(
+      'ongoing_tid' => $ongoing->tid,
+    ),
+  ), 'setting');
   $form['#attached']['js'][] = drupal_get_path('theme', 'doca_admin') . '/js/script.js';
 }
 
@@ -246,37 +253,39 @@ function doca_admin_form_funding_node_form_alter(&$form, &$form_state) {
  * Validation callback for funding node forms.
  */
 function doca_admin_clear_updates($form, &$form_state) {
-  // Don't validate on insert, only on changes.
-  if (!isset($form['#node']->field_consultation_date) || empty($form['#node']->field_consultation_date)) {
-    return;
-  }
-
-  // Grab current field value from node.
-  $current_field = reset($form_state['node']->field_consultation_date[$form_state['node']->language]);
-
-  // Check validity of form input.
-  if (!isset($form_state['values']['field_consultation_date']) || empty($form_state['values']['field_consultation_date'])) {
-    // Nothing to validate. Bail.
-    return;
-  }
-
-  // Get new field value from form_state.
-  $new_field = reset($form_state['values']['field_consultation_date'][$form_state['node']->language]);
-
-  // Compare versions of the start dates.
-  if ($current_field['value'] != $new_field['value']) {
-    // The funding start date is being changed, remove updates!
-    if (isset($form_state['values']['field_updates']) && !empty($form_state['values']['field_updates'])) {
-      doca_base_paragraphs_deleteconfirm($form, $form_state);
+  if (taxonomy_term_load($form_state['values']['field_funding_type'][LANGUAGE_NONE][0]['tid'])->name == 'Ongoing') {
+    // Don't validate on insert, only on changes.
+    if (!isset($form['#node']->field_consultation_date) || empty($form['#node']->field_consultation_date)) {
+      return;
     }
-  }
 
-  // Ensure the user has only selected either a webform or a smartygrants link.
-  $smart_grant = isset($form_state['values']['field_smartygrants_link'][LANGUAGE_NONE]) && !empty($form_state['values']['field_smartygrants_link'][LANGUAGE_NONE][0]['url']);
-  $application_webform = isset($form_state['values']['field_funding_app_webform'][LANGUAGE_NONE]) && !empty($form_state['values']['field_funding_app_webform'][LANGUAGE_NONE][0]['target_id']);
-  if ($smart_grant && $application_webform) {
-    form_set_error('field_smartygrants_link', 'Please add either an <em>Application webform</em> or a <em>Smartygrants link</em>, you cannot use both.');
-    form_set_error('field_funding_app_webform', '');
+    // Grab current field value from node.
+    $current_field = reset($form_state['node']->field_consultation_date[$form_state['node']->language]);
+
+    // Check validity of form input.
+    if (!isset($form_state['values']['field_consultation_date']) || empty($form_state['values']['field_consultation_date'])) {
+      // Nothing to validate. Bail.
+      return;
+    }
+
+    // Get new field value from form_state.
+    $new_field = reset($form_state['values']['field_consultation_date'][$form_state['node']->language]);
+
+    // Compare versions of the start dates.
+    if ($current_field['value'] != $new_field['value']) {
+      // The funding start date is being changed, remove updates!
+      if (isset($form_state['values']['field_updates']) && !empty($form_state['values']['field_updates'])) {
+        doca_base_paragraphs_deleteconfirm($form, $form_state);
+      }
+    }
+
+    // Ensure the user has only selected either a webform or a smartygrants link.
+    $smart_grant = isset($form_state['values']['field_smartygrants_link'][LANGUAGE_NONE]) && !empty($form_state['values']['field_smartygrants_link'][LANGUAGE_NONE][0]['url']);
+    $application_webform = isset($form_state['values']['field_funding_app_webform'][LANGUAGE_NONE]) && !empty($form_state['values']['field_funding_app_webform'][LANGUAGE_NONE][0]['target_id']);
+    if ($smart_grant && $application_webform) {
+      form_set_error('field_smartygrants_link', 'Please add either an <em>Application webform</em> or a <em>Smartygrants link</em>, you cannot use both.');
+      form_set_error('field_funding_app_webform', '');
+    }
   }
 }
 

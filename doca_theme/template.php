@@ -1073,6 +1073,12 @@ function doca_theme_preprocess_field(&$variables, $hook) {
     _consultation_vars($variables, $element['#object']);
   }
 
+  if ($element['#field_name'] == 'field_consultation_date') {
+    if (isset($element['#object']->field_display_fund_period[LANGUAGE_NONE]) && $element['#object']->field_display_fund_period[LANGUAGE_NONE][0]['value']) {
+      $variables['hide_date'] = TRUE;
+    }
+  }
+
   // Replace title with promotional one-liner in non-full view modes.
   if ($element['#field_name'] == 'title' && $element['#view_mode'] != 'full') {
     if (isset($element['#object']->field_promotional_one_liner) && !empty($element['#object']->field_promotional_one_liner)) {
@@ -1319,7 +1325,7 @@ function _consultation_vars(&$variables, $element_object) {
     _consultation_status_message($consultation);
   }
   else {
-    _consultation_status_message($consultation, 'Applications under consideration', 'Funding round finalised', FALSE, $consultation['wrapped_entity']->field_funding_type->value()->name == 'Ongoing');
+    _consultation_status_message($consultation, 'Applications under consideration', 'Funding round finalised');
   }
   $consultation['status_msg_class'] = strtolower($consultation['status_msg_class']);
   $consultation['hide_form'] = !$consultation['submission_enabled'] || ($consultation['start'] > $consultation['now']) || ($consultation['end'] < $consultation['now']);
@@ -1356,31 +1362,37 @@ function _consultation_days_remain($consultation) {
 /**
  * Helper function for the consultation status message.
  */
-function _consultation_status_message(&$consultation, $in_review = 'Now under review', $public = 'Submissions now public', $archive = TRUE, $ongoing = FALSE) {
+function _consultation_status_message(&$consultation, $in_review = 'Now under review', $public = 'Submissions now public') {
 
   $status_message = t('Open');
   $consultation['ongoing'] = FALSE;
+  $node_wrapper = $consultation['wrapped_entity'];
+  $is_funding = $node_wrapper->getBundle() == 'funding';
 
   if ($consultation['in_review']) {
     $status_message = t($in_review);
   }
 
-  $formal_submission_public = isset($consultation['wrapped_entity']->field_formal_submission_public) && $consultation['wrapped_entity']->field_formal_submission_public->value();
+  $formal_submission_public = isset($node_wrapper->field_formal_submission_public) && $node_wrapper->field_formal_submission_public->value();
   if ($formal_submission_public) {
     $status_message = t($public);
   }
 
-  if ($archive && $consultation['archived']) {
+  if (!$is_funding && $consultation['archived']) {
     $status_message = t('Archived');
   }
 
-  if ($consultation['start'] > $consultation['now'] && $consultation['wrapped_entity']->field_consultation_date_status->value() == 'current') {
+  if ($consultation['start'] > $consultation['now'] && $node_wrapper->field_consultation_date_status->value() == 'current') {
     $status_message = 'Upcoming';
   }
 
-  if ($ongoing) {
+  if ($is_funding && $node_wrapper->field_funding_type->value()->name == 'Ongoing') {
     $status_message = 'Open';
     $consultation['ongoing'] = TRUE;
+  }
+
+  if ($is_funding && !is_null($node_wrapper->field_outcomes_posted->value())) {
+    $status_message = 'This program has closed';
   }
 
   $consultation['status_msg_class'] = str_replace(' ', '-', $status_message);

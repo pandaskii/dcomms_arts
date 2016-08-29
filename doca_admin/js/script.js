@@ -16,6 +16,11 @@
 
   Drupal.behaviors.defaultFundingEndDate = {
     attach: function(context) {
+
+      function changeDate() {
+        return $("[id^='edit-field-funding-type-und']").val() == Drupal.settings.doca_admin.ongoing_tid;
+      }
+
       // Abort early if we aren't on a funding node edit page.
       if (!$(context).find('#funding-node-form')) {
         return;
@@ -35,14 +40,26 @@
 
       // Add the option to respond to onSelect events.
       dateSettings.settings.onSelect = function(d,i) {
-        var end = new Date(d);
-        end.setMonth(end.getMonth() + 3);
-        var formattedDate = $.datepicker.formatDate("d M yy", end);
-        if (d !== i.lastVal) {
-          // Update the end date when the start date changes.
-          endDate.datepicker('setDate', formattedDate);
+        if (changeDate()) {
+          var end = new Date(d);
+          end.setMonth(end.getMonth() + 3);
+          var formattedDate = $.datepicker.formatDate("d M yy", end);
+          if (d !== i.lastVal) {
+            // Update the end date when the start date changes.
+            endDate.datepicker('setDate', formattedDate);
+          }
         }
       }
+
+      // When the Funding status field changes to Ongoing, also change the end date
+      $("[id^='edit-field-funding-type-und']").change(function() {
+        if (changeDate()) {
+          var end = new Date(startDate.val());
+          end.setMonth(end.getMonth() + 3);
+          var formattedDate = $.datepicker.formatDate("d M yy", end);
+          endDate.datepicker('setDate', formattedDate);
+        }
+      });
 
       // Re-init the date picker with our updated settings.
       startDate.datepicker(dateSettings.settings);
