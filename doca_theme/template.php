@@ -1386,7 +1386,7 @@ function _consultation_status_message(&$consultation, $in_review = 'Now under re
     $status_message = 'Upcoming';
   }
 
-  if ($is_funding && $node_wrapper->field_funding_type->value()->name == 'Ongoing') {
+  if ($is_funding && !empty($node_wrapper->field_funding_type) && $node_wrapper->field_funding_type->value()->name == 'Ongoing') {
     $status_message = 'Open';
     $consultation['ongoing'] = TRUE;
   }

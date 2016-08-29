@@ -18,7 +18,7 @@
     attach: function(context) {
 
       function changeDate() {
-        return $("[id^='edit-field-funding-type-und']").val() == Drupal.settings.doca_admin.ongoing_tid;
+        return $("[id^='edit-field-funding-type-und']").val() == Drupal.settings.doca_admin.rolling_tid;
       }
 
       // Abort early if we aren't on a funding node edit page.
