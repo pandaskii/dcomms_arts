@@ -239,11 +239,11 @@ function doca_admin_form_consultation_node_form_alter(&$form, &$form_state) {
 function doca_admin_form_funding_node_form_alter(&$form, &$form_state) {
   // Add validation callback to handle auto clearing funding updates.
   $form['#validate'][] = 'doca_admin_clear_updates';
-  $ongoing = taxonomy_get_term_by_name('Ongoing', 'funding_type');
-  $ongoing = reset($ongoing);
+  $rolling = taxonomy_get_term_by_name('Rolling', 'funding_type');
+  $rolling = reset($rolling);
   drupal_add_js(array(
     'doca_admin' => array(
-      'ongoing_tid' => $ongoing->tid,
+      'rolling_tid' => $rolling->tid,
     ),
   ), 'setting');
   $form['#attached']['js'][] = drupal_get_path('theme', 'doca_admin') . '/js/script.js';
@@ -253,7 +253,7 @@ function doca_admin_form_funding_node_form_alter(&$form, &$form_state) {
  * Validation callback for funding node forms.
  */
 function doca_admin_clear_updates($form, &$form_state) {
-  if (taxonomy_term_load($form_state['values']['field_funding_type'][LANGUAGE_NONE][0]['tid'])->name == 'Ongoing') {
+  if (taxonomy_term_load($form_state['values']['field_funding_type'][LANGUAGE_NONE][0]['tid'])->name == 'Rolling') {
     // Don't validate on insert, only on changes.
     if (!isset($form['#node']->field_consultation_date) || empty($form['#node']->field_consultation_date)) {
       return;
