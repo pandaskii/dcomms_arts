@@ -23,6 +23,6 @@
     <span class="progress-bar__percentage"><?php print $percentage; ?>%</span>
   </div>
   <div class="progress-bar__bar">
-    <div style="width: <?php print $percentage; ?>%;" class="progress-bar__progress"></div>
+    <div style="width: <?php print $percentage; ?>%;" class="progress-bar__progress--doca-blue"></div>
   </div>
 </div>
