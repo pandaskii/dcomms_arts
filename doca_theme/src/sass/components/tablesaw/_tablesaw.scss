@@ -15,6 +15,9 @@
   &.tablesaw-stack tbody tr {
     border-bottom: none;
   }
+  thead th {
+    text-shadow: none !important;
+  }
   thead, th {
     .layout-sidebar__main & {
       background: #a5a5a5;

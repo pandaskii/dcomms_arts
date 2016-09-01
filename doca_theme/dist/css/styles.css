@@ -6241,6 +6241,9 @@ img.iefix {
 .tablesaw.tablesaw-stack tbody tr {
   border-bottom: none;
 }
+.tablesaw thead th {
+  text-shadow: none !important;
+}
 .layout-sidebar__main .tablesaw thead, .layout-sidebar__main .tablesaw th {
   background: #a5a5a5;
   color: #000;
