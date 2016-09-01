@@ -120,7 +120,7 @@
 
   Drupal.behaviors.streamLinks = {
     attach: function(context) {
-      var filepath = "/sites/all/themes/dcomms_arts/doca_theme/dist/images/icons/stream/";
+      var filepath = "/" + Drupal.settings.pathToTheme + "/dist/images/icons/stream/";
       $('.channel-list__grid-item a', context).each(function() {
         var imgSrc = $(this).find('img').attr('src');
         var imgSrc_o = imgSrc;
