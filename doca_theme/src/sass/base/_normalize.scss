@@ -519,7 +519,7 @@ legend {
 // Correct `select` style inheritance in Firefox.
 select {
   height: $input-height;
-  padding: 0 11px;
+  padding: 0 0 0 11px;
   margin-left: 1px;
   text-transform: none;
   &[multiple] {

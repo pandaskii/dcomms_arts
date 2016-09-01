@@ -179,7 +179,7 @@ legend a:link, legend a:visited, legend a:active, legend a:hover, legend a:focus
 
 select {
   height: 40px;
-  padding: 0 11px;
+  padding: 0 0 0 11px;
   margin-left: 1px;
   text-transform: none;
 }
@@ -2994,13 +2994,16 @@ img.iefix {
   .footer-bottom__wrapper {
     margin-bottom: 1rem;
   }
-  .footer-bottom__wrapper ul li a {
+  .footer-bottom__wrapper ul li a div {
     padding: 0 1.5rem;
   }
-  .footer-bottom__wrapper ul li:first-child a {
+  .footer-bottom__wrapper ul li a.underline-on-hover__never.link-external:after {
+    display: none;
+  }
+  .footer-bottom__wrapper ul li:first-child a div {
     padding-left: 0;
   }
-  .footer-bottom__wrapper ul li:last-child a {
+  .footer-bottom__wrapper ul li:last-child a div {
     padding-right: 0;
   }
   .footer-bottom__wrapper ul:first-child {
@@ -3453,6 +3456,16 @@ img.iefix {
 }
 .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__text, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__days-remain, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__label, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__highlighted, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__start-date, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding .progress-bar__end-date {
   color: #fff;
+}
+.palette__dark-grey--group .ds-groups-wrapper .group-formal-submissions .progress-bar__bar--funding.ongoing {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+@media (min-width: 720px) {
+  .palette__dark-grey--group .ds-groups-wrapper .group-formal-submissions .progress-bar__bar--funding.ongoing {
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
 }
 .ds-groups-wrapper .group-formal-submissions .progress-bar__bar--funding {
   margin-bottom: 30px;
@@ -6541,7 +6554,7 @@ html {
   padding-top: 1rem;
 }
 .update__icon img, .update--extra__icon img {
-  width: 90%;
+  width: 55%;
   height: auto;
 }
 @media (min-width: 720px) {

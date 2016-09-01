@@ -25,6 +25,14 @@
         color: #fff;
       }
     }
+    .group-formal-submissions .progress-bar__bar--funding.ongoing {
+      margin-bottom: 30px;
+      margin-top: 30px;
+      @include breakpoint($medium) {
+        margin-bottom: 50px;
+        margin-top: 50px;
+      }
+    }
   }
   .group-formal-submissions {
     .progress-bar__bar--funding {
