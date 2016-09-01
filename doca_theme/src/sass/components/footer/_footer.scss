@@ -29,12 +29,17 @@
     ul {
       li {
         a {
-          padding: 0 1.5rem;
+          div {
+            padding: 0 1.5rem;
+          }
+          &.underline-on-hover__never.link-external:after {
+            display: none;
+          }
         }
-        &:first-child a {
+        &:first-child a div {
           padding-left: 0;
         }
-        &:last-child a {
+        &:last-child a div {
           padding-right: 0;
         }
       }

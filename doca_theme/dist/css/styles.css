@@ -2994,13 +2994,16 @@ img.iefix {
   .footer-bottom__wrapper {
     margin-bottom: 1rem;
   }
-  .footer-bottom__wrapper ul li a {
+  .footer-bottom__wrapper ul li a div {
     padding: 0 1.5rem;
   }
-  .footer-bottom__wrapper ul li:first-child a {
+  .footer-bottom__wrapper ul li a.underline-on-hover__never.link-external:after {
+    display: none;
+  }
+  .footer-bottom__wrapper ul li:first-child a div {
     padding-left: 0;
   }
-  .footer-bottom__wrapper ul li:last-child a {
+  .footer-bottom__wrapper ul li:last-child a div {
     padding-right: 0;
   }
   .footer-bottom__wrapper ul:first-child {
