@@ -162,4 +162,13 @@
     }
   };
 
+  Drupal.behaviors.tables = {
+    attach: function(context) {
+      if ($('.tablesaw').length > 0) {
+        $(".tablesaw tbody tr:even").addClass("tr-even");
+      }
+    }
+  };
+
+
 })(jQuery, Drupal);
