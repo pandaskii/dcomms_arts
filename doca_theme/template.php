@@ -1233,7 +1233,7 @@ function doca_theme_ds_pre_render_alter(&$layout_render_array, $context, &$varia
     // Add business area class to relevant items where relevant.
     if (isset($variables['field_business_area']) && !empty($variables['field_business_area']) && $variables['view_mode'] != 'full') {
       $hide_stream = FALSE;
-      if (isset($variables['field_business_area'][LANGUAGE_NONE])) {
+      if (isset($variables['field_business_area'][LANGUAGE_NONE]) && is_array($variables['field_business_area'][LANGUAGE_NONE][0])) {
         $business_area_tid = $variables['field_business_area'][LANGUAGE_NONE][0]['tid'];
       }
       else {

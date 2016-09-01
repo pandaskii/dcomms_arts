@@ -21,5 +21,15 @@
 .underline-on-hover__never__wrapper, %underline-on-hover__never__wrapper {
   a {
     @extend %underline-on-hover__never;
+    br {
+      display: none;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      padding: 0 1.5rem 0 0;
+    }
   }
 }
