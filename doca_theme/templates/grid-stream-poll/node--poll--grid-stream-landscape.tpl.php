@@ -8,7 +8,7 @@
  */
 
 ?>
-<article class="<?php print $classes; ?> poll-form clearfix"<?php print $attributes; ?>>
+<article class="<?php print $classes; ?> poll-form clearfix spacer--horizontal--medium spacer"<?php print $attributes; ?>>
   <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>
       <?php print render($title_prefix); ?>

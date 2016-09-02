@@ -53,7 +53,7 @@
 
   Drupal.behaviors.streamLinks = {
     attach: function(context) {
-      var filepath = "/sites/all/themes/dcomms_arts/doca_theme/dist/images/icons/stream/";
+      var filepath = "/" + Drupal.settings.pathToTheme + "/dist/images/icons/stream/";
       $('.channel-list__grid-item a', context).each(function() {
         var imgSrc = $(this).find('img').attr('src');
         var imgSrc_o = imgSrc;
@@ -83,12 +83,12 @@
         e.preventDefault();
         if ($(this).hasClass('open-all')) {
           $(this).removeClass('open-all');
-          $(this).html('Expand All <span>+</span>');
+          $(this).html('Expand all <span>+</span>');
           $('.accordion__button[aria-expanded="true"]').click();
         }
         else {
           $(this).addClass('open-all');
-          $(this).html('Collapse All <span>-</span>');
+          $(this).html('Collapse all <span>-</span>');
           $('.accordion__button[aria-expanded="false"]').click();
         }
 
@@ -161,5 +161,14 @@
       });
     }
   };
+
+  Drupal.behaviors.tables = {
+    attach: function(context) {
+      if ($('.tablesaw').length > 0) {
+        $(".tablesaw tbody tr:even").addClass("tr-even");
+      }
+    }
+  };
+
 
 })(jQuery, Drupal);

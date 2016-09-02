@@ -67,6 +67,10 @@
     @extend %progress-bar__progress;
     background: color(blue-aqua-mid);
   }
+  &__progress--doca-blue {
+    @extend %progress-bar__progress;
+    background: color(doca-blue);
+  }
   &__progress-thin {
     height: 1rem;
   }
@@ -142,7 +146,7 @@
   .progress-bar__percentage {
     @extend %progress-bar__percentage--brackets;
   }
-  .progress-bar__bar, .progress-bar__progress {
+  .progress-bar__bar, .progress-bar__progress, .progress-bar__progress--doca-blue {
     @extend %progress-bar__progress-thick;
   }
   .progress-bar:nth-child(2) {

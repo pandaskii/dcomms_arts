@@ -18,3 +18,7 @@
 %poll-results--binary, .poll-results--binary {
   @extend %progress-bar--collapsed;
 }
+
+body.node-type-poll #page .main_content {
+  @extend %layout-max;
+}
