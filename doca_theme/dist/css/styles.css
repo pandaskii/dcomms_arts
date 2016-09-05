@@ -5666,13 +5666,6 @@ img.iefix {
 @media (min-width: 720px) {
   .stacklafw {
     padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-}
-@media (min-width: 980px) {
-  .stacklafw {
-    padding-top: 7.8125rem;
-    padding-bottom: 5.92rem;
   }
 }
 
