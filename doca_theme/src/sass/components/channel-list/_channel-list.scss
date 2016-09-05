@@ -100,8 +100,9 @@
   height: auto;
   vertical-align: middle;
   @include breakpoint($large) {
-    max-width: 70px;
-    max-height: 70px;
+    width: auto;
+    max-width: 90px;
+    max-height: 90px;
   }
 }
 

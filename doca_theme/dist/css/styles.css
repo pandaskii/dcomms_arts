@@ -1915,8 +1915,9 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 }
 @media (min-width: 980px) {
   .channel-list__img, .channel-list__img-wrapper img {
-    max-width: 70px;
-    max-height: 70px;
+    width: auto;
+    max-width: 90px;
+    max-height: 90px;
   }
 }
 
