@@ -5211,9 +5211,11 @@ img.iefix {
 
 .field-name-field-image a {
   text-decoration: none;
+  border-bottom: none;
 }
 .field-name-field-image a img {
   text-decoration: none;
+  border-bottom: none;
 }
 
 .qnapair__item.accordion__item {
