@@ -43,3 +43,12 @@
   @extend %layout-two-thirds__main;
   @extend %max-width__medium;
 }
+
+.field-name-field-image {
+  a {
+    img {
+      text-decoration: none;
+    }
+    text-decoration: none;
+  }
+}
