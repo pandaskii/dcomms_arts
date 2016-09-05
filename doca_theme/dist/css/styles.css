@@ -3477,9 +3477,6 @@ img.iefix {
     margin-top: 50px;
   }
 }
-.ds-groups-wrapper .group-formal-submissions .progress-bar__bar--funding.ongoing {
-  margin: 0;
-}
 
 @media (min-width: 1700px) {
   .header-background {
