@@ -5209,6 +5209,15 @@ img.iefix {
   display: none;
 }
 
+.field-name-field-image a {
+  text-decoration: none;
+  border-bottom: none;
+}
+.field-name-field-image a img {
+  text-decoration: none;
+  border-bottom: none;
+}
+
 .qnapair__item.accordion__item {
   padding: 1.7rem 1rem 1.5rem;
 }
@@ -5657,13 +5666,6 @@ img.iefix {
 @media (min-width: 720px) {
   .stacklafw {
     padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-}
-@media (min-width: 980px) {
-  .stacklafw {
-    padding-top: 7.8125rem;
-    padding-bottom: 5.92rem;
   }
 }
 
