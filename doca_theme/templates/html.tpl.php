@@ -70,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-58Z5ZP');</script>
+})(window,document,'script','IRXDataLayer','GTM-58Z5ZP');</script>
 <!-- End Google Tag Manager -->
 <?php print $page_top; ?>
 <?php print $page; ?>
