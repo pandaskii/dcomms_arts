@@ -11,7 +11,7 @@
     <div class="subsite-header__layout">
       <a href="<?php print base_path() . drupal_get_path_alias('taxonomy/term/' . theme_get_setting('sub_theme_1')); ?>"
          class="subsite-header__logo-large">
-        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo.png"
+        <img src="<?php print base_path() . drupal_get_path('theme', 'doca_theme'); ?>/dist/images/pmla_logo_161014.png"
              alt="Logo"/>
       </a>
     </div>
