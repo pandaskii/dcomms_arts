@@ -4,6 +4,7 @@
 //
 // Styleguide components.breadcrumb
 .breadcrumb, %breadcrumb {
+  padding-left: 15px;
   @extend %font__small;
   &__list {
     @extend %list-inline;

@@ -22,7 +22,7 @@
     @include display-flex;
     align-items: center;
     padding: 1rem;
-    > * {
+    >* {
       // Invalidated by flexbox parent on newer browsers
       float: left;
     }
