@@ -3827,6 +3827,7 @@ img.iefix {
     background-image: url("../images/arts-brand-lvl2-sm.svg");
     width: 85px;
     height: 100px;
+    position: absolute;
     top: 385px;
     left: 120px;
     margin-bottom: 0;
