@@ -82,7 +82,7 @@
       }
     }
   }
-  &> .list-arrow {
+  &>.list-arrow {
     li.list-arrow__item {
       &:focus, &:active, &:hover {
         color: color(doca-blue);
