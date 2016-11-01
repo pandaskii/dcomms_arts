@@ -33,6 +33,18 @@
       margin-bottom: 0;
     }
   }
+  .layout-sidebar__with-filter & {
+    border-top: 1px solid color(grey-light);
+    @include breakpoint($medium) {
+      padding-right: 3rem;
+      float: left;
+      width: 75%;
+      margin-bottom: 0;
+    }
+    @include breakpoint($large) {
+      max-width: 860px;
+    }
+  }
 }
 
 .layout-sidebar__sidebar, %layout-sidebar__sidebar {
@@ -101,5 +113,3 @@
     }
   }
 }
-
-.layout-sidebar__with-img {}

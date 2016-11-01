@@ -18,3 +18,9 @@
     width: 25%;
   }
 }
+
+.clearfix {
+  >.layout-four-column__item:first-child {
+    padding-left: 0;
+  }
+}

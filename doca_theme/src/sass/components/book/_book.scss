@@ -1,0 +1,31 @@
+// Book
+//
+// Markup: book.html
+//
+// Styleguide components.book
+.book, %book {
+  position: relative;
+  z-index: 1;
+}
+
+.book-item__overlay, %book-item__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  @include opacity(0);
+  &:hover {
+    @include opacity(1);
+  }
+}
+
+.book-details__overlay, %book-details__overlay {}
+
+.book-winner__overlay, %book-winner__overlay {
+  @include background-image('winner-overlay.png', 0%, 0);
+  @include breakpoint($medium) {}
+  @include breakpoint($large) {
+    width: 124px;
+    height: 124px;
+  }
+}
