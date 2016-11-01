@@ -170,5 +170,30 @@
     }
   };
 
+  Drupal.behaviors.books = {
+    attach: function(context) {
+      if ($('.view-book-search-with-fields').length > 0) {
+        var theTarget;
+        $('.book-winner__overlay').each(function() {
+          theTarget = $(this).parents('.views-row').find('.views-field-field-thumbnail');
+          $(this).appendTo(theTarget);
+        });
+
+        var textHeight;
+        $('.views-row.book').hover(function() {
+          textHeight = $(this).find('.book-details__overlay').outerHeight() + 20;
+          $(this).find('.views-field-field-thumbnail').css('top', textHeight + 'px');
+        }, function() {
+          $(this).find('.views-field-field-thumbnail').css('top', 0)
+        });
+
+        $('.views-row.book .views-field-field-thumbnail').on('click', function() {
+          var hrefLocation = $(this).find('a').attr('href');
+          location.href = hrefLocation;
+        });
+      }
+    }
+  };
+
 
 })(jQuery, Drupal);
