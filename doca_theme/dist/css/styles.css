@@ -438,7 +438,6 @@ a:hover, a:active {
 
 .layout-sidebar__main {
   margin-bottom: 1rem;
-  width: 100%;
 }
 @media (min-width: 720px) {
   .front .layout-sidebar__main {
