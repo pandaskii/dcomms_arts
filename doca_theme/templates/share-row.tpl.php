@@ -5,7 +5,7 @@
  * Returns the HTML for the share row.
  */
 ?>
-<div class="share-row">
+<div class="share-row spacer">
   <ul class="share-row__bordered">
     <li class="share-row__item"><?php print t('Share:'); ?></li>
     <li class="share-row__item">
