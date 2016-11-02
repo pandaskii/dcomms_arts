@@ -476,14 +476,14 @@ a:hover, a:active {
 @media (min-width: 720px) {
   .layout-sidebar__with-filter .layout-sidebar__main {
     padding-right: 0;
-    float: left;
-    width: 75%;
     margin-bottom: 0;
   }
 }
 @media (min-width: 980px) {
   .layout-sidebar__with-filter .layout-sidebar__main {
+    float: left;
     max-width: 860px;
+    width: 75%;
   }
 }
 
@@ -1744,12 +1744,8 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-size: auto;
   background-position: 0% 0;
   background-image: url("../images/winner-overlay.png");
-}
-@media (min-width: 980px) {
-  .book-winner__overlay {
-    width: 124px;
-    height: 124px;
-  }
+  width: 124px;
+  height: 124px;
 }
 
 .view-book-search-with-fields .view-grouping {

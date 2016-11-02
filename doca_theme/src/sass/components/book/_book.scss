@@ -53,11 +53,8 @@
   top: 0;
   left: 0;
   @include background-image('winner-overlay.png', 0%, auto);
-  @include breakpoint($medium) {}
-  @include breakpoint($large) {
-    width: 124px;
-    height: 124px;
-  }
+  width: 124px;
+  height: 124px;
 }
 
 .view-book-search-with-fields {

@@ -182,9 +182,13 @@
         var textHeight;
         $('.views-row.book').hover(function() {
           textHeight = $(this).find('.book-details__overlay').outerHeight() + 20;
-          $(this).find('.views-field-field-thumbnail').css('top', textHeight + 'px');
+          $(this).find('.views-field-field-thumbnail').animate({
+            top: textHeight
+          }, 200);
         }, function() {
-          $(this).find('.views-field-field-thumbnail').css('top', 0)
+          $(this).find('.views-field-field-thumbnail').animate({
+            top: 0
+          }, 200);
         });
 
         $('.views-row.book .views-field-field-thumbnail').on('click', function() {

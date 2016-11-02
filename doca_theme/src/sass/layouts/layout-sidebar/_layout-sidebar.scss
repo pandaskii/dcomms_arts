@@ -37,12 +37,12 @@
     border-top: 1px solid color(grey-light);
     @include breakpoint($medium) {
       padding-right: 0;
-      float: left;
-      width: 75%;
       margin-bottom: 0;
     }
     @include breakpoint($large) {
+      float: left;
       max-width: 860px;
+      width: 75%;
     }
   }
 }
