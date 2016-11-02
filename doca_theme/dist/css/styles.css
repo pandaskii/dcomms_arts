@@ -1699,6 +1699,34 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   width: inherit;
   padding: 20px 40px 20px 0;
 }
+.view-book-search-with-fields .view-filters .filter {
+  border-top: none;
+  border-bottom: 1px solid #b9b9b9;
+  display: block;
+  float: none;
+  padding: 0 0 5px;
+}
+.view-book-search-with-fields .view-filters .filter:first-child {
+  border: none;
+}
+.view-book-search-with-fields .view-filters .filter .filter__label {
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 10px 0 0;
+}
+.view-book-search-with-fields .view-filters .filter .filter__button {
+  padding-top: 0;
+}
+
+h2.subtitle {
+  color: #000000;
+}
+@media (min-width: 720px) {
+  h2.subtitle {
+    float: left;
+  }
+}
 
 .book {
   position: relative;
