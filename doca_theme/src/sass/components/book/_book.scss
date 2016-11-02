@@ -8,6 +8,34 @@
     width: inherit;
     padding: 20px 40px 20px 0;
   }
+  .view-filters {
+    .filter {
+      border-top: none;
+      border-bottom: 1px solid #b9b9b9;
+      display: block;
+      float: none;
+      padding: 0 0 5px;
+      &:first-child {
+        border: none;
+      }
+      .filter__label {
+        color: #000000;
+        font-weight: 400;
+        font-size: 14px;
+        margin: 0 10px 0 0;
+      }
+      .filter__button {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+h2.subtitle {
+  color: #000000;
+  @include breakpoint($medium) {
+    float: left;
+  }
 }
 
 .book, %book {

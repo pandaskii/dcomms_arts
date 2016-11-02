@@ -241,7 +241,7 @@
     attach: function(context) {
       if ($('.view-book-search-with-fields').length > 0) {
         var $sort_option = $("#edit-field-winner option:selected").text();
-        var $subtitle = '<h2>' + $sort_option + '</h2>';
+        var $subtitle = '<h2 class="subtitle">' + $sort_option + '</h2>';
         $('.layout-max > .share-row').prepend($subtitle);
 
         var textHeight;
