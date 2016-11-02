@@ -57,6 +57,9 @@
     display: inline-block;
     vertical-align: baseline;
     padding: 0;
+    &.form-type-checkbox {
+      display: block;
+    }
   }
   &__label {
     @extend %filter__item;

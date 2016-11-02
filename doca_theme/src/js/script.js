@@ -170,5 +170,17 @@
     }
   };
 
+  Drupal.behaviors.select_to_checkbox = {
+    var $options = $labels = [];
+    attach: function(context) {
+       if ($('.view-filters .form-type-select.form-item-field-book-type').length > 0) {
+        $('.view-filters .form-type-select.form-item-field-book-type select option').each(function(){
+          $options[] = $(this).attr('value');
+          $labels[] = $(this).text();
+        });
+       }
+    }
+  };
+
 
 })(jQuery, Drupal);

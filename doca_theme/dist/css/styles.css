@@ -2755,6 +2755,9 @@ fieldset.separate .fieldset-legend {
   vertical-align: baseline;
   padding: 0;
 }
+.filter label.form-type-checkbox, .form-type-checkbox.filter__label, .filter .form-type-checkbox.form-item, .filter__item.form-type-checkbox {
+  display: block;
+}
 .filter label, .filter__label {
   color: #616161;
   font-weight: 300;
