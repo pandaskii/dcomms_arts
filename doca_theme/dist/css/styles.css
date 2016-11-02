@@ -5539,7 +5539,7 @@ img.iefix {
 .share-row__bordered {
   line-height: 0;
   padding: 1rem .5rem;
-  margin-right: 1rem;
+  margin-right: 20px;
   margin-bottom: 1rem;
 }
 @media (min-width: 720px) {
