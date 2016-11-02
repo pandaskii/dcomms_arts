@@ -267,33 +267,35 @@
         $('select#edit-field-book-type option').each(function() {
           $options.push($(this).val());
           $labels.push($(this).text());
-          $param = 'field_book_type%5B1%5D=' + $(this).val();
+          $param = 'field_book_type%5B%5D=' + $(this).val();
           $params.push($param);
         });
         var $checkboxes = '<div id="edit-field-book-type_cb" class="form-checkboxes">';
         $.each($options, function(i) {
           $checkboxes += '<div class="form-item form-type-checkbox">';
-          $checkboxes += '<input type="checkbox" id="id-' + $options[i] + '" name="field_book_type[1]" value="' + $options[i] + '" class="form-checkbox">';
+          $checkboxes += '<input type="checkbox" id="id-' + $options[i] + '" name="field_book_type[]" value="' + $options[i] + '" class="form-checkbox">';
           $checkboxes += '<label class="option" for="id-' + $options[i] + '">' + $labels[i] + '</label></div>';
         });
         $checkboxes += '</div>';
         $('#category-wrapper').before($checkboxes);
+        $('#category-wrapper').html('');
+
         $('#edit-field-book-type_cb input').each(function(j) {
           $(this).on('click', function() {
-            if ($('#edit-field-book-type option').eq(j).attr('selected')) {
-              $('#edit-field-book-type option').eq(j).removeAttr('selected');
-            }
-            else {
-              $('#edit-field-book-type option').eq(j).attr('selected', 'selected');
-            }
+            $('.view-filters > form').submit();
+
           })
         });
+
         var $search = window.location.search;
         $.each($params, function(k) {
           if ($search.indexOf($params[k]) >= 0) {
             $('#edit-field-book-type_cb input').eq(k).attr("checked", 'checked');
           }
-        })
+        });
+        $('#edit-field-winner').on('change', function() {
+          $('.view-filters > form').submit();
+        });
       }
     }
   };
