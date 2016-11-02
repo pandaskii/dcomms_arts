@@ -27,7 +27,11 @@
             <?php if (!empty($widget->operator)): ?>
               <?php print $widget->operator; ?>
             <?php endif; ?>
-            <?php print $widget->widget; ?>
+            <?php if ($widget->id == 'edit-field-book-type'): ?>
+              <div class="element-invisible" id="category-wrapper"><?php print $widget->widget; ?></div>
+            <?php else: ?>
+              <?php print $widget->widget; ?>
+            <?php endif; ?>
             <?php if (!empty($widget->description)): ?>
               <?php print $widget->description; ?>
             <?php endif; ?>

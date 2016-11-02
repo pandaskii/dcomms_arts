@@ -240,6 +240,9 @@
   Drupal.behaviors.books = {
     attach: function(context) {
       if ($('.view-book-search-with-fields').length > 0) {
+        var $sort_option = $("#edit-field-winner option:selected").text();
+        var $subtitle = '<h2>' + $sort_option + '</h2>';
+        $('.layout-max > .share-row').prepend($subtitle);
 
         var textHeight;
         $('.views-row.book').hover(function() {
@@ -257,9 +260,59 @@
           var hrefLocation = $(this).find('a').attr('href');
           location.href = hrefLocation;
         });
+        var $param;
+        var $labels = [];
+        var $options = [];
+        var $params = [];
+        $('select#edit-field-book-type option').each(function() {
+          $options.push($(this).val());
+          $labels.push($(this).text());
+          $param = 'field_book_type%5B1%5D=' + $(this).val();
+          $params.push($param);
+        });
+        var $checkboxes = '<div id="edit-field-book-type_cb" class="form-checkboxes">';
+        $.each($options, function(i) {
+          $checkboxes += '<div class="form-item form-type-checkbox">';
+          $checkboxes += '<input type="checkbox" id="id-' + $options[i] + '" name="field_book_type[1]" value="' + $options[i] + '" class="form-checkbox">';
+          $checkboxes += '<label class="option" for="id-' + $options[i] + '">' + $labels[i] + '</label></div>';
+        });
+        $checkboxes += '</div>';
+        $('#category-wrapper').before($checkboxes);
+        $('#edit-field-book-type_cb input').each(function(j) {
+          $(this).on('click', function() {
+            if ($('#edit-field-book-type option').eq(j).attr('selected')) {
+              $('#edit-field-book-type option').eq(j).removeAttr('selected');
+            }
+            else {
+              $('#edit-field-book-type option').eq(j).attr('selected', 'selected');
+            }
+          })
+        });
+        var $search = window.location.search;
+        $.each($params, function(k) {
+          if ($search.indexOf($params[k]) >= 0) {
+            $('#edit-field-book-type_cb input').eq(k).attr("checked", 'checked');
+          }
+        })
       }
     }
   };
 
-
 })(jQuery, Drupal);
+
+jQuery.extend({
+  getUrlVars: function() {
+    var vars = [],
+      hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split('=');
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+    }
+    return vars;
+  },
+  getUrlVar: function(name) {
+    return $.getUrlVars()[name];
+  }
+});

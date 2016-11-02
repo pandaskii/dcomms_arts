@@ -726,10 +726,6 @@ function doca_theme_form_alter(&$form, &$form_state, $form_id) {
   }
 
   if (($form_id == 'views_exposed_form') && ($form['#id'] == 'views-exposed-form-book-search-with-fields-book-search')) {
-    //print_r($form);
-    // Change categories to checkboxes.
-    // $form['field_book_type']['#type'] = 'checkboxes';
-
     // Change label for winners all.
     $form['field_winner']['#options']['All'] = 'Shortlists';
   }
