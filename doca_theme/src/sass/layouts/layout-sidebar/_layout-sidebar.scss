@@ -36,13 +36,13 @@
   .layout-sidebar__with-filter & {
     border-top: 1px solid color(grey-light);
     @include breakpoint($medium) {
-      padding-right: 3rem;
-      float: left;
-      width: 75%;
+      padding-right: 0;
       margin-bottom: 0;
     }
     @include breakpoint($large) {
+      float: left;
       max-width: 860px;
+      width: 75%;
     }
   }
 }

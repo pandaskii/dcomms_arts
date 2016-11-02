@@ -3,29 +3,66 @@
 // Markup: book.html
 //
 // Styleguide components.book
-.book, %book {
-  position: relative;
-  z-index: 1;
-}
-
-.book-item__overlay, %book-item__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  @include opacity(0);
-  &:hover {
-    @include opacity(1);
+.view-book-search-with-fields {
+  .layout-four-column__item {
+    width: inherit;
+    padding: 20px 40px 20px 0;
   }
 }
 
-.book-details__overlay, %book-details__overlay {}
+.book, %book {
+  position: relative;
+  width: 160px;
+  height: 230px;
+  overflow: hidden;
+  z-index: 1;
+  .views-field-field-thumbnail {
+    cursor: pointer;
+    position: relative;
+    transition: top 0.2s;
+    z-index: 10;
+  }
+}
+
+.book-item__overlay, %book-item__overlay {
+  background-color: #F3E534;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  z-index: 2;
+}
+
+.book-details__overlay, %book-details__overlay {
+  .book-title, book-title a {
+    line-height: 1.4em;
+    font-size: 13px;
+    font-style: italic;
+  }
+  .book-author, book-author a {
+    font-size: 13px;
+    line-height: 1.4em;
+    margin-top: 5px;
+  }
+}
 
 .book-winner__overlay, %book-winner__overlay {
-  @include background-image('winner-overlay.png', 0%, 0);
-  @include breakpoint($medium) {}
-  @include breakpoint($large) {
-    width: 124px;
-    height: 124px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include background-image('winner-overlay.png', 0%, auto);
+  width: 124px;
+  height: 124px;
+}
+
+.view-book-search-with-fields {
+  .view-grouping {
+    border-bottom: 1px solid #b9b9b9;
+    padding: 25px 0;
+    &:last-child {
+      border: none;
+    }
   }
 }

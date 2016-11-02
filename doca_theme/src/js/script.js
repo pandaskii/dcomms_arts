@@ -170,15 +170,32 @@
     }
   };
 
-  Drupal.behaviors.select_to_checkbox = {
-    var $options = $labels = [];
+  Drupal.behaviors.books = {
     attach: function(context) {
-       if ($('.view-filters .form-type-select.form-item-field-book-type').length > 0) {
-        $('.view-filters .form-type-select.form-item-field-book-type select option').each(function(){
-          $options[] = $(this).attr('value');
-          $labels[] = $(this).text();
+      if ($('.view-book-search-with-fields').length > 0) {
+        var theTarget;
+        $('.book-winner__overlay').each(function() {
+          theTarget = $(this).parents('.views-row').find('.views-field-field-thumbnail');
+          $(this).appendTo(theTarget);
         });
-       }
+
+        var textHeight;
+        $('.views-row.book').hover(function() {
+          textHeight = $(this).find('.book-details__overlay').outerHeight() + 20;
+          $(this).find('.views-field-field-thumbnail').animate({
+            top: textHeight
+          }, 200);
+        }, function() {
+          $(this).find('.views-field-field-thumbnail').animate({
+            top: 0
+          }, 200);
+        });
+
+        $('.views-row.book .views-field-field-thumbnail').on('click', function() {
+          var hrefLocation = $(this).find('a').attr('href');
+          location.href = hrefLocation;
+        });
+      }
     }
   };
 

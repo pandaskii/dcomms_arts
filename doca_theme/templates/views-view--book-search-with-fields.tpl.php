@@ -39,7 +39,7 @@
     </div>
   <?php endif; ?>
 
-  <div class="layout-sidebar layout-max layout-sidebar__with-filter">
+  <div class="layout-sidebar spacer layout-max layout-sidebar__with-filter">
 
     <?php if ($exposed): ?>
      <div class="layout-sidebar__sidebar sidebar--right-align">
