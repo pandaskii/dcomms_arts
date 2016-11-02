@@ -6670,3 +6670,10 @@ html {
     display: block;
   }
 }
+
+.node-book {
+  padding-bottom: 40px;
+}
+.node-book img {
+  margin: 0 15px 15px 0;
+}
