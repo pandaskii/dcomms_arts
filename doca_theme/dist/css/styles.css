@@ -1715,6 +1715,26 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   font-weight: 400;
   font-size: 14px;
   margin: 0 10px 0 0;
+  /* FOR YEARS, EXPAND COLLAPSE */
+}
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"] {
+  cursor: pointer;
+  display: block;
+}
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"]:after {
+  content: "+";
+  float: right;
+}
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"].open:after {
+  content: "-";
+}
+.view-book-search .view-filters .filter #edit-field-book-year-tid_cb {
+  max-height: 0;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.view-book-search .view-filters .filter #edit-field-book-year-tid_cb.open {
+  max-height: 600px;
 }
 .view-book-search .view-filters .filter .form-checkboxes {
   margin-bottom: 10px;

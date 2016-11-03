@@ -310,6 +310,12 @@
             $('#edit-field-book-year-tid_cb input').eq(l).attr("checked", 'checked');
           }
         });
+
+        // Years expand-collapse
+        $('.filter__label[for="edit-field-book-year-tid"]').on('click', function() {
+          $(this).toggleClass('open');
+          $(this).next().toggleClass('open');
+        });
       }
     }
   };
