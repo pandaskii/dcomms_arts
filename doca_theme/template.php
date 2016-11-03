@@ -724,6 +724,11 @@ function doca_theme_form_alter(&$form, &$form_state, $form_id) {
       unset($form['state']['#options']['archive']);
     }
   }
+
+  if (($form_id == 'views_exposed_form') && ($form['#id'] == 'views-exposed-form-book-search-with-fields-book-search')) {
+    // Change label for winners all.
+    $form['field_winner']['#options']['All'] = 'Shortlists';
+  }
 }
 
 /**

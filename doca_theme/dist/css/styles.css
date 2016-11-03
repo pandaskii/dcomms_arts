@@ -357,11 +357,11 @@ a:hover, a:active {
   }
 }
 
-.clearfix:before, .layout-four-column:before, .grid-data:before, .statistic__wrapper:before, .twitter-stream:before, .layout-three-column:before, .grid-stream:before, .page-404__wrapper:before, .layout-two-column:before, .alert-list__wrapper:before, .channel-list__grid-container:before, .featured__grid-container:before, .page-description--arts-brand:before, .promotional-feature__item:before, .layout-max--sm-med-lrg:before, .tabs-primary:before, h1:before, .heading--1--no-space:before, .heading--1--light:before, .heading--1:before, .document-list:before, .webform-client-form:before, .contact-form:before, .form:before, .filter__wrapper:before, .messages--status:before, .messages--warning:before, .messages--error:before, .messages:before, .news-list:before, .on-this-page:before, body.node-type-poll #page .main_content:before, .site-feedback-block__inner:before, .subsite-header__layout:before, .subsite-header__nav:before, .subsite-header__list:before, .group-funding-tabs-heading h2:before, .top-notification__inner:before, .layout-max:before, .grid-stream__item:before, .grid-stream__item--landscape-small:before, .grid-stream__item--landscape-small--has-image:before, .grid-stream__item--landscape-small--has-image-description:before, .grid-stream__item--landscape:before, .grid-stream__item--portrait-small:before, .grid-stream__item--portrait:before, .grid-stream__item--vertical:before, .grid-stream__item--vertical--has-image:before, .grid-stream__item--vertical--has-image-description:before, .grid-stream__has-update:before, .copyright:before, .document-list__desc:before, .document-list__desc--comment:before, .on-this-page__menu:before {
+.clearfix:before, .layout-four-column:before, .grid-data:before, .statistic__wrapper:before, .twitter-stream:before, .layout-three-column:before, .grid-stream:before, .page-404__wrapper:before, .layout-two-column:before, .alert-list__wrapper:before, .channel-list__grid-container:before, .featured__grid-container:before, .page-description--arts-brand:before, .promotional-feature__item:before, .layout-max--sm-med-lrg:before, .tabs-primary:before, h1:before, .heading--1--no-space:before, .heading--1--light:before, .heading--1:before, .document-list:before, .webform-client-form:before, .contact-form:before, .form:before, .filter__wrapper:before, .messages--status:before, .messages--warning:before, .messages--error:before, .messages:before, .news-list:before, .on-this-page:before, body.node-type-poll #page .main_content:before, .site-feedback-block__inner:before, .subsite-header__layout:before, .subsite-header__nav:before, .subsite-header__list:before, .group-funding-tabs-heading h2:before, .top-notification__inner:before, .layout-max:before, .node-book:before, .grid-stream__item:before, .grid-stream__item--landscape-small:before, .grid-stream__item--landscape-small--has-image:before, .grid-stream__item--landscape-small--has-image-description:before, .grid-stream__item--landscape:before, .grid-stream__item--portrait-small:before, .grid-stream__item--portrait:before, .grid-stream__item--vertical:before, .grid-stream__item--vertical--has-image:before, .grid-stream__item--vertical--has-image-description:before, .grid-stream__has-update:before, .copyright:before, .document-list__desc:before, .document-list__desc--comment:before, .on-this-page__menu:before {
   content: '';
   display: table;
 }
-.clearfix:after, .layout-four-column:after, .grid-data:after, .statistic__wrapper:after, .twitter-stream:after, .layout-three-column:after, .grid-stream:after, .page-404__wrapper:after, .layout-two-column:after, .alert-list__wrapper:after, .channel-list__grid-container:after, .featured__grid-container:after, .page-description--arts-brand:after, .promotional-feature__item:after, .layout-max--sm-med-lrg:after, .tabs-primary:after, h1:after, .heading--1--no-space:after, .heading--1--light:after, .heading--1:after, .document-list:after, .webform-client-form:after, .contact-form:after, .form:after, .filter__wrapper:after, .messages--status:after, .messages--warning:after, .messages--error:after, .messages:after, .news-list:after, .on-this-page:after, body.node-type-poll #page .main_content:after, .site-feedback-block__inner:after, .subsite-header__layout:after, .subsite-header__nav:after, .subsite-header__list:after, .group-funding-tabs-heading h2:after, .top-notification__inner:after, .layout-max:after, .grid-stream__item:after, .grid-stream__item--landscape-small:after, .grid-stream__item--landscape-small--has-image:after, .grid-stream__item--landscape-small--has-image-description:after, .grid-stream__item--landscape:after, .grid-stream__item--portrait-small:after, .grid-stream__item--portrait:after, .grid-stream__item--vertical:after, .grid-stream__item--vertical--has-image:after, .grid-stream__item--vertical--has-image-description:after, .grid-stream__has-update:after, .copyright:after, .document-list__desc:after, .document-list__desc--comment:after, .on-this-page__menu:after {
+.clearfix:after, .layout-four-column:after, .grid-data:after, .statistic__wrapper:after, .twitter-stream:after, .layout-three-column:after, .grid-stream:after, .page-404__wrapper:after, .layout-two-column:after, .alert-list__wrapper:after, .channel-list__grid-container:after, .featured__grid-container:after, .page-description--arts-brand:after, .promotional-feature__item:after, .layout-max--sm-med-lrg:after, .tabs-primary:after, h1:after, .heading--1--no-space:after, .heading--1--light:after, .heading--1:after, .document-list:after, .webform-client-form:after, .contact-form:after, .form:after, .filter__wrapper:after, .messages--status:after, .messages--warning:after, .messages--error:after, .messages:after, .news-list:after, .on-this-page:after, body.node-type-poll #page .main_content:after, .site-feedback-block__inner:after, .subsite-header__layout:after, .subsite-header__nav:after, .subsite-header__list:after, .group-funding-tabs-heading h2:after, .top-notification__inner:after, .layout-max:after, .node-book:after, .grid-stream__item:after, .grid-stream__item--landscape-small:after, .grid-stream__item--landscape-small--has-image:after, .grid-stream__item--landscape-small--has-image-description:after, .grid-stream__item--landscape:after, .grid-stream__item--portrait-small:after, .grid-stream__item--portrait:after, .grid-stream__item--vertical:after, .grid-stream__item--vertical--has-image:after, .grid-stream__item--vertical--has-image-description:after, .grid-stream__has-update:after, .copyright:after, .document-list__desc:after, .document-list__desc--comment:after, .on-this-page__menu:after {
   content: '';
   display: table;
   clear: both;
@@ -373,7 +373,7 @@ a:hover, a:active {
   width: 100%;
 }
 
-.layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg, .tabs-primary, h1, .heading--1--no-space, .heading--1--light, .heading--1, .document-list, .webform-client-form, .contact-form, .form, .filter__wrapper, .messages--status, .messages--warning, .messages--error, .messages, .news-list, .on-this-page, body.node-type-poll #page .main_content, .site-feedback-block__inner, .subsite-header__layout, .subsite-header__nav, .subsite-header__list, .group-funding-tabs-heading h2, .top-notification__inner, .layout-max {
+.layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg, .tabs-primary, h1, .heading--1--no-space, .heading--1--light, .heading--1, .document-list, .webform-client-form, .contact-form, .form, .filter__wrapper, .messages--status, .messages--warning, .messages--error, .messages, .news-list, .on-this-page, body.node-type-poll #page .main_content, .site-feedback-block__inner, .subsite-header__layout, .subsite-header__nav, .subsite-header__list, .group-funding-tabs-heading h2, .top-notification__inner, .layout-max, .node-book {
   clear: both;
   max-width: 1280px;
   margin-left: auto;
@@ -406,6 +406,10 @@ a:hover, a:active {
   .layout-four-column__item {
     width: 25%;
   }
+}
+
+.clearfix > .layout-four-column__item:first-child {
+  padding-left: 0;
 }
 
 @media (min-width: 720px) {
@@ -464,6 +468,22 @@ a:hover, a:active {
     float: left;
     width: 75%;
     margin-bottom: 0;
+  }
+}
+.layout-sidebar__with-filter .layout-sidebar__main {
+  border-top: 1px solid #b9b9b9;
+}
+@media (min-width: 720px) {
+  .layout-sidebar__with-filter .layout-sidebar__main {
+    padding-right: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 980px) {
+  .layout-sidebar__with-filter .layout-sidebar__main {
+    float: left;
+    max-width: 860px;
+    width: 75%;
   }
 }
 
@@ -1225,7 +1245,7 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   margin: 1rem 0 2rem;
 }
 
-.subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding, .promotional-feature--dark, .update--extra, .spacer {
+.subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding, .promotional-feature--dark, .update--extra, .spacer, .node-book {
   padding: 1rem;
 }
 
@@ -1673,6 +1693,127 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 .align__right {
   text-align: right;
   display: block;
+}
+
+.view-book-search .layout-four-column__item {
+  width: inherit;
+  padding: 20px 40px 20px 0;
+}
+.view-book-search .view-filters .filter {
+  border-top: none;
+  border-bottom: 1px solid #b9b9b9;
+  display: block;
+  float: none;
+  margin-bottom: 1rem;
+  padding: 0 0 5px;
+}
+.view-book-search .view-filters .filter:first-child {
+  border: none;
+}
+.view-book-search .view-filters .filter .filter__label {
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 10px 0 0;
+  /* FOR YEARS, EXPAND COLLAPSE */
+}
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"] {
+  cursor: pointer;
+  display: block;
+}
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"]:after {
+  content: "+";
+  float: right;
+}
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"].open:after {
+  content: "-";
+}
+.view-book-search .view-filters .filter #edit-field-book-year-tid_cb {
+  max-height: 0;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.view-book-search .view-filters .filter #edit-field-book-year-tid_cb.open {
+  max-height: 600px;
+}
+.view-book-search .view-filters .filter .form-checkboxes {
+  margin-bottom: 10px;
+}
+.view-book-search .view-filters .filter label.option {
+  margin-left: 10px;
+  font-size: 14px;
+}
+.view-book-search .view-filters .filter .form-select {
+  background-position: right 11px;
+  font-size: 14px;
+}
+.view-book-search .view-filters .filter .filter__button {
+  padding-top: 0;
+}
+
+h2.subtitle {
+  color: #000000;
+}
+@media (min-width: 720px) {
+  h2.subtitle {
+    float: left;
+  }
+}
+
+.book {
+  position: relative;
+  width: 160px;
+  height: 230px;
+  overflow: hidden;
+  z-index: 1;
+}
+.book .views-field-field-thumbnail {
+  cursor: pointer;
+  position: relative;
+  transition: top 0.2s;
+  z-index: 10;
+}
+
+.book-item__overlay {
+  background-color: #F3E534;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  z-index: 2;
+}
+
+.book-details__overlay .book-title, .book-details__overlay book-title a {
+  line-height: 1.4em;
+  font-size: 13px;
+  font-style: italic;
+}
+.book-details__overlay .book-author, .book-details__overlay book-author a, .book-details__overlay .book-illustrator, .book-details__overlay book-illustrator a {
+  font-size: 13px;
+  line-height: 1.4em;
+  margin-top: 5px;
+}
+
+.book-winner__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 0% 0;
+  background-image: url("../images/winner-overlay.png");
+  width: 124px;
+  height: 124px;
+}
+
+.view-book-search .view-grouping {
+  border-bottom: 1px solid #b9b9b9;
+  padding: 25px 0;
+}
+.view-book-search .view-grouping:last-child {
+  border: none;
 }
 
 .border-highlight {
@@ -2703,6 +2844,9 @@ fieldset.separate .fieldset-legend {
   display: inline-block;
   vertical-align: baseline;
   padding: 0;
+}
+.filter label.form-type-checkbox, .form-type-checkbox.filter__label, .filter .form-type-checkbox.form-item, .filter__item.form-type-checkbox {
+  display: block;
 }
 .filter label, .filter__label {
   color: #616161;
@@ -5455,6 +5599,7 @@ img.iefix {
 .share-row__bordered {
   line-height: 0;
   padding: 1rem .5rem;
+  margin-right: 20px;
   margin-bottom: 1rem;
 }
 @media (min-width: 720px) {
@@ -6669,4 +6814,11 @@ html {
   .visible--md {
     display: block;
   }
+}
+
+.node-book {
+  padding-bottom: 40px;
+}
+.node-book img {
+  margin: 0 15px 15px 0;
 }
