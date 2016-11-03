@@ -1471,14 +1471,6 @@ function doca_theme_preprocess_views_view(&$variables) {
       $variables['classes_array'][] = 'grid-stream__2-col';
     }
   }
-  if ($variables['name'] == 'book_search' && $variables['display_id'] == 'book_search') {
-    $years = cache_get('doca_theme_pmla_years_list');
-    if (!$years) {
-      $years = db_query('SELECT DISTINCT SUBSTRING(field_year_value, 1, 4) FROM field_data_field_year ORDER BY field_year_value')->fetchAllKeyed(0, 0);
-      cache_set('doca_theme_pmla_years_list', $years, 'cache', CACHE_TEMPORARY);
-    }
-    drupal_add_js(array('doca_theme_pmla_years_list' => $years), 'setting');
-  }
 }
 
 /**

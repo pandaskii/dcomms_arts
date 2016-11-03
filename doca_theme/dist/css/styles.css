@@ -1704,6 +1704,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   border-bottom: 1px solid #b9b9b9;
   display: block;
   float: none;
+  margin-bottom: 1rem;
   padding: 0 0 5px;
 }
 .view-book-search .view-filters .filter:first-child {
@@ -1714,6 +1715,17 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   font-weight: 400;
   font-size: 14px;
   margin: 0 10px 0 0;
+}
+.view-book-search .view-filters .filter .form-checkboxes {
+  margin-bottom: 10px;
+}
+.view-book-search .view-filters .filter label.option {
+  margin-left: 10px;
+  font-size: 14px;
+}
+.view-book-search .view-filters .filter .form-select {
+  background-position: right 11px;
+  font-size: 14px;
 }
 .view-book-search .view-filters .filter .filter__button {
   padding-top: 0;
