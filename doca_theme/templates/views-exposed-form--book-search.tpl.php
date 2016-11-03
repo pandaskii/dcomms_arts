@@ -26,8 +26,10 @@
             <?php if (!empty($widget->operator)): ?>
               <?php print $widget->operator; ?>
             <?php endif; ?>
-            <?php if ($widget->id == 'edit-field-book-type'): ?>
+            <?php if ($widget->id == 'edit-field-book-type-tid'): ?>
               <div class="element-invisible" id="category-wrapper"><?php print $widget->widget; ?></div>
+            <?php elseif ($widget->id == 'edit-field-book-year-tid'): ?>
+              <div class="element-invisible" id="year-wrapper"><?php print $widget->widget; ?></div>
             <?php else: ?>
               <?php print $widget->widget; ?>
             <?php endif; ?>

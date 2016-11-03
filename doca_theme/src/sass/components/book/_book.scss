@@ -3,7 +3,7 @@
 // Markup: book.html
 //
 // Styleguide components.book
-.view-book-search-with-fields {
+.view-book-search {
   .layout-four-column__item {
     width: inherit;
     padding: 20px 40px 20px 0;
@@ -69,7 +69,7 @@ h2.subtitle {
     font-size: 13px;
     font-style: italic;
   }
-  .book-author, book-author a {
+  .book-author, book-author a, .book-illustrator, book-illustrator a {
     font-size: 13px;
     line-height: 1.4em;
     margin-top: 5px;
@@ -85,7 +85,7 @@ h2.subtitle {
   height: 124px;
 }
 
-.view-book-search-with-fields {
+.view-book-search {
   .view-grouping {
     border-bottom: 1px solid #b9b9b9;
     padding: 25px 0;

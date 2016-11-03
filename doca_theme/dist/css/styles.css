@@ -1695,27 +1695,27 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   display: block;
 }
 
-.view-book-search-with-fields .layout-four-column__item {
+.view-book-search .layout-four-column__item {
   width: inherit;
   padding: 20px 40px 20px 0;
 }
-.view-book-search-with-fields .view-filters .filter {
+.view-book-search .view-filters .filter {
   border-top: none;
   border-bottom: 1px solid #b9b9b9;
   display: block;
   float: none;
   padding: 0 0 5px;
 }
-.view-book-search-with-fields .view-filters .filter:first-child {
+.view-book-search .view-filters .filter:first-child {
   border: none;
 }
-.view-book-search-with-fields .view-filters .filter .filter__label {
+.view-book-search .view-filters .filter .filter__label {
   color: #000000;
   font-weight: 400;
   font-size: 14px;
   margin: 0 10px 0 0;
 }
-.view-book-search-with-fields .view-filters .filter .filter__button {
+.view-book-search .view-filters .filter .filter__button {
   padding-top: 0;
 }
 
@@ -1758,7 +1758,7 @@ h2.subtitle {
   font-size: 13px;
   font-style: italic;
 }
-.book-details__overlay .book-author, .book-details__overlay book-author a {
+.book-details__overlay .book-author, .book-details__overlay book-author a, .book-details__overlay .book-illustrator, .book-details__overlay book-illustrator a {
   font-size: 13px;
   line-height: 1.4em;
   margin-top: 5px;
@@ -1776,11 +1776,11 @@ h2.subtitle {
   height: 124px;
 }
 
-.view-book-search-with-fields .view-grouping {
+.view-book-search .view-grouping {
   border-bottom: 1px solid #b9b9b9;
   padding: 25px 0;
 }
-.view-book-search-with-fields .view-grouping:last-child {
+.view-book-search .view-grouping:last-child {
   border: none;
 }
 
