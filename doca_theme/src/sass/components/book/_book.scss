@@ -24,6 +24,28 @@
         font-weight: 400;
         font-size: 14px;
         margin: 0 10px 0 0;
+        /* FOR YEARS, EXPAND COLLAPSE */
+        &[for="edit-field-book-year-tid"] {
+          cursor: pointer;
+          display: block;
+          &:after {
+            content: "+";
+            float: right;
+          }
+          &.open {
+            &:after {
+              content: "-";
+            }
+          }
+        }
+      }
+      #edit-field-book-year-tid_cb {
+        max-height: 0;
+        transition: all 0.4s;
+        overflow: hidden;
+        &.open {
+          max-height: 600px;
+        }
       }
       .form-checkboxes {
         margin-bottom: 10px;
