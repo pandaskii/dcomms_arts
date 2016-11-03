@@ -279,22 +279,11 @@
         $checkboxes += '</div>';
         $('#category-wrapper').before($checkboxes);
         $('#category-wrapper').html('');
-
-        $('#edit-field-book-type_cb input').each(function(j) {
-          $(this).on('click', function() {
-            $('.view-filters > form').submit();
-
-          })
-        });
-
         var $search = window.location.search;
         $.each($params, function(k) {
           if ($search.indexOf($params[k]) >= 0) {
             $('#edit-field-book-type_cb input').eq(k).attr("checked", 'checked');
           }
-        });
-        $('#edit-field-winner').on('change', function() {
-          $('.view-filters > form').submit();
         });
       }
     }

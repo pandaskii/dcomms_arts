@@ -15,7 +15,6 @@
 <div class=" ">
   <div class="filter--orig">
     <?php if (!empty($widgets)): ?>
-
       <div class="filter__left">
         <?php foreach ($widgets as $id => $widget): ?>
           <div class="filter">
