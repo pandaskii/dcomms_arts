@@ -1717,24 +1717,31 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   margin: 0 10px 0 0;
   /* FOR YEARS, EXPAND COLLAPSE */
 }
-.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"] {
+.view-book-search .view-filters .filter .filter__label[for="edit-field-winner-value"] {
+  line-height: 36px;
+}
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-type-tid_cb"], .view-book-search .view-filters .filter .filter__label[for="edit-form-item-field-book-year-tid"] {
   cursor: pointer;
   display: block;
 }
-.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"]:after {
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-type-tid_cb"]:after, .view-book-search .view-filters .filter .filter__label[for="edit-form-item-field-book-year-tid"]:after {
   content: "+";
   float: right;
 }
-.view-book-search .view-filters .filter .filter__label[for="edit-field-book-year-tid"].open:after {
+.view-book-search .view-filters .filter .filter__label[for="edit-field-book-type-tid_cb"].open:after, .view-book-search .view-filters .filter .filter__label[for="edit-form-item-field-book-year-tid"].open:after {
   content: "-";
 }
-.view-book-search .view-filters .filter #edit-field-book-year-tid_cb {
+.view-book-search .view-filters .filter #edit-field-book-type-tid_cb, .view-book-search .view-filters .filter #edit-form-item-field-book-year-tid {
   max-height: 0;
   transition: all 0.4s;
   overflow: hidden;
 }
-.view-book-search .view-filters .filter #edit-field-book-year-tid_cb.open {
+.view-book-search .view-filters .filter #edit-field-book-type-tid_cb.open, .view-book-search .view-filters .filter #edit-form-item-field-book-year-tid.open {
   max-height: 600px;
+}
+.view-book-search .view-filters .filter .form-item-field-winner-value {
+  float: right;
+  margin-right: 10px;
 }
 .view-book-search .view-filters .filter .form-checkboxes {
   margin-bottom: 10px;
@@ -1747,8 +1754,26 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   background-position: right 11px;
   font-size: 14px;
 }
+.view-book-search .view-filters .filter label[for="edit-combine"] {
+  display: block;
+}
+.view-book-search .view-filters .filter .form-item-combine {
+  float: left;
+  width: 70%;
+}
+.view-book-search .view-filters .filter .form-item-combine input {
+  max-width: inherit;
+  width: 95%;
+}
 .view-book-search .view-filters .filter .filter__button {
+  clear: none;
+  float: right;
   padding-top: 0;
+  width: 30%;
+}
+.view-book-search .view-filters .filter .filter__button input {
+  width: 100%;
+  padding: 0;
 }
 
 h2.subtitle {
@@ -1767,14 +1792,14 @@ h2.subtitle {
   overflow: hidden;
   z-index: 1;
 }
-.book > a {
+.book a {
   color: #000000;
   display: block;
   position: relative;
   width: 100%;
   height: 100%;
 }
-.book > a:hover {
+.book a:hover {
   color: #000000;
 }
 .book .views-field-field-thumbnail {
@@ -1823,7 +1848,7 @@ h2.subtitle {
   background-image: url("../images/winner-overlay.png");
   width: 155px;
   height: 155px;
-  text-align: -9999px;
+  text-indent: -9999px;
 }
 
 .view-book-search .view-grouping {

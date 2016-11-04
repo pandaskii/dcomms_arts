@@ -24,8 +24,11 @@
         font-weight: 400;
         font-size: 14px;
         margin: 0 10px 0 0;
+        &[for="edit-field-winner-value"] {
+          line-height: 36px;
+        }
         /* FOR YEARS, EXPAND COLLAPSE */
-        &[for="edit-field-book-year-tid"] {
+        &[for="edit-field-book-type-tid_cb"], &[for="edit-form-item-field-book-year-tid"] {
           cursor: pointer;
           display: block;
           &:after {
@@ -39,13 +42,17 @@
           }
         }
       }
-      #edit-field-book-year-tid_cb {
+      #edit-field-book-type-tid_cb, #edit-form-item-field-book-year-tid {
         max-height: 0;
         transition: all 0.4s;
         overflow: hidden;
         &.open {
           max-height: 600px;
         }
+      }
+      .form-item-field-winner-value {
+        float: right;
+        margin-right: 10px;
       }
       .form-checkboxes {
         margin-bottom: 10px;
@@ -58,8 +65,26 @@
         background-position: right 11px;
         font-size: 14px;
       }
+      label[for="edit-combine"] {
+        display: block;
+      }
+      .form-item-combine {
+        float: left;
+        width: 70%;
+        input {
+          max-width: inherit;
+          width: 95%;
+        }
+      }
       .filter__button {
+        clear: none;
+        float: right;
         padding-top: 0;
+        width: 30%;
+        input {
+          width: 100%;
+          padding: 0;
+        }
       }
     }
   }
@@ -78,7 +103,7 @@ h2.subtitle {
   height: 356px;
   overflow: hidden;
   z-index: 1;
-  &>a {
+  a {
     color: #000000;
     display: block;
     position: relative;
@@ -134,7 +159,7 @@ h2.subtitle {
   @include background-image('winner-overlay.png', 0%, auto);
   width: 155px;
   height: 155px;
-  text-align: -9999px;
+  text-indent: -9999px;
 }
 
 .view-book-search {

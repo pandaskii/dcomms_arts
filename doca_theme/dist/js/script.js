@@ -179,7 +179,7 @@
         });
 
         // Years expand-collapse
-        $('.filter__label[for="edit-field-book-year-tid"]')
+        $('.filter__label[for="edit-form-item-field-book-year-tid"], .filter__label[for="edit-field-book-type-tid_cb"]')
           .bind('click', function() {
             $(this).toggleClass('open');
             $(this).next().toggleClass('open');
