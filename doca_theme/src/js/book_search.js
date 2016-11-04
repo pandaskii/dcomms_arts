@@ -3,7 +3,6 @@
     attach: function(context) {
       if ($('.view-book-search').length > 0) {
 
-
         var $sort_option = $("#edit-field-winner option:selected").text();
         var $subtitle = '<h2 class="subtitle">' + $sort_option + '</h2>';
         $('.layout-max > .share-row').prepend($subtitle);
@@ -32,6 +31,7 @@
         var $y_options = [];
         var $params = [];
         var $y_params = [];
+
         $('select#edit-field-book-type-tid option').each(function() {
           $options.push($(this).val());
           $labels.push($(this).text());
@@ -52,7 +52,7 @@
         });
         $checkboxes += '</div>';
         $('#category-wrapper').before($checkboxes);
-        $('#category-wrapper').html('');
+        //$('#category-wrapper').html('');
 
         var $y_checkboxes = '<div id="edit-field-book-year-tid_cb" class="form-checkboxes">';
         $.each($y_options, function(i) {
@@ -62,7 +62,13 @@
         });
         $y_checkboxes += '</div>';
         $('#year-wrapper').before($y_checkboxes);
-        $('#year-wrapper').html('');
+        //$('#year-wrapper').html('');
+
+        $('select#edit-field-book-type-tid option').attr('selected', 'selected').each(function() {
+          var $selected = $(this).val();
+          $('input #id-' + $selected).attr('checked', 'checked');
+
+        });
         var $search = window.location.search;
         $.each($params, function(k) {
           if ($search.indexOf($params[k]) >= 0) {
@@ -83,4 +89,4 @@
       }
     }
   };
-});
+})(jQuery, Drupal);
