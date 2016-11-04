@@ -17,7 +17,7 @@
     <?php if (!empty($widgets)): ?>
       <div class="filter__left">
         <?php foreach ($widgets as $id => $widget): ?>
-          <div class="filter">
+          <div class="filter <?php  if(($widget->id == 'edit-field-book-type-tid') || ($widget->id == 'edit-field-book-year-tid')) {print 'element-invisible';} ?>">
             <?php if (!empty($widget->label)): ?>
               <label class="filter__label" for="<?php print $widget->id; ?>">
                 <?php print $widget->label; ?>
@@ -27,9 +27,9 @@
               <?php print $widget->operator; ?>
             <?php endif; ?>
             <?php if ($widget->id == 'edit-field-book-type-tid'): ?>
-              <div class="" id="category-wrapper"><?php print $widget->widget; ?></div>
+              <div id="category-wrapper"><?php print $widget->widget; ?></div>
             <?php elseif ($widget->id == 'edit-field-book-year-tid'): ?>
-              <div class="" id="year-wrapper"><?php print $widget->widget; ?></div>
+              <div id="year-wrapper"><?php print $widget->widget; ?></div>
             <?php else: ?>
               <?php print $widget->widget; ?>
             <?php endif; ?>

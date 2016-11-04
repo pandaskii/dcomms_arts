@@ -40,7 +40,8 @@
           if ($('#edit-field-book-type-tid_cb').length) {
             $('#edit-field-book-type-tid_cb').remove();
           }
-          var $checkboxes = '<div id="edit-field-book-type-tid_cb" class="form-checkboxes">';
+          var $checkboxes = '<div class="filter"><label class="filter__label" for="edit-field-book-type-tid_cb">Categories</label>'
+          $checkboxes += '<div id="edit-field-book-type-tid_cb" class="form-checkboxes">';
           $('#category-wrapper').find('select option').each(function(i) {
             $checkboxes += '<div class="form-item form-type-checkbox">';
             var value = $(this).val();
@@ -51,9 +52,8 @@
             $checkboxes += '>';
             $checkboxes += '<label class="option" for="id-' + value + '">' + $(this).text() + '</label></div>';
           });
-          $checkboxes += '</div>';
+          $checkboxes += '</div></div>';
           $('[id^="views-exposed-form-book-search-block-search"]').after($checkboxes);
-
           $('#edit-field-book-type-tid_cb').find(':checkbox').bind('change', function() {
             if ($(this).attr('checked')) {
               $('#category-wrapper').find('select option[value="' + $(this).attr('id').replace('id-', '') + '"]' +
@@ -69,7 +69,8 @@
           if ($('#edit-form-item-field-book-year-tid').length) {
             $('#edit-form-item-field-book-year-tid').remove();
           }
-          var $checkboxes = '<div id="edit-form-item-field-book-year-tid" class="form-checkboxes">';
+          var $checkboxes = '<div class="filter"><label class="filter__label" for="edit-form-item-field-book-year-tid">Year</label>'
+          $checkboxes += '<div id="edit-form-item-field-book-year-tid" class="form-checkboxes">';
           $('#year-wrapper').find('select option').each(function(i) {
             $checkboxes += '<div class="form-item form-type-checkbox">';
             var value = $(this).val();
@@ -80,7 +81,7 @@
             $checkboxes += '>';
             $checkboxes += '<label class="option" for="id-' + value + '">' + $(this).text() + '</label></div>';
           });
-          $checkboxes += '</div>';
+          $checkboxes += '</div></div>';
           $('[id^="views-exposed-form-book-search-block-search"]').after($checkboxes);
 
           $('#edit-form-item-field-book-year-tid').find(':checkbox').bind('change', function() {
