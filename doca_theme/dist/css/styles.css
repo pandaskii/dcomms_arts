@@ -1697,7 +1697,7 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 
 .view-book-search .layout-four-column__item {
   width: inherit;
-  padding: 20px 40px 20px 0;
+  padding: 20px 30px 20px 0;
 }
 .view-book-search .view-filters .filter {
   border-top: none;
@@ -1762,8 +1762,8 @@ h2.subtitle {
 
 .book {
   position: relative;
-  width: 160px;
-  height: 230px;
+  width: 246px;
+  height: 356px;
   overflow: hidden;
   z-index: 1;
 }
@@ -1787,11 +1787,11 @@ h2.subtitle {
 
 .book-details__overlay .book-title, .book-details__overlay book-title a {
   line-height: 1.4em;
-  font-size: 13px;
+  font-size: 20px;
   font-style: italic;
 }
 .book-details__overlay .book-author, .book-details__overlay book-author a, .book-details__overlay .book-illustrator, .book-details__overlay book-illustrator a {
-  font-size: 13px;
+  font-size: 20px;
   line-height: 1.4em;
   margin-top: 5px;
 }
@@ -1804,8 +1804,8 @@ h2.subtitle {
   background-size: auto;
   background-position: 0% 0;
   background-image: url("../images/winner-overlay.png");
-  width: 124px;
-  height: 124px;
+  width: 155px;
+  height: 155px;
 }
 
 .view-book-search .view-grouping {
