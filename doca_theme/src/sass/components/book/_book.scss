@@ -108,6 +108,9 @@ h2.subtitle {
     line-height: 1.4em;
     margin-top: 5px;
   }
+  .field-name-field-pbundle-title {
+    display: inline-block;
+  }
 }
 
 .book-winner__overlay, %book-winner__overlay {
@@ -126,5 +129,18 @@ h2.subtitle {
     &:last-child {
       border: none;
     }
+  }
+}
+
+// BOOK DETAIL PAGE
+.node-book {
+  @extend .layout-max;
+  @extend .spacer;
+  padding-bottom: 40px;
+  h2 {
+    margin: 2rem 0 1.5rem;
+  }
+  img {
+    margin: 0 15px 15px 0;
   }
 }
