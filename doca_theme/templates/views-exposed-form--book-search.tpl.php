@@ -31,7 +31,17 @@
             <?php elseif ($widget->id == 'edit-field-book-year-tid'): ?>
               <div id="year-wrapper"><?php print $widget->widget; ?></div>
             <?php else: ?>
+
               <?php print $widget->widget; ?>
+              <?php if ($widget->id == 'edit-combine'): ?>
+                <div class="filter__button">
+                  <?php print $button; ?>
+                  <?php if (!empty($reset_button)): ?>
+                    <?php print $reset_button; ?>
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
+
             <?php endif; ?>
             <?php if (!empty($widget->description)): ?>
               <?php print $widget->description; ?>
@@ -66,11 +76,6 @@
 
       </div>
     <?php endif; ?>
-    <div class="filter__button">
-      <?php print $button; ?>
-      <?php if (!empty($reset_button)): ?>
-        <?php print $reset_button; ?>
-      <?php endif; ?>
-    </div>
+    
   </div>
 </div>
