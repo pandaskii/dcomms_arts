@@ -1787,6 +1787,14 @@ h2.subtitle {
   width: 100%;
   height: auto;
 }
+.book .default-thumb {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 0% 0;
+  background-image: url("../images/book-thumb-placeholder.png");
+  width: 246px;
+  height: 356px;
+}
 
 .book-item__overlay {
   background-color: #F3E534;
