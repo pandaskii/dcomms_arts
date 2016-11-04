@@ -11,11 +11,14 @@
   <div class="clearfix"><?php print $title; ?></div>
 <?php endif; ?>
 <div class="clearfix">
-<?php foreach ($rows as $id => $row): ?>
-  <div class="layout-four-column__item">
-    <div<?php if ($classes_array[$id]) {print ' class="' . $classes_array[$id] . '"'; } ?>>
-      <?php print $row; ?>
+  <?php foreach ($rows as $id => $row): ?>
+    <div class="layout-four-column__item">
+      <div<?php
+      if ($classes_array[$id]):
+        print ' class="' . $classes_array[$id] . '"';
+      endif; ?>>
+        <?php print $row; ?>
+      </div>
     </div>
-  </div>
-<?php endforeach; ?>
+  <?php endforeach; ?>
 </div>
