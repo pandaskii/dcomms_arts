@@ -128,3 +128,16 @@ h2.subtitle {
     }
   }
 }
+
+// BOOK DETAIL PAGE
+.node-book {
+  @extend .layout-max;
+  @extend .spacer;
+  padding-bottom: 40px;
+  h2 {
+    margin: 2rem 0 1.5rem;
+  }
+  img {
+    margin: 0 15px 15px 0;
+  }
+}

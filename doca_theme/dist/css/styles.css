@@ -1816,6 +1816,16 @@ h2.subtitle {
   border: none;
 }
 
+.node-book {
+  padding-bottom: 40px;
+}
+.node-book h2 {
+  margin: 2rem 0 1.5rem;
+}
+.node-book img {
+  margin: 0 15px 15px 0;
+}
+
 .border-highlight {
   height: 9px;
   width: 50px;
