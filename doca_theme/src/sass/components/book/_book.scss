@@ -123,6 +123,11 @@ h2.subtitle {
       height: auto;
     }
   }
+  .default-thumb {
+    @include background-image('book-thumb-placeholder.png', 0%, auto);
+    width: 246px;
+    height: 356px;
+  }
 }
 
 .book-item__overlay, %book-item__overlay {
