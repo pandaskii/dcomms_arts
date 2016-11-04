@@ -42,7 +42,7 @@ endif;
 <?php print render($content['field_summary_cta_with_links']); ?>
 
 
-<?php if (isset($content['related_content']) || $with_img || isset($content['field_image_with_caption']) ) : ?>
+<?php if (isset($content['related_content']) || $with_img || isset($content['field_image_with_caption'])) : ?>
 <div class="layout-sidebar layout-max spacer <?php
   if ($with_img):
     print 'layout-sidebar__with-img';
