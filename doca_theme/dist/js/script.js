@@ -104,10 +104,11 @@
 
         // replace all the category and year select options are checkboxes
         $('#category-wrapper').ready(function() {
-          if ($('#edit-field-book-type-tid_cb').length) {
-            $('#edit-field-book-type-tid_cb').remove();
+          console.log($('#filter-wrapper-booktype-tid').length);
+          if ($('#filter-wrapper-booktype-tid').length) {
+            $('#filter-wrapper-booktype-tid').remove();
           }
-          var $checkboxes = '<div class="filter"><label class="filter__label" for="edit-field-book-type-tid_cb">Categories</label>'
+          var $checkboxes = '<div class="filter" id="filter-wrapper-booktype-tid"><label class="filter__label" id="label-field-book-type-tid_cb" for="edit-field-book-type-tid_cb">Categories</label>'
           $checkboxes += '<div id="edit-field-book-type-tid_cb" class="form-checkboxes">';
           $('#category-wrapper').find('select option').each(function(i) {
             $checkboxes += '<div class="form-item form-type-checkbox">';
@@ -133,10 +134,10 @@
           });
         });
         $('#year-wrapper').ready(function() {
-          if ($('#edit-form-item-field-book-year-tid').length) {
-            $('#edit-form-item-field-book-year-tid').remove();
+          if ($('#filter-wrapper-bookyear-tid').length) {
+            $('#filter-wrapper-bookyear-tid').remove();
           }
-          var $checkboxes = '<div class="filter"><label class="filter__label" for="edit-form-item-field-book-year-tid">Year</label>'
+          var $checkboxes = '<div class="filter" id="filter-wrapper-bookyear-tid"><label class="filter__label" for="edit-form-item-field-book-year-tid">Year</label>'
           $checkboxes += '<div id="edit-form-item-field-book-year-tid" class="form-checkboxes">';
           $('#year-wrapper').find('select option').each(function(i) {
             $checkboxes += '<div class="form-item form-type-checkbox">';
@@ -185,16 +186,65 @@
             $(this).next().toggleClass('open');
           });
       }
+      // Set correct labels for authors & illustrators.
       $('.book-author').each(function() {
         if ($(this).find('.field-name-field-pbundle-subtitle').length > 1) {
-          $(this).find('.pmla_author').html('Authors');
+          $(this).find('.pmla_author').html('Authors: ');
+        }
+        if ($(this).find('.field-name-field-pbundle-subtitle').length == 0) {
+          $(this).find('.pmla_author').html('');
         }
       });
       $('.book-illustrator').each(function() {
         if ($(this).find('.field-name-field-pbundle-subtitle').length > 1) {
-          $(this).find('.pmla_author').html('Illustrators');
+          $(this).find('.pmla_author').html('Illustrators: ');
+        }
+        if ($(this).find('.field-name-field-pbundle-subtitle').length == 0) {
+          $(this).find('.pmla_author').html('');
         }
       });
+
+      // Set no result message.
+      if ($('.layout-sidebar__main > .view-empty').length > 0) {
+        var $isCurrentYr = 0;
+        var $selectedCat = $('#edit-field-book-type-tid option:selected').length;
+        var $selectedYear = $('#edit-field-book-year-tid option:selected').length;
+
+        if ($selectedYear > 0) {
+          var $current_yr = new Date().getFullYear();
+          var $year_val = '';
+
+          $('#edit-field-book-year-tid option:selected').each(function(i) {
+            if ($(this).text() == $current_yr) {
+              $('#no-yr').show();
+              $isCurrentYr = 1;
+              return false;
+            }
+            if (i < ($selectedYear - 1)) {
+              $year_val += $(this).filter(':selected').text() + ', ';
+            }
+            else {
+              $year_val += $(this).filter(':selected').text();
+            }
+          });
+          $('.view-empty span:last-child').text(' in ' + $year_val);
+        }
+
+        if (($selectedCat > 0) && ($isCurrentYr == 0)) {
+          var $cat_name = ''
+          $('#edit-field-book-type-tid option:selected').each(function(i) {
+
+            if (i < ($selectedCat - 1)) {
+              $cat_name += $(this).filter(':selected').text() + ', ';
+            }
+            else {
+              $cat_name += $(this).filter(':selected').text();
+            }
+          });
+          $('.view-empty span:first-child').html(' ' + $cat_name + ' ');
+          $('#no-cat').show();
+        }
+      }
     }
   };
 })(jQuery, Drupal);
