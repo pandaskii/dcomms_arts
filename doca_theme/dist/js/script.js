@@ -88,21 +88,11 @@
           }, 200);
         });
 
-        //        $('.views-row.book .views-field-field-thumbnail')
-        //          .bind('click', function() {
-        //            var hrefLocation = $(this).find('a').attr('href');
-        //            location.href = hrefLocation;
-        //          });
-        var $param;
-        var $y_param;
-        var $labels = [];
-        var $options = [];
-        var $y_labels = [];
-        var $y_options = [];
-        var $params = [];
-        var $y_params = [];
+        var year_open = false
+        var cat_open = false;
 
-        // replace all the category and year select options are checkboxes
+        // Ensure all the category and year select options are avaabile as
+        // checkboxes.
         $('#category-wrapper').ready(function() {
           if ($('#filter-wrapper-booktype-tid').length) {
             $('#filter-wrapper-booktype-tid').remove();
@@ -115,6 +105,7 @@
             $checkboxes += '<input type="checkbox" id="id-' + value + '" name="field_book_type_tid_check[]" value="' + value + '" class="form-checkbox"';
             if ($(this).attr('selected')) {
               $checkboxes += ' checked';
+              cat_open = true;
             }
             $checkboxes += '>';
             $checkboxes += '<label class="option" for="id-' + value + '">' + $(this).text() + '</label></div>';
@@ -144,6 +135,7 @@
             $checkboxes += '<input type="checkbox" id="id-' + value + '" name="field_book_year_tid_check[]" value="' + value + '" class="form-checkbox"';
             if ($(this).attr('selected')) {
               $checkboxes += ' checked';
+              year_open = true;
             }
             $checkboxes += '>';
             $checkboxes += '<label class="option" for="id-' + value + '">' + $(this).text() + '</label></div>';
@@ -162,23 +154,17 @@
             }
           });
         });
-        var $search = window.location.search;
-        $.each($params, function(k) {
-          if ($search.indexOf($params[k]) >= 0) {
-            $('#edit-field-book-type-tid_cb input')
-              .eq(k)
-              .attr("checked", 'checked');
-          }
-        });
-        $.each($y_params, function(l) {
-          if ($search.indexOf($y_params[l]) >= 0) {
-            $('#edit-field-book-year-tid_cb input')
-              .eq(l)
-              .attr("checked", 'checked');
-          }
-        });
 
-        // Years expand-collapse
+        // If the year / category have selected items, leave the fieldset open.
+        if (cat_open) {
+          $('.filter__label[for="edit-field-book-type-tid_cb"]').toggleClass('open');
+          $('.filter__label[for="edit-field-book-type-tid_cb"]').next().toggleClass('open');
+        }
+        if (year_open) {
+          $('.filter__label[for="edit-form-item-field-book-year-tid"]').toggleClass('open');
+          $('.filter__label[for="edit-form-item-field-book-year-tid"]').next().toggleClass('open');
+        }
+        // Years / category expand-collapse.
         $('.filter__label[for="edit-form-item-field-book-year-tid"], .filter__label[for="edit-field-book-type-tid_cb"]')
           .bind('click', function() {
             $(this).toggleClass('open');
