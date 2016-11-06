@@ -70,7 +70,7 @@
     attach: function(context) {
       if ($('.view-book-search').length > 0) {
 
-        var $sort_option = $("#edit-field-winner option:selected").text();
+        var $sort_option = $("#edit-field-winner-value option:selected").text();
         var $subtitle = '<h2 class="subtitle">' + $sort_option + '</h2>';
         $('.layout-max > .share-row').prepend($subtitle);
         //
@@ -104,7 +104,6 @@
 
         // replace all the category and year select options are checkboxes
         $('#category-wrapper').ready(function() {
-          console.log($('#filter-wrapper-booktype-tid').length);
           if ($('#filter-wrapper-booktype-tid').length) {
             $('#filter-wrapper-booktype-tid').remove();
           }
@@ -197,10 +196,10 @@
       });
       $('.book-illustrator').each(function() {
         if ($(this).find('.field-name-field-pbundle-subtitle').length > 1) {
-          $(this).find('.pmla_author').html('Illustrators: ');
+          $(this).find('.pmla_illustrator').html('Illustrators: ');
         }
         if ($(this).find('.field-name-field-pbundle-subtitle').length == 0) {
-          $(this).find('.pmla_author').html('');
+          $(this).find('.pmla_illustrator').html('');
         }
       });
 

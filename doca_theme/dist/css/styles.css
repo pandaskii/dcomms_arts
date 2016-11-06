@@ -1697,7 +1697,24 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 
 .view-book-search .layout-four-column__item {
   width: inherit;
-  padding: 20px 30px 20px 0;
+}
+@media (min-width: 720px) {
+  .view-book-search .layout-four-column__item {
+    padding: 20px 20px 20px 0;
+  }
+}
+@media (min-width: 980px) {
+  .view-book-search .layout-four-column__item {
+    padding: 20px 20px 20px 0;
+  }
+  .view-book-search .layout-four-column__item:nth-child(3n+3) {
+    padding-right: 0;
+  }
+}
+@media (min-width: 1170px) {
+  .view-book-search .layout-four-column__item {
+    padding: 20px 50px 40px 0;
+  }
 }
 .view-book-search .view-filters .filter {
   border-top: none;
@@ -1784,6 +1801,9 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 .view-book-search .view-empty #no-cat span:first-child {
   font-style: italic;
 }
+.view-book-search .view-grouping-content {
+  font-size: 20px;
+}
 
 h2.subtitle {
   color: #000000;
@@ -1800,6 +1820,18 @@ h2.subtitle {
   height: 356px;
   overflow: hidden;
   z-index: 1;
+}
+@media (min-width: 980px) {
+  .book {
+    width: 220px;
+    height: 318px;
+  }
+}
+@media (min-width: 1170px) {
+  .book {
+    width: 246px;
+    height: 356px;
+  }
 }
 .book a {
   color: #000000;
@@ -1850,14 +1882,21 @@ h2.subtitle {
 }
 .book-details__overlay .book-author, .book-details__overlay book-author a, .book-details__overlay .book-illustrator, .book-details__overlay book-illustrator a {
   font-size: 20px;
-  line-height: 1.4em;
+  line-height: 1.2em;
   margin-top: 5px;
+  font-weight: 500;
+}
+.book-details__overlay .book-author-inline {
+  display: inline;
+}
+.book-details__overlay .book-author-inline .field-name-field-pbundle-subtitle .field-item:after {
+  content: ', ';
+}
+.book-details__overlay .book-author-inline:last-child .field-name-field-pbundle-subtitle .field-item:after {
+  content: '';
 }
 .book-details__overlay .field-name-field-pbundle-title, .book-details__overlay .field-name-field-pbundle-subtitle {
   display: inline-block;
-}
-.book-details__overlay .field-name-field-pbundle-title:after {
-  content: '';
 }
 
 .book-winner__overlay {
@@ -1889,6 +1928,9 @@ h2.subtitle {
 }
 .node-book img {
   margin: 0 15px 15px 0;
+}
+.node-book .book-author-inline .field-name-field-pbundle-title, .node-book .book-author-inline .field-name-field-pbundle-subtitle {
+  display: inline-block;
 }
 
 .border-highlight {

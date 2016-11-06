@@ -6,7 +6,18 @@
 .view-book-search {
   .layout-four-column__item {
     width: inherit;
-    padding: 20px 30px 20px 0;
+    @include breakpoint($medium) {
+      padding: 20px 20px 20px 0;
+    }
+    @include breakpoint($large) {
+      padding: 20px 20px 20px 0;
+      &:nth-child(3n+3) {
+        padding-right: 0;
+      }
+    }
+    @include breakpoint($larger-x) {
+      padding: 20px 50px 40px 0;
+    }
   }
   .view-filters {
     .filter {
@@ -97,6 +108,9 @@
       font-style: italic;
     }
   }
+  .view-grouping-content {
+    font-size: 20px;
+  }
 }
 
 h2.subtitle {
@@ -112,6 +126,14 @@ h2.subtitle {
   height: 356px;
   overflow: hidden;
   z-index: 1;
+  @include breakpoint($large) {
+    width: 220px;
+    height: 318px;
+  }
+  @include breakpoint($larger-x) {
+    width: 246px;
+    height: 356px;
+  }
   a {
     color: #000000;
     display: block;
@@ -160,14 +182,23 @@ h2.subtitle {
   }
   .book-author, book-author a, .book-illustrator, book-illustrator a {
     font-size: 20px;
-    line-height: 1.4em;
+    line-height: 1.2em;
     margin-top: 5px;
+    font-weight: 500;
+  }
+  .book-author-inline {
+    display: inline;
+    .field-name-field-pbundle-subtitle .field-item:after {
+      content: ', ';
+    }
+    &:last-child {
+      .field-name-field-pbundle-subtitle .field-item:after {
+        content: '';
+      }
+    }
   }
   .field-name-field-pbundle-title, .field-name-field-pbundle-subtitle {
     display: inline-block;
-  }
-  .field-name-field-pbundle-title:after {
-    content: '';
   }
 }
 
@@ -201,5 +232,10 @@ h2.subtitle {
   }
   img {
     margin: 0 15px 15px 0;
+  }
+  .book-author-inline {
+    .field-name-field-pbundle-title, .field-name-field-pbundle-subtitle {
+      display: inline-block;
+    }
   }
 }
