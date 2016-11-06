@@ -191,6 +191,7 @@
 
       // Set no result message.
       if ($('.layout-sidebar__main > .view-empty').length > 0) {
+        var message_set = false;
         var $isCurrentYr = 0;
         var $selectedCat = $('#edit-field-book-type-tid option:selected').length;
         var $selectedYear = $('#edit-field-book-year-tid option:selected').length;
@@ -202,6 +203,7 @@
           $('#edit-field-book-year-tid option:selected').each(function(i) {
             if ($(this).text() == $current_yr) {
               $('#no-yr').show();
+              message_set = true;
               $isCurrentYr = 1;
               return false;
             }
@@ -228,6 +230,11 @@
           });
           $('.view-empty span:first-child').html(' ' + $cat_name + ' ');
           $('#no-cat').show();
+          message_set = true;
+        }
+
+        if (!message_set) {
+          $('#no-res').show();
         }
       }
     }
