@@ -17,7 +17,11 @@
     <?php if (!empty($widgets)): ?>
       <div class="filter_group">
         <?php foreach ($widgets as $id => $widget): ?>
-          <div class="filter clearfix <?php  if(($widget->id == 'edit-field-book-type-tid') || ($widget->id == 'edit-field-book-year-tid')) {print 'element-invisible';} ?>">
+          <div class="filter clearfix <?php
+          if(($widget->id == 'edit-field-book-type-tid') || ($widget->id == 'edit-field-book-year-tid')) {
+            print 'element-invisible';
+          }
+          ?>">
             <?php if (!empty($widget->label)): ?>
               <label class="filter__label" for="<?php print $widget->id; ?>">
                 <?php print $widget->label; ?>

@@ -730,7 +730,6 @@ function doca_theme_form_alter(&$form, &$form_state, $form_id) {
     $form['field_winner_value']['#options']['All'] = 'Shortlists';
     $form['field_winner_value']['#options'][1] = 'Winners';
     unset($form['field_winner_value']['#options'][0]);
-    
   }
 }
 
