@@ -6,6 +6,6 @@
  */
 ?>
 <div class="book-author-inline">
-  <?php print render($content['field_pbundle_title']) . ' ' . render($content['field_pbundle_subtitle']); ?>
+   <?php if ($view_mode == 'full') {print '<h3>';} ?><?php print render($content['field_pbundle_title']) . ' ' . render($content['field_pbundle_subtitle']); ?><?php if ($view_mode == 'full') {print '</h3>';} ?>
 </div>
 <?php print render($content); ?>
