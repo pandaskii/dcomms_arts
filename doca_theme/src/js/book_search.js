@@ -1,3 +1,6 @@
+var year_toggled = false;
+var cat_toggled = false;
+
 (function($, Drupal) {
   Drupal.behaviors.books = {
     attach: function(context) {
@@ -145,11 +148,11 @@
         });
 
         // If the year / category have selected items, leave the fieldset open.
-        if (cat_open) {
+        if (cat_open || cat_toggled) {
           $('.filter__label[for="edit-field-book-type-tid_cb"]').toggleClass('open');
           $('.filter__label[for="edit-field-book-type-tid_cb"]').next().toggleClass('open');
         }
-        if (year_open) {
+        if (year_open || year_toggled) {
           $('.filter__label[for="edit-form-item-field-book-year-tid"]').toggleClass('open');
           $('.filter__label[for="edit-form-item-field-book-year-tid"]').next().toggleClass('open');
         }
@@ -158,6 +161,12 @@
           .bind('click', function() {
             $(this).toggleClass('open');
             $(this).next().toggleClass('open');
+            if ($(this).text() == "Year") {
+              year_toggled = !year_toggled;
+            }
+            else {
+              cat_toggled = !cat_toggled;
+            }
           });
       }
       // Set correct labels for authors & illustrators.
