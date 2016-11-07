@@ -18,7 +18,7 @@
       <div class="filter_group">
         <?php foreach ($widgets as $id => $widget): ?>
           <div class="filter clearfix <?php
-          if(($widget->id == 'edit-field-book-type-tid') || ($widget->id == 'edit-field-book-year-tid')) {
+          if(($widget->id == 'edit-combine') || ($widget->id == 'edit-field-book-type-tid') || ($widget->id == 'edit-field-book-year-tid')) {
             print 'element-invisible';
           }
           ?>">

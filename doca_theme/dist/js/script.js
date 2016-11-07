@@ -68,6 +68,16 @@
 (function($, Drupal) {
   Drupal.behaviors.books = {
     attach: function(context) {
+
+      function removeThrobber() {
+        $('.ajax-progress-throbber').remove();
+      }
+
+      function addThrobber(element) {
+        removeThrobber();
+        element.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
+      }
+
       if ($('.view-book-search').length > 0) {
 
         var $sort_option = $("#edit-field-winner-value option:selected").text();
@@ -91,7 +101,7 @@
         var year_open = false
         var cat_open = false;
 
-        // Ensure all the category and year select options are avaabile as
+        // Ensure all the category and year select options are available as
         // checkboxes.
         $('#category-wrapper').ready(function() {
           if ($('#filter-wrapper-booktype-tid').length) {
@@ -153,6 +163,29 @@
                 '').selected(false).change();
             }
           });
+        });
+
+        // Manually make the search textbox not ajax submit.
+        $('.filter.manual [name="combine"]').val($('form .filter [name="combine"]').val());
+        $('.filter.manual [name="combine"]').blur(function() {
+          $('form .filter [name="combine"]').val($('.filter.manual [name="combine"]').val());
+        });
+        $('.filter.manual [name="combine"]').bind("keypress", function(e) {
+          if (e.which == 13) {
+            $('form .filter [name="combine"]').val($('.filter.manual [name="combine"]').val());
+            addThrobber($('.filter.manual .form-submit'))
+            $('form .filter [name="combine"]').change();
+          }
+        });
+        $('.filter.manual .form-submit').bind("keypress", function(e) {
+          if (e.which == 13) {
+            addThrobber($('.filter.manual .form-submit'))
+            $('form .filter [name="combine"]').change();
+          }
+        });
+        $('.filter.manual .form-submit').bind("click", function(e) {
+          addThrobber($('.filter.manual .form-submit'))
+          $('form .filter [name="combine"]').change();
         });
 
         // If the year / category have selected items, leave the fieldset open.

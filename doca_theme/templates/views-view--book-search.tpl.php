@@ -41,6 +41,20 @@
 
   <?php if ($exposed): ?>
     <div class="view-filters layout-sidebar__sidebar sidebar--right-align">
+      <div class="filter clearfix manual">
+        <label class="filter__label" for="edit-combine">
+          Search for book title or author </label>
+
+        <div class="form-item form-type-textfield form-item-combine">
+          <input type="text" id="edit-combine" name="combine" value="" size="30"
+                 maxlength="128" class="form-text ctools-auto-submit-processed">
+        </div>
+        <div class="filter__button">
+          <input class="ctools-use-ajax ctools-auto-submit-click form-submit"
+                 type="submit" id="edit-submit-book-search" name=""
+                 value="Search"></div>
+
+      </div>
       <?php print $exposed; ?>
     </div>
   <?php endif; ?>
