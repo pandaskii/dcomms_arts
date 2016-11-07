@@ -79,7 +79,10 @@
       }
 
       function disableFilters() {
-        $('.view-filters input').attr('disabled', 'disabled');
+        $('.view-filters [name="field_winner_value"]').attr('disabled', 'disabled');
+        $('.view-filters [id^="filter-wrapper-bookyear-tid"] input').attr('disabled', 'disabled');
+        $('.view-filters [id^="filter-wrapper-booktype-tid"] input').attr('disabled', 'disabled');
+        $('.view-filters .manual [name="combine"]').attr('disabled', 'disabled');
       }
 
       if ($('.view-book-search').length > 0) {
@@ -114,14 +117,6 @@
         var year_open = false
         var cat_open = false;
 
-        // Disable the whole set of filters while it's searching
-        $('[id^="views-exposed-form-book-search-block-search"] input').change(function() {
-          disableFilters();
-        });
-        $('[id^="views-exposed-form-book-search-block-search"] select').change(function() {
-          disableFilters();
-        });
-
         // Ensure all the category and year select options are available as
         // checkboxes.
         $('#category-wrapper').ready(function() {
@@ -144,6 +139,8 @@
           $checkboxes += '</div></div>';
           $('[id^="views-exposed-form-book-search-block-search"]').after($checkboxes);
           $('#edit-field-book-type-tid_cb').find(':checkbox').bind('change', function() {
+            disableFilters();
+            addThrobber($('.filter.manual .form-submit'))
             if ($(this).attr('checked')) {
               $('#category-wrapper').find('select option[value="' + $(this).attr('id').replace('id-', '') + '"]' +
                 '').selected(true).change();
@@ -175,6 +172,8 @@
           $('[id^="views-exposed-form-book-search-block-search"]').after($checkboxes);
 
           $('#edit-form-item-field-book-year-tid').find(':checkbox').bind('change', function() {
+            disableFilters();
+            addThrobber($('.filter.manual .form-submit'))
             if ($(this).attr('checked')) {
               $('#year-wrapper').find('select option[value="' + $(this).attr('id').replace('id-', '') + '"]' +
                 '').selected(true).change();
@@ -193,6 +192,7 @@
         });
         $('.filter.manual [name="combine"]').bind("keypress", function(e) {
           if (e.which == 13) {
+            disableFilters();
             $('form .filter [name="combine"]').val($('.filter.manual [name="combine"]').val());
             addThrobber($('.filter.manual .form-submit'))
             $('form .filter [name="combine"]').change();
@@ -200,11 +200,13 @@
         });
         $('.filter.manual .form-submit').bind("keypress", function(e) {
           if (e.which == 13) {
+            disableFilters();
             addThrobber($('.filter.manual .form-submit'))
             $('form .filter [name="combine"]').change();
           }
         });
         $('.filter.manual .form-submit').bind("click", function(e) {
+          disableFilters();
           addThrobber($('.filter.manual .form-submit'))
           $('form .filter [name="combine"]').change();
         });
