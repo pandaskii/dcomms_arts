@@ -178,7 +178,7 @@ function doca_theme_preprocess_entity(&$variables, $hook) {
           'alertHideName' => $variables['field_hide_name_field'][0]['value'],
           'alertHideNumber' => $variables['field_hide_contact_number_field'][0]['value'],
           'alertMailGroup' => $variables['field_mail_groups'][0]['value'],
-          'microSite' => variable_get('doca_theme', 'http://ministryofthearts.e-newsletter.com.au'),
+          'microSite' => variable_get('doca_theme_micro_site', 'http://ministryofthearts.e-newsletter.com.au'),
           'alertSuccessMessage' => $variables['field_success_message'][0]['value'],
         ),
       ), 'setting');
