@@ -187,6 +187,27 @@ function doca_theme_preprocess_entity(&$variables, $hook) {
 }
 
 /**
+ * Implements hook_media_wysiwyg_token_to_markup_alter().
+ */
+function doca_theme_media_wysiwyg_token_to_markup_alter(&$element, &$tag_info, $settings) {
+  // Add the relevant styles to the generated media wysiwyg dom elements. This
+  // needs to be done in slightly different ways for certain view modes.
+  if (isset($element['content']['file']['#attributes']['style'])) {
+    $styles = $element['content']['file']['#attributes']['style'];
+    $parts = explode(";", $styles);
+    for ($i = 0; $i < count($parts); $i++) {
+      if (substr(trim($parts[$i]), 0, 5) == 'float') {
+        // Move the float to the parent element.
+        $element['content']['#attributes']['style'] = $parts[$i];
+        unset($parts[$i]);
+        $element['content']['file']['#attributes']['style'] = implode(";", $parts);
+        break;
+      }
+    }
+  }
+}
+
+/**
  * Fill related content with content from a category term.
  *
  * @param array $related_content_nids
