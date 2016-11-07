@@ -6,6 +6,9 @@
 .view-book-search {
   .layout-four-column__item {
     width: inherit;
+    &:first-child {
+      padding-left: 20px;
+    }
     @include breakpoint($medium) {
       padding: 20px 20px 20px 0;
     }
