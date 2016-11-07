@@ -49,7 +49,6 @@ hide($content['comments']);
             <?php print render($content['field_image_with_caption']); ?>
           </div>
         <?php endif; ?>
-        <?php print render($content['body']); ?>
       </div>
     <?php endif; ?>
   </div>
