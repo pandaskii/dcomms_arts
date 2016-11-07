@@ -28,7 +28,7 @@
         var textHeight;
         if ($('#edit-combine').val() != '') {
           $('.views-row.book').each(function() {
-            textHeight = $(this).find.('.book-details__overlay').outerHeight() + 20;
+            textHeight = $(this).find('.book-details__overlay').outerHeight() + 20;
             $(this).find('.views-field-field-thumbnail').css('top', textHeight);
           })
         }
