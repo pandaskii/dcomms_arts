@@ -11,6 +11,10 @@
         element.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
       }
 
+      function disableFilters() {
+        $('.view-filters input').attr('disabled', 'disabled');
+      }
+
       if ($('.view-book-search').length > 0) {
 
         var $sort_option = $("#edit-field-winner-value option:selected").text();
@@ -33,6 +37,14 @@
 
         var year_open = false
         var cat_open = false;
+
+        // Disable the whole set of filters while it's searching
+        $('[id^="views-exposed-form-book-search-block-search"] input').change(function() {
+          disableFilters();
+        });
+        $('[id^="views-exposed-form-book-search-block-search"] select').change(function() {
+          disableFilters();
+        });
 
         // Ensure all the category and year select options are available as
         // checkboxes.
