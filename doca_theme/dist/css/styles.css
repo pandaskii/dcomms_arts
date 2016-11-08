@@ -1858,7 +1858,6 @@ h2.subtitle {
   position: relative;
   transition: top 0.2s;
   z-index: 10;
-  top: -25px;
 }
 .book .views-field-field-thumbnail img {
   width: 100%;

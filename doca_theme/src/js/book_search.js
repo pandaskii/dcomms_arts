@@ -61,7 +61,7 @@ var winner_val = "All";
             }, 200);
           }, function() {
             $(this).find('.views-field-field-thumbnail').animate({
-              top: -25
+              top: 0
             }, 200);
           });
         }
@@ -90,7 +90,7 @@ var winner_val = "All";
               .text() + '</label></div>';
           });
           $checkboxes += '</div></div>';
-          $('[id^="views-exposed-form-book-search-block-search"]')
+          $('[id^="views-exposed-form-book-search-default"]')
             .after($checkboxes);
           $('#edit-field-book-type-tid_cb')
             .find(':checkbox')
@@ -136,7 +136,7 @@ var winner_val = "All";
               .text() + '</label></div>';
           });
           $checkboxes += '</div></div>';
-          $('[id^="views-exposed-form-book-search-block-search"]')
+          $('[id^="views-exposed-form-book-search-default"]')
             .after($checkboxes);
 
           $('#edit-form-item-field-book-year-tid')
