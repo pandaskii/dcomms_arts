@@ -122,7 +122,7 @@ var winner_val = "All";
           $('.views-row.book').hover(function() {
             textHeight = $(this)
               .find('.book-details__overlay')
-              .outerHeight() - 5;
+              .outerHeight() + 20;
             $(this).find('.views-field-field-thumbnail').animate({
               top: textHeight
             }, 200);
