@@ -1942,6 +1942,10 @@ h2.subtitle {
   display: inline-block;
 }
 
+.book-author-inline div {
+  display: inline;
+}
+
 .border-highlight {
   height: 9px;
   width: 50px;
