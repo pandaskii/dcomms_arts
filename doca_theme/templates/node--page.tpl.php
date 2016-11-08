@@ -41,6 +41,8 @@ endif;
 
 <?php print render($content['field_summary_cta_with_links']); ?>
 
+
+<?php if (isset($content['related_content']) || $with_img || isset($content['field_image_with_caption'])) : ?>
 <div class="layout-sidebar layout-max spacer <?php
   if ($with_img):
     print 'layout-sidebar__with-img';
@@ -56,6 +58,8 @@ endif;
       </div>
     </div>
   <?php endif; ?>
+
+  <?php if (!empty($content['field_image_with_caption']) || !empty($content['related_content'])): ?>
   <div class="layout-sidebar__main">
     <?php if (isset($content['field_image_with_caption'])): ?>
       <div class="spacer--bottom-large">
@@ -69,8 +73,9 @@ endif;
       </div>
     <?php endif; ?>
   </div>
-
+  <?php endif; ?>
 </div>
+<?php endif; ?>
 
 <?php print render($content['field_entity_content']); ?>
 

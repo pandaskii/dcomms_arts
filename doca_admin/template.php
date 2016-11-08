@@ -31,6 +31,16 @@ function doca_admin_form_node_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function doca_admin_form_book_node_form_alter(&$form, &$form_state) {
+  $pmla_tid = array_search(' PMLA', $form['workbench_access']['workbench_access']['#options']);
+  $form['workbench_access']['workbench_access']['#default_value'] = $pmla_tid;
+  $form['workbench_access']['workbench_access']['#access'] = FALSE;
+  $form['field_illustrator']['und']['add_more']['add_more_bundle_author']['#value'] = 'Add Illustrator';
+}
+
+/**
  * Implements hook_form_workbench_moderation_moderate_form_alter.
  *
  * @param array &$form

@@ -98,7 +98,7 @@
     <?php if (!$is_front): ?>
       <div class="spacer--bottom-mid">
         <?php if ($title): ?>
-          <div class="layout-max spacer">
+          <div class="layout-max">
             <?php print $breadcrumb; ?>
           </div>
         <?php endif; ?>
