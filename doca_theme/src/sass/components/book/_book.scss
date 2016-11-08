@@ -248,6 +248,14 @@ h2.subtitle {
   }
 }
 
-.book-author-inline div {
-  display: inline;
+.node-type-book {
+  .book-author-inline div {
+    display: inline;
+  }
+  .field-name-field-thumbnail {
+    margin-botom: 25px;
+  }
+  h2.book_title {
+    margin-top: 2rem;
+  }
 }

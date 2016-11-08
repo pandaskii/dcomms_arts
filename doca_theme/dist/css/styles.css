@@ -1941,8 +1941,14 @@ h2.subtitle {
   display: inline-block;
 }
 
-.book-author-inline div {
+.node-type-book .book-author-inline div {
   display: inline;
+}
+.node-type-book .field-name-field-thumbnail {
+  margin-botom: 25px;
+}
+.node-type-book h2.book_title {
+  margin-top: 2rem;
 }
 
 .border-highlight {
