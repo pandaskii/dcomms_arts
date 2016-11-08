@@ -55,13 +55,13 @@ var winner_val = "All";
           $('.views-row.book').hover(function() {
             textHeight = $(this)
               .find('.book-details__overlay')
-              .outerHeight() + 20;
+              .outerHeight() - 5;
             $(this).find('.views-field-field-thumbnail').animate({
               top: textHeight
             }, 200);
           }, function() {
             $(this).find('.views-field-field-thumbnail').animate({
-              top: 0
+              top: -25
             }, 200);
           });
         }

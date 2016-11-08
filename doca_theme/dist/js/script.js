@@ -75,6 +75,8 @@ var winner_val = "All";
 
       if ($('.view-book-search').length > 0) {
 
+        // The winners select list keeps resetting, this code ensures it's value
+        // is maintained across ajax calls.
         if ($('.view-filters [name="field_winner_value"]').val() != winner_val) {
           $('.view-filters [name="field_winner_value"]').val(winner_val).change();
         }
@@ -120,13 +122,13 @@ var winner_val = "All";
           $('.views-row.book').hover(function() {
             textHeight = $(this)
               .find('.book-details__overlay')
-              .outerHeight() + 20;
+              .outerHeight() - 5;
             $(this).find('.views-field-field-thumbnail').animate({
               top: textHeight
             }, 200);
           }, function() {
             $(this).find('.views-field-field-thumbnail').animate({
-              top: 0
+              top: -25
             }, 200);
           });
         }
