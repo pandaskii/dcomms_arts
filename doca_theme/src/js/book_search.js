@@ -90,7 +90,7 @@ var winner_val = "All";
               .text() + '</label></div>';
           });
           $checkboxes += '</div></div>';
-          $('[id^="views-exposed-form-book-search-default"]')
+          $('[id^="views-exposed-form-book-search-default"], [id^="views-exposed-form-book-search-book-search"]')
             .after($checkboxes);
           $('#edit-field-book-type-tid_cb')
             .find(':checkbox')
@@ -136,7 +136,7 @@ var winner_val = "All";
               .text() + '</label></div>';
           });
           $checkboxes += '</div></div>';
-          $('[id^="views-exposed-form-book-search-default"]')
+          $('[id^="views-exposed-form-book-search-default"], [id^="views-exposed-form-book-search-book-search"]')
             .after($checkboxes);
 
           $('#edit-form-item-field-book-year-tid')
