@@ -37,11 +37,6 @@ var winner_val = "All";
             .attr('disabled', 'disabled');
         }
 
-        var $sort_option = $("#edit-field-winner-value option:selected").text();
-        $('.share-row h2.subtitle').remove();
-        var $subtitle = '<h2 class="subtitle">' + $sort_option + '</h2>';
-        $('.layout-max > .share-row').prepend($subtitle);
-        //
         var textHeight;
         if ($('#edit-combine').val() != '') {
           $('.views-row.book').each(function() {
