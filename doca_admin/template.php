@@ -38,7 +38,7 @@ function doca_admin_form_book_node_form_alter(&$form, &$form_state) {
   $form['workbench_access']['workbench_access']['#default_value'] = $pmla_tid;
   $form['workbench_access']['workbench_access']['#access'] = FALSE;
   $form['field_illustrator'][LANGUAGE_NONE]['add_more']['add_more_bundle_author']['#value'] = 'Add Illustrator';
-  $form['field_answer']['#access'] = FALSE;
+  $form['field_name_search']['#access'] = FALSE;
   $form['#submit'][] = '_doca_admin_book_node_author_submit';
 }
 
@@ -57,7 +57,7 @@ function _doca_admin_book_node_author_submit(&$form, &$form_state) {
   if (isset($form_state['values']['field_illustrator'][LANGUAGE_NONE])) {
     _doca_admin_book_node_author_get_values($form_state['values']['field_illustrator'][LANGUAGE_NONE], $name_search);
   }
-  $form_state['values']['field_answer'] = array(
+  $form_state['values']['field_name_search'] = array(
     LANGUAGE_NONE => array(array(
       'value' => $name_search,
     ))
