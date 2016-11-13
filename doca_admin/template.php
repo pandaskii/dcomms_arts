@@ -37,6 +37,51 @@ function doca_admin_form_book_node_form_alter(&$form, &$form_state) {
   $pmla_tid = array_search(' PMLA', $form['workbench_access']['workbench_access']['#options']);
   $form['workbench_access']['workbench_access']['#default_value'] = $pmla_tid;
   $form['workbench_access']['workbench_access']['#access'] = FALSE;
+  $form['field_illustrator'][LANGUAGE_NONE]['add_more']['add_more_bundle_author']['#value'] = 'Add Illustrator';
+  $form['field_name_search']['#access'] = FALSE;
+  $form['#submit'][] = '_doca_admin_book_node_author_submit';
+}
+
+/**
+ * Function _doca_admin_book_node_author_submit.
+ * Creates the new value for the Name Search field, which is used in the filter
+ * view to allow searching accross multiple authors and illustrators.
+ * @param $form
+ * @param $form_state
+ */
+function _doca_admin_book_node_author_submit(&$form, &$form_state) {
+  $name_search = '';
+  if (isset($form_state['values']['field_author'][LANGUAGE_NONE])) {
+    _doca_admin_book_node_author_get_values($form_state['values']['field_author'][LANGUAGE_NONE], $name_search);
+  }
+  if (isset($form_state['values']['field_illustrator'][LANGUAGE_NONE])) {
+    _doca_admin_book_node_author_get_values($form_state['values']['field_illustrator'][LANGUAGE_NONE], $name_search);
+  }
+  $form_state['values']['field_name_search'] = array(
+    LANGUAGE_NONE => array(array(
+      'value' => $name_search,
+    ))
+  );
+}
+
+/**
+ * Function _doca_admin_book_node_author_get_values.
+ * A healper function to fill the $name_search param for each author paragraph.
+ *
+ * @param $value_array
+ * @param $name_search
+ */
+function _doca_admin_book_node_author_get_values($value_array, &$name_search) {
+  $name_search = $name_search != '' ? $name_search : $name_search . ' ';
+  foreach ($value_array as $authors) {
+    if (isset($authors['field_pbundle_subtitle'][LANGUAGE_NONE][0]['value'])) {
+      $name_search .= ' ' . $authors['field_pbundle_subtitle'][LANGUAGE_NONE][0]['value'];
+    }
+    $name_search = $name_search != '' ? $name_search : $name_search . ' ';
+    if (isset($authors['field_pbundle_title'][LANGUAGE_NONE][0]['value'])) {
+      $name_search .= ' ' . $authors['field_pbundle_title'][LANGUAGE_NONE][0]['value'];
+    }
+  }
 }
 
 /**
@@ -327,7 +372,7 @@ function doca_base_paragraphs_deleteconfirm($form, &$form_state) {
     // Spoof the #array_parents value for transplanted paragraphs code below.
     $spoofed_array_parents = array(
       'field_updates',
-      'und',
+      LANGUAGE_NONE,
       $delta,
       'actions',
       'remove_button',

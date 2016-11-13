@@ -1698,6 +1698,14 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
 .view-book-search .layout-four-column__item {
   width: inherit;
 }
+.view-book-search .layout-four-column__item:first-child {
+  padding-left: 20px;
+}
+@media (min-width: 720px) {
+  .view-book-search .layout-four-column__item:first-child {
+    padding-left: 0;
+  }
+}
 @media (min-width: 720px) {
   .view-book-search .layout-four-column__item {
     padding: 20px 20px 20px 0;
@@ -1931,6 +1939,16 @@ h2.subtitle {
 }
 .node-book .book-author-inline .field-name-field-pbundle-title, .node-book .book-author-inline .field-name-field-pbundle-subtitle {
   display: inline-block;
+}
+
+.node-type-book .book-author-inline div {
+  display: inline;
+}
+.node-type-book .field-name-field-thumbnail {
+  margin-bottom: 25px;
+}
+.node-type-book h2.book_title {
+  margin-top: 2rem;
 }
 
 .border-highlight {
@@ -4089,8 +4107,8 @@ img.iefix {
     width: 85px;
     height: 100px;
     position: absolute;
-    top: 385px;
-    left: 120px;
+    top: 317px;
+    left: 75px;
     margin-bottom: 0;
     margin-left: 0;
   }

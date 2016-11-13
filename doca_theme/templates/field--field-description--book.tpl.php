@@ -6,6 +6,7 @@
  */
 ?>
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
+  <h2 class="book_title">Judges’ comments</h2>
   <?php if (!$label_hidden): ?>
     <h2><?php print $label ?></h2>
   <?php endif; ?>

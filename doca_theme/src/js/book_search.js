@@ -1,37 +1,48 @@
 var year_toggled = false;
 var cat_toggled = false;
+var winner_val = "All";
 
 (function($, Drupal) {
   Drupal.behaviors.books = {
     attach: function(context) {
 
-      function removeThrobber() {
-        $('.ajax-progress-throbber').remove();
-      }
-
-      function addThrobber(element) {
-        removeThrobber();
-        element.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
-      }
-
-      function disableFilters() {
-        $('.view-filters [name="field_winner_value"]').attr('disabled', 'disabled');
-        $('.view-filters [id^="filter-wrapper-bookyear-tid"] input').attr('disabled', 'disabled');
-        $('.view-filters [id^="filter-wrapper-booktype-tid"] input').attr('disabled', 'disabled');
-        $('.view-filters .manual [name="combine"]').attr('disabled', 'disabled');
-      }
-
       if ($('.view-book-search').length > 0) {
 
-        var $sort_option = $("#edit-field-winner-value option:selected").text();
-        $('.share-row h2.subtitle').remove();
-        var $subtitle = '<h2 class="subtitle">' + $sort_option + '</h2>';
-        $('.layout-max > .share-row').prepend($subtitle);
-        //
+        // The winners select list keeps resetting, this code ensures it's value
+        // is maintained across ajax calls.
+        if ($('.view-filters [name="field_winner_value"]').val() != winner_val) {
+          $('.view-filters [name="field_winner_value"]').val(winner_val).change();
+        }
+        $('.view-filters [name="field_winner_value"]').bind('change', function() {
+          winner_val = $('.view-filters [name="field_winner_value"]').val();
+        });
+
+        function removeThrobber() {
+          $('.ajax-progress-throbber').remove();
+        }
+
+        function addThrobber(element) {
+          removeThrobber();
+          element.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
+        }
+
+        function disableFilters() {
+          $('.view-filters [name="field_winner_value"]')
+            .attr('disabled', 'disabled');
+          $('.view-filters [id^="filter-wrapper-bookyear-tid"] input')
+            .attr('disabled', 'disabled');
+          $('.view-filters [id^="filter-wrapper-booktype-tid"] input')
+            .attr('disabled', 'disabled');
+          $('.view-filters .manual [name="combine"]')
+            .attr('disabled', 'disabled');
+        }
+
         var textHeight;
         if ($('#edit-combine').val() != '') {
           $('.views-row.book').each(function() {
-            textHeight = $(this).find('.book-details__overlay').outerHeight() + 20;
+            textHeight = $(this)
+              .find('.book-details__overlay')
+              .outerHeight() + 20;
             $(this).find('.views-field-field-thumbnail').css('top', textHeight);
           })
         }
@@ -70,22 +81,36 @@ var cat_toggled = false;
               cat_open = true;
             }
             $checkboxes += '>';
-            $checkboxes += '<label class="option" for="id-' + value + '">' + $(this).text() + '</label></div>';
+            $checkboxes += '<label class="option" for="id-' + value + '">' + $(this)
+              .text() + '</label></div>';
           });
           $checkboxes += '</div></div>';
-          $('[id^="views-exposed-form-book-search-block-search"]').after($checkboxes);
-          $('#edit-field-book-type-tid_cb').find(':checkbox').bind('change', function() {
-            disableFilters();
-            addThrobber($('.filter.manual .form-submit'))
-            if ($(this).attr('checked')) {
-              $('#category-wrapper').find('select option[value="' + $(this).attr('id').replace('id-', '') + '"]' +
-                '').selected(true).change();
-            }
-            else {
-              $('#category-wrapper').find('select option[value="' + $(this).attr('id').replace('id-', '') + '"]' +
-                '').selected(false).change();
-            }
-          });
+          $('[id^="views-exposed-form-book-search-default"], [id^="views-exposed-form-book-search-book-search"]')
+            .after($checkboxes);
+          $('#edit-field-book-type-tid_cb')
+            .find(':checkbox')
+            .bind('change', function() {
+              disableFilters();
+              addThrobber($('.filter.manual .form-submit'))
+              if ($(this).attr('checked')) {
+                $('#category-wrapper')
+                  .find('select option[value="' + $(this)
+                    .attr('id')
+                    .replace('id-', '') + '"]' +
+                    '')
+                  .selected(true)
+                  .change();
+              }
+              else {
+                $('#category-wrapper')
+                  .find('select option[value="' + $(this)
+                    .attr('id')
+                    .replace('id-', '') + '"]' +
+                    '')
+                  .selected(false)
+                  .change();
+              }
+            });
         });
         $('#year-wrapper').ready(function() {
           if ($('#filter-wrapper-bookyear-tid').length) {
@@ -102,34 +127,51 @@ var cat_toggled = false;
               year_open = true;
             }
             $checkboxes += '>';
-            $checkboxes += '<label class="option" for="id-' + value + '">' + $(this).text() + '</label></div>';
+            $checkboxes += '<label class="option" for="id-' + value + '">' + $(this)
+              .text() + '</label></div>';
           });
           $checkboxes += '</div></div>';
-          $('[id^="views-exposed-form-book-search-block-search"]').after($checkboxes);
+          $('[id^="views-exposed-form-book-search-default"], [id^="views-exposed-form-book-search-book-search"]')
+            .after($checkboxes);
 
-          $('#edit-form-item-field-book-year-tid').find(':checkbox').bind('change', function() {
-            disableFilters();
-            addThrobber($('.filter.manual .form-submit'))
-            if ($(this).attr('checked')) {
-              $('#year-wrapper').find('select option[value="' + $(this).attr('id').replace('id-', '') + '"]' +
-                '').selected(true).change();
-            }
-            else {
-              $('#year-wrapper').find('select option[value="' + $(this).attr('id').replace('id-', '') + '"]' +
-                '').selected(false).change();
-            }
-          });
+          $('#edit-form-item-field-book-year-tid')
+            .find(':checkbox')
+            .bind('change', function() {
+              disableFilters();
+              addThrobber($('.filter.manual .form-submit'))
+              if ($(this).attr('checked')) {
+                $('#year-wrapper')
+                  .find('select option[value="' + $(this)
+                    .attr('id')
+                    .replace('id-', '') + '"]' +
+                    '')
+                  .selected(true)
+                  .change();
+              }
+              else {
+                $('#year-wrapper')
+                  .find('select option[value="' + $(this)
+                    .attr('id')
+                    .replace('id-', '') + '"]' +
+                    '')
+                  .selected(false)
+                  .change();
+              }
+            });
         });
 
         // Manually make the search textbox not ajax submit.
-        $('.filter.manual [name="combine"]').val($('form .filter [name="combine"]').val());
+        $('.filter.manual [name="combine"]')
+          .val($('form .filter [name="combine"]').val());
         $('.filter.manual [name="combine"]').blur(function() {
-          $('form .filter [name="combine"]').val($('.filter.manual [name="combine"]').val());
+          $('form .filter [name="combine"]')
+            .val($('.filter.manual [name="combine"]').val());
         });
         $('.filter.manual [name="combine"]').bind("keypress", function(e) {
           if (e.which == 13) {
             disableFilters();
-            $('form .filter [name="combine"]').val($('.filter.manual [name="combine"]').val());
+            $('form .filter [name="combine"]')
+              .val($('.filter.manual [name="combine"]').val());
             addThrobber($('.filter.manual .form-submit'))
             $('form .filter [name="combine"]').change();
           }
@@ -149,12 +191,18 @@ var cat_toggled = false;
 
         // If the year / category have selected items, leave the fieldset open.
         if (cat_open || cat_toggled) {
-          $('.filter__label[for="edit-field-book-type-tid_cb"]').toggleClass('open');
-          $('.filter__label[for="edit-field-book-type-tid_cb"]').next().toggleClass('open');
+          $('.filter__label[for="edit-field-book-type-tid_cb"]')
+            .toggleClass('open');
+          $('.filter__label[for="edit-field-book-type-tid_cb"]')
+            .next()
+            .toggleClass('open');
         }
         if (year_open || year_toggled) {
-          $('.filter__label[for="edit-form-item-field-book-year-tid"]').toggleClass('open');
-          $('.filter__label[for="edit-form-item-field-book-year-tid"]').next().toggleClass('open');
+          $('.filter__label[for="edit-form-item-field-book-year-tid"]')
+            .toggleClass('open');
+          $('.filter__label[for="edit-form-item-field-book-year-tid"]')
+            .next()
+            .toggleClass('open');
         }
         // Years / category expand-collapse.
         $('.filter__label[for="edit-form-item-field-book-year-tid"], .filter__label[for="edit-field-book-type-tid_cb"]')
