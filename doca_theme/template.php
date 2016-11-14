@@ -199,6 +199,7 @@ function doca_theme_media_wysiwyg_token_to_markup_alter(&$element, &$tag_info, $
       if (substr(trim($parts[$i]), 0, 5) == 'float') {
         // Move the float to the parent element.
         $element['content']['#attributes']['class'][] = 'doca-media-' . trim(explode(':', $parts[$i])[1]);
+        $element['content']['#attributes']['style'] = $parts[$i];
         unset($parts[$i]);
         $element['content']['file']['#attributes']['style'] = implode(";", $parts);
         break;
