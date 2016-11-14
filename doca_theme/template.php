@@ -176,6 +176,7 @@ function doca_theme_preprocess_entity(&$variables, $hook) {
       drupal_add_js(array(
         'doca_theme' => array(
           'alertHideName' => $variables['field_hide_name_field'][0]['value'],
+          'alertFullName' => $variables['field_single_full_name'][0]['value'],
           'alertHideNumber' => $variables['field_hide_contact_number_field'][0]['value'],
           'alertMailGroup' => $variables['field_mail_groups'][0]['value'],
           'microSite' => variable_get('doca_theme_micro_site', 'http://ministryofthearts.e-newsletter.com.au'),

@@ -15,8 +15,14 @@
 
         // Custom fields.
         var customFields = {};
-        if (!Drupal.settings.doca_theme.alertHideName) {
-          customFields.cu_FULL_NAME = $('#cu_FULL_NAME').val();
+        if (Drupal.settings.doca_theme.alertHideName === '0') {
+          if (Drupal.settings.doca_theme.alertFullName === '0') {
+            standardFields.FIRST_NAME = $('#st_FIRST_NAME').val();
+            standardFields.LAST_NAME = $('#st_LAST_NAME').val();
+          }
+          else {
+            customFields.cu_FULL_NAME = $('#cu_FULL_NAME').val();
+          }
         }
         if (!Drupal.settings.doca_theme.alertHideNumber) {
           customFields.cu_CONTACT_NUMBER = $('#cu_CONTACT_NUMBER').val();

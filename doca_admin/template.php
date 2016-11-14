@@ -30,6 +30,20 @@ function doca_admin_form_node_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
+function doca_admin_form_bean_form_alter(&$form, $form_state, $form_id) {
+  if ($form['#bundle'] == 'landing_page_component') {
+    if (isset($form['field_optional_components']['und']) && isset($form['field_optional_components']['und'][0])) {
+      if ($form['field_optional_components']['und'][0]['#bundle'] == 'subscribe_block') {
+        $form['field_optional_components']['und'][0]['field_single_full_name']['#states'] = array(
+          'visible' => array(
+            ':input[name="field_optional_components[und][0][field_hide_name_field][und]"]' => array('checked' => FALSE),
+          ),
+        );
+      }
+    }
+  }
+}
+
 /**
  * Implements hook_form_alter().
  */
@@ -58,9 +72,11 @@ function _doca_admin_book_node_author_submit(&$form, &$form_state) {
     _doca_admin_book_node_author_get_values($form_state['values']['field_illustrator'][LANGUAGE_NONE], $name_search);
   }
   $form_state['values']['field_name_search'] = array(
-    LANGUAGE_NONE => array(array(
-      'value' => $name_search,
-    ))
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $name_search,
+      )
+    )
   );
 }
 
@@ -458,9 +474,9 @@ function _doca_admin_form_file_entity_edit_validate($form, &$form_state) {
   $invalid = ((!isset($form_state['values']['field_read_more_text'][LANGUAGE_NONE]) ||
         $form_state['values']['field_read_more_text'][LANGUAGE_NONE][0]['value'] != '') ||
       (!isset($form_state['values']['field_image_title'][LANGUAGE_NONE]) ||
-          $form_state['values']['field_image_title'][LANGUAGE_NONE][0]['value'] != '')) &&
+        $form_state['values']['field_image_title'][LANGUAGE_NONE][0]['value'] != '')) &&
     (isset($form_state['values']['field_artist'][LANGUAGE_NONE]) &&
-        $form_state['values']['field_artist'][LANGUAGE_NONE][0]['value'] == '');
+      $form_state['values']['field_artist'][LANGUAGE_NONE][0]['value'] == '');
   if ($invalid) {
     form_set_error('field_artist', t('If either a title or description is added, the Artist field cannot be blank.'));
   }
