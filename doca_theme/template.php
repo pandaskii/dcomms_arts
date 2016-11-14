@@ -201,11 +201,10 @@ function doca_theme_media_wysiwyg_token_to_markup_alter(&$element, &$tag_info, $
         $element['content']['#attributes']['class'][] = 'doca-media-' . trim(explode(':', $parts[$i])[1]);
         unset($parts[$i]);
         $element['content']['file']['#attributes']['style'] = implode(";", $parts);
-//        break;
+        break;
       }
     }
   }
-}
 }
 
 /**
