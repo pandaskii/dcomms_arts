@@ -198,13 +198,14 @@ function doca_theme_media_wysiwyg_token_to_markup_alter(&$element, &$tag_info, $
     for ($i = 0; $i < count($parts); $i++) {
       if (substr(trim($parts[$i]), 0, 5) == 'float') {
         // Move the float to the parent element.
-        $element['content']['#attributes']['style'] = $parts[$i];
+        $element['content']['#attributes']['class'][] = 'doca-media-' . trim(explode(':', $parts[$i])[1]);
         unset($parts[$i]);
         $element['content']['file']['#attributes']['style'] = implode(";", $parts);
-        break;
+//        break;
       }
     }
   }
+}
 }
 
 /**

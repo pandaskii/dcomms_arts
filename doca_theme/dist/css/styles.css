@@ -4450,6 +4450,19 @@ img.iefix {
   max-width: 840px;
 }
 
+.media-element-container.doca-media-left {
+  float: left;
+}
+.media-element-container.doca-media-left img {
+  float: left;
+}
+.media-element-container.doca-media-right {
+  float: right;
+}
+.media-element-container.doca-media-right img {
+  float: left;
+}
+
 .messages--status, .messages--warning, .messages--error, .messages {
   margin-bottom: 1rem;
   padding: 10px;
