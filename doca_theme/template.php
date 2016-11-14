@@ -561,7 +561,7 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     _consultation_vars($variables, $variables['node']);
     $funding = $variables['consultation'];
 
-    if ($funding['date_status'] === 'upcoming') {
+    if ($funding['date_status'] === 'upcoming' || $wrapper->field_hide_progress_bar->value()) {
       field_group_hide_field_groups($variables['elements'], array('group_formal_submissions'));
       hide($variables['content']['hys_progress_bar']);
       hide($variables['content']['formal_submission_webform']);
@@ -572,8 +572,6 @@ function doca_theme_preprocess_node(&$variables, $hook) {
 
     // Set default values.
     $short_comments_enabled = $file_uploads_enabled = FALSE;
-    // Create the entity metadata wrapper.
-    $wrapper = entity_metadata_wrapper('node', $node);
 
     // Add the above results to javascript.
     drupal_add_js(array(
