@@ -1695,6 +1695,11 @@ body.node-type-alert .alert .alert-wrapper .clearfix__overflow {
   display: block;
 }
 
+@media (min-width: 720px) {
+  .view-book-search .mobile-only {
+    display: none;
+  }
+}
 .view-book-search .layout-four-column__item {
   width: inherit;
 }

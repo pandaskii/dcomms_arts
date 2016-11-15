@@ -4,6 +4,11 @@
   //
   // Styleguide components.book
   .view-book-search {
+    .mobile-only {
+      @include breakpoint($medium) {
+        display: none;
+      }
+    }
     .layout-four-column__item {
       width: inherit;
       &:first-child {
