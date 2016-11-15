@@ -1825,9 +1825,13 @@ h2.subtitle {
 .book {
   position: relative;
   width: 246px;
-  height: 356px;
   overflow: hidden;
   z-index: 1;
+}
+@media (min-width: 480px) {
+  .book {
+    height: 356px;
+  }
 }
 @media (min-width: 980px) {
   .book {
@@ -1854,10 +1858,16 @@ h2.subtitle {
   color: #000000;
 }
 .book .views-field-field-thumbnail {
+  display: none;
   cursor: pointer;
   position: relative;
   transition: top 0.2s;
   z-index: 10;
+}
+@media (min-width: 480px) {
+  .book .views-field-field-thumbnail {
+    display: block;
+  }
 }
 .book .views-field-field-thumbnail img {
   width: 100%;
@@ -1872,15 +1882,17 @@ h2.subtitle {
   height: 356px;
 }
 
-.book-item__overlay {
-  background-color: #F3E534;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 10px;
-  z-index: 2;
+@media (min-width: 480px) {
+  .book-item__overlay {
+    background-color: #F3E534;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    z-index: 2;
+  }
 }
 
 .book-details__overlay .book-title, .book-details__overlay book-title a {

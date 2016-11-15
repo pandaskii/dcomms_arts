@@ -1,261 +1,269 @@
-// Book
-//
-// Markup: book.html
-//
-// Styleguide components.book
-.view-book-search {
-  .layout-four-column__item {
-    width: inherit;
-    &:first-child {
-      padding-left: 20px;
-    }
-    @include breakpoint($medium) {
+  // Book
+  //
+  // Markup: book.html
+  //
+  // Styleguide components.book
+  .view-book-search {
+    .layout-four-column__item {
+      width: inherit;
       &:first-child {
-        padding-left: 0;
+        padding-left: 20px;
       }
-    }
-    @include breakpoint($medium) {
-      padding: 20px 20px 20px 0;
-    }
-    @include breakpoint($large) {
-      padding: 20px 20px 20px 0;
-      &:nth-child(3n+3) {
-        padding-right: 0;
-      }
-    }
-    @include breakpoint($larger-x) {
-      padding: 20px 50px 40px 0;
-    }
-  }
-  .view-filters {
-    .filter {
-      border-top: none;
-      border-bottom: 1px solid #b9b9b9;
-      display: block;
-      float: none;
-      margin-bottom: 1rem;
-      padding: 0 0 5px;
-      &:first-child {
-        border: none;
-      }
-      .filter__label {
-        color: #000000;
-        font-weight: 400;
-        font-size: 14px;
-        margin: 0 10px 0 0;
-        &[for="edit-field-winner-value"] {
-          line-height: 36px;
+      @include breakpoint($medium) {
+        &:first-child {
+          padding-left: 0;
         }
-        /* FOR YEARS, EXPAND COLLAPSE */
-        &[for="edit-field-book-type-tid_cb"], &[for="edit-form-item-field-book-year-tid"] {
-          cursor: pointer;
-          display: block;
-          &:after {
-            content: "+";
-            float: right;
+      }
+      @include breakpoint($medium) {
+        padding: 20px 20px 20px 0;
+      }
+      @include breakpoint($large) {
+        padding: 20px 20px 20px 0;
+        &:nth-child(3n+3) {
+          padding-right: 0;
+        }
+      }
+      @include breakpoint($larger-x) {
+        padding: 20px 50px 40px 0;
+      }
+    }
+    .view-filters {
+      .filter {
+        border-top: none;
+        border-bottom: 1px solid #b9b9b9;
+        display: block;
+        float: none;
+        margin-bottom: 1rem;
+        padding: 0 0 5px;
+        &:first-child {
+          border: none;
+        }
+        .filter__label {
+          color: #000000;
+          font-weight: 400;
+          font-size: 14px;
+          margin: 0 10px 0 0;
+          &[for="edit-field-winner-value"] {
+            line-height: 36px;
           }
-          &.open {
+          /* FOR YEARS, EXPAND COLLAPSE */
+          &[for="edit-field-book-type-tid_cb"], &[for="edit-form-item-field-book-year-tid"] {
+            cursor: pointer;
+            display: block;
             &:after {
-              content: "-";
+              content: "+";
+              float: right;
+            }
+            &.open {
+              &:after {
+                content: "-";
+              }
             }
           }
         }
-      }
-      #edit-field-book-type-tid_cb, #edit-form-item-field-book-year-tid {
-        max-height: 0;
-        transition: all 0.4s;
-        overflow: hidden;
-        &.open {
-          max-height: 600px;
+        #edit-field-book-type-tid_cb, #edit-form-item-field-book-year-tid {
+          max-height: 0;
+          transition: all 0.4s;
+          overflow: hidden;
+          &.open {
+            max-height: 600px;
+          }
+        }
+        .form-item-field-winner-value {
+          float: right;
+          margin-right: 10px;
+        }
+        .form-checkboxes {
+          margin-bottom: 10px;
+        }
+        label.option {
+          margin-left: 10px;
+          font-size: 14px;
+        }
+        .form-select {
+          background-position: right 11px;
+          font-size: 14px;
+        }
+        label[for="edit-combine"] {
+          display: block;
+        }
+        .form-item-combine {
+          float: left;
+          width: 70%;
+          input {
+            max-width: inherit;
+            width: 95%;
+          }
+        }
+        .filter__button {
+          clear: none;
+          float: right;
+          padding-top: 0;
+          width: 30%;
+          input {
+            width: 100%;
+            padding: 0;
+          }
         }
       }
-      .form-item-field-winner-value {
-        float: right;
-        margin-right: 10px;
+    }
+    .view-empty {
+      padding: 20px 0;
+      #no-cat, #no-yr, #no-res {
+        display: none;
       }
-      .form-checkboxes {
-        margin-bottom: 10px;
+      #no-cat span:first-child {
+        font-style: italic;
       }
-      label.option {
-        margin-left: 10px;
-        font-size: 14px;
+    }
+    .view-grouping-content {
+      font-size: 20px;
+    }
+  }
+  
+  h2.subtitle {
+    color: #000000;
+    @include breakpoint($medium) {
+      float: left;
+    }
+  }
+  
+  .book, %book {
+    position: relative;
+    width: 246px;
+    overflow: hidden;
+    z-index: 1;
+    @include breakpoint($small) {
+      height: 356px;
+    }
+    @include breakpoint($large) {
+      width: 220px;
+      height: 318px;
+    }
+    @include breakpoint($larger-x) {
+      width: 246px;
+      height: 356px;
+    }
+    a {
+      color: #000000;
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      border: none;
+      &:hover {
+        color: #000000;
       }
-      .form-select {
-        background-position: right 11px;
-        font-size: 14px;
-      }
-      label[for="edit-combine"] {
+    }
+    .views-field-field-thumbnail {
+      display: none;
+      @include breakpoint($small) {
         display: block;
       }
-      .form-item-combine {
-        float: left;
-        width: 70%;
-        input {
-          max-width: inherit;
-          width: 95%;
-        }
+      cursor: pointer;
+      position: relative;
+      transition: top 0.2s;
+      z-index: 10;
+      img {
+        width: 100%;
+        height: auto;
       }
-      .filter__button {
-        clear: none;
-        float: right;
-        padding-top: 0;
-        width: 30%;
-        input {
-          width: 100%;
-          padding: 0;
-        }
-      }
+    }
+    .default-thumb {
+      @include background-image('book-thumb-placeholder.png', 0%, auto);
+      width: 246px;
+      height: 356px;
     }
   }
-  .view-empty {
-    padding: 20px 0;
-    #no-cat, #no-yr, #no-res {
-      display: none;
+  
+  .book-item__overlay, %book-item__overlay {
+    @include breakpoint($small) {
+      background-color: #F3E534;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px;
+      z-index: 2;
     }
-    #no-cat span:first-child {
+  }
+  
+  .book-details__overlay, %book-details__overlay {
+    .book-title, book-title a {
+      line-height: 1.4em;
+      font-size: 20px;
       font-style: italic;
     }
-  }
-  .view-grouping-content {
-    font-size: 20px;
-  }
-}
-
-h2.subtitle {
-  color: #000000;
-  @include breakpoint($medium) {
-    float: left;
-  }
-}
-
-.book, %book {
-  position: relative;
-  width: 246px;
-  height: 356px;
-  overflow: hidden;
-  z-index: 1;
-  @include breakpoint($large) {
-    width: 220px;
-    height: 318px;
-  }
-  @include breakpoint($larger-x) {
-    width: 246px;
-    height: 356px;
-  }
-  a {
-    color: #000000;
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    border: none;
-    &:hover {
-      color: #000000;
+    .book-author, book-author a, .book-illustrator, book-illustrator a {
+      font-size: 20px;
+      line-height: 1.2em;
+      margin-top: 5px;
+      font-weight: 500;
     }
-  }
-  .views-field-field-thumbnail {
-    cursor: pointer;
-    position: relative;
-    transition: top 0.2s;
-    z-index: 10;
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-  .default-thumb {
-    @include background-image('book-thumb-placeholder.png', 0%, auto);
-    width: 246px;
-    height: 356px;
-  }
-}
-
-.book-item__overlay, %book-item__overlay {
-  background-color: #F3E534;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 10px;
-  z-index: 2;
-}
-
-.book-details__overlay, %book-details__overlay {
-  .book-title, book-title a {
-    line-height: 1.4em;
-    font-size: 20px;
-    font-style: italic;
-  }
-  .book-author, book-author a, .book-illustrator, book-illustrator a {
-    font-size: 20px;
-    line-height: 1.2em;
-    margin-top: 5px;
-    font-weight: 500;
-  }
-  .book-author-inline {
-    display: inline;
-    .field-name-field-pbundle-subtitle .field-item:after {
-      content: ', ';
-    }
-    &:last-child {
+    .book-author-inline {
+      display: inline;
       .field-name-field-pbundle-subtitle .field-item:after {
-        content: '';
+        content: ', ';
+      }
+      &:last-child {
+        .field-name-field-pbundle-subtitle .field-item:after {
+          content: '';
+        }
       }
     }
-  }
-  .field-name-field-pbundle-title, .field-name-field-pbundle-subtitle {
-    display: inline-block;
-  }
-}
-
-.book-winner__overlay, %book-winner__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  @include background-image('winner-overlay.png', 0%, auto);
-  width: 155px;
-  height: 155px;
-  text-indent: -9999px;
-}
-
-.view-book-search {
-  .view-grouping {
-    border-bottom: 1px solid #b9b9b9;
-    padding: 25px 0;
-    &:last-child {
-      border: none;
-    }
-  }
-}
-
-// BOOK DETAIL PAGE
-.node-book {
-  @extend .layout-max;
-  @extend .spacer;
-  padding-bottom: 40px;
-  h2 {
-    margin: 2rem 0 1.5rem;
-  }
-  img {
-    margin: 0 15px 15px 0;
-  }
-  .book-author-inline {
     .field-name-field-pbundle-title, .field-name-field-pbundle-subtitle {
       display: inline-block;
     }
   }
-}
-
-.node-type-book {
-  .book-author-inline div {
-    display: inline;
+  
+  .book-winner__overlay, %book-winner__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include background-image('winner-overlay.png', 0%, auto);
+    width: 155px;
+    height: 155px;
+    text-indent: -9999px;
   }
-  .field-name-field-thumbnail {
-    margin-bottom: 25px;
+  
+  .view-book-search {
+    .view-grouping {
+      border-bottom: 1px solid #b9b9b9;
+      padding: 25px 0;
+      &:last-child {
+        border: none;
+      }
+    }
   }
-  h2.book_title {
-    margin-top: 2rem;
+  
+  // BOOK DETAIL PAGE
+  .node-book {
+    @extend .layout-max;
+    @extend .spacer;
+    padding-bottom: 40px;
+    h2 {
+      margin: 2rem 0 1.5rem;
+    }
+    img {
+      margin: 0 15px 15px 0;
+    }
+    .book-author-inline {
+      .field-name-field-pbundle-title, .field-name-field-pbundle-subtitle {
+        display: inline-block;
+      }
+    }
   }
-}
+  
+  .node-type-book {
+    .book-author-inline div {
+      display: inline;
+    }
+    .field-name-field-thumbnail {
+      margin-bottom: 25px;
+    }
+    h2.book_title {
+      margin-top: 2rem;
+    }
+  }
