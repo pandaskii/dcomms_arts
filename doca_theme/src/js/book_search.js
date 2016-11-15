@@ -10,12 +10,16 @@ var winner_val = "All";
 
         // The winners select list keeps resetting, this code ensures it's value
         // is maintained across ajax calls.
-        if ($('.view-filters [name="field_winner_value"]').val() != winner_val) {
-          $('.view-filters [name="field_winner_value"]').val(winner_val).change();
+        if ($('.view-filters [name="field_winner_value"]')
+          .val() != winner_val) {
+          $('.view-filters [name="field_winner_value"]')
+            .val(winner_val)
+            .change();
         }
-        $('.view-filters [name="field_winner_value"]').bind('change', function() {
-          winner_val = $('.view-filters [name="field_winner_value"]').val();
-        });
+        $('.view-filters [name="field_winner_value"]')
+          .bind('change', function() {
+            winner_val = $('.view-filters [name="field_winner_value"]').val();
+          });
 
         function removeThrobber() {
           $('.ajax-progress-throbber').remove();
@@ -238,50 +242,54 @@ var winner_val = "All";
       // Set no result message.
       if ($('.layout-sidebar__main > .view-empty').length > 0) {
         var message_set = false;
-        var $isCurrentYr = 0;
-        var $selectedCat = $('#edit-field-book-type-tid option:selected').length;
-        var $selectedYear = $('#edit-field-book-year-tid option:selected').length;
+        if ($('#edit-combine').val() == '') {
+          var $isCurrentYr = 0;
+          var $selectedCat = $('#edit-field-book-type-tid option:selected').length;
+          var $selectedYear = $('#edit-field-book-year-tid option:selected').length;
 
-        if ($selectedYear > 0) {
-          var $current_yr = new Date().getFullYear();
-          var $year_val = '';
+          if ($selectedYear > 0) {
+            var $current_yr = new Date().getFullYear();
+            var $year_val = '';
 
-          $('#edit-field-book-year-tid option:selected').each(function(i) {
-            if ($(this).text() == $current_yr) {
-              $('#no-yr').show();
-              message_set = true;
-              $isCurrentYr = 1;
-              return false;
-            }
-            if (i < ($selectedYear - 1)) {
-              $year_val += $(this).filter(':selected').text() + ', ';
-            }
-            else {
-              $year_val += $(this).filter(':selected').text();
-            }
-          });
-          $('.view-empty span:last-child').text(' in ' + $year_val);
+            $('#edit-field-book-year-tid option:selected').each(function(i) {
+              if ($('#edit-field-book-year-tid option:selected').length == 1 && $(this)
+                .text() == $current_yr && $('select[name="field_winner_value"]')
+                .val() == 1) {
+                $('#no-yr').show();
+                message_set = true;
+                $isCurrentYr = 1;
+                return false;
+              }
+              if (i < ($selectedYear - 1)) {
+                $year_val += $(this).filter(':selected').text() + ', ';
+              }
+              else {
+                $year_val += $(this).filter(':selected').text();
+              }
+            });
+            $('.view-empty span:last-child').text(' in ' + $year_val);
+          }
+
+          if (($selectedCat > 0) && ($isCurrentYr == 0)) {
+            var $cat_name = ''
+            $('#edit-field-book-type-tid option:selected').each(function(i) {
+
+              if (i < ($selectedCat - 1)) {
+                $cat_name += $(this).filter(':selected').text() + ', ';
+              }
+              else {
+                $cat_name += $(this).filter(':selected').text();
+              }
+            });
+            $('.view-empty span:first-child').html(' ' + $cat_name + ' ');
+            $('#no-cat').show();
+            message_set = true;
+          }
         }
-
-        if (($selectedCat > 0) && ($isCurrentYr == 0)) {
-          var $cat_name = ''
-          $('#edit-field-book-type-tid option:selected').each(function(i) {
-
-            if (i < ($selectedCat - 1)) {
-              $cat_name += $(this).filter(':selected').text() + ', ';
-            }
-            else {
-              $cat_name += $(this).filter(':selected').text();
-            }
-          });
-          $('.view-empty span:first-child').html(' ' + $cat_name + ' ');
-          $('#no-cat').show();
-          message_set = true;
-        }
-
         if (!message_set) {
           $('#no-res').show();
         }
+
       }
     }
   };
