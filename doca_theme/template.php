@@ -561,13 +561,21 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     _consultation_vars($variables, $variables['node']);
     $funding = $variables['consultation'];
 
-    if ($funding['date_status'] === 'upcoming' || $wrapper->field_hide_progress_bar->value()) {
+    $hide_progress = $wrapper->field_hide_progress_bar->value();
+    $hide_cta = $wrapper->field_hide_cta->value();
+    if ($funding['date_status'] === 'upcoming' || ($hide_progress && $hide_cta)) {
       field_group_hide_field_groups($variables['elements'], array('group_formal_submissions'));
-      hide($variables['content']['hys_progress_bar']);
       hide($variables['content']['formal_submission_webform']);
       hide($variables['content']['field_formal_submission_cta_1']);
       hide($variables['content']['field_formal_submission_cta_2']);
       hide($variables['content']['field_other_embedded_webform']);
+    }
+    if ($hide_progress) {
+      hide($variables['content']['hys_progress_bar']);
+    }
+    if ($hide_cta) {
+      hide($variables['content']['field_formal_submission_cta_1']);
+      hide($variables['content']['field_formal_submission_cta_2']);
     }
 
     // Set default values.
