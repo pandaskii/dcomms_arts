@@ -15,11 +15,24 @@
     <div class="layout-one-two-thirds__main">
       <form method="post" class="spacer--horizontal--medium alert-signup alert-signup__form">
         <?php if ($content['field_hide_name_field']['#items'][0]['value'] === '0'): ?>
-          <div class="form__item">
-            <label class="form__label" for="cu_FULL_NAME"><?php print t('Name'); ?> <span
-                class="form__label__required"><?php print t('(mandatory)'); ?></span></label>
-            <input class="form__input" type="text" id="cu_FULL_NAME" required/>
-          </div>
+            <?php if ($content['field_single_full_name']['#items'][0]['value'] === '0'): ?>
+            <div class="form__item">
+              <label class="form__label" for="st_FIRST_NAME"><?php print t('First Name'); ?> <span
+                  class="form__label__required"><?php print t('(mandatory)'); ?></span></label>
+              <input class="form__input" type="text" id="st_FIRST_NAME" required/>
+            </div>
+            <div class="form__item">
+              <label class="form__label" for="st_LAST_NAME"><?php print t('Last Name'); ?> <span
+                  class="form__label__required"><?php print t('(mandatory)'); ?></span></label>
+              <input class="form__input" type="text" id="st_LAST_NAME" required/>
+            </div>
+            <?php else: ?>
+            <div class="form__item">
+              <label class="form__label" for="cu_FULL_NAME"><?php print t('Name'); ?> <span
+                  class="form__label__required"><?php print t('(mandatory)'); ?></span></label>
+              <input class="form__input" type="text" id="cu_FULL_NAME" required/>
+            </div>
+          <?php endif; ?>
         <?php endif; ?>
         <div class="form__item">
           <label class="form__label" for="st_EMAIL"><?php print t('Email Address'); ?> <span

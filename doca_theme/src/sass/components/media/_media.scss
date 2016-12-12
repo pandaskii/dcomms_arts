@@ -1,0 +1,14 @@
+.media-element-container {
+  &.doca-media-left {
+    float: left;
+    img {
+      float: left;
+    }
+  }
+  &.doca-media-right {
+    float: right;
+    img {
+      float: left;
+    }
+  }
+}

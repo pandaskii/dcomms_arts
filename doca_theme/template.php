@@ -176,12 +176,35 @@ function doca_theme_preprocess_entity(&$variables, $hook) {
       drupal_add_js(array(
         'doca_theme' => array(
           'alertHideName' => $variables['field_hide_name_field'][0]['value'],
+          'alertFullName' => $variables['field_single_full_name'][0]['value'],
           'alertHideNumber' => $variables['field_hide_contact_number_field'][0]['value'],
           'alertMailGroup' => $variables['field_mail_groups'][0]['value'],
           'microSite' => variable_get('doca_theme_micro_site', 'http://ministryofthearts.e-newsletter.com.au'),
           'alertSuccessMessage' => $variables['field_success_message'][0]['value'],
         ),
       ), 'setting');
+    }
+  }
+}
+
+/**
+ * Implements hook_media_wysiwyg_token_to_markup_alter().
+ */
+function doca_theme_media_wysiwyg_token_to_markup_alter(&$element, &$tag_info, $settings) {
+  // Add the relevant styles to the generated media wysiwyg dom elements. This
+  // needs to be done in slightly different ways for certain view modes.
+  if (isset($element['content']['file']['#attributes']['style'])) {
+    $styles = $element['content']['file']['#attributes']['style'];
+    $parts = explode(";", $styles);
+    for ($i = 0; $i < count($parts); $i++) {
+      if (substr(trim($parts[$i]), 0, 5) == 'float') {
+        // Move the float to the parent element.
+        $element['content']['#attributes']['class'][] = 'doca-media-' . trim(explode(':', $parts[$i])[1]);
+        $element['content']['#attributes']['style'] = $parts[$i];
+        unset($parts[$i]);
+        $element['content']['file']['#attributes']['style'] = implode(";", $parts);
+        break;
+      }
     }
   }
 }
@@ -538,19 +561,25 @@ function doca_theme_preprocess_node(&$variables, $hook) {
     _consultation_vars($variables, $variables['node']);
     $funding = $variables['consultation'];
 
-    if ($funding['date_status'] === 'upcoming') {
+    $hide_progress = $wrapper->field_hide_progress_bar->value();
+    $hide_cta = $wrapper->field_hide_cta->value();
+    if ($funding['date_status'] === 'upcoming' || ($hide_progress && $hide_cta)) {
       field_group_hide_field_groups($variables['elements'], array('group_formal_submissions'));
-      hide($variables['content']['hys_progress_bar']);
       hide($variables['content']['formal_submission_webform']);
       hide($variables['content']['field_formal_submission_cta_1']);
       hide($variables['content']['field_formal_submission_cta_2']);
       hide($variables['content']['field_other_embedded_webform']);
     }
+    if ($hide_progress) {
+      hide($variables['content']['hys_progress_bar']);
+    }
+    if ($hide_cta) {
+      hide($variables['content']['field_formal_submission_cta_1']);
+      hide($variables['content']['field_formal_submission_cta_2']);
+    }
 
     // Set default values.
     $short_comments_enabled = $file_uploads_enabled = FALSE;
-    // Create the entity metadata wrapper.
-    $wrapper = entity_metadata_wrapper('node', $node);
 
     // Add the above results to javascript.
     drupal_add_js(array(
