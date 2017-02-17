@@ -3494,12 +3494,20 @@ img.iefix {
 .grid-stream__item--business-area.subsite__sub-theme-1 .grid-stream__icon:focus, .grid-stream__item--business-area.subsite__sub-theme-1 .grid-stream__icon:hover {
   color: #000 !important;
 }
+.grid-stream__item--business-area.subsite__sub-theme-1:after {
+  background-color: #f4e731;
+  z-index: 1;
+}
 
 .grid-stream__item--business-area.subsite__sub-theme-2 .grid-stream__icon {
   color: #12293a !important;
 }
 .grid-stream__item--business-area.subsite__sub-theme-2 .grid-stream__icon:focus, .grid-stream__item--business-area.subsite__sub-theme-2 .grid-stream__icon:hover {
   color: #7b0b0e !important;
+}
+.grid-stream__item--business-area.subsite__sub-theme-2:after {
+  background-color: #7b74e8;
+  z-index: 1;
 }
 
 .grid-stream__item--business-area.subsite__sub-theme-3 .grid-stream__icon {
@@ -3508,12 +3516,20 @@ img.iefix {
 .grid-stream__item--business-area.subsite__sub-theme-3 .grid-stream__icon:focus, .grid-stream__item--business-area.subsite__sub-theme-3 .grid-stream__icon:hover {
   color: #002952 !important;
 }
+.grid-stream__item--business-area.subsite__sub-theme-3:after {
+  background-color: #004385;
+  z-index: 1;
+}
 
 .grid-stream__item--business-area.subsite__sub-theme-4 .grid-stream__icon {
   color: #004385 !important;
 }
 .grid-stream__item--business-area.subsite__sub-theme-4 .grid-stream__icon:focus, .grid-stream__item--business-area.subsite__sub-theme-4 .grid-stream__icon:hover {
   color: #002952 !important;
+}
+.grid-stream__item--business-area.subsite__sub-theme-4:after {
+  background-color: #004385;
+  z-index: 1;
 }
 
 .grid-stream__item--business-area.subsite__communications .grid-stream__icon {
@@ -3522,12 +3538,20 @@ img.iefix {
 .grid-stream__item--business-area.subsite__communications .grid-stream__icon:focus, .grid-stream__item--business-area.subsite__communications .grid-stream__icon:hover {
   color: #21637f !important;
 }
+.grid-stream__item--business-area.subsite__communications:after {
+  background-color: #5abde9;
+  z-index: 1;
+}
 
 .grid-stream__item--business-area.subsite__alert .grid-stream__icon {
   color: #0e669c !important;
 }
 .grid-stream__item--business-area.subsite__alert .grid-stream__icon:focus, .grid-stream__item--business-area.subsite__alert .grid-stream__icon:hover {
   color: #0a476d !important;
+}
+.grid-stream__item--business-area.subsite__alert:after {
+  background-color: #0e669c;
+  z-index: 1;
 }
 
 .grid-stream__item--landscape-small__right {

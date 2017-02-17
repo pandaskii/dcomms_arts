@@ -43,5 +43,9 @@
     .grid-stream__icon {
       @include subsite-link-color($subsite);
     }
+    &:after {
+      background-color: palette($subsite-palette, $subsite border);
+      z-index: 1;
+    }
   }
 }
