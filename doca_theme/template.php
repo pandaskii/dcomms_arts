@@ -180,6 +180,7 @@ function doca_theme_preprocess_entity(&$variables, $hook) {
           'alertHideNumber' => $variables['field_hide_contact_number_field'][0]['value'],
           'alertMailGroup' => $variables['field_mail_groups'][0]['value'],
           'microSite' => variable_get('doca_theme_micro_site', 'http://ministryofthearts.e-newsletter.com.au'),
+          'apicall' => variable_get('doca_theme_api_call', 'updateall'),
           'alertSuccessMessage' => $variables['field_success_message'][0]['value'],
         ),
       ), 'setting');
