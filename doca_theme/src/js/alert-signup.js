@@ -31,12 +31,13 @@
 
         var mailGroups = Drupal.settings.doca_theme.alertMailGroup.split(',');
         var microSite = Drupal.settings.doca_theme.microSite;
+        var apicall = Drupal.settings.doca_theme.apicall;
 
         $.getJSON(microSite + "/scripts/subscribe/subscribe.php?callback=?", {
           st: standardFields,
           cu: customFields,
           gr: mailGroups,
-          method: 'updategroups',
+          method: apicall,
           format: "json"
         }, function(response) {
           $(alertForm).hide();
