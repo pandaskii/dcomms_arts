@@ -32,6 +32,7 @@
         var mailGroups = Drupal.settings.doca_theme.alertMailGroup.split(',');
         var microSite = Drupal.settings.doca_theme.microSite;
         var apicall = Drupal.settings.doca_theme.apicall;
+        var errorMessage = Drupal.settings.doca_theme.errorMessage;
 
         $.getJSON(microSite + "/scripts/subscribe/subscribe.php?callback=?", {
           st: standardFields,
@@ -51,11 +52,11 @@
             case '101':
             case '102':
             case '103':
-              $(messageArea).addClass('messages--error').html(response.message);
+              $(messageArea).addClass('messages--error').html(errorMessage + '<br/><strong>Error:</strong> ' + response.message);
               break;
 
             default:
-              $(messageArea).addClass('messages--error').html("Sorry it looks like that didn't work. Please try refreshing the page and subscribing again.");
+              $(messageArea).addClass('messages--error').html(errorMessage);
           }
         });
       }

@@ -44,6 +44,12 @@
   }
   background-color: $background;
   color: $foreground;
+  .messages--error a {
+    color: color('doca-blue');
+    &:hover {
+      color: inherit;
+    }
+  }
   a {
     color: $foreground;
     &:focus, &:hover {

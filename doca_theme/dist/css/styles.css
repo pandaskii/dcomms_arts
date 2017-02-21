@@ -984,6 +984,12 @@ a:hover, a:active {
   background-color: #e4e4e4;
   color: #000;
 }
+.palette__light-grey .messages--error a, .channel-list__palette .messages--error a, .promotional-feature .messages--error a {
+  color: #5265ff;
+}
+.palette__light-grey .messages--error a:hover, .channel-list__palette .messages--error a:hover, .promotional-feature .messages--error a:hover {
+  color: inherit;
+}
 .palette__light-grey a, .channel-list__palette a, .promotional-feature a {
   color: #000;
 }
@@ -994,6 +1000,12 @@ a:hover, a:active {
 .palette__dark-grey {
   background-color: #a5a5a5;
   color: #000;
+}
+.palette__dark-grey .messages--error a {
+  color: #5265ff;
+}
+.palette__dark-grey .messages--error a:hover {
+  color: inherit;
 }
 .palette__dark-grey a {
   color: #000;
@@ -1006,6 +1018,12 @@ a:hover, a:active {
   background-color: #cd4d02;
   color: #fff;
 }
+.palette__red .messages--error a {
+  color: #5265ff;
+}
+.palette__red .messages--error a:hover {
+  color: inherit;
+}
 .palette__red a {
   color: #fff;
 }
@@ -1016,6 +1034,12 @@ a:hover, a:active {
 .palette__grey-on-grey {
   background-color: #e4e4e4;
   color: #616161;
+}
+.palette__grey-on-grey .messages--error a {
+  color: #5265ff;
+}
+.palette__grey-on-grey .messages--error a:hover {
+  color: inherit;
 }
 .palette__grey-on-grey a {
   color: #616161;
@@ -1028,6 +1052,12 @@ a:hover, a:active {
   background-color: #e4e4e4;
   color: #cd4d02;
 }
+.palette__red-on-grey .messages--error a {
+  color: #5265ff;
+}
+.palette__red-on-grey .messages--error a:hover {
+  color: inherit;
+}
 .palette__red-on-grey a {
   color: #cd4d02;
 }
@@ -1038,6 +1068,12 @@ a:hover, a:active {
 .palette__blue-on-grey {
   background-color: #e4e4e4;
   color: #5265ff;
+}
+.palette__blue-on-grey .messages--error a {
+  color: #5265ff;
+}
+.palette__blue-on-grey .messages--error a:hover {
+  color: inherit;
 }
 .palette__blue-on-grey a {
   color: #5265ff;
@@ -1050,6 +1086,12 @@ a:hover, a:active {
   background-color: #0f405e;
   color: #fff;
 }
+.palette__white-on-dark .messages--error a, .promotional-feature--dark .messages--error a {
+  color: #5265ff;
+}
+.palette__white-on-dark .messages--error a:hover, .promotional-feature--dark .messages--error a:hover {
+  color: inherit;
+}
 .palette__white-on-dark a, .promotional-feature--dark a {
   color: #fff;
 }
@@ -1061,6 +1103,12 @@ a:hover, a:active {
   background-color: #616161;
   color: #fff;
 }
+.palette__white-on-grey .messages--error a, .update--extra__wrapper .messages--error a {
+  color: #5265ff;
+}
+.palette__white-on-grey .messages--error a:hover, .update--extra__wrapper .messages--error a:hover {
+  color: inherit;
+}
 .palette__white-on-grey a, .update--extra__wrapper a {
   color: #fff;
 }
@@ -1071,6 +1119,12 @@ a:hover, a:active {
 .palette__white-on-black {
   background-color: #000;
   color: #fff;
+}
+.palette__white-on-black .messages--error a {
+  color: #5265ff;
+}
+.palette__white-on-black .messages--error a:hover {
+  color: inherit;
 }
 .palette__white-on-black a {
   color: #fff;
@@ -1087,6 +1141,12 @@ a:hover, a:active {
   background-color: #f4f4f4;
   color: #000;
 }
+.palette__pale-grey .messages--error a {
+  color: #5265ff;
+}
+.palette__pale-grey .messages--error a:hover {
+  color: inherit;
+}
 .palette__pale-grey a {
   color: #000;
 }
@@ -1098,6 +1158,12 @@ a:hover, a:active {
   background-color: #48fbf0;
   color: #000;
 }
+.palette__pale-blue .messages--error a {
+  color: #5265ff;
+}
+.palette__pale-blue .messages--error a:hover {
+  color: inherit;
+}
 .palette__pale-blue a {
   color: #000;
 }
@@ -1108,6 +1174,12 @@ a:hover, a:active {
 .palette__white {
   background-color: #fff;
   color: #000;
+}
+.palette__white .messages--error a {
+  color: #5265ff;
+}
+.palette__white .messages--error a:hover {
+  color: inherit;
 }
 .palette__white a {
   color: #000;
@@ -3732,6 +3804,12 @@ img.iefix {
 .palette__dark-grey--group .ds-groups-wrapper {
   background-color: #a5a5a5;
   color: #000;
+}
+.palette__dark-grey--group .ds-groups-wrapper .messages--error a {
+  color: #5265ff;
+}
+.palette__dark-grey--group .ds-groups-wrapper .messages--error a:hover {
+  color: inherit;
 }
 .palette__dark-grey--group .ds-groups-wrapper a {
   color: #000;
