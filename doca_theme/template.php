@@ -181,7 +181,7 @@ function doca_theme_preprocess_entity(&$variables, $hook) {
           'alertMailGroup' => $variables['field_mail_groups'][0]['value'],
           'microSite' => variable_get('doca_theme_micro_site', 'http://ministryofthearts.e-newsletter.com.au'),
           'apicall' => variable_get('doca_theme_api_call', 'updateall'),
-          'errorMessage' => variable_get('doca_theme_error_message', t('Please check your email address and try again, if you are still having issues please <a href="mailto:media@communications.gov.au?Subject=\'Arts website newsletter subscriber\'">email us</a> your details.')),
+          'errorMessage' => variable_get('doca_theme_error_message', t('Please check your email address and try again, if you are still having issues please <a href="mailto:media@communications.gov.au?Subject=Arts website newsletter subscriber">email us</a> your details.')),
           'alertSuccessMessage' => $variables['field_success_message'][0]['value'],
         ),
       ), 'setting');
